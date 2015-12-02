@@ -8,6 +8,11 @@ public class Data : MonoBehaviour
     const string PREFAB_PATH = "Data";
     static Data mInstance = null;
 
+    [HideInInspector] public IslandsManager islandsManager;
+    [HideInInspector] public Inventary inventary;
+    [HideInInspector] public GameManager gameManager;
+    [HideInInspector] public MainMenu mainMenu;
+
     public static Data Instance
     {
         get
@@ -41,5 +46,11 @@ public class Data : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
+
+        islandsManager = GetComponent<IslandsManager>();
+        inventary = GetComponent<Inventary>();       
+        mainMenu = GetComponent<MainMenu>();
+        gameManager = GetComponent<GameManager>();
+
     }
 }
