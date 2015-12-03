@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
 public class IslandsManager : MonoBehaviour {
 
     public DataIsland activeIsland;
     public DataIsland gotoIsland;
+    public List<DataIsland> islands;
 
     [Serializable]
     public class DataIsland
@@ -19,15 +21,22 @@ public class IslandsManager : MonoBehaviour {
         public bool arena;
         public bool piedras;
     }
-
-    public DataIsland island1;
-    public DataIsland island2;
-    public DataIsland island3;
-    public DataIsland island4;
-
 	void Start () {
-        activeIsland = island1;
+        activeIsland = islands[0];
+        SetNewMission(0);
 	}
+    void SetNewMission(int missionID)
+    {
+        Mission mission = Data.Instance.missionsManager.missions[missionID];
+        GetIslandById(mission.islandId).mission = mission;
+    }
+    public DataIsland GetIslandWithMission()
+    {
+        foreach (DataIsland di in islands)
+            if (di.mission != null)
+                return di;
+        return null;
+    }
     public void Clicked(int id)
     {
         DataIsland clickedIsland = GetIslandById(id);
@@ -40,18 +49,15 @@ public class IslandsManager : MonoBehaviour {
         else
         {
             gotoIsland = new DataIsland();
-            Data.Instance.mainMenu.Isla();
+            Game.Instance.mainMenu.Isla();
         }
     }
     public DataIsland GetIslandById(int id)
     {
-        switch(id)
-        {
-            case 1: return island1;
-            case 2: return island2;
-            case 3: return island3;
-            default: return island4;
-        }
+        foreach (DataIsland di in islands)
+            if(di.id == id)
+                return di;
+        return null;
     }
     public void SetActive(DataIsland _activeIsland)
     {
@@ -60,5 +66,9 @@ public class IslandsManager : MonoBehaviour {
     public void SetGotoIsland(DataIsland _gotoIsland)
     {
         this.gotoIsland = _gotoIsland;
+    }
+    public void SetMissionToIsland(Mission mission, int islandId)
+    {
+        GetIslandById(islandId).mission = mission;
     }
 }

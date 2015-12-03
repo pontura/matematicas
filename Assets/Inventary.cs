@@ -42,4 +42,15 @@ public class Inventary : MonoBehaviour
         if (GetTotal() >= MAX_ITEMS) return true;
         return false;
     }
+    public void ConsumeElement(string element, int qty)
+    {
+        switch (element)
+        {
+            case "nafta": nafta = qty; break;
+            case "comida": comida = qty; break;
+            case "madera": madera = qty; break;
+            case "arena": arena = qty; break;
+            case "piedras": piedras = qty; break;
+        }
+    }
 }

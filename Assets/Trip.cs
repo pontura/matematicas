@@ -8,12 +8,13 @@ public class Trip : Screen {
     public Text inventaryField;
 
 	void OnEnable () {
-        titleField.text = "Rumbo a " + Data.Instance.islandsManager.activeIsland.name;
+        Events.OnTripStarted();
+        titleField.text = "Rumbo a " + Game.Instance.islandsManager.activeIsland.name;
         Invoke("Arrive", 2);
 	}
     void Arrive()
     {
-        Data.Instance.gameManager.Arrived();
-        Data.Instance.mainMenu.Mapa();
+        Game.Instance.gameManager.Arrived();
+        Game.Instance.mainMenu.Isla();
     }
 }

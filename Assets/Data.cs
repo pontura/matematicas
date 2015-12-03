@@ -5,13 +5,12 @@ using System.Collections.Generic;
 
 public class Data : MonoBehaviour
 {
-    const string PREFAB_PATH = "Data";
+   // const string PREFAB_PATH = "Data";
     static Data mInstance = null;
 
-    [HideInInspector] public IslandsManager islandsManager;
-    [HideInInspector] public Inventary inventary;
-    [HideInInspector] public GameManager gameManager;
-    [HideInInspector] public MainMenu mainMenu;
+    [HideInInspector]
+    public MissionsManager missionsManager;
+    public Texts texts;
 
     public static Data Instance
     {
@@ -21,12 +20,12 @@ public class Data : MonoBehaviour
             {
                 mInstance = FindObjectOfType<Data>();
 
-                if (mInstance == null)
-                {
-                    GameObject go = Instantiate(Resources.Load<GameObject>(PREFAB_PATH)) as GameObject;
-                    mInstance = go.GetComponent<Data>();
-                    go.transform.localPosition = new Vector3(0, 0, 0);
-                }
+                //if (mInstance == null)
+                //{
+                //    GameObject go = Instantiate(Resources.Load<GameObject>(PREFAB_PATH)) as GameObject;
+                //    mInstance = go.GetComponent<Data>();
+                //    go.transform.localPosition = new Vector3(0, 0, 0);
+                //}
             }
             return mInstance;
         }
@@ -46,11 +45,10 @@ public class Data : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-
-        islandsManager = GetComponent<IslandsManager>();
-        inventary = GetComponent<Inventary>();       
-        mainMenu = GetComponent<MainMenu>();
-        gameManager = GetComponent<GameManager>();
-
+    }
+    void Start()
+    {
+        missionsManager = GetComponent<MissionsManager>();
+        texts = GetComponent<Texts>();
     }
 }

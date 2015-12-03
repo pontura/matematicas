@@ -15,10 +15,10 @@ public class InventoryButton : MonoBehaviour {
     void OnEnable()
     {
         SetStatus(true);
-        inventary = Data.Instance.inventary;
+        inventary = Game.Instance.inventary;
         qty = inventary.GetQty(id);
 
-        IslandsManager.DataIsland dataIsland = Data.Instance.islandsManager.activeIsland;
+        IslandsManager.DataIsland dataIsland = Game.Instance.islandsManager.activeIsland;
         if (id == 3) {
             if (!dataIsland.madera) 
                 SetStatus(false); 

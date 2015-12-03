@@ -7,20 +7,25 @@ public class IslandDetail : Screen {
     public Text titleField;
     public Text detailsField;
     public Text inventaryField;
+    public Text missionField;
 
     public GameObject conCarga;
     public GameObject sinCarga;
 
 	void OnEnable () {
-
-        titleField.text = "Viajando a " +  Data.Instance.islandsManager.gotoIsland.name;
-        string details = "Distancia: " + Data.Instance.islandsManager.gotoIsland.distance + "\n";
+        IslandsManager.DataIsland dataIsland = Game.Instance.islandsManager.gotoIsland;
+        titleField.text = "Viajando a " + dataIsland.name;
+        string details = "Distancia: " + dataIsland.distance + "\n";
         details += "Velocidad: 10km/h \n";
         details += "Tripulación: 2 pasajeros";
 
+        missionField.text = "";
+        if (dataIsland.mission != null)
+            missionField.text += dataIsland.mission.description;
+
         detailsField.text = details;
 
-        Inventary inventary = Data.Instance.inventary;
+        Inventary inventary = Game.Instance.inventary;
         string inventaryText = "";
 
         if (inventary.nafta > 0) inventaryText +=   inventary.nafta +   " caja/s de nafta\n";

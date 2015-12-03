@@ -1,0 +1,63 @@
+﻿using UnityEngine;
+using System.IO;
+using System.Collections;
+using System.Collections.Generic;
+
+public class Game : MonoBehaviour
+{
+    const string PREFAB_PATH = "Game";
+    static Game mInstance = null;
+
+    [HideInInspector]
+    public IslandsManager islandsManager;
+    [HideInInspector]
+    public Inventary inventary;
+    [HideInInspector]
+    public GameManager gameManager;
+    [HideInInspector]
+    public MainMenu mainMenu;
+    [HideInInspector]
+    public MinigamesManager minigamesManager;
+
+    public static Game Instance
+    {
+        get
+        {
+            if (mInstance == null)
+            {
+                mInstance = FindObjectOfType<Game>();
+
+                if (mInstance == null)
+                {
+                    GameObject go = Instantiate(Resources.Load<GameObject>(PREFAB_PATH)) as GameObject;
+                    mInstance = go.GetComponent<Game>();
+                    go.transform.localPosition = new Vector3(0, 0, 0);
+                }
+            }
+            return mInstance;
+        }
+    }
+    public void LoadLevel(string aLevelName)
+    {
+        Application.LoadLevel(aLevelName);
+    }
+    void Awake()
+    {
+
+        if (!mInstance)
+            mInstance = this;
+        //otherwise, if we do, kill this thing
+        else
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        islandsManager = GetComponent<IslandsManager>();
+        inventary = Data.Instance.GetComponent<Inventary>();
+        mainMenu = GetComponent<MainMenu>();
+        gameManager = GetComponent<GameManager>();
+        minigamesManager = GetComponent<MinigamesManager>();
+
+    }
+}

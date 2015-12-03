@@ -24,6 +24,9 @@ public class IslandSignal : MonoBehaviour {
         panel.transform.localPosition = data.island.transform.localPosition / 4;
         title.text = data.name;
         desc.text = " Distance: " + data.distance + " Km.";
+
+        if (data.mission != null)
+            desc.text += "\n" + data.mission.description;
     }
     public void Close()
     {
@@ -31,8 +34,8 @@ public class IslandSignal : MonoBehaviour {
     }
     public void Go()
     {
-        Data.Instance.islandsManager.SetGotoIsland(islandData);
-        Data.Instance.mainMenu.Isla();
+        Game.Instance.islandsManager.SetGotoIsland(islandData);
+        Game.Instance.mainMenu.Isla();
         Close();
     }
 }

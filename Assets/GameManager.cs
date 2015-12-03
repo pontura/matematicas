@@ -42,13 +42,13 @@ public class GameManager : MonoBehaviour {
     public void OpenTrip()
     {
         IslandDetail.Activate(false);
-        Data.Instance.mainMenu.DeselectButtons();
+        Game.Instance.mainMenu.DeselectButtons();
         Trip.Activate(true);
     }
     public void Arrived()
     {
-        Data.Instance.islandsManager.SetActive (Data.Instance.islandsManager.gotoIsland);
-        Data.Instance.islandsManager.SetGotoIsland(new IslandsManager.DataIsland());
-        Data.Instance.mainMenu.Isla();
+        Game.Instance.islandsManager.SetActive (Game.Instance.islandsManager.gotoIsland);
+        Game.Instance.islandsManager.SetGotoIsland(new IslandsManager.DataIsland());
+        Game.Instance.mainMenu.Isla();
     }
 }
