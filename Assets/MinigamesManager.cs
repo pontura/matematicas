@@ -12,7 +12,7 @@ public class MinigamesManager : MonoBehaviour {
     void OnDestroy()
     {
         Events.OnMinigameReady -= OnMinigameReady;
-        Events.OnTripStarted += OnTripStarted;
+        Events.OnTripStarted -= OnTripStarted;
     }
 
     void OnMinigameReady()

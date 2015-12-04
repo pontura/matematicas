@@ -19,6 +19,14 @@ public class Game : MonoBehaviour
     [HideInInspector]
     public MinigamesManager minigamesManager;
 
+    public states state;
+    public enum states
+    {
+        ARRIVED,
+        TRAVELLING,
+        MINIGAME_READY,
+    }
+
     public static Game Instance
     {
         get
@@ -59,5 +67,29 @@ public class Game : MonoBehaviour
         gameManager = GetComponent<GameManager>();
         minigamesManager = GetComponent<MinigamesManager>();
 
+    }
+    void Start()
+    {
+        Events.OnTripStarted += OnTripStarted;
+        Events.OnShipArrived += OnShipArrived;
+        Events.OnMinigameReady += OnMinigameReady;
+    }
+    void OnDestroy()
+    {
+        Events.OnTripStarted -= OnTripStarted;
+        Events.OnShipArrived -= OnShipArrived;
+        Events.OnMinigameReady -= OnMinigameReady;
+    }
+    void OnTripStarted()
+    {
+        state = states.TRAVELLING;
+    }
+    void OnShipArrived()
+    {
+        state = states.ARRIVED;
+    }
+    void OnMinigameReady()
+    {
+        state = states.MINIGAME_READY;
     }
 }

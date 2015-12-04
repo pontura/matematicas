@@ -27,7 +27,7 @@ public class Isla : Screen {
     }
     void OnDestroy()
     {
-        Events.OnMinigameReady += OnMinigameReady;
+        Events.OnMinigameReady -= OnMinigameReady;
     }
 	void OnEnable () {
         state = states.NADA;

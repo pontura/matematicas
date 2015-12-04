@@ -8,6 +8,7 @@ public class IslandDetail : Screen {
     public Text detailsField;
     public Text inventaryField;
     public Text missionField;
+    public Text notesField;
 
     public GameObject conCarga;
     public GameObject sinCarga;
@@ -34,7 +35,7 @@ public class IslandDetail : Screen {
         if (inventary.piedras > 0) inventaryText += inventary.piedras + " caja/s de piedras\n";
         if (inventary.arena > 0) inventaryText +=   inventary.arena +   " caja/s de arena\n";
 
-        if (inventaryText == "")
+        if (inventaryText == "" && Game.Instance.state == Game.states.MINIGAME_READY)
         {
             conCarga.SetActive(false);
             sinCarga.SetActive(true);
@@ -46,6 +47,8 @@ public class IslandDetail : Screen {
         }
 
         inventaryField.text = inventaryText;
+
+        notesField.text = Data.Instance.settings.GetNotes();
         
 	}
 }

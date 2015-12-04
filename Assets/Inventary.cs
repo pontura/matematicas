@@ -46,11 +46,19 @@ public class Inventary : MonoBehaviour
     {
         switch (element)
         {
-            case "nafta": nafta = qty; break;
-            case "comida": comida = qty; break;
-            case "madera": madera = qty; break;
-            case "arena": arena = qty; break;
-            case "piedras": piedras = qty; break;
+            case "nafta":       if (nafta > 0) nafta -= qty;        break;
+            case "comida":      if (comida > 0) comida -= qty;      break;
+            case "madera":      if (madera > 0) madera -= qty;      break;
+            case "arena":       if (arena > 0) arena -= qty;        break;
+            case "piedras":     if (piedras > 0) piedras -= qty;    break;
         }
+    }
+    public int GetPesoTotalEnElBarco()
+    {
+        int peso = 0;
+        peso += Data.Instance.settings.pesoArena * Game.Instance.inventary.arena;
+        peso += Data.Instance.settings.pesoMadera * Game.Instance.inventary.madera;
+        peso += Data.Instance.settings.pesoPiedras * Game.Instance.inventary.piedras;
+        return peso;
     }
 }

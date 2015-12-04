@@ -10,6 +10,9 @@ public class Data : MonoBehaviour
 
     [HideInInspector]
     public MissionsManager missionsManager;
+    [HideInInspector]
+    public Settings settings;
+
     public Texts texts;
 
     public static Data Instance
@@ -48,7 +51,9 @@ public class Data : MonoBehaviour
     }
     void Start()
     {
+        DontDestroyOnLoad(this);
         missionsManager = GetComponent<MissionsManager>();
         texts = GetComponent<Texts>();
+        settings = GetComponent<Settings>();
     }
 }

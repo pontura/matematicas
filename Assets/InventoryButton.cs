@@ -27,6 +27,7 @@ public class InventoryButton : MonoBehaviour {
         }
         if (id == 4) { if (!dataIsland.arena) SetStatus(false); else SetStatus(true); }
         if (id == 5) { if (!dataIsland.piedras) SetStatus(false); else SetStatus(true); }
+        SetQty();
     }
     void SetStatus(bool on)
     {

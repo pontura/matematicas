@@ -6,11 +6,28 @@ public class MainMenu : MonoBehaviour {
 
     public Button[] buttons;
     private GameManager gameManager;
+    public GameObject masker;
 
 	void Start () {
+        masker.SetActive(false);
         gameManager = GetComponent<GameManager>();
-        Invoke("Mapa", 0.5f);       
-	}
+        Invoke("Mapa", 0.5f); 
+        Events.OnTripStarted += OnTripStarted;
+        Events.OnShipArrived += OnShipArrived;
+    }
+    void OnDestroy()
+    {
+        Events.OnTripStarted -= OnTripStarted;
+        Events.OnShipArrived -= OnShipArrived;
+    }
+    void OnTripStarted()
+    {
+        masker.SetActive(true);
+    }
+    void OnShipArrived()
+    {
+        masker.SetActive(false);
+    }
     void SetActive(int id)
     {
         DeselectButtons();
@@ -34,6 +51,11 @@ public class MainMenu : MonoBehaviour {
         else
             gameManager.Open("Isla");
     }
+    public void IslaActiva()
+    {
+        SetActive(2);
+        gameManager.Open("Isla");
+    }
     public void Barco()
     {
         SetActive(3);
@@ -41,7 +63,8 @@ public class MainMenu : MonoBehaviour {
     }
     public void Block()
     {
-        SetActive(4);
+        //SetActive(4);
+        gameManager.OpenBlock();
     }
     public void Logros()
     {
