@@ -18,7 +18,7 @@ public class Barco : Screen
 	}
     public void Ready()
     {
-        if (Game.Instance.state == Game.states.MINIGAME_READY && Game.Instance.islandsManager.gotoIsland == null)
+        if (Game.Instance.state == Game.states.MINIGAME_READY && Game.Instance.islandsManager.gotoIsland.distance <1)
             Game.Instance.mainMenu.Mapa();
         else
             Game.Instance.mainMenu.Isla();

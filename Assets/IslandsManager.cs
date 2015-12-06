@@ -22,7 +22,7 @@ public class IslandsManager : MonoBehaviour {
         public bool piedras;
     }
 	void Start () {
-        activeIsland = islands[0];
+        activeIsland = GetIslandById( Data.Instance.userData.islandActive );
         SetNewMission(0);
 	}
     void SetNewMission(int missionID)

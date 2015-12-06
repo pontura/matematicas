@@ -19,8 +19,10 @@ public class MinigamePesos : Minigame {
 
         foreach (int prom in minigame.promedios)
         {
-            total += prom;
-            insertfield += "\n" + prom.ToString() + "k";
+            int num = GetPromNumber();
+            total += num;
+            print("total" + total + "    " + num);
+            insertfield += "\n" + num.ToString() + "k";
         }
         average = total/minigame.promedios.Length;
 
@@ -29,6 +31,10 @@ public class MinigamePesos : Minigame {
         buttons[0].Init(this, minigame.peso1);
         buttons[1].Init(this, minigame.peso2);
         buttons[2].Init(this, minigame.peso3);
+    }
+    private int GetPromNumber()
+    {
+        return ((Random.Range(0, 40) * 2)*10)+1000;
     }
     public void Add(int _peso)
     {

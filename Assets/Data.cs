@@ -14,6 +14,7 @@ public class Data : MonoBehaviour
     public Settings settings;
 
     public Texts texts;
+    public UserData userData;
 
     public static Data Instance
     {
@@ -55,5 +56,6 @@ public class Data : MonoBehaviour
         missionsManager = GetComponent<MissionsManager>();
         texts = GetComponent<Texts>();
         settings = GetComponent<Settings>();
+        userData = GetComponent<UserData>();
     }
 }
