@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+    public GameObject tvImage;
     public Screen Mapa;
     public Screen Isla;
     public Screen Barco;
@@ -28,11 +29,11 @@ public class GameManager : MonoBehaviour {
 
         switch (name)
         {
-            case "Mapa": Mapa.Activate(true); break;
-            case "Isla": Isla.Activate(true); break;
-            case "Barco": Barco.Activate(true); break;
-            case "Trip": Block.Activate(true); break;
-            case "IslandDetail": IslandDetail.Activate(true); break;
+            case "Mapa": Mapa.Activate(true);                   tvImage.SetActive(true);  break;
+            case "Isla": Isla.Activate(true);                   tvImage.SetActive(false); break;
+            case "Barco": Barco.Activate(true);                 tvImage.SetActive(true); break;
+            case "Trip": Block.Activate(true);                  tvImage.SetActive(false); break;
+            case "IslandDetail": IslandDetail.Activate(true);   tvImage.SetActive(false); break;
         }
 	}
     public void OpenBlock()
