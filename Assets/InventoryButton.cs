@@ -19,8 +19,12 @@ public class InventoryButton : MonoBehaviour {
         qty = inventary.GetQty(id);
 
         IslandsManager.DataIsland dataIsland = Game.Instance.islandsManager.activeIsland;
-
-        if (id == 3) { if (!dataIsland.madera) SetStatus(false); else SetStatus(true);  }
+        if (id == 3) {
+            if (!dataIsland.madera) 
+                SetStatus(false); 
+            else 
+                SetStatus(true);
+        }
         if (id == 4) { if (!dataIsland.arena) SetStatus(false); else SetStatus(true); }
         if (id == 5) { if (!dataIsland.piedras) SetStatus(false); else SetStatus(true); }
         SetQty();
@@ -28,10 +32,8 @@ public class InventoryButton : MonoBehaviour {
     void SetStatus(bool on)
     {
         isOn = on;
-        if(!isOn)
-            foreach (Button button in GetComponentsInChildren<Button>()) button.interactable = false;
-        else
-            foreach (Button button in GetComponentsInChildren<Button>()) button.interactable = true;
+        if(masker != null)
+        masker.SetActive(!on);
     }
     void SetQty()
     {
