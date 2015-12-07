@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class InventoryButton : MonoBehaviour {
+public class InventoryButton : MonoBehaviour
+{
 
     public int qty;
     public int id;
@@ -10,7 +11,6 @@ public class InventoryButton : MonoBehaviour {
     public Text qtyField;
     private Inventary inventary;
     public bool isOn;
-    public GameObject masker;
 
     void OnEnable()
     {
@@ -19,12 +19,8 @@ public class InventoryButton : MonoBehaviour {
         qty = inventary.GetQty(id);
 
         IslandsManager.DataIsland dataIsland = Game.Instance.islandsManager.activeIsland;
-        if (id == 3) {
-            if (!dataIsland.madera) 
-                SetStatus(false); 
-            else 
-                SetStatus(true);
-        }
+
+        if (id == 3) { if (!dataIsland.madera) SetStatus(false); else SetStatus(true); }
         if (id == 4) { if (!dataIsland.arena) SetStatus(false); else SetStatus(true); }
         if (id == 5) { if (!dataIsland.piedras) SetStatus(false); else SetStatus(true); }
         SetQty();
@@ -32,20 +28,23 @@ public class InventoryButton : MonoBehaviour {
     void SetStatus(bool on)
     {
         isOn = on;
-        if(masker != null)
-        masker.SetActive(!on);
+        if (!isOn)
+            foreach (Button button in GetComponentsInChildren<Button>()) button.interactable = false;
+        else
+            foreach (Button button in GetComponentsInChildren<Button>()) button.interactable = true;
     }
     void SetQty()
     {
         qtyField.text = "x" + qty;
         inventary.SetQty(id, qty);
     }
-	public void Add () {
+    public void Add()
+    {
         if (!isOn) return;
         if (inventary.IsFull()) return;
         qty++;
         SetQty();
-	}
+    }
     public void Remove()
     {
         if (!isOn) return;

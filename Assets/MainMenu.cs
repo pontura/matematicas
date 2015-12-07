@@ -46,7 +46,7 @@ public class MainMenu : MonoBehaviour {
     public void Isla()
     {
         SetActive(2);
-        if (Game.Instance.islandsManager.gotoIsland.distance > 1)
+        if (Game.Instance.islandsManager.gotoIsland != null && Game.Instance.islandsManager.gotoIsland.distance > 1)
             gameManager.Open("IslandDetail");
         else
             gameManager.Open("Isla");
