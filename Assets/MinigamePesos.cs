@@ -19,6 +19,7 @@ public class MinigamePesos : Minigame {
 
     void OnEnable()
     {
+        peso = 0;
         Reset();
         Texts.Minigame_Peso minigame = Data.Instance.texts.GetMinigame();
         string textFinal = minigame.title;
@@ -111,6 +112,7 @@ public class MinigamePesos : Minigame {
     }
     public void CheckResult()
     {
+        print("check result: average:: " + average + "     peso:  " + peso);
         if (average == peso)
             Events.OnMinigameReady();
     }

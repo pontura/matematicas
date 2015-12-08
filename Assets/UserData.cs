@@ -19,6 +19,7 @@ public class UserData : MonoBehaviour {
         inventary.piedras = PlayerPrefs.GetInt("piedras", 0);
 
         Events.OnShipArrived += OnShipArrived;
+        Events.OnSaveInventary += OnSaveInventary;
 
     }
     void OnShipArrived()
@@ -29,7 +30,10 @@ public class UserData : MonoBehaviour {
     {
         if (Game.Instance)
              PlayerPrefs.SetInt("islandActive", Game.Instance.islandsManager.activeIsland.id);
-
+        OnSaveInventary();        
+    }
+    void OnSaveInventary()
+    {
         PlayerPrefs.SetInt("nafta", inventary.nafta);
         PlayerPrefs.SetInt("comida", inventary.comida);
         PlayerPrefs.SetInt("madera", inventary.madera);

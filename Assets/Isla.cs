@@ -45,12 +45,18 @@ public class Isla : Screen {
 
         if (Game.Instance.minigamesManager.ready)
         {
-            OnMinigameReady();
+            dialogue.SetActive(true);
+            minigame.gameObject.SetActive(false);
+            SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
+            state = states.MINIGAME_READY;
         } else
         if (dataIsland.mission != null)
         {
             state = states.MISSION_PRESENTA;
-            SetText(dataIsland.mission.description);
+
+            string texto = dataIsland.mission.description;
+            texto = SetTextQty(texto, dataIsland.mission.qty);
+            SetText(texto);
         }
         else
         {
@@ -101,14 +107,25 @@ public class Isla : Screen {
 
         if (totalInInventory >= dataIsland.mission.qty)
         {
-            SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MisionCompleta));
-            inventary.ConsumeElement(element, dataIsland.mission.qty);
+            string texto = Data.Instance.texts.GetRandomText(Data.Instance.texts.MisionTienesTodoLoQueFalta);
+            texto = SetTextQty(texto, dataIsland.mission.qty);
+            SetText(texto);
             state = states.MISSION_EXITOSA;
+            inventary.ConsumeElement(element, dataIsland.mission.qty);
+            dataIsland.mission.qty = 0;
         }
         else if (totalInInventory > 0)
         {
-            SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MisionTienesAlgo));
-            inventary.ConsumeElement(element, Game.Instance.inventary.arena);
+            string texto = Data.Instance.texts.GetRandomText(Data.Instance.texts.MisionTienesAlgo);
+            switch (dataIsland.mission.element)
+            {
+                case Mission.elements.ARENA: texto = SetTextQty(texto, Game.Instance.inventary.arena); break;
+                case Mission.elements.MADERA: texto = SetTextQty(texto, Game.Instance.inventary.madera); break;
+                case Mission.elements.PIEDRAS: texto = SetTextQty(texto, Game.Instance.inventary.piedras); break;
+            }
+            SetText(texto);
+            dataIsland.mission.qty -= totalInInventory;
+            inventary.ConsumeElement(element, totalInInventory);
             state = states.MISSION_DISTE_ALGO;
         }
         else
@@ -120,21 +137,27 @@ public class Isla : Screen {
     void SetText(string field)
     {
         string element = "";
+        int qty = 0;
 
         if (dataIsland.mission != null)
         {
             switch (dataIsland.mission.element)
             {
-                case Mission.elements.ARENA: element = "arena"; break;
-                case Mission.elements.MADERA: element = "madera"; break;
-                case Mission.elements.PIEDRAS: element = "piedras"; break;
+                case Mission.elements.ARENA: element = "arena"; qty = Game.Instance.inventary.arena; break;
+                case Mission.elements.MADERA: element = "madera"; qty = Game.Instance.inventary.madera; break;
+                case Mission.elements.PIEDRAS: element = "piedras"; qty = Game.Instance.inventary.piedras; break;
             }
         }
 
         field = field.Replace("[element]", element);
-        field = field.Replace("[qty]", field);
+
+       // field = field.Replace("[qty]", qty.ToString() );
 
         dialogueField.text = field;
+    }
+    private string SetTextQty(string field, int qty)
+    {
+        return field.Replace("[qty]", qty.ToString());
     }
     public void OnMinigameReady()
     {

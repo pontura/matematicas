@@ -8,6 +8,7 @@ public class Texts :MonoBehaviour {
     public string[] MisionTienesAlgo;
     public string[] MisionNosFalta;
     public string[] MisionCompleta;
+    public string[] MisionTienesTodoLoQueFalta;
 
     public string[] MinigameReady;
     public string[] MinigameInvita;

@@ -53,6 +53,7 @@ public class Inventary : MonoBehaviour
             case "arena":       if (arena > 0) arena -= qty;        break;
             case "piedras":     if (piedras > 0) piedras -= qty;    break;
         }
+        Events.OnSaveInventary();
     }
     public int GetPesoTotalEnElBarco()
     {
