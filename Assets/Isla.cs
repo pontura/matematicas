@@ -50,7 +50,7 @@ public class Isla : Screen {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
             state = states.MINIGAME_READY;
         } else
-        if (dataIsland.mission != null)
+        if (dataIsland.mission != null && dataIsland.mission.qty>0)
         {
             state = states.MISSION_PRESENTA;
 

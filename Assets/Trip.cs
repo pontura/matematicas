@@ -11,6 +11,10 @@ public class Trip : Screen {
     public int comidaConsumida;
     public int peso;
 
+    public Text arena;
+    public Text piedras;
+    public Text madera;
+
     void Start()
     {
         Events.OnShipArrived += OnShipArrived;
@@ -23,6 +27,10 @@ public class Trip : Screen {
 
     override public void OnScreenEnable()
     {
+        arena.text = "x" + Game.Instance.inventary.arena.ToString();
+        piedras.text = "x" + Game.Instance.inventary.piedras.ToString();
+        madera.text = "x" + Game.Instance.inventary.madera.ToString();
+
         comidaConsumida = 0;
         naftaConsumida = 0;
 
