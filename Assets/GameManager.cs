@@ -17,15 +17,7 @@ public class GameManager : MonoBehaviour {
 	}
 	public void Open(string name)
     {
-        Mapa.Activate(false);
-        Isla.Activate(false);
-        Barco.Activate(false);
-        Block.Activate(false);
-        Trip.Activate(false);
-        IslandDetail.Activate(false);
-        Logros.Activate(false);
-
-
+        InactivateScreens();
         switch (name)
         {
             case "Mapa": Mapa.Activate(true); break;
@@ -39,9 +31,19 @@ public class GameManager : MonoBehaviour {
     {
         Block.Activate(true);
     }
+    private void InactivateScreens()
+    {
+        Mapa.Activate(false);
+        Isla.Activate(false);
+        Barco.Activate(false);
+        Block.Activate(false);
+        Trip.Activate(false);
+        IslandDetail.Activate(false);
+        Logros.Activate(false);
+    }
     public void OpenTrip()
     {
-        IslandDetail.Activate(false);
+        InactivateScreens();
         Game.Instance.mainMenu.DeselectButtons();
         Trip.Activate(true);
     }
