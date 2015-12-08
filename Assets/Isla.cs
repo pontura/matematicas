@@ -10,6 +10,7 @@ public class Isla : Screen {
     public Minigame minigame;
     private IslandsManager.DataIsland dataIsland;
     public states state;
+    public Animator anim;
 
     public enum states
     {
@@ -30,9 +31,11 @@ public class Isla : Screen {
         Events.OnMinigameReady -= OnMinigameReady;
     }
 	void OnEnable () {
+        anim.Play("MgA_idle");
         state = states.NADA;
 
         dialogue.SetActive(true);
+        minigame.Reset();
         minigame.gameObject.SetActive(false);
 
         dataIsland = Game.Instance.islandsManager.activeIsland;
@@ -135,6 +138,7 @@ public class Isla : Screen {
     }
     public void OnMinigameReady()
     {
+        anim.Play("MgA_win");
         dialogue.SetActive(true);
         minigame.gameObject.SetActive(false);
         SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));

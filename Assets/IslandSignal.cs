@@ -8,6 +8,7 @@ public class IslandSignal : MonoBehaviour {
     public Text title;
     public Text desc;
     private IslandsManager.DataIsland islandData;
+    public GameObject missionPanel;
 
 	void Start () {
         Events.Map_OpenIslandSignal += Map_OpenIslandSignal;
@@ -23,10 +24,22 @@ public class IslandSignal : MonoBehaviour {
         panel.SetActive(true);
         panel.transform.localPosition = data.island.transform.localPosition / 4;
         title.text = data.name;
-        desc.text = " Distance: " + data.distance + " Km.";
+        desc.text = "Distance: " + data.distance + " Km.\n";
 
         if (data.mission != null)
-            desc.text += "\n" + data.mission.description;
+        {
+            desc.text += data.mission.description;
+            missionPanel.SetActive(true);
+        }
+        else
+        {
+            missionPanel.SetActive(false);
+            string item = "";
+            if (islandData.madera) item = "madera";
+            if (islandData.arena) item = "arena";
+            if (islandData.piedras) item = "piedras";
+            desc.text += "Esta isla es rica en: " + item;
+        }
     }
     public void Close()
     {

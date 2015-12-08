@@ -19,6 +19,7 @@ public class MinigamePesos : Minigame {
 
     void OnEnable()
     {
+        Reset();
         Texts.Minigame_Peso minigame = Data.Instance.texts.GetMinigame();
         string textFinal = minigame.title;
         string insertfield = "";
@@ -39,6 +40,17 @@ public class MinigamePesos : Minigame {
         buttons[0].Init(this, minigame.peso1);
         buttons[1].Init(this, minigame.peso2);
         buttons[2].Init(this, minigame.peso3);
+    }
+    override public void Reset()
+    {
+        EmptyContainer(itemContainer1);
+        EmptyContainer(itemContainer2);
+        EmptyContainer(itemContainer3);
+    }
+    void EmptyContainer(GameObject itemContainer)
+    {
+        int num = itemContainer.transform.childCount;
+        for (int i = 0; i < num; i++) DestroyImmediate(itemContainer.transform.GetChild(0).gameObject);
     }
     private int GetPromNumber()
     {
