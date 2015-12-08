@@ -21,6 +21,7 @@ public class Inventary : MonoBehaviour
             case 4: arena = qty; break;
             case 5: piedras = qty; break;
         }
+        Events.OnShipRefreshCarga();
     }
     public int GetQty(int id)
     {
