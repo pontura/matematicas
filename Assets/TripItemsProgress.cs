@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class TripItemsProgress : MonoBehaviour {
@@ -8,29 +9,39 @@ public class TripItemsProgress : MonoBehaviour {
 
     public int naftaQty;
     public int comidaQty;
-
-	void OnEnable () {
-
+	
+    void OnDisable()
+    {
+        Events.OnSaveInventary -= OnSaveInventary;
+    }
+    void OnEnable()
+    {
+        Events.OnSaveInventary += OnSaveInventary;
+        Invoke("Calculate", 0.1f);
+    }
+    void Calculate()
+    {
         naftaQty = Game.Instance.inventary.nafta;
         comidaQty = Game.Instance.inventary.comida;
 
         SetQty(nafta, naftaQty);
         SetQty(comida, comidaQty);
-
-	}
+    }
+    void OnSaveInventary()
+    {
+        Calculate();
+    }
     void SetQty(GameObject container, int qty)
     {
-        Transform[] gos = container.GetComponentsInChildren<Transform>();
+        Image[] gos = container.GetComponentsInChildren<Image>();
 
+       // print(container + " qty: " + qty + "   gos.Length " + gos.Length);
+        
         for (int a = 0; a < gos.Length; a++)
-            gos[a].gameObject.SetActive(false);
+            gos[a].enabled =false;
 
-        for (int a = 0; a < qty; a++)
-            gos[a].gameObject.SetActive(true);
+        for (int a = 0; a < qty ; a++)
+            gos[a].enabled = true;
 
     }
-    void Update()
-    {
-	    
-	}
 }

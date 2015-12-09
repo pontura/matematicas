@@ -32,13 +32,18 @@ public class GameManager : MonoBehaviour {
     public void OpenBlock()
     {
         Block.Activate(true);
+        Block.GetComponent<Block>().Open();
+    }
+    public void CloseBlock()
+    {
+        Block.GetComponent<Block>().Close();
     }
     private void InactivateScreens()
     {
         Mapa.Activate(false);
         Isla.Activate(false);
         Barco.Activate(false);
-        Block.Activate(false);
+       // Block.Activate(false);
         Trip.Activate(false);
         IslandDetail.Activate(false);
         Logros.Activate(false);
@@ -53,6 +58,7 @@ public class GameManager : MonoBehaviour {
     {
         Game.Instance.islandsManager.SetActive (Game.Instance.islandsManager.gotoIsland);
         Game.Instance.islandsManager.SetGotoIsland(new IslandsManager.DataIsland());
+        Isla.GetComponent<Isla>().SetArrived();
         Game.Instance.mainMenu.Isla();
     }
 }

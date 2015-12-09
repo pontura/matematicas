@@ -23,7 +23,7 @@ public class Barco : Screen
     {
         if (Game.Instance.state == Game.states.MINIGAME_READY)
         {
-            OnShipRefreshCarga();
+            
             minigameNotReadyPanel.SetActive(false);
             panel.SetActive(true);
         }
@@ -32,10 +32,8 @@ public class Barco : Screen
             minigameNotReadyPanel.SetActive(true);
             panel.SetActive(false);
         }
-
-        notasField.text = Data.Instance.settings.GetNotes();
-
-        
+        Invoke("OnShipRefreshCarga", 0.1f);
+        notasField.text = Data.Instance.settings.GetNotes();        
     }
     public void Ready()
     {

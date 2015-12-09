@@ -27,6 +27,8 @@ public class Trip : Screen {
 
     override public void OnScreenEnable()
     {
+        Events.OnBlockStatus(false);
+
         arena.text = "x" + Game.Instance.inventary.arena.ToString();
         piedras.text = "x" + Game.Instance.inventary.piedras.ToString();
         madera.text = "x" + Game.Instance.inventary.madera.ToString();

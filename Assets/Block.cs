@@ -9,7 +9,20 @@ public class Block : Screen
     public BlockItem draggingBlockItem;
     public GameObject container;
 
-    override public void OnScreenEnable()
+    void Start()
+    {
+        Events.OnBlockStatus += OnBlockStatus;
+    }
+    void OnDestroy()
+    {
+        Events.OnBlockStatus -= OnBlockStatus;
+    }
+    void OnBlockStatus(bool show)
+    {
+        print("OnBlockStatus" + show);
+        gameObject.SetActive(show);
+    }
+    public void Open()
     {
         anim.Play("OpenBlock");
     }

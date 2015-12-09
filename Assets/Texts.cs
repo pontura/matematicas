@@ -4,6 +4,7 @@ using System;
 
 public class Texts :MonoBehaviour {
 
+    public string[] Bienvenida;
     public string[] MisionNoTienesNada;
     public string[] MisionTienesAlgo;
     public string[] MisionNosFalta;

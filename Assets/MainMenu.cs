@@ -7,6 +7,9 @@ public class MainMenu : MonoBehaviour {
     public Button[] buttons;
     private GameManager gameManager;
     public GameObject masker;
+    public GameObject blockOn;
+    public GameObject blockOff;
+    private bool BlockOpened;
 
 	void Start () {
         masker.SetActive(false);
@@ -14,9 +17,15 @@ public class MainMenu : MonoBehaviour {
         Invoke("Mapa", 0.5f); 
         Events.OnTripStarted += OnTripStarted;
         Events.OnShipArrived += OnShipArrived;
+        Events.OnBlockStatus += OnBlockStatus;
+    }
+    void OnBlockStatus(bool show)
+    {
+        buttons[3].gameObject.SetActive(show);
     }
     void OnDestroy()
     {
+        Events.OnBlockStatus -= OnBlockStatus;
         Events.OnTripStarted -= OnTripStarted;
         Events.OnShipArrived -= OnShipArrived;
     }
@@ -61,10 +70,23 @@ public class MainMenu : MonoBehaviour {
         SetActive(3);
         gameManager.Open("Barco");
     }
+    
     public void Block()
     {
-        //SetActive(4);
-        gameManager.OpenBlock();
+        if (!BlockOpened)
+        {
+            gameManager.OpenBlock();
+            blockOn.SetActive(false);
+            blockOff.SetActive(true);
+        }
+        else
+        {
+            gameManager.CloseBlock();
+            blockOn.SetActive(true);
+            blockOff.SetActive(false);
+        }
+        BlockOpened = !BlockOpened;
+        
     }
     public void Logros()
     {

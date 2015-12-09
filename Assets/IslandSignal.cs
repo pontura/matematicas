@@ -10,6 +10,10 @@ public class IslandSignal : MonoBehaviour {
     private IslandsManager.DataIsland islandData;
     public GameObject missionPanel;
 
+    public GameObject iconMadera;
+    public GameObject iconArena;
+    public GameObject iconPiedras;
+
 	void Start () {
         Events.Map_OpenIslandSignal += Map_OpenIslandSignal;
         Close();
@@ -20,25 +24,35 @@ public class IslandSignal : MonoBehaviour {
     }
     void Map_OpenIslandSignal(IslandsManager.DataIsland data)
     {
+        iconMadera.SetActive(false);
+        iconArena.SetActive(false);
+        iconPiedras.SetActive(false);
+
         this.islandData = data;
         panel.SetActive(true);
         panel.transform.localPosition = data.island.transform.localPosition / 4;
         title.text = data.name;
         desc.text = "Distance: " + data.distance + " Km.\n";
 
+        string item = "";
+        if (islandData.madera) { item = "madera";       iconMadera.SetActive(true); }
+        if (islandData.arena) { item = "arena";         iconArena.SetActive(true); }
+        if (islandData.piedras) { item = "piedras";     iconPiedras.SetActive(true); }
+
+
         if (data.mission != null)
         {
-            desc.text += data.mission.description;
+            desc.text += data.mission.GetDescription();
             missionPanel.SetActive(true);
         }
         else
         {
-            missionPanel.SetActive(false);
-            string item = "";
-            if (islandData.madera) item = "madera";
-            if (islandData.arena) item = "arena";
-            if (islandData.piedras) item = "piedras";
-            desc.text += "Esta isla es rica en: " + item;
+            missionPanel.SetActive(false);    
+
+            if(item=="")
+                desc.text += "Esta isla tiene estación energética y un mercado de alimentos";
+            else
+                desc.text += "Esta isla es rica en " + item +  " además de poseer energía y alimentos.";
         }
     }
     public void Close()

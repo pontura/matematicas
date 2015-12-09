@@ -17,10 +17,13 @@ public class MinigamePesos : Minigame {
     public GameObject item2;
     public GameObject item3;
 
-    void OnEnable()
+    void Start()
+    {
+        Reset();
+    }
+    void Init()
     {
         peso = 0;
-        Reset();
         Texts.Minigame_Peso minigame = Data.Instance.texts.GetMinigame();
         string textFinal = minigame.title;
         string insertfield = "";
@@ -34,7 +37,7 @@ public class MinigamePesos : Minigame {
             print("total" + total + "    " + num);
             insertfield += "\n" + num.ToString() + "k";
         }
-        average = total/minigame.promedios.Length;
+        average = total / minigame.promedios.Length;
 
         desc.text = textFinal.Replace("[]", insertfield + "\n");
 
@@ -44,9 +47,11 @@ public class MinigamePesos : Minigame {
     }
     override public void Reset()
     {
+        peso = 0;
         EmptyContainer(itemContainer1);
         EmptyContainer(itemContainer2);
         EmptyContainer(itemContainer3);
+        Init();
     }
     void EmptyContainer(GameObject itemContainer)
     {
@@ -55,7 +60,7 @@ public class MinigamePesos : Minigame {
     }
     private int GetPromNumber()
     {
-        return ((Random.Range(0, 40) * 2)*10)+1000;
+        return ((Random.Range(0, 99) * 2)*10)+500;
     }
     public void Add(int _peso)
     {

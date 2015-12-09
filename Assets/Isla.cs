@@ -14,58 +14,81 @@ public class Isla : Screen {
 
     public enum states
     {
-        NADA,
+        BIENVENIDA,
+        BIENVENIDA_DONE,        
         MISSION_PRESENTA,
         MISSION_DISTE_ALGO,
         MISSION_EXITOSA,
         MISSION_NO_TENES_NADA,
         MINIGAME,
+        MINIGAME_STARTED,
         MINIGAME_READY
     }
     void Start()
     {
         Events.OnMinigameReady += OnMinigameReady;
+        SetArrived();
     }
     void OnDestroy()
     {
         Events.OnMinigameReady -= OnMinigameReady;
     }
+    public void SetArrived()
+    {
+        state = states.BIENVENIDA;
+        minigame.Reset();        
+    }
 	void OnEnable () {
-        anim.Play("MgA_idle");
-        state = states.NADA;
 
-        dialogue.SetActive(true);
-        minigame.Reset();
-        minigame.gameObject.SetActive(false);
+        Events.OnBlockStatus(true);
 
         dataIsland = Game.Instance.islandsManager.activeIsland;
         titleField.text = dataIsland.name;
 
-        dialogueField.text = "";
+        anim.Play("MgA_idle");
 
-        if (Game.Instance.minigamesManager.ready)
+        //if(state != states.BIENVENIDA)
+        //    state = states.NADA;        
+        
+        dialogue.SetActive(true);
+        minigame.gameObject.SetActive(false);
+        CheckStep();       
+	}
+    void CheckStep()
+    {
+        if (state == states.BIENVENIDA)
         {
-            dialogue.SetActive(true);
-            minigame.gameObject.SetActive(false);
+            SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.Bienvenida));
+            state = states.BIENVENIDA_DONE;
+        }
+        else if (Game.Instance.minigamesManager.ready)
+        {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
             state = states.MINIGAME_READY;
-        } else
-        if (dataIsland.mission != null && dataIsland.mission.qty>0)
+        }
+        else if (dataIsland.mission != null && dataIsland.mission.qty > 0)
         {
             state = states.MISSION_PRESENTA;
-
             string texto = dataIsland.mission.description;
             texto = SetTextQty(texto, dataIsland.mission.qty);
             SetText(texto);
         }
-        else
+        else if (state == states.MINIGAME_STARTED)
+        {
+            dialogue.SetActive(false);
+            minigame.gameObject.SetActive(true);
+        } else
         {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameInvita));
             state = states.MINIGAME;
         }
-	}
+    }
     public void Next()
     {
+        if (state == states.BIENVENIDA_DONE)
+        {
+            CheckStep();
+        } else
         if (state == states.MISSION_PRESENTA)
         {
             switch (dataIsland.mission.element)
@@ -78,10 +101,10 @@ public class Isla : Screen {
             || 
               state == states.MISSION_EXITOSA)
         {
-            SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameInvita));
+            SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
             state = states.MINIGAME;
         }
-        else if (state == states.MISSION_NO_TENES_NADA || state == states.NADA)
+        else if (state == states.MISSION_NO_TENES_NADA)
         {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameInvita));
             state = states.MINIGAME;
@@ -90,6 +113,7 @@ public class Isla : Screen {
         {
             dialogue.SetActive(false);
             minigame.gameObject.SetActive(true);
+            state = states.MINIGAME_STARTED;
         }
         else if (state == states.MINIGAME_READY)
         {
