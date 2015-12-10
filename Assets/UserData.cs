@@ -6,7 +6,7 @@ public class UserData : MonoBehaviour {
     public int islandActive;
     private Inventary inventary;
 
-    void Start()
+    void __Start()
     {
         islandActive = PlayerPrefs.GetInt("islandActive", 1);
 

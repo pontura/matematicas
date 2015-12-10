@@ -61,7 +61,7 @@ public class Isla : Screen {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.Bienvenida));
             state = states.BIENVENIDA_DONE;
         }
-        else if (Game.Instance.minigamesManager.ready)
+        if (Game.Instance.minigamesManager.ready)
         {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
             state = states.MINIGAME_READY;
@@ -85,10 +85,11 @@ public class Isla : Screen {
     }
     public void Next()
     {
-        if (state == states.BIENVENIDA_DONE)
+        if (state == states.BIENVENIDA || state == states.BIENVENIDA_DONE)
         {
             CheckStep();
-        } else
+        } 
+        else 
         if (state == states.MISSION_PRESENTA)
         {
             switch (dataIsland.mission.element)
