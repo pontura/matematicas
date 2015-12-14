@@ -32,7 +32,7 @@ public class IslandSignal : MonoBehaviour {
         panel.SetActive(true);
         panel.transform.localPosition = data.island.transform.localPosition / 4;
         title.text = data.name;
-        desc.text = "Distance: " + data.distance + " Km.\n";
+        desc.text = "Distancia: " + data.distance + " Km.\n";
 
         string item = "";
         if (islandData.madera) { item = "madera";       iconMadera.SetActive(true); }
@@ -61,8 +61,9 @@ public class IslandSignal : MonoBehaviour {
     }
     public void Go()
     {
+        print("GO");
         Game.Instance.islandsManager.SetGotoIsland(islandData);
-        Game.Instance.mainMenu.Isla();
+        Game.Instance.gameManager.IslandDetailPopup();
         Close();
     }
 }

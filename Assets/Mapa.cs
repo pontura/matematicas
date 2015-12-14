@@ -8,7 +8,7 @@ public class Mapa : Screen {
     public GameObject missionIcon;
 
 	void OnEnable () {
-        Game.Instance.islandsManager.gotoIsland = null;
+        //Game.Instance.islandsManager.gotoIsland = null;
         ChangeIslandActive();
         missionIcon.transform.localPosition = Game.Instance.islandsManager.GetIslandWithMission().island.transform.localPosition;
 	}

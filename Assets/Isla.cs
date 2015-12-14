@@ -27,11 +27,13 @@ public class Isla : Screen {
     void Start()
     {
         Events.OnMinigameReady += OnMinigameReady;
+        Events.OnMinigameMistake += OnMinigameMistake;
         SetArrived();
     }
     void OnDestroy()
     {
         Events.OnMinigameReady -= OnMinigameReady;
+        Events.OnMinigameMistake -= OnMinigameMistake;
     }
     public void SetArrived()
     {
@@ -103,7 +105,7 @@ public class Isla : Screen {
               state == states.MISSION_EXITOSA)
         {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
-            state = states.MINIGAME;
+            state = states.MINIGAME_READY;
         }
         else if (state == states.MISSION_NO_TENES_NADA)
         {
@@ -132,12 +134,17 @@ public class Isla : Screen {
 
         if (totalInInventory >= dataIsland.mission.qty)
         {
+            Events.OnMinigameReady();
+
             string texto = Data.Instance.texts.GetRandomText(Data.Instance.texts.MisionTienesTodoLoQueFalta);
             texto = SetTextQty(texto, dataIsland.mission.qty);
             SetText(texto);
+            
             state = states.MISSION_EXITOSA;
             inventary.ConsumeElement(element, dataIsland.mission.qty);
             dataIsland.mission.qty = 0;
+            Events.OnAchivementWin(1);
+           
         }
         else if (totalInInventory > 0)
         {
@@ -191,5 +198,9 @@ public class Isla : Screen {
         minigame.gameObject.SetActive(false);
         SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
         state = states.MINIGAME_READY;
+    }
+    public void OnMinigameMistake()
+    {
+        anim.Play("MgA_wrong",0,0);
     }
 }

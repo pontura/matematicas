@@ -17,6 +17,8 @@ public class MinigamePesos : Minigame {
     public GameObject item2;
     public GameObject item3;
 
+    public Animator anim;
+
     void Start()
     {
         Reset();
@@ -90,7 +92,7 @@ public class MinigamePesos : Minigame {
             item.transform.localPosition = new Vector3(0, separationY, 0);
         }
         this.peso += _peso;
-        CheckResult();
+       // CheckResult();
     }
     public void Remove(int _peso)
     {
@@ -113,12 +115,13 @@ public class MinigamePesos : Minigame {
             Destroy(items[items.Length-1].gameObject);
 
         this.peso -= _peso;
-        CheckResult();
+        //CheckResult();
     }
     public void CheckResult()
     {
-        print("check result: average:: " + average + "     peso:  " + peso);
         if (average == peso)
             Events.OnMinigameReady();
+        else
+            Events.OnMinigameMistake();
     }
 }

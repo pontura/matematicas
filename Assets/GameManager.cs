@@ -48,6 +48,11 @@ public class GameManager : MonoBehaviour {
         IslandDetail.Activate(false);
         Logros.Activate(false);
     }
+    public void IslandDetailPopup()
+    {
+        Open("Mapa");
+        IslandDetail.Activate(true);
+    }
     public void OpenTrip()
     {
         InactivateScreens();

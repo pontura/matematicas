@@ -7,7 +7,7 @@ public class IslandDetail : Screen {
     public Text titleField;
     public Text detailsField;
     public Text inventaryField;
-    public Text dialogueField;
+  //  public Text dialogueField;
     public Text notesField;
 
     public GameObject Dialogue;
@@ -23,28 +23,28 @@ public class IslandDetail : Screen {
         anim.Play("MgA_map");
         IslandsManager.DataIsland dataIsland = Game.Instance.islandsManager.gotoIsland;
         titleField.text = dataIsland.name;
-        string details = "Distancia: " + dataIsland.distance + "\n";
-        details += "Velocidad: 10km/h \n";
-        details += "Tripulación: 2 pasajeros";
+        string details = "Distancia: " + dataIsland.distance + "\n";    
+       // details += "Velocidad: 10km/h \n";|
+       // details += "Tripulación: 2 pasajeros";
 
-        dialogueField.text = "¡Hola! ¿Quieres venir a " + dataIsland.name + "?" + "\n";        
+      //  dialogueField.text = "¡Hola! ¿Quieres venir a " + dataIsland.name + "?" + "\n";        
 
         if (dataIsland.mission != null)
         {
             string texto = dataIsland.mission.GetDescription();
-            dialogueField.text += "Necesitamos tu ayuda: " + texto;
+         //   dialogueField.text += "Necesitamos tu ayuda: " + texto;
         }
         else
         {
-            if (dataIsland.madera) dialogueField.text += "Nuestra isla es famosa por sus grandes bosques y su excelente madera";
-            if (dataIsland.arena) dialogueField.text += "Nuestra isla es famosa por sus playas y su gran cantidad de arena";
-            if (dataIsland.piedras) dialogueField.text += "Nuestra isla es famosa por sus acantilados y su variedad de piedras";
+        //    if (dataIsland.madera) dialogueField.text += "Nuestra isla es famosa por sus grandes bosques y su excelente madera";
+        //    if (dataIsland.arena) dialogueField.text += "Nuestra isla es famosa por sus playas y su gran cantidad de arena";
+        //    if (dataIsland.piedras) dialogueField.text += "Nuestra isla es famosa por sus acantilados y su variedad de piedras";
         }       
 
         detailsField.text = details;
 
         Inventary inventary = Game.Instance.inventary;
-        string inventaryText = "";
+        string inventaryText = "Hay en el barco:\n";
 
         if (inventary.nafta > 0) inventaryText +=   inventary.nafta +   " caja/s de nafta\n";
         if (inventary.comida > 0) inventaryText +=  inventary.comida +  " caja/s de comida\n";
@@ -52,8 +52,12 @@ public class IslandDetail : Screen {
         if (inventary.piedras > 0) inventaryText += inventary.piedras + " caja/s de piedras\n";
         if (inventary.arena > 0) inventaryText +=   inventary.arena +   " caja/s de arena\n";
 
-        if (inventaryText == "" && Game.Instance.state == Game.states.MINIGAME_READY)
+        if (inventary.nafta == 0 || inventary.comida == 0 && Game.Instance.state == Game.states.MINIGAME_READY)
         {
+            if (inventary.nafta == 0)
+                inventaryText = "No podés salir sin energía";
+            else
+                inventaryText = "No podés salir sin algo de comida";
             conCarga.SetActive(false);
             sinCarga.SetActive(true);
         }
@@ -67,14 +71,15 @@ public class IslandDetail : Screen {
 
         notesField.text = Data.Instance.settings.GetNotes();
         
-	}
-    public void Next()
-    {
+    //}
+    //public void Next()
+    //{
         Dialogue.SetActive(false);
         Menu.SetActive(true);
     }
     public void Back()
     {
         Game.Instance.mainMenu.Mapa();
+        gameObject.SetActive(false);
     }
 }

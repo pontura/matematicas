@@ -33,7 +33,11 @@ public class Barco : Screen
             panel.SetActive(false);
         }
         Invoke("OnShipRefreshCarga", 0.1f);
-        notasField.text = Data.Instance.settings.GetNotes();        
+
+        if (Game.Instance.islandsManager.gotoIsland.distance > 0)
+            notasField.text = Game.Instance.islandsManager.gotoIsland.distance + "Km hasta " + Game.Instance.islandsManager.gotoIsland.name + "\n";
+
+        notasField.text += Data.Instance.settings.GetNotes();        
     }
     public void Ready()
     {
@@ -45,7 +49,8 @@ public class Barco : Screen
     void Closed()
     {
         if (Game.Instance.islandsManager.gotoIsland != null && Game.Instance.islandsManager.gotoIsland.distance > 1)
-            Game.Instance.gameManager.OpenTrip();
+            // Game.Instance.gameManager.OpenTrip();
+            Game.Instance.gameManager.IslandDetailPopup();
         else if (Game.Instance.state == Game.states.MINIGAME_READY)
             Game.Instance.mainMenu.Mapa();
         else
