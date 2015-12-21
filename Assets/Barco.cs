@@ -34,9 +34,11 @@ public class Barco : Screen
         }
         Invoke("OnShipRefreshCarga", 0.1f);
 
+        notasField.text = "";
+
         if (Game.Instance.islandsManager.gotoIsland.distance > 0)
             notasField.text = Game.Instance.islandsManager.gotoIsland.distance + "Km hasta " + Game.Instance.islandsManager.gotoIsland.name + "\n";
-
+        notasField.text += "El barco soporta " + Data.Instance.settings.barcoPesoMaximo.ToString() + " kilos " + " y va a " + Data.Instance.settings.barcoVelocidad.ToString() + "km/h \n";
         notasField.text += Data.Instance.settings.GetNotes();        
     }
     public void Ready()

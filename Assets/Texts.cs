@@ -15,6 +15,7 @@ public class Texts :MonoBehaviour {
     public string[] MinigameInvita;
     public string[] RecogeLoQueGustes;
 
+    
     [Serializable]
     public class Minigame_Peso
     {
@@ -23,6 +24,13 @@ public class Texts :MonoBehaviour {
         public int peso1;
         public int peso2;
         public int peso3;
+        public Minigame_Peso_type type;
+        public enum Minigame_Peso_type
+        {
+            PROMEDIO,
+            SUMATORIA
+        }
+
     }
     public Minigame_Peso[] minigame_Peso;
 
@@ -34,7 +42,8 @@ public class Texts :MonoBehaviour {
     }
     public Minigame_Peso GetMinigame()
     {
-        return minigame_Peso[0];
+        return minigame_Peso[ UnityEngine.Random.Range(0, minigame_Peso.Length) ];
+       // return minigame_Peso[1];
     }
 
 

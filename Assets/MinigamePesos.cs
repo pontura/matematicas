@@ -6,7 +6,7 @@ public class MinigamePesos : Minigame {
 
     public Text desc;
     public int peso;
-    public int average;
+    public int result;
     public ButtonAddRemove[] buttons;
 
     public GameObject itemContainer1;
@@ -32,16 +32,26 @@ public class MinigamePesos : Minigame {
 
         int total = 0;
 
-        foreach (int prom in minigame.promedios)
+        if (minigame.type == Texts.Minigame_Peso.Minigame_Peso_type.PROMEDIO)
         {
-            int num = GetPromNumber();
-            total += num;
-            print("total" + total + "    " + num);
-            insertfield += "\n" + num.ToString() + "k";
+            foreach (int prom in minigame.promedios)
+            {
+                int num = GetPromNumber();
+                total += num;
+                print("total" + total + "    " + num);
+                insertfield += "\n" + num.ToString() + "k";
+            }
+            result = total / minigame.promedios.Length;
         }
-        average = total / minigame.promedios.Length;
+        else
+        {
+            int toneladas = Random.Range(20, 50);
+            int kilos = Random.Range(1,9) * 100;
+            insertfield += toneladas + " toneladas y " + kilos + " kilos";
+            result = (toneladas*1000) + kilos;
+        }
 
-        desc.text = textFinal.Replace("[]", insertfield + "\n");
+        desc.text = textFinal.Replace("[]", insertfield);
 
         buttons[0].Init(this, minigame.peso1);
         buttons[1].Init(this, minigame.peso2);
@@ -64,10 +74,16 @@ public class MinigamePesos : Minigame {
     {
         return ((Random.Range(0, 99) * 2)*10)+500;
     }
+    private int GetButtonPorPeso(int peso)
+    {
+        if (buttons[0].peso == peso) return 1;
+        else  if (buttons[1].peso == peso) return 2;
+        else return 3;
+    }
     public void Add(int _peso)
     {
         int _separationY = 20;
-        if (_peso == 500)
+        if (GetButtonPorPeso(_peso) == 1)
         {
             GameObject item = Instantiate(item1) as GameObject;
             item.transform.SetParent(itemContainer1.transform);
@@ -75,7 +91,7 @@ public class MinigamePesos : Minigame {
             int separationY = _separationY * (itemContainer1.GetComponentsInChildren<Transform>().Length-2);
             item.transform.localPosition = new Vector3(0, separationY, 0);
         }
-        else if (_peso == 50)
+        else if (GetButtonPorPeso(_peso) == 2)
         {
             GameObject item = Instantiate(item2) as GameObject;
             item.transform.SetParent(itemContainer2.transform);
@@ -98,11 +114,11 @@ public class MinigamePesos : Minigame {
     {
         Transform[] items;
 
-        if (_peso == 500)
+        if (GetButtonPorPeso(_peso) == 1)
         {
            items = itemContainer1.GetComponentsInChildren<Transform>();            
         }
-        else if (_peso == 50)
+        else if (GetButtonPorPeso(_peso) == 2)
         {
             items = itemContainer2.GetComponentsInChildren<Transform>();
         }
@@ -115,11 +131,12 @@ public class MinigamePesos : Minigame {
             Destroy(items[items.Length-1].gameObject);
 
         this.peso -= _peso;
+        if (peso < 0) peso = 0;
         //CheckResult();
     }
     public void CheckResult()
     {
-        if (average == peso)
+        if (result == peso)
             Events.OnMinigameReady();
         else
             Events.OnMinigameMistake();
