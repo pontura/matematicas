@@ -42,7 +42,8 @@ public class IslandSignal : MonoBehaviour {
 
         if (data.mission != null)
         {
-            desc.text += data.mission.GetDescription();
+          //  desc.text += data.mission.GetDescription();
+            desc.text += data.mission.description;
             missionPanel.SetActive(true);
         }
         else

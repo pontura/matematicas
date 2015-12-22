@@ -1,0 +1,69 @@
+{
+
+bienvenida:
+[
+	{
+		text: "Bienvenido, ¿Has tenido un buen viaje?"			
+	},
+	{
+		text: "Bienvenido ¿Que tal el viaje?"			
+	},
+	{
+		text: "¡Hola! ¿Qué tal el viaje?, ¡Siéntanse como en casa!"			
+	}
+],
+MisionNoTienesNada:
+[
+	{
+		text: "No tienes nada de [element], cuando tengas vuelve..."			
+	},
+	{
+		text: "Veo que no cargas [element], cuando tengas vuelve..."			
+	}
+],
+MisionTienesAlgo:
+[
+	{
+		text: "Veo que tienes [qty] caja/s de  [element]. Muchas gracias"			
+	}
+],
+MisionNosFalta:
+[
+	{
+		text: "Ahora nos faltan solo [qty] caja/s de [element]."			
+	},
+	{
+		text: "Gracias a tu ayuda con [qty] caja/s de [element] ya estaríamos listos!"			
+	}
+],
+MisionCompleta:
+[
+	{
+		text: "Nos ayudaste muchísimo, Ya tenemos todas las cajas de [element]."			
+	}
+],
+MisionTienesTodoLoQueFalta:
+[
+	{
+		text: "Oh! Veo que tienes todas las caja/s de [element] que nos faltan!. Mil Gracias!"			
+	}
+],
+MinigameReady:
+[
+	{
+		text: "¡Genial! ¡Muchas gracias! Ahora puedes tomar lo que necesites de nuestra isla."			
+	}
+],
+MinigameInvita:
+[
+	{
+		text: "Si me ayudás con este simple problema podrás llevarte todos los recursos que necesites"			
+	}
+],
+RecogeLoQueGustes:
+[
+	{
+		text: "Puedes recoger todas las cajas de [element] que gustes."			
+	}
+]
+}

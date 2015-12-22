@@ -23,8 +23,17 @@ public class IslandsManager : MonoBehaviour {
     }
 	void Start () {
         activeIsland = GetIslandById( Data.Instance.userData.islandActive );
-        SetNewMission(0);
+        SetNewMission(Data.Instance.userData.missionActive);
+        Events.OnNewMission += OnNewMission;
 	}
+    void OnDestroy()
+    {
+        Events.OnNewMission -= OnNewMission;
+    }
+    void OnNewMission(int id)
+    {
+        SetNewMission(id);
+    }
     void SetNewMission(int missionID)
     {
         Mission mission = Data.Instance.missionsManager.missions[missionID];

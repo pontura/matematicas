@@ -31,7 +31,8 @@ public class IslandDetail : Screen {
 
         if (dataIsland.mission != null)
         {
-            string texto = dataIsland.mission.GetDescription();
+           // string texto = dataIsland.mission.GetDescription();
+            string texto = dataIsland.mission.description;
          //   dialogueField.text += "Necesitamos tu ayuda: " + texto;
         }
         else

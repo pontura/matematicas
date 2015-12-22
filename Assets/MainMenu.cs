@@ -91,5 +91,6 @@ public class MainMenu : MonoBehaviour {
     public void Logros()
     {
         SetActive(5);
+        gameManager.Open("Logros");
     }
 }

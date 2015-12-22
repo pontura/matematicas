@@ -12,6 +12,11 @@ public static class Events {
     public static System.Action OnShipRefreshCarga = delegate { };
     public static System.Action<bool> OnBlockStatus = delegate { };
 
-    public static System.Action<int> OnAchivementWin = delegate { };  
+    public static System.Action<int> OnAchivementWin = delegate { };
+    public static System.Action OnMissionComplete = delegate { };
+    public static System.Action<int> OnNewMission = delegate { };
+    public static System.Action OnResetApp = delegate { };
+    
+
     
 }

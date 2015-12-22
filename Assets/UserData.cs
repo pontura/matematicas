@@ -4,11 +4,13 @@ using System.Collections;
 public class UserData : MonoBehaviour {
 
     public int islandActive;
+    public int missionActive;
     private Inventary inventary;
 
-    void __Start()
+    void Start()
     {
         islandActive = PlayerPrefs.GetInt("islandActive", 1);
+        missionActive = PlayerPrefs.GetInt("missionActive", 0);
 
         inventary = GetComponent<Inventary>();
 
@@ -20,7 +22,29 @@ public class UserData : MonoBehaviour {
 
         Events.OnShipArrived += OnShipArrived;
         Events.OnSaveInventary += OnSaveInventary;
+        Events.OnNewMission += OnNewMission;
+        Events.OnMissionComplete += OnMissionComplete;
+        Events.OnResetApp += OnResetApp;
+    }
+    void OnResetApp()
+    {
+        islandActive = 1;
+        missionActive = 0;
 
+        inventary.nafta = 0;
+        inventary.comida = 0;
+        inventary.madera = 0;
+        inventary.arena = 0;
+        inventary.piedras = 0;
+    }
+    void OnMissionComplete()
+    {
+        missionActive++;
+        Events.OnNewMission(missionActive);
+    }
+    void OnNewMission(int id)
+    {
+        PlayerPrefs.SetInt("missionActive", id);
     }
     void OnShipArrived()
     {

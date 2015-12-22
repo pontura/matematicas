@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
             case "Isla": Isla.Activate(true); tvImage.SetActive(false); break;
             case "Barco": Barco.Activate(true); tvImage.SetActive(true); break;
             case "Trip": Block.Activate(true); tvImage.SetActive(false); break;
+            case "Logros": Logros.Activate(true); tvImage.SetActive(false); break;
             case "IslandDetail": IslandDetail.Activate(true); tvImage.SetActive(false); break;
         }
 	}
