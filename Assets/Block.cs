@@ -75,7 +75,13 @@ public class Block : Screen
                 draggingBlockItem.transform.position = Input.mousePosition;
             }
         }
-       
+        if (draggingBlockItem)
+        {
+            if (draggingBlockItem.transform.position.x > 350)
+            {
+                Destroy(draggingBlockItem.gameObject);
+            }
+        }
     }   
     public void AddItem(BlockButton bb)
     {
