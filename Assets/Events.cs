@@ -16,6 +16,11 @@ public static class Events {
     public static System.Action OnMissionComplete = delegate { };
     public static System.Action<int> OnNewMission = delegate { };
     public static System.Action OnResetApp = delegate { };
+
+    public static System.Action<int> OnCustomizerButtonPrevClicked = delegate { };
+    public static System.Action<int> OnCustomizerButtonNextClicked = delegate { };
+    
+    
     
 
     

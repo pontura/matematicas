@@ -15,6 +15,8 @@ public class Data : MonoBehaviour
 
     public Texts texts;
     public UserData userData;
+    public ClothesSettings clothesSettings;
+    public SavedSettings savedSettings;
 
     public static Data Instance
     {
@@ -49,13 +51,13 @@ public class Data : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-    }
-    void Start()
-    {
+
         DontDestroyOnLoad(this);
         missionsManager = GetComponent<MissionsManager>();
         texts = GetComponent<Texts>();
         settings = GetComponent<Settings>();
         userData = GetComponent<UserData>();
+        clothesSettings = GetComponent<ClothesSettings>();
+        savedSettings = GetComponent<SavedSettings>();
     }
 }
