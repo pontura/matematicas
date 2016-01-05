@@ -18,6 +18,7 @@ public class MinigamePesos : Minigame {
     public GameObject item3;
 
     public Animator anim;
+    private float _separationY = 0.16f;
 
     void Start()
     {
@@ -82,13 +83,12 @@ public class MinigamePesos : Minigame {
     }
     public void Add(int _peso)
     {
-        int _separationY = 20;
         if (GetButtonPorPeso(_peso) == 1)
         {
             GameObject item = Instantiate(item1) as GameObject;
             item.transform.SetParent(itemContainer1.transform);
             item.transform.localScale = Vector3.one;
-            int separationY = _separationY * (itemContainer1.GetComponentsInChildren<Transform>().Length-2);
+            float separationY = _separationY * (itemContainer1.GetComponentsInChildren<Transform>().Length-2);
             item.transform.localPosition = new Vector3(0, separationY, 0);
         }
         else if (GetButtonPorPeso(_peso) == 2)
@@ -96,7 +96,7 @@ public class MinigamePesos : Minigame {
             GameObject item = Instantiate(item2) as GameObject;
             item.transform.SetParent(itemContainer2.transform);
             item.transform.localScale = Vector3.one;
-            int separationY = _separationY *( itemContainer2.GetComponentsInChildren<Transform>().Length-2);
+            float separationY = _separationY * (itemContainer2.GetComponentsInChildren<Transform>().Length - 2);
             item.transform.localPosition = new Vector3(0, separationY, 0);
         }
         else
@@ -104,7 +104,7 @@ public class MinigamePesos : Minigame {
             GameObject item = Instantiate(item3) as GameObject;
             item.transform.SetParent(itemContainer3.transform);
             item.transform.localScale = Vector3.one;
-            int separationY = _separationY * (itemContainer3.GetComponentsInChildren<Transform>().Length-2);
+            float separationY = _separationY * (itemContainer3.GetComponentsInChildren<Transform>().Length - 2);
             item.transform.localPosition = new Vector3(0, separationY, 0);
         }
         this.peso += _peso;

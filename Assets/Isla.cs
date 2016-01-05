@@ -40,14 +40,18 @@ public class Isla : Screen {
         state = states.BIENVENIDA;
         minigame.Reset();        
     }
+    void OnDisable()
+    {
+        anim.gameObject.SetActive(false);
+    }
 	void OnEnable () {
-
+        anim.gameObject.SetActive(true);
         Events.OnBlockStatus(true);
 
         dataIsland = Game.Instance.islandsManager.activeIsland;
         titleField.text = dataIsland.name;
 
-        anim.Play("MgA_idle");
+        anim.Play("minigameA_idle", 0, 0);
 
         //if(state != states.BIENVENIDA)
         //    state = states.NADA;        
@@ -194,7 +198,7 @@ public class Isla : Screen {
     }
     public void OnMinigameReady()
     {
-        anim.Play("MgA_win");
+        anim.Play("minigameA_win", 0, 0);
         dialogue.SetActive(true);
         minigame.gameObject.SetActive(false);
         SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
@@ -202,6 +206,6 @@ public class Isla : Screen {
     }
     public void OnMinigameMistake()
     {
-        anim.Play("MgA_wrong",0,0);
+        anim.Play("minigameA_lose",0,0);
     }
 }
