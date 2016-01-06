@@ -17,6 +17,7 @@ public class MinigamePesos : Minigame {
     public GameObject item2;
     public GameObject item3;
 
+    public Animator MathDevice;
     public Animator anim;
     private float _separationY = 0.16f;
 
@@ -26,6 +27,7 @@ public class MinigamePesos : Minigame {
     }
     void Init()
     {
+        MathDevice.Play("deviceAppear", 0, 0);
         peso = 0;
         Texts.Minigame_Peso minigame = Data.Instance.texts.GetMinigame();
         string textFinal = minigame.title;
@@ -40,7 +42,7 @@ public class MinigamePesos : Minigame {
                 int num = GetPromNumber();
                 total += num;
                 print("total" + total + "    " + num);
-                insertfield += "\n" + num.ToString() + "k";
+                insertfield += " " + num.ToString() + "k";
             }
             result = total / minigame.promedios.Count;
         }
@@ -137,8 +139,15 @@ public class MinigamePesos : Minigame {
     public void CheckResult()
     {
         if (result == peso)
-            Events.OnMinigameReady();
+        {
+            Invoke("MinigameReady", 0.7f);
+            MathDevice.Play("deviceDissappear", 0, 0);
+        }
         else
             Events.OnMinigameMistake();
+    }
+    void MinigameReady()
+    {
+        Events.OnMinigameReady();
     }
 }
