@@ -20,6 +20,7 @@ public class IslandsManager : MonoBehaviour {
         public bool madera;
         public bool arena;
         public bool piedras;
+        public MinigamesManager.types minigameType;
     }
 	void Start () {
         activeIsland = GetIslandById( Data.Instance.userData.islandActive );

@@ -4,6 +4,11 @@ using System.Collections;
 public class MinigamesManager : MonoBehaviour {
 
     public bool ready;
+    public enum types
+    {
+        SIMPLE_INPUT,
+        PESAR
+    }
 
 	void Start () {
         Events.OnMinigameReady += OnMinigameReady;

@@ -10,7 +10,11 @@ public class Isla : Screen {
     public Minigame minigame;
     private IslandsManager.DataIsland dataIsland;
     public states state;
-    public Animator anim;
+
+    public MiningameBackground minigameSimpleInput;
+    public MiningameBackground minigamePeso;
+
+    public MinigamesManager.types minigameType;
 
     public enum states
     {
@@ -42,16 +46,26 @@ public class Isla : Screen {
     }
     void OnDisable()
     {
-        anim.gameObject.SetActive(false);
+        minigamePeso.gameObject.SetActive(false);
     }
 	void OnEnable () {
-        anim.gameObject.SetActive(true);
-        Events.OnBlockStatus(true);
 
         dataIsland = Game.Instance.islandsManager.activeIsland;
-        titleField.text = dataIsland.name;
 
-        anim.Play("minigameA_idle", 0, 0);
+        if(dataIsland.minigameType == MinigamesManager.types.PESAR)
+        {
+            minigamePeso.gameObject.SetActive(true);
+            minigame.GetComponent<MinigamePesos>().Init();
+        }
+        if (dataIsland.minigameType == MinigamesManager.types.SIMPLE_INPUT)
+        {
+            minigameSimpleInput.gameObject.SetActive(true);
+            minigame.GetComponent<MinigameSimpleInput>().Init();
+        }
+        Events.OnBlockStatus(true);
+
+        
+        titleField.text = dataIsland.name;
 
         //if(state != states.BIENVENIDA)
         //    state = states.NADA;        
@@ -188,8 +202,6 @@ public class Isla : Screen {
 
         field = field.Replace("[element]", element);
 
-       // field = field.Replace("[qty]", qty.ToString() );
-
         dialogueField.text = field;
     }
     private string SetTextQty(string field, int qty)
@@ -198,7 +210,6 @@ public class Isla : Screen {
     }
     public void OnMinigameReady()
     {
-        anim.Play("minigameA_win", 0, 0);
         dialogue.SetActive(true);
         minigame.gameObject.SetActive(false);
         SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
@@ -206,6 +217,6 @@ public class Isla : Screen {
     }
     public void OnMinigameMistake()
     {
-        anim.Play("minigameA_lose",0,0);
+        ///
     }
 }

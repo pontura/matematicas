@@ -17,5 +17,16 @@
 			peso3: 100,
 			type: "SUMATORIA"			
 		}
+	],
+	simpleInput:
+	[
+		{
+			title: "Teníamos [1000/2000] trozos de madera y quemamos [100/999]... ¿Cuántas quedan?",
+			type: "RESTA"		
+		},
+		{
+			title: "Teníamos [1000/2000] piedras y usamos [100/999]... ¿Cuántas quedan?",
+			type: "RESTA"		
+		}
 	]
 }

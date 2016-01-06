@@ -3,9 +3,10 @@ using System.Collections;
 
 public class SceneBackgrounds : MonoBehaviour {
 
-    public GameObject minigameA;
+    public MiningameBackground[] minigames;
 
 	void Start () {
-        minigameA.SetActive(false);
+        foreach(MiningameBackground minigameBg in minigames)
+            minigameBg.gameObject.SetActive(false);
 	}
 }

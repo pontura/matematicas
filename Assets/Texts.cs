@@ -18,7 +18,16 @@ public class Texts :MonoBehaviour {
     public List<string> MinigameInvita;
     public List<string> RecogeLoQueGustes;
 
-    
+    [Serializable]
+    public class Minigame_SimpleInput
+    {
+        public string title;
+        public Minigame_SimpleInput_type type;
+        public enum Minigame_SimpleInput_type
+        {
+            RESTA
+        }
+    }
     [Serializable]
     public class Minigame_Peso
     {
@@ -36,6 +45,7 @@ public class Texts :MonoBehaviour {
 
     }
     public List<Minigame_Peso> minigame_Peso;
+    public List<Minigame_SimpleInput> minigame_SimpleInput;
 
     string json_Texts_Url = "texts";
     string json_Minigames_Url = "minigames";
@@ -66,6 +76,8 @@ public class Texts :MonoBehaviour {
     {
         var Json = JSON.Parse(json_data);
 
+
+        ////////////////PESAR
         for (int a = 0; a < Json["pesar"].Count; a++)
         {
             Minigame_Peso minigame = new Minigame_Peso();
@@ -86,6 +98,21 @@ public class Texts :MonoBehaviour {
             
             minigame_Peso.Add(minigame);
         }
+
+        /////////////////Simple
+        string gameName = "simpleInput";
+        for (int a = 0; a < Json[gameName].Count; a++)
+        {
+            Minigame_SimpleInput minigame = new Minigame_SimpleInput();
+            minigame.title = Json[gameName][a]["title"];
+
+            switch (Json[gameName][a]["type"])
+            {
+                case "RESTA": minigame.type = Minigame_SimpleInput.Minigame_SimpleInput_type.RESTA; break;
+            }
+
+            minigame_SimpleInput.Add(minigame);
+        }
     }
     private void fillArray(List<string> arr, JSONNode content)
     {
@@ -99,10 +126,15 @@ public class Texts :MonoBehaviour {
     {
         return arr[ UnityEngine.Random.Range(0,arr.Count) ];
     }
-    public Minigame_Peso GetMinigame()
+    public Minigame_Peso GetMinigame_Peso()
     {
         return minigame_Peso[ UnityEngine.Random.Range(0, minigame_Peso.Count) ];
        // return minigame_Peso[1];
+    }
+    public Minigame_SimpleInput GetMinigame_SimpleInput()
+    {
+        return minigame_SimpleInput[UnityEngine.Random.Range(0, minigame_Peso.Count)];
+        // return minigame_Peso[1];
     }
 
 

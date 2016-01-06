@@ -17,19 +17,22 @@ public class MinigamePesos : Minigame {
     public GameObject item2;
     public GameObject item3;
 
-    public Animator MathDevice;
-    public Animator anim;
+    public MathDevice mathDevice;
+
     private float _separationY = 0.16f;
 
     void Start()
     {
         Reset();
     }
-    void Init()
+    public void Init()
     {
-        MathDevice.Play("deviceAppear", 0, 0);
+        mathDevice.Init(Game.Instance.islandsManager.activeIsland.minigameType);
+
+        mathDevice.Appear();
+        
         peso = 0;
-        Texts.Minigame_Peso minigame = Data.Instance.texts.GetMinigame();
+        Texts.Minigame_Peso minigame = Data.Instance.texts.GetMinigame_Peso();
         string textFinal = minigame.title;
         string insertfield = "";
 
@@ -66,7 +69,6 @@ public class MinigamePesos : Minigame {
         EmptyContainer(itemContainer1);
         EmptyContainer(itemContainer2);
         EmptyContainer(itemContainer3);
-        Init();
     }
     void EmptyContainer(GameObject itemContainer)
     {
@@ -141,7 +143,7 @@ public class MinigamePesos : Minigame {
         if (result == peso)
         {
             Invoke("MinigameReady", 0.7f);
-            MathDevice.Play("deviceDissappear", 0, 0);
+            mathDevice.Disappear();
         }
         else
             Events.OnMinigameMistake();
