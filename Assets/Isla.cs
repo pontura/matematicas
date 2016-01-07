@@ -219,4 +219,19 @@ public class Isla : Screen {
     {
         ///
     }
+    public void CheckResul()
+    {
+        if (dataIsland.minigameType == MinigamesManager.types.PESAR)
+        {
+            minigame.GetComponent<MinigamePesos>().CheckResult();
+        }
+        if (dataIsland.minigameType == MinigamesManager.types.SIMPLE_INPUT)
+        {
+            minigame.GetComponent<MinigameSimpleInput>().CheckResult();
+        }
+    }
+    public void ResetDevice()
+    {
+
+    }
 }
