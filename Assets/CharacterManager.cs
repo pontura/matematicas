@@ -7,8 +7,8 @@ using System;
 
 public class CharacterManager : MonoBehaviour {
 
-    public GameObject[] skin;
 
+    public SpriteRenderer[] skinContainer;
     public SpriteRenderer[] clothesContainer;
     public SpriteRenderer[] shoesContainer;
     public SpriteRenderer[] legsContainer;
@@ -46,19 +46,13 @@ public class CharacterManager : MonoBehaviour {
 
     public void ChangeShoes(bool next)
     {
+        savedSettings.myPlayerSettings.shoes = ChangeCloth(clothSettings.shoes, next, savedSettings.myPlayerSettings.shoes);
     }
-    public void ChangeTop(bool next)
+    public void ChangeSkin(bool next)
     {
-       
+        savedSettings.myPlayerSettings.skin = ChangeCloth(clothSettings.skin, next, savedSettings.myPlayerSettings.skin);
     }
-    public void ChangeHair(bool next)
-    {
-    
-    }
-    public void ChangeFaces(bool next)
-    {
-       
-    }
+
     private string pathTemp;
 
     public int ChangeCloth(List<string> arr, bool next, int idNum)
@@ -97,7 +91,7 @@ public class CharacterManager : MonoBehaviour {
             pathTemp = path + "_arm2b.png";
             StartCoroutine("LoadImages", clothesContainer[5]);
         }
-        if (arr == clothSettings.legs)
+        else if (arr == clothSettings.legs)
         {
             string path = pathPreFix + clothSettings.legs[idNum];
             //boysTop_B_torax1
@@ -111,6 +105,66 @@ public class CharacterManager : MonoBehaviour {
             StartCoroutine("LoadImages", legsContainer[3]);
             pathTemp = path + "_leg2b.png";
             StartCoroutine("LoadImages", legsContainer[4]);
+        }
+        else if (arr == clothSettings.shoes)
+        {
+            string path = pathPreFix + clothSettings.shoes[idNum];
+            //boysShoes_A_1a
+            pathTemp = path + "_1a.png";
+            StartCoroutine("LoadImages", shoesContainer[0]);
+            pathTemp = path + "_1b.png";
+            StartCoroutine("LoadImages", shoesContainer[1]);
+            pathTemp = path + "_2a.png";
+            StartCoroutine("LoadImages", shoesContainer[2]);
+            pathTemp = path + "_2b.png";
+            StartCoroutine("LoadImages", shoesContainer[3]);
+        }
+        else if (arr == clothSettings.skin)
+        {
+            string path = pathPreFix + @"images\skin\";
+            idNum += 1;
+
+            pathTemp = path + "boys_boy_head_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[0]);
+            pathTemp = path + "boys_boy_nose_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[1]);
+            pathTemp = path + "boys_boy_torax_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[2]);
+
+            pathTemp = path + "boys_boy_arm1a_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[3]);
+            pathTemp = path + "boys_boy_arm1b_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[4]);
+            pathTemp = path + "boys_boy_hand1a_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[5]);
+            pathTemp = path + "boys_boy_hand1b_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[6]);
+
+
+            pathTemp = path + "boys_boy_arm2a_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[7]);
+            pathTemp = path + "boys_boy_arm2b_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[8]);
+            pathTemp = path + "boys_boy_hand2a_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[9]);
+            pathTemp = path + "boys_boy_hand2b_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[10]);
+
+            pathTemp = path + "boys_boy_leg1a_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[11]);
+            pathTemp = path + "boys_boy_leg1b_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[12]);
+            pathTemp = path + "boys_boy_foot1_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[13]);
+
+            pathTemp = path + "boys_boy_leg2a_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[14]);
+            pathTemp = path + "boys_boy_leg2b_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[15]);            
+            pathTemp = path + "boys_boy_foot2_skin" + idNum + ".png";
+            StartCoroutine("LoadImages", skinContainer[16]);
+
+            
         }
 
         print(pathTemp);

@@ -11,6 +11,8 @@ public class SavedSettings : MonoBehaviour {
         public string username;
         public int clothes;
         public int legs;
+        public int shoes;
+        public int skin;
     }    
     public PlayerSettings myPlayerSettings;
     public int totalPlayersInThisDisciplina;

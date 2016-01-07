@@ -8,13 +8,15 @@ public class ClothesSettings : MonoBehaviour {
 
     public List<string> clothes;
     public List<string> legs;
-    public List<string> hairs;
-    public List<string> faces;
+    public List<string> shoes;
+    public List<string> skin;
+
 
 	void Start () {
         LoadArray(clothes, @"images\clothes\");
         LoadArray(legs, @"images\legs\");
-        //LoadArray(hairs, @"images\hair\");
+        LoadArray(shoes, @"images\shoes\");
+        //LoadArray(skin, @"images\hair\");
         //LoadArray(legs, @"images\bottom\");
         //LoadArray(faces, @"images\face\");
 	}
