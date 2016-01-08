@@ -13,6 +13,7 @@ public class SavedSettings : MonoBehaviour {
         public int legs;
         public int shoes;
         public int skin;
+        public int hairs;
     }    
     public PlayerSettings myPlayerSettings;
     public int totalPlayersInThisDisciplina;

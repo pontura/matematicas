@@ -12,6 +12,7 @@ public class CharacterManager : MonoBehaviour {
     public SpriteRenderer[] clothesContainer;
     public SpriteRenderer[] shoesContainer;
     public SpriteRenderer[] legsContainer;
+    public SpriteRenderer[] hairsContainer;
     
 
     GameObject[] gameObj;
@@ -51,6 +52,10 @@ public class CharacterManager : MonoBehaviour {
     public void ChangeSkin(bool next)
     {
         savedSettings.myPlayerSettings.skin = ChangeCloth(clothSettings.skin, next, savedSettings.myPlayerSettings.skin);
+    }
+    public void ChangeHair(bool next)
+    {
+        savedSettings.myPlayerSettings.hairs = ChangeCloth(clothSettings.hairs, next, savedSettings.myPlayerSettings.hairs);
     }
 
     private string pathTemp;
@@ -164,55 +169,17 @@ public class CharacterManager : MonoBehaviour {
             pathTemp = path + "boys_boy_foot2_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[16]);
 
-            
+
         }
+        else if (arr == clothSettings.hairs)
+        {
+            string path = pathPreFix + clothSettings.hairs[idNum];
 
-        print(pathTemp);
-        //if (arr == clothSettings.arm)
-        //{
-        //    pathTemp = pathPreFix + clothSettings.arm[idNum] + ".png";
-        //    StartCoroutine("LoadImages", shoesContainer[0]);
-        //    StartCoroutine("LoadImages", shoesContainer[1]);
-        //}
-        //else if (arr == clothSettings.faces)
-        //{
-        //    pathTemp = pathPreFix + clothSettings.faces[idNum] + ".png";
-        //    StartCoroutine("LoadImages", HeadContainer[0]);
-        //}
-        //else if (arr == clothSettings.tops)
-        //{
-        //    pathTemp = pathPreFix + clothSettings.tops[idNum] + "_a.png";
-        //    StartCoroutine("LoadImages", BodyContainer[0]);
-
-        //    pathTemp = pathPreFix + clothSettings.tops[idNum] + "_b.png";
-        //    StartCoroutine("LoadImages", Arm1Container[0]);
-        //    StartCoroutine("LoadImages", Arm1Container[1]);
-
-        //    pathTemp = pathPreFix + clothSettings.tops[idNum] + "_c.png";
-        //    StartCoroutine("LoadImages", Arm2Container[0]);
-        //    StartCoroutine("LoadImages", Arm2Container[1]);
-
-        //    pathTemp = pathPreFix + clothSettings.tops[idNum] + "_d.png";
-        //    StartCoroutine("LoadImages", Arm3Container[0]);
-        //    StartCoroutine("LoadImages", Arm3Container[1]);
-        //}
-        //else if (arr == clothSettings.legs)
-        //{
-        //    pathTemp = pathPreFix + clothSettings.legs[idNum] + "_a.png";
-        //    StartCoroutine("LoadImages", HipContainer[0]);
-
-        //    pathTemp = pathPreFix + clothSettings.legs[idNum] + "_b.png";
-        //    StartCoroutine("LoadImages", LegsContainer[0]);
-        //    StartCoroutine("LoadImages", LegsContainer[1]);
-        //}
-        //else if (arr == clothSettings.hairs)
-        //{
-        //    pathTemp = pathPreFix + clothSettings.hairs[idNum] + "_a.png";
-        //    StartCoroutine("LoadImages", Hair1Container[0]);
-
-        //    pathTemp = pathPreFix + clothSettings.hairs[idNum] + "_b.png";
-        //    StartCoroutine("LoadImages", Hair2Container[0]);
-        //}
+            pathTemp = path + "_1.png";
+            StartCoroutine("LoadImages", hairsContainer[0]);
+            pathTemp = path + "_2.png";
+            StartCoroutine("LoadImages", hairsContainer[1]);
+        }
     }
     public void ChangeColor(bool next)
     {
@@ -226,7 +193,7 @@ public class CharacterManager : MonoBehaviour {
 
     private IEnumerator LoadImages(SpriteRenderer spriteContainer)
     {
-       // print("loading: " + pathTemp);
+        print("loading: " + pathTemp);
         WWW www = new WWW(pathTemp);
         yield return www;
 

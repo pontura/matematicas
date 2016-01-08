@@ -53,6 +53,9 @@ public class Customizer : MonoBehaviour {
             case 4:
                 characterManager.ChangeSkin(next);
                 break;
+            case 5:
+                characterManager.ChangeHair(next);
+                break;
         }
         Resources.UnloadUnusedAssets();
     }
