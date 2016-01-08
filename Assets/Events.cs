@@ -5,6 +5,9 @@ public static class Events {
 
     public static System.Action<IslandsManager.DataIsland> Map_OpenIslandSignal = delegate { };
 
+    public static System.Action OnUserRegistration = delegate { };
+    public static System.Action OnUserPasswordValidated = delegate { };
+
     public static System.Action OnMinigameStart = delegate { };
     public static System.Action OnMinigameReady = delegate { };
     public static System.Action OnMinigameMistake = delegate { };

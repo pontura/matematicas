@@ -3,12 +3,22 @@ using System.Collections;
 
 public class UserData : MonoBehaviour {
 
+    public string userID;
+    public string username;
+    public string password;
+    public int passwordValidated;
+
     public int islandActive;
     public int missionActive;
     private Inventary inventary;
 
     void Start()
     {
+        userID = PlayerPrefs.GetString("userID");
+        username = PlayerPrefs.GetString("username");
+        password = PlayerPrefs.GetString("password");
+        passwordValidated = PlayerPrefs.GetInt("passwordValidated", 0);
+
         islandActive = PlayerPrefs.GetInt("islandActive", 1);
         missionActive = PlayerPrefs.GetInt("missionActive", 0);
 
@@ -25,6 +35,30 @@ public class UserData : MonoBehaviour {
         Events.OnNewMission += OnNewMission;
         Events.OnMissionComplete += OnMissionComplete;
         Events.OnResetApp += OnResetApp;
+    }
+    public void OnRegistration(string _username, string _userID, string _password)
+    {
+        print("OnRegistration");
+        this.username = _username;
+        this.userID = _userID;
+        this.password = _password;
+        passwordValidated = 0;
+
+        PlayerPrefs.SetString("userID", _userID);
+        PlayerPrefs.SetString("username", _username);
+        PlayerPrefs.SetString("password", _password);
+        PlayerPrefs.SetInt("passwordValidated", 0);
+
+    }
+    public bool OnValidatePassword(string _password)
+    {
+        if (password == _password)
+        {
+            passwordValidated = 1;
+            PlayerPrefs.SetInt("passwordValidated", 1);
+            return true;
+        }
+        return false;
     }
     void OnResetApp()
     {
