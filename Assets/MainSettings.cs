@@ -22,5 +22,10 @@ public class MainSettings : MonoBehaviour {
         PlayerPrefs.DeleteAll();
         Data.Instance.LoadLevel("01_Main");
     }
+    public void Customizer()
+    {
+        Game.Instance.gameManager.Open("Customizer");
+        Close();
+    }
 
 }

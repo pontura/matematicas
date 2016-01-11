@@ -8,7 +8,12 @@ public class SavedSettings : MonoBehaviour {
     [Serializable]
     public class PlayerSettings
     {
-        public string username;
+        public enum sexType
+        {
+            VARON,
+            MUJER
+        }
+        public sexType sex;
         public int clothes;
         public int legs;
         public int shoes;
@@ -16,119 +21,59 @@ public class SavedSettings : MonoBehaviour {
         public int hairs;
     }    
     public PlayerSettings myPlayerSettings;
-    public int totalPlayersInThisDisciplina;
-
-    public List<PlayerSettings>savedPlayers;
     private ClothesSettings clothSettings;
 
-	void Start () {
-        clothSettings = Data.Instance.clothesSettings;
-        LoadSavedPlayers();
-        myPlayerSettings = new PlayerSettings();
-        int disciplinaID = 0;  
-	}
-    public void AddPlayerCloth(string part, int clothID)
+    public void ToggleSex()
     {
-        print("part " + part + " clothID " + clothID);
-        switch (part)
-        {
-            case "clothes": myPlayerSettings.clothes = clothID; break;
-            case "legs": myPlayerSettings.legs = clothID; break;
-        }
+        if (myPlayerSettings.sex == PlayerSettings.sexType.VARON)
+            myPlayerSettings.sex = PlayerSettings.sexType.MUJER;
+        else myPlayerSettings.sex = PlayerSettings.sexType.VARON;
+    }
+    public PlayerSettings.sexType GetSex()
+    {
+        return myPlayerSettings.sex;
+    }
+
+	void Start () {
+
+        Events.OnCustomizerSave += OnCustomizerSave;
+
+        clothSettings = Data.Instance.clothesSettings;
+        myPlayerSettings = new PlayerSettings();
+
+        int sex = PlayerPrefs.GetInt("sex", 0);
+        if (sex == 0)
+            myPlayerSettings.sex = PlayerSettings.sexType.VARON;
+        else myPlayerSettings.sex = PlayerSettings.sexType.MUJER;
+
+        myPlayerSettings.clothes = PlayerPrefs.GetInt("clothes", 0);
+        myPlayerSettings.legs = PlayerPrefs.GetInt("legs", 0);
+        myPlayerSettings.shoes = PlayerPrefs.GetInt("shoes", 0);
+        myPlayerSettings.skin = PlayerPrefs.GetInt("skin", 0);
+        myPlayerSettings.hairs = PlayerPrefs.GetInt("hairs", 0);
+
+	}
+    void OnDestroy()
+    {
+        Events.OnCustomizerSave -= OnCustomizerSave;
     }
     public void CreateRandomPlayer()
     {
-       // myPlayerSettings.color = UnityEngine.Random.Range(0, 4);
-        print(myPlayerSettings);
-        print(clothSettings);
         myPlayerSettings.clothes = GetRandom(clothSettings.clothes);
     }
     private int GetRandom(List<string> list)
     {
         return UnityEngine.Random.Range(0, list.Count - 1);
     }
-    public void AddPlayer()
+    void OnCustomizerSave()
     {
-        if (totalPlayersInThisDisciplina > 10)
-        {
-            savedPlayers.RemoveAt(0);
-        }        
-        PlayerSettings playerSettings = new PlayerSettings();
-        playerSettings = myPlayerSettings;
-        savedPlayers.Add(playerSettings);
-        SavePlayers(0);
-        
-    }
-    void SavePlayers(int disciplinaId)
-    {
-        //int id = 1;
-        //foreach (PlayerSettings playerSettings in savedPlayers)
-        //{
-        //    PlayerPrefs.SetString("d_" + disciplinaId + "_p" + id,
-        //    playerSettings.username + "_" +
-        //    playerSettings.color + "_" +
-        //    playerSettings.hair + "_" +
-        //    playerSettings.face + "_" +
-        //    playerSettings.body + "_" +
-        //    playerSettings.bottom + "_" +
-        //    playerSettings.shoes + "_" + 
-        //    playerSettings.glasses
-        //    );
-        //    id++;
-        //    if (id > 10) return;
-        //}
-    }
-    public void LoadSavedPlayers()
-    {
-        savedPlayers.Clear();
-        totalPlayersInThisDisciplina = 1;
-        int disciplinaID = 0;
-        string playerData;
-        for (int a = 1; a < 11; a++)
-        {
-            playerData = PlayerPrefs.GetString("d_" + disciplinaID + "_p" + a);
-            if (playerData.Length > 1)
-            {
-                String[] textSplit = playerData.Split("_"[0]);
-
-                PlayerSettings playerSettings = new PlayerSettings();
-
-                //playerSettings.username = textSplit[0];
-                //playerSettings.color = int.Parse(textSplit[1]);
-                //playerSettings.hair = int.Parse(textSplit[2]);
-                //playerSettings.face = int.Parse(textSplit[3]);
-                //playerSettings.body = int.Parse(textSplit[4]);
-                //playerSettings.bottom = int.Parse(textSplit[5]);
-                //playerSettings.shoes = int.Parse(textSplit[6]);
-                //playerSettings.glasses = int.Parse(textSplit[7]);
-
-                savedPlayers.Add(playerSettings);
-                totalPlayersInThisDisciplina++;
-            }
-        }
-    }
-    public PlayerSettings GetClothes(int disciplinaID, int id)
-    {
-        PlayerSettings playerSettings = null;
-
-        string playerData;
-        playerData = PlayerPrefs.GetString("d_" + disciplinaID + "_p" + id);
-        if (playerData.Length > 1)
-        {
-            String[] textSplit = playerData.Split("_"[0]);
-
-            playerSettings = new PlayerSettings();
-
-            //playerSettings.username = textSplit[0];
-            //playerSettings.color = int.Parse(textSplit[1]);
-            //playerSettings.hair = int.Parse(textSplit[2]);
-            //playerSettings.face = int.Parse(textSplit[3]);
-            //playerSettings.body = int.Parse(textSplit[4]);
-            //playerSettings.bottom = int.Parse(textSplit[5]);
-            //playerSettings.shoes = int.Parse(textSplit[6]);
-            //playerSettings.glasses = int.Parse(textSplit[7]);
-        }
-
-        return playerSettings;
+        int sex = 0;
+        if (myPlayerSettings.sex == PlayerSettings.sexType.MUJER) sex = 1;
+        PlayerPrefs.SetInt("sex", sex);
+        PlayerPrefs.SetInt("clothes", myPlayerSettings.clothes);
+        PlayerPrefs.SetInt("legs", myPlayerSettings.legs);
+        PlayerPrefs.SetInt("shoes", myPlayerSettings.shoes);
+        PlayerPrefs.SetInt("skin", myPlayerSettings.skin);
+        PlayerPrefs.SetInt("hairs", myPlayerSettings.hairs);
     }
 }

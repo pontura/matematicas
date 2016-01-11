@@ -5,8 +5,27 @@ public class SceneBackgrounds : MonoBehaviour {
 
     public MiningameBackground[] minigames;
 
-	void Start () {
-        foreach(MiningameBackground minigameBg in minigames)
+    public GameObject Customizer;
+
+    void Start()
+    {
+        ResetScenes();
+        Events.OnCustomizerActive += OnCustomizerActive;
+    }
+    void ResetScenes()
+    {
+        foreach (MiningameBackground minigameBg in minigames)
             minigameBg.gameObject.SetActive(false);
-	}
+
+        Customizer.SetActive(false);
+    }
+	void OnDestroy()
+    {
+        Events.OnCustomizerActive -= OnCustomizerActive;
+    }
+    void OnCustomizerActive(bool state)
+    {
+        ResetScenes();
+        Customizer.gameObject.SetActive(state);
+    }
 }

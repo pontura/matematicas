@@ -18,6 +18,7 @@ public class ClothesSettings : MonoBehaviour {
         LoadArray(legs, @"images\legs\");
         LoadArray(shoes, @"images\shoes\");
         LoadArrayHairs(hairs, @"images\hair\");
+     //   LoadArrayHairs(skin, @"images\skin\");
 	}
 
     private void LoadArray(List<string> arr, string path)
@@ -28,11 +29,10 @@ public class ClothesSettings : MonoBehaviour {
         {
             String[] textSplit = name.Split("."[0])[0].Split("_"[0]);
 
-
             string realName = textSplit[0] + "_" + textSplit[1];
-           // print(name + "           " + textSplit.Length);
-
-            if (realName != lastName)
+            // print(name + "           " + textSplit.Length);
+            realName = AddSex(realName);
+            if (realName != "" && realName != lastName)
             {
                 arr.Add(realName);
                 lastName = realName;
@@ -47,15 +47,22 @@ public class ClothesSettings : MonoBehaviour {
         {
             String[] textSplit = name.Split("."[0])[0].Split("_"[0]);
 
-
+            
             string realName = textSplit[0] + "_" + textSplit[1] + "_" + textSplit[2];
             // print(name + "           " + textSplit.Length);
-
-            if (realName != lastName)
+            realName = AddSex(realName);
+            if (realName != "" && realName != lastName)
             {
                 arr.Add(realName);
                 lastName = realName;
             }
         }
+    }
+    private string AddSex(string text)
+    {
+        if (text.Contains("boys"))
+            return text.Replace("boys", "_SEX_");
+        else
+            return "";
     }
 }

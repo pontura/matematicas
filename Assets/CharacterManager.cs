@@ -22,6 +22,7 @@ public class CharacterManager : MonoBehaviour {
     private string pathPreFix;
     private ClothesSettings clothSettings;
     private SavedSettings savedSettings;
+    private string sex;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class CharacterManager : MonoBehaviour {
         savedSettings = Data.Instance.savedSettings;
 
     }
+    
 
     public void Idle()
     {
@@ -77,7 +79,8 @@ public class CharacterManager : MonoBehaviour {
         clothSettings = Data.Instance.clothesSettings;
         savedSettings = Data.Instance.savedSettings;
 
-        
+        sex = "boys";
+        if (savedSettings.GetSex() == SavedSettings.PlayerSettings.sexType.MUJER) sex = "girls";
 
         if (arr == clothSettings.clothes)
         {
@@ -129,44 +132,47 @@ public class CharacterManager : MonoBehaviour {
             string path = pathPreFix + @"images\skin\";
             idNum += 1;
 
-            pathTemp = path + "boys_boy_head_skin" + idNum + ".png";
+            string sex_skin = "boys_boy";
+            if (sex == "girls") sex_skin = "girls_girl";
+
+            pathTemp = path + sex_skin + "_head_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[0]);
-            pathTemp = path + "boys_boy_nose_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_nose_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[1]);
-            pathTemp = path + "boys_boy_torax_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_torax_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[2]);
 
-            pathTemp = path + "boys_boy_arm1a_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_arm1a_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[3]);
-            pathTemp = path + "boys_boy_arm1b_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_arm1b_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[4]);
-            pathTemp = path + "boys_boy_hand1a_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_hand1a_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[5]);
-            pathTemp = path + "boys_boy_hand1b_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_hand1b_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[6]);
 
 
-            pathTemp = path + "boys_boy_arm2a_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_arm2a_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[7]);
-            pathTemp = path + "boys_boy_arm2b_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_arm2b_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[8]);
-            pathTemp = path + "boys_boy_hand2a_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_hand2a_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[9]);
-            pathTemp = path + "boys_boy_hand2b_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_hand2b_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[10]);
 
-            pathTemp = path + "boys_boy_leg1a_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_leg1a_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[11]);
-            pathTemp = path + "boys_boy_leg1b_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_leg1b_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[12]);
-            pathTemp = path + "boys_boy_foot1_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_foot1_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[13]);
 
-            pathTemp = path + "boys_boy_leg2a_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_leg2a_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[14]);
-            pathTemp = path + "boys_boy_leg2b_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_leg2b_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[15]);            
-            pathTemp = path + "boys_boy_foot2_skin" + idNum + ".png";
+            pathTemp = path + sex_skin + "_foot2_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[16]);
 
 
@@ -193,6 +199,7 @@ public class CharacterManager : MonoBehaviour {
 
     private IEnumerator LoadImages(SpriteRenderer spriteContainer)
     {
+        pathTemp = pathTemp.Replace("_SEX_", sex); 
         print("loading: " + pathTemp);
         WWW www = new WWW(pathTemp);
         yield return www;

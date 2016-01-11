@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     public Screen Barco;
     public Screen Logros;
     public Screen Block;
+    public Screen Customizer;
     
     public Screen IslandDetail;
     public Screen Trip;
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour {
             case "Barco": Barco.Activate(true); tvImage.SetActive(true); break;
             case "Trip": Block.Activate(true); tvImage.SetActive(false); break;
             case "Logros": Logros.Activate(true); tvImage.SetActive(false); break;
+            case "Customizer": Events.OnCustomizerActive(true); Customizer.Activate(true); tvImage.SetActive(true); break;
             case "IslandDetail": IslandDetail.Activate(true); tvImage.SetActive(false); break;
         }
 	}
@@ -44,10 +46,12 @@ public class GameManager : MonoBehaviour {
         Mapa.Activate(false);
         Isla.Activate(false);
         Barco.Activate(false);
-       // Block.Activate(false);
+        Customizer.Activate(false);
         Trip.Activate(false);
         IslandDetail.Activate(false);
         Logros.Activate(false);
+
+        Events.OnCustomizerActive(false);
     }
     public void IslandDetailPopup()
     {

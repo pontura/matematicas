@@ -50,4 +50,9 @@ public class MainScreen : MonoBehaviour {
         userLogged.SetActive(true);
         GetComponent<UserLogged>().Init();
     }
+    public void Registry()
+    {
+        ResetScreens();
+        userRegistration.SetActive(true);
+    }
 }
