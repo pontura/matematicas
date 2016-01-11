@@ -25,6 +25,7 @@ public class Customizer : MonoBehaviour {
     {
        savedSettings.ToggleSex();
        SetSexButton();
+       Delay();
     }
    void SetSexButton()
    {
@@ -79,6 +80,9 @@ public class Customizer : MonoBehaviour {
     public void Ok()
     {
         Events.OnCustomizerSave();
+        gameObject.SetActive(false);
+        Events.OnCustomizerActive(false);
+        Game.Instance.mainMenu.Isla();
     }
     public void Ready()
     {

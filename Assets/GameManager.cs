@@ -28,10 +28,16 @@ public class GameManager : MonoBehaviour {
             case "Barco": Barco.Activate(true); tvImage.SetActive(true); break;
             case "Trip": Block.Activate(true); tvImage.SetActive(false); break;
             case "Logros": Logros.Activate(true); tvImage.SetActive(false); break;
-            case "Customizer": Events.OnCustomizerActive(true); Customizer.Activate(true); tvImage.SetActive(true); break;
             case "IslandDetail": IslandDetail.Activate(true); tvImage.SetActive(false); break;
         }
 	}
+    public void OpenCustomizer()
+    {
+        InactivateScreens();
+        Events.OnCustomizerActive(true); 
+        Customizer.Activate(true); 
+        tvImage.SetActive(true);
+    }
     public void OpenBlock()
     {
         Block.Activate(true);

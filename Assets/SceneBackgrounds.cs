@@ -25,7 +25,6 @@ public class SceneBackgrounds : MonoBehaviour {
     }
     void OnCustomizerActive(bool state)
     {
-        ResetScenes();
         Customizer.gameObject.SetActive(state);
     }
 }

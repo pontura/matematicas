@@ -24,7 +24,7 @@ public class MainSettings : MonoBehaviour {
     }
     public void Customizer()
     {
-        Game.Instance.gameManager.Open("Customizer");
+        Game.Instance.gameManager.OpenCustomizer();
         Close();
     }
 

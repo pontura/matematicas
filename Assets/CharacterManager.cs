@@ -199,8 +199,7 @@ public class CharacterManager : MonoBehaviour {
 
     private IEnumerator LoadImages(SpriteRenderer spriteContainer)
     {
-        pathTemp = pathTemp.Replace("_SEX_", sex); 
-        print("loading: " + pathTemp);
+        pathTemp = pathTemp.Replace("_SEX_", sex);
         WWW www = new WWW(pathTemp);
         yield return www;
 
