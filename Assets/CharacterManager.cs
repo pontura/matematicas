@@ -29,7 +29,6 @@ public class CharacterManager : MonoBehaviour {
         pathPreFix = @"file://";
         clothSettings = Data.Instance.clothesSettings;
         savedSettings = Data.Instance.savedSettings;
-
     }
     
 
