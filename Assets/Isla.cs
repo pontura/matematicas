@@ -161,8 +161,8 @@ public class Isla : Screen {
             state = states.MISSION_EXITOSA;
             inventary.ConsumeElement(element, dataIsland.mission.qty);
             dataIsland.mission.qty = 0;
-            Events.OnAchivementWin(1);
             Events.OnMissionComplete();
+            
            
         }
         else if (totalInInventory > 0)

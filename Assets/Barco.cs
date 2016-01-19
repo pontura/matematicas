@@ -21,6 +21,7 @@ public class Barco : Screen
     }
     override public void OnScreenEnable()
     {
+        Events.OnBlockStatus(true);
         if (Game.Instance.state == Game.states.MINIGAME_READY)
         {
             

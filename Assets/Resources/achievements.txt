@@ -1,0 +1,50 @@
+{
+	achievements:
+	[
+		{
+			title: "Construir el puente",
+			type: "MISSION",
+			mission: 0			
+		},
+		{
+			title: "Construir la cataputla",
+			type: "MISSION",
+			mission: 1			
+		},
+		{
+			title: "Ayudar a la familia de pandas",
+			type: "MISSION",
+			mission: 2			
+		},
+		{
+			title: "Recorrer 1000 kilometros",
+			type: "DISTANCE",
+			distance: 1000			
+		},
+		{
+			title: "Hacer lo que sea de ejemplo....",
+			type: "MISSION",
+			mission: 3			
+		},
+		{
+			title: "Salvar 6 cohalas",
+			type: "MISSION",
+			mission: 4			
+		},
+		{
+			title: "Evitar que se derrita el polo",
+			type: "MISSION",
+			mission: 5			
+		},
+		{
+			title: "Recorrer 2000 kilometros",
+			type: "DISTANCE",
+			distance: 2000			
+		},
+		{
+			title: "Recorrer 3000 kilometros",
+			type: "DISTANCE",
+			distance: 3000			
+		}
+	]
+}

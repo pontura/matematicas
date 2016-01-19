@@ -6,6 +6,6 @@ public class Achievements : Screen
 {
     void OnEnable()
     {
-
+        Events.OnBlockStatus(false);
     }
 }

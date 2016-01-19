@@ -37,8 +37,15 @@ public class IslandsManager : MonoBehaviour {
     }
     void SetNewMission(int missionID)
     {
-        Mission mission = Data.Instance.missionsManager.missions[missionID];
-        GetIslandById(mission.islandId).mission = mission;
+        if (Data.Instance.missionsManager.missions.Count == missionID)
+        {
+            Debug.Log("No NORE MISSIONS");
+        }
+        else
+        {
+            Mission mission = Data.Instance.missionsManager.missions[missionID];
+            GetIslandById(mission.islandId).mission = mission;
+        }
     }
     public DataIsland GetIslandWithMission()
     {

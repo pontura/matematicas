@@ -74,6 +74,7 @@ public class UserData : MonoBehaviour {
     }
     void OnMissionComplete()
     {
+        AchievementsEvents.OnMissionComplete(missionActive);
         missionActive++;
         Events.OnNewMission(missionActive);
     }

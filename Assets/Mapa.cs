@@ -10,7 +10,11 @@ public class Mapa : Screen {
 	void OnEnable () {
         //Game.Instance.islandsManager.gotoIsland = null;
         ChangeIslandActive();
-        missionIcon.transform.localPosition = Game.Instance.islandsManager.GetIslandWithMission().island.transform.localPosition;
+        IslandsManager.DataIsland data = Game.Instance.islandsManager.GetIslandWithMission();
+        if (data != null)
+            missionIcon.transform.localPosition = data.island.transform.localPosition;
+        else
+            missionIcon.transform.localPosition = new Vector3(1000, 0, 0);
 	}
 	
 	void ChangeIslandActive () {
