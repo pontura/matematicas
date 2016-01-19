@@ -12,6 +12,15 @@ public class SceneBackgrounds : MonoBehaviour {
     {
         ResetScenes();
         Events.OnCustomizerActive += OnCustomizerActive;
+        Events.OnTripStarted += OnTripStarted;
+        Events.OnShipArrived += OnShipArrived;
+        
+    }
+    void OnDestroy()
+    {
+        Events.OnCustomizerActive -= OnCustomizerActive;
+        Events.OnTripStarted -= OnTripStarted;
+        Events.OnShipArrived -= OnShipArrived;
     }
     void ResetScenes()
     {
@@ -21,12 +30,16 @@ public class SceneBackgrounds : MonoBehaviour {
         Customizer.SetActive(false);
         Trip.SetActive(false);
     }
-	void OnDestroy()
-    {
-        Events.OnCustomizerActive -= OnCustomizerActive;
-    }
     void OnCustomizerActive(bool state)
     {
         Customizer.gameObject.SetActive(state);
+    }
+    void OnShipArrived()
+    {
+        Trip.SetActive(false);
+    }
+    void OnTripStarted()
+    {
+        Trip.SetActive(true);
     }
 }
