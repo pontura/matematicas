@@ -30,8 +30,6 @@ public class CharacterManager : MonoBehaviour {
         clothSettings = Data.Instance.clothesSettings;
         savedSettings = Data.Instance.savedSettings;
     }
-    
-
     public void Idle()
     {
         GetComponent<Animator>().Play("Idle1", 0, 0);
@@ -58,7 +56,11 @@ public class CharacterManager : MonoBehaviour {
     {
         savedSettings.myPlayerSettings.hairs = ChangeCloth(clothSettings.hairs, next, savedSettings.myPlayerSettings.hairs);
     }
-
+    public void SetSex(SavedSettings.PlayerSettings.sexType type)
+    {
+        sex = "boys";
+        if (type == SavedSettings.PlayerSettings.sexType.MUJER) sex = "girls";
+    }
     private string pathTemp;
 
     public int ChangeCloth(List<string> arr, bool next, int idNum)
@@ -68,22 +70,22 @@ public class CharacterManager : MonoBehaviour {
         if (idNum < 0) idNum = arr.Count - 1;
         else if (idNum > arr.Count-1) idNum = 0;
 
-        SetCloth(arr, idNum);
+        SetCloth(arr, idNum, false);
 
         return idNum;
     }
-    public void SetCloth(List<string> arr, int idNum)
+    public void SetCloth(List<string> arr, int idNum, bool npc = false)
     {
         pathPreFix = @"file://";
         clothSettings = Data.Instance.clothesSettings;
         savedSettings = Data.Instance.savedSettings;
 
-        sex = "boys";
-        if (savedSettings.GetSex() == SavedSettings.PlayerSettings.sexType.MUJER) sex = "girls";
-
         if (arr == clothSettings.clothes)
         {
+            
             string path =  pathPreFix + clothSettings.clothes[idNum];
+            if (npc)
+                path = pathPreFix + @"images\npc\clothes\npcTop_" + clothSettings.npc[idNum];
             //boysTop_B_torax1
             pathTemp = path + "_torax1.png";
             StartCoroutine("LoadImages", clothesContainer[0]);
@@ -101,7 +103,10 @@ public class CharacterManager : MonoBehaviour {
         else if (arr == clothSettings.legs)
         {
             string path = pathPreFix + clothSettings.legs[idNum];
+            if (npc)
+                path = pathPreFix + @"images\npc\clothes\npcBottom_" + clothSettings.npc[idNum];
             //boysTop_B_torax1
+            
             pathTemp = path + "_hips.png";
             StartCoroutine("LoadImages", legsContainer[0]);
             pathTemp = path + "_leg1a.png";
@@ -112,10 +117,14 @@ public class CharacterManager : MonoBehaviour {
             StartCoroutine("LoadImages", legsContainer[3]);
             pathTemp = path + "_leg2b.png";
             StartCoroutine("LoadImages", legsContainer[4]);
+            pathTemp = path + "_skirt.png";
+            StartCoroutine("LoadImages", legsContainer[5]);
         }
         else if (arr == clothSettings.shoes)
         {
             string path = pathPreFix + clothSettings.shoes[idNum];
+            if (npc)
+                path = pathPreFix + @"images\npc\clothes\npcShoes_" + clothSettings.npc[idNum];
             //boysShoes_A_1a
             pathTemp = path + "_1a.png";
             StartCoroutine("LoadImages", shoesContainer[0]);
@@ -174,11 +183,12 @@ public class CharacterManager : MonoBehaviour {
             pathTemp = path + sex_skin + "_foot2_skin" + idNum + ".png";
             StartCoroutine("LoadImages", skinContainer[16]);
 
-
         }
         else if (arr == clothSettings.hairs)
         {
             string path = pathPreFix + clothSettings.hairs[idNum];
+            if (npc)
+                path = pathPreFix + @"images\npc\hair\npcHair_" + clothSettings.npc[idNum] + "_color1";
 
             pathTemp = path + "_1.png";
             StartCoroutine("LoadImages", hairsContainer[0]);
@@ -199,6 +209,8 @@ public class CharacterManager : MonoBehaviour {
     private IEnumerator LoadImages(SpriteRenderer spriteContainer)
     {
         pathTemp = pathTemp.Replace("_SEX_", sex);
+
+       // print("LoadImages pathTemp: " + pathTemp);
         WWW www = new WWW(pathTemp);
         yield return www;
 

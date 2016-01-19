@@ -90,7 +90,7 @@ public class Trip : Screen {
         Game.Instance.inventary.ConsumeElement("nafta", 1);
         Game.Instance.inventary.ConsumeElement("comida", 1);
         Game.Instance.gameManager.Arrived();
-        Game.Instance.mainMenu.Isla();
+       // Game.Instance.mainMenu.Isla();
     }
     void DeadPorNafta()
     {

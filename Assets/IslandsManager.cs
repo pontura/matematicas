@@ -10,8 +10,17 @@ public class IslandsManager : MonoBehaviour {
     public List<DataIsland> islands;
 
     [Serializable]
-    public class DataIsland
+    public class NpcSettings
     {
+        public SavedSettings.PlayerSettings.sexType sex;
+        public int hair;
+        public int clothes;
+        public int legs;
+        public int shoes;
+    }
+    [Serializable]
+    public class DataIsland
+    {        
         public string name;
         public int distance;
         public Mission mission;
@@ -21,6 +30,7 @@ public class IslandsManager : MonoBehaviour {
         public bool arena;
         public bool piedras;
         public MinigamesManager.types minigameType;
+        public NpcSettings npsSettings;
     }
 	void Start () {
         activeIsland = GetIslandById( Data.Instance.userData.islandActive );

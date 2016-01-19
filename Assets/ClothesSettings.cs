@@ -11,6 +11,7 @@ public class ClothesSettings : MonoBehaviour {
     public List<string> shoes;
     public List<string> skin;
     public List<string> hairs;
+    public List<string> npc;
 
 
 	void Start () {
