@@ -6,6 +6,7 @@ public class SceneBackgrounds : MonoBehaviour {
     public MiningameBackground[] minigames;
 
     public GameObject Customizer;
+    public GameObject Trip;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class SceneBackgrounds : MonoBehaviour {
             minigameBg.gameObject.SetActive(false);
 
         Customizer.SetActive(false);
+        Trip.SetActive(false);
     }
 	void OnDestroy()
     {
