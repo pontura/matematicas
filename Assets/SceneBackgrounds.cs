@@ -22,10 +22,10 @@ public class SceneBackgrounds : MonoBehaviour {
         Events.OnTripStarted -= OnTripStarted;
         Events.OnShipArrived -= OnShipArrived;
     }
-    void ResetScenes()
+    public void ResetScenes()
     {
         foreach (MiningameBackground minigameBg in minigames)
-            minigameBg.gameObject.SetActive(false);
+            minigameBg.SetOff();
 
         Customizer.SetActive(false);
         Trip.SetActive(false);

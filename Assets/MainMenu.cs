@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour {
     public GameObject blockOn;
     public GameObject blockOff;
     private bool BlockOpened;
+    public SceneBackgrounds scenesBackground;
 
 	void Start () {
         masker.SetActive(false);
@@ -49,12 +50,15 @@ public class MainMenu : MonoBehaviour {
     }
     public void Mapa()
     {
+        scenesBackground.ResetScenes();
         SetActive(1);
         gameManager.Open("Mapa");
     }
     public void Isla(bool forceGoToMainIsland = false)
     {
+        scenesBackground.ResetScenes();
         SetActive(2);
+
         //if (Game.Instance.islandsManager.gotoIsland != null && Game.Instance.islandsManager.gotoIsland.distance > 1 && !forceGoToMainIsland)
         //    gameManager.Open("IslandDetail");
         //else
@@ -62,11 +66,13 @@ public class MainMenu : MonoBehaviour {
     }
     public void IslaActiva()
     {
+        scenesBackground.ResetScenes();
         SetActive(2);
         gameManager.Open("Isla");
     }
     public void Barco()
     {
+        scenesBackground.ResetScenes();
         SetActive(3);
         gameManager.Open("Barco");
     }
@@ -90,6 +96,7 @@ public class MainMenu : MonoBehaviour {
     }
     public void Logros()
     {
+        scenesBackground.ResetScenes();
         SetActive(5);
         gameManager.Open("Logros");
     }

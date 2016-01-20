@@ -36,6 +36,7 @@ public class Customizer : MonoBehaviour {
    }
     void Delay()
     {
+       characterManager.SetSex(savedSettings.GetSex());
        characterManager.SetCloth(clothesSettings.clothes, savedSettings.myPlayerSettings.clothes);
        characterManager.SetCloth(clothesSettings.legs, savedSettings.myPlayerSettings.legs);
        characterManager.SetCloth(clothesSettings.shoes, savedSettings.myPlayerSettings.shoes);

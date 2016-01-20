@@ -54,12 +54,12 @@ public class Isla : Screen {
 
         if(dataIsland.minigameType == MinigamesManager.types.PESAR)
         {
-            minigamePeso.gameObject.SetActive(true);
+            minigamePeso.Init();
             minigame.GetComponent<MinigamePesos>().Init();
-        }
+        } else
         if (dataIsland.minigameType == MinigamesManager.types.SIMPLE_INPUT)
         {
-            minigameSimpleInput.gameObject.SetActive(true);
+            minigameSimpleInput.Init();
             minigame.GetComponent<MinigameSimpleInput>().Init();
         }
         Events.OnBlockStatus(true);
