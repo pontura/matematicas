@@ -12,7 +12,7 @@ public class Achievement  {
         MISSION_COMPLETE,
         DISTANCE
     }
-
+    public string image;
     public int id;
     public bool ready;
     public int points;

@@ -16,6 +16,7 @@ public class AchievementUI : MonoBehaviour {
             AchivementButtonUI button = Instantiate(achievementButton);
             button.transform.SetParent(container);
             button.id = id;
+            button.LoadImage(achievement.image);
             button.GetComponent<Button>().onClick.AddListener(() => { Clicked(button); });
             button.transform.localScale = Vector2.one;
             id++;

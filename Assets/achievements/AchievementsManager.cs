@@ -55,6 +55,14 @@ public class AchievementsManager : MonoBehaviour
         string filepath = (Application.dataPath + jsonUrl);
         TextAsset file = Resources.Load(jsonUrl) as TextAsset;
         LoadDataromServer(file.text);
+        Events.OnResetApp += OnResetApp;
+    }
+    void OnResetApp()
+    {
+        foreach ( Achievement ach in achievements)
+        {
+            ach.ready = false;
+        }
     }
     public void LoadDataromServer(string json_data)
     {
@@ -71,6 +79,7 @@ public class AchievementsManager : MonoBehaviour
                     AchievementMission achievement_mission = new AchievementMission();
                     achievement_mission.title = Json[arrayName][a]["title"];
                     achievement_mission.id = a;
+                    achievement_mission.image = Json[arrayName][a]["image"];
                     achievement_mission.mission = int.Parse(Json[arrayName][a]["mission"]);
                     achievement_mission.Init();
                     achievements.Add(achievement_mission);
@@ -79,6 +88,7 @@ public class AchievementsManager : MonoBehaviour
                     AchievementDistance achievement_distance = new AchievementDistance();
                     achievement_distance.title = Json[arrayName][a]["title"];
                     achievement_distance.id = a;
+                    achievement_distance.image = Json[arrayName][a]["image"];
                     achievement_distance.pointsToBeReady = int.Parse(Json[arrayName][a]["distance"]);
                     achievement_distance.Init();
                     achievements.Add(achievement_distance);

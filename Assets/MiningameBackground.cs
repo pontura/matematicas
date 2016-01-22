@@ -16,10 +16,12 @@ public class MiningameBackground : MonoBehaviour {
         Events.OnMinigameStart += OnMinigameStart;
         Events.OnMinigameReady += OnMinigameReady;
         Events.OnMinigameMistake += OnMinigameMistake;
+        Events.OnCustomizerSave += OnCustomizerSave;
 	}
 
     void OnDestroy()
     {
+        Events.OnCustomizerSave -= OnCustomizerSave;
         Events.OnMinigameStart -= OnMinigameStart;
         Events.OnMinigameReady -= OnMinigameReady;
         Events.OnMinigameMistake -= OnMinigameMistake;
@@ -45,7 +47,17 @@ public class MiningameBackground : MonoBehaviour {
             GameObject.Destroy(npcCharacterManager.gameObject);
             npcCharacterManager = null;
         }
-        
+        CustomizeCharacters();
+        loaded = true;
+
+    }
+    void OnCustomizerSave()
+    {
+        //resetea para cargar de nuevo
+        lastIslandID = 0;
+    }
+    void CustomizeCharacters()
+    {
         ClothesSettings clothesSettings = Data.Instance.clothesSettings;
         SavedSettings savedSettings = Data.Instance.savedSettings;
 
@@ -60,7 +72,7 @@ public class MiningameBackground : MonoBehaviour {
         characterManager.SetCloth(clothesSettings.shoes, savedSettings.myPlayerSettings.shoes);
         characterManager.SetCloth(clothesSettings.hairs, savedSettings.myPlayerSettings.hairs);
         characterManager.SetCloth(clothesSettings.skin, savedSettings.myPlayerSettings.skin);
-    
+
 
         npcCharacterManager = Instantiate(characterManagerModel);
         npcCharacterManager.transform.SetParent(container_npc.transform);
@@ -75,9 +87,6 @@ public class MiningameBackground : MonoBehaviour {
         npcCharacterManager.SetCloth(clothesSettings.shoes, npcSetings.shoes, true);
         npcCharacterManager.SetCloth(clothesSettings.hairs, npcSetings.shoes, true);
         //npcCharacterManager.SetCloth(clothesSettings.skin, 0, true);
-
-        loaded = true;
-
     }
     void OnMinigameStart()
     {

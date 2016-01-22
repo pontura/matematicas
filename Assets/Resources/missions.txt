@@ -12,7 +12,7 @@
 		{
 			id: "2",
 			islandId: "2",
-			description: "Necesitamos [qty] caja/s de [element] para construir una catapulta",
+			description: "Solo nos faltan [qty] caja/s de [element] para hacer un dique y salvar a un tigre que quedó atrapado",
 			element : "PIEDRAS",
 			qty: "5",
 		}
