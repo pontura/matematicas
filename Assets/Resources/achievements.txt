@@ -5,55 +5,78 @@
 			title: "Construir el puente",
 			type: "MISSION",
 			image: "iconBridge.png",
-			mission: 0			
+			mission: 0,
+			progress:1
 		},
 		{
-			title: "Construir la cataputla",
+			title: "Agrandar el puente",
 			type: "MISSION",
 			image: "iconBridge.png",
-			mission: 1			
+			mission: 1,
+			progress:2		
 		},
 		{
 			title: "Ayudar a los delfines",
 			type: "MISSION",
 			image: "iconDolphin.png",
-			mission: 2			
+			mission: 2,
+			progress:1		
 		},
 		{
 			title: "Recorrer 1000 kilometros",
 			type: "DISTANCE",
 			image: "iconSail.png",
-			distance: 1000			
+			distance: 1000,
+			progress:1			
 		},
 		{
 			title: "Rescatar una familia de tigres",
 			type: "MISSION",
 			image: "iconTiger.png",
-			mission: 3			
+			mission: 3,
+			progress:1			
 		},
 		{
 			title: "Recuperar el habitat de los gorilas",
 			type: "MISSION",
 			image: "iconGorilla.png",
-			mission: 4			
+			mission: 4,
+			progress:1			
 		},
 		{
 			title: "Salvar la Selva de los Plátanos",
 			type: "MISSION",
 			image: "iconTree.png",
-			mission: 5			
+			mission: 5,
+			progress:1			
 		},
 		{
 			title: "Recorrer 2000 kilometros",
 			type: "DISTANCE",
 			image: "iconSail.png",
-			distance: 2000			
+			distance: 2000,
+			progress:2			
 		},
 		{
 			title: "Recorrer 3000 kilometros",
 			type: "DISTANCE",
 			image: "iconSail.png",
-			distance: 3000			
+			distance: 3000,
+			progress:3		
+		},
+		{
+			title: "Recorrer 3000 kilometros",
+			type: "DISTANCE",
+			image: "iconSail.png",
+			distance: 10000,
+			progress:4		
+		},
+		{
+			title: "Recorrer 3000 kilometros",
+			type: "DISTANCE",
+			image: "iconSail.png",
+			distance: 100000,
+			progress:5		
 		}
 	]
 }

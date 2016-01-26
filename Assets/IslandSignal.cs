@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class IslandSignal : MonoBehaviour {
 
+    public AchivementButtonUI achievementIcon;
     public GameObject panel;
     public Text title;
     public Text desc;
@@ -45,6 +46,8 @@ public class IslandSignal : MonoBehaviour {
           //  desc.text += data.mission.GetDescription();
             desc.text += data.mission.description;
             missionPanel.SetActive(true);
+            achievementIcon.LoadImage("iconBridge.png");
+            achievementIcon.SetProgress(1);
         }
         else
         {

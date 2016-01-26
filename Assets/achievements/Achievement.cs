@@ -16,6 +16,7 @@ public class Achievement  {
     public int id;
     public bool ready;
     public int points;
+    public int progress;
     public int pointsToBeReady;
 
     public void Ready()

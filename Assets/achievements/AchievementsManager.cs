@@ -79,6 +79,7 @@ public class AchievementsManager : MonoBehaviour
                     AchievementMission achievement_mission = new AchievementMission();
                     achievement_mission.title = Json[arrayName][a]["title"];
                     achievement_mission.id = a;
+                    achievement_mission.progress = int.Parse(Json[arrayName][a]["progress"]);
                     achievement_mission.image = Json[arrayName][a]["image"];
                     achievement_mission.mission = int.Parse(Json[arrayName][a]["mission"]);
                     achievement_mission.Init();
@@ -88,6 +89,7 @@ public class AchievementsManager : MonoBehaviour
                     AchievementDistance achievement_distance = new AchievementDistance();
                     achievement_distance.title = Json[arrayName][a]["title"];
                     achievement_distance.id = a;
+                    achievement_distance.progress = int.Parse(Json[arrayName][a]["progress"]);
                     achievement_distance.image = Json[arrayName][a]["image"];
                     achievement_distance.pointsToBeReady = int.Parse(Json[arrayName][a]["distance"]);
                     achievement_distance.Init();
