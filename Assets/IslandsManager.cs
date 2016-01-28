@@ -31,6 +31,8 @@ public class IslandsManager : MonoBehaviour {
         public bool piedras;
         public MinigamesManager.types minigameType;
         public NpcSettings npsSettings;
+        public int BackgroundBitmapID;
+        public int ObjectsBitmapID;
     }
 	void Start () {
         activeIsland = GetIslandById( Data.Instance.userData.islandActive );
