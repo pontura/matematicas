@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class IslandSignal : MonoBehaviour {
 
+    public Animation anim;
     public AchivementButtonUI achievementIcon;
     public GameObject panel;
     public Text title;
@@ -25,6 +26,8 @@ public class IslandSignal : MonoBehaviour {
     }
     void Map_OpenIslandSignal(IslandsManager.DataIsland data)
     {
+        
+        
         iconMadera.SetActive(false);
         iconArena.SetActive(false);
         iconPiedras.SetActive(false);
@@ -58,6 +61,9 @@ public class IslandSignal : MonoBehaviour {
             else
                 desc.text += "Esta isla es rica en " + item +  " además de poseer energía y alimentos.";
         }
+
+        anim["PopupOn"].normalizedTime = 0;
+        anim.Play("PopupOn");
     }
     public void Close()
     {

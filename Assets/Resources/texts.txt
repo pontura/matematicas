@@ -2,7 +2,7 @@
 tutorial:
 [
 	{	
-		text: "[username], ¡Empecemos creando tu personaje!"
+		text: "Hola [username],\n¡Empecemos creando tu personaje!"
 	},
 	{	
 		text: "¡Buen look, [username]!\nEste es el mapa del juego, desde aquí puedes ir a todas las islas."
