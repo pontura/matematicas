@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour {
 	}
 	public void Open(string name)
     {
+        if (name != "IslandDetail")
+             Events.OnLoading();
+
         InactivateScreens();
         switch (name)
         {

@@ -99,12 +99,4 @@ public class Customizer : MonoBehaviour {
         Events.OnCustomizerActive(false);
         Game.Instance.mainMenu.Mapa();
     }
-    public void Ready()
-    {
-        Data.Instance.LoadLevel("NameRequest");
-    }
-    public void Back()
-    {
-        Data.Instance.LoadLevel("Disciplinas");
-    }
 }

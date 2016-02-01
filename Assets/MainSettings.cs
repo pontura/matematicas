@@ -24,6 +24,7 @@ public class MainSettings : MonoBehaviour {
     }
     public void Customizer()
     {
+        Events.OnBlockStatus(false);
         Game.Instance.gameManager.OpenCustomizer();
         Close();
     }
