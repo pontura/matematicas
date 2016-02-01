@@ -4,6 +4,8 @@ using System;
 
 public class UserData : MonoBehaviour {
 
+    public bool firstTimeHere;
+
     public string userID;
     public string username;
     public string password;
@@ -19,6 +21,8 @@ public class UserData : MonoBehaviour {
         username = PlayerPrefs.GetString("username");
         password = PlayerPrefs.GetString("password");
         passwordValidated = PlayerPrefs.GetInt("passwordValidated", 0);
+
+        if (username == "") firstTimeHere = true;
 
         islandActive = PlayerPrefs.GetInt("islandActive", 1);
         missionActive = PlayerPrefs.GetInt("missionActive", 0);

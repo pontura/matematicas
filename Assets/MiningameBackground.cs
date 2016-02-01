@@ -10,6 +10,7 @@ public class MiningameBackground : MonoBehaviour {
     public CharacterManager npcCharacterManager;
 
     private int lastIslandID;
+    public GameObject[] backgrounds;
 
     private bool loaded;
 
@@ -19,7 +20,6 @@ public class MiningameBackground : MonoBehaviour {
         Events.OnMinigameMistake += OnMinigameMistake;
         Events.OnCustomizerSave += OnCustomizerSave;
 	}
-
     void OnDestroy()
     {
         Events.OnCustomizerSave -= OnCustomizerSave;
@@ -84,7 +84,20 @@ public class MiningameBackground : MonoBehaviour {
         //}
         CustomizeCharacters();
         loaded = true;
-
+        SetBackground(Game.Instance.islandsManager.activeIsland.BackgroundBitmapID);
+    }
+    void SetBackground(int id)
+    {
+        int num = 1;
+        foreach (GameObject background in backgrounds)
+        {
+            print("background.name" + background.name);
+            if (background.name == "background_" + id)
+                background.SetActive(true);
+            else
+                background.SetActive(false);
+            num++;
+        }
     }
     void OnCustomizerSave()
     {

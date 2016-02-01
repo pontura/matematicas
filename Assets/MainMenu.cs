@@ -11,14 +11,17 @@ public class MainMenu : MonoBehaviour {
     public GameObject blockOff;
     private bool BlockOpened;
     public SceneBackgrounds scenesBackground;
+    private bool showTutorial;
 
 	void Start () {
         masker.SetActive(false);
         gameManager = GetComponent<GameManager>();
-        Invoke("Mapa", 0.5f); 
         Events.OnTripStarted += OnTripStarted;
         Events.OnShipArrived += OnShipArrived;
         Events.OnBlockStatus += OnBlockStatus;
+
+        if (Data.Instance.userData.firstTimeHere) 
+            showTutorial = true;
     }
     void OnBlockStatus(bool show)
     {
@@ -48,8 +51,15 @@ public class MainMenu : MonoBehaviour {
         foreach (Button button in buttons)
             button.interactable = true;
     }
+
+    
     public void Mapa()
     {
+        if (Data.Instance.userData.firstTimeHere && showTutorial == true)
+        {
+            Events.OnTipsOn( 1 );
+            showTutorial = false;
+        }
         scenesBackground.ResetScenes();
         SetActive(1);
         gameManager.Open("Mapa");

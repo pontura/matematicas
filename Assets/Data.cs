@@ -7,7 +7,7 @@ public class Data : MonoBehaviour
 {
    // const string PREFAB_PATH = "Data";
     static Data mInstance = null;
-
+    
     [HideInInspector]
     public MissionsManager missionsManager;
     [HideInInspector]

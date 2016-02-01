@@ -67,6 +67,17 @@ public class Game : MonoBehaviour
         gameManager = GetComponent<GameManager>();
         minigamesManager = GetComponent<MinigamesManager>();
 
+        Invoke("StartGame", 0.1f);
+        
+    }
+    void StartGame()
+    {
+        if (Data.Instance.userData.firstTimeHere)
+        {            
+            Events.OnTipsOn(0);
+            gameManager.OpenCustomizer();
+        }
+        else mainMenu.Mapa();
     }
     void Start()
     {

@@ -7,6 +7,8 @@ using SimpleJSON;
 
 public class Texts :MonoBehaviour {
 
+    public List<string> tutorial;
+
     public List<string> Bienvenida;
     public List<string> MisionNoTienesNada;
     public List<string> MisionTienesAlgo;
@@ -62,6 +64,7 @@ public class Texts :MonoBehaviour {
     {
         var Json = JSON.Parse(json_data);
 
+        fillArray(tutorial, Json["tutorial"]);
         fillArray(Bienvenida, Json["bienvenida"]);
         fillArray(MisionNoTienesNada, Json["MisionNoTienesNada"]);
         fillArray(MisionTienesAlgo, Json["MisionTienesAlgo"]);
@@ -117,11 +120,22 @@ public class Texts :MonoBehaviour {
     private void fillArray(List<string> arr, JSONNode content)
     {
         for (int a = 0; a < content.Count; a++)
-            arr.Add(content[a]["text"]);
+        {
+            string text = content[a]["text"];
+            text = ReplaceUserName(text);
+            arr.Add(text);
+        }
     }
-
-
-
+    public string ReplaceUserName(string field)
+    {
+        if (Data.Instance.userData.username != "")
+            return field.Replace("[username]", Data.Instance.userData.username);
+        else return field;
+    }
+    public string GetFilteredText(List<string> arr, int id)
+    {
+        return ReplaceUserName(arr[id]);
+    }
     public string GetRandomText(List<string> arr)
     {
         return arr[ UnityEngine.Random.Range(0,arr.Count) ];

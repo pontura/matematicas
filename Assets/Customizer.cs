@@ -97,7 +97,7 @@ public class Customizer : MonoBehaviour {
         Events.OnCustomizerSave();
         gameObject.SetActive(false);
         Events.OnCustomizerActive(false);
-        Game.Instance.mainMenu.Isla();
+        Game.Instance.mainMenu.Mapa();
     }
     public void Ready()
     {
