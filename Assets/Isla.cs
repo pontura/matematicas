@@ -46,6 +46,7 @@ public class Isla : Screen {
     }
     void OnDisable()
     {
+        if (minigamePeso)
         minigamePeso.gameObject.SetActive(false);
     }
 	void OnEnable () {

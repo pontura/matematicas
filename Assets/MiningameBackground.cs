@@ -125,15 +125,15 @@ public class MiningameBackground : MonoBehaviour {
     }
     void OnMinigameStart()
     {
-        GetComponent<Animator>().Play("minigameA_idle", 0, 0);        
+        GetComponent<Animator>().Play("idle", 0, 0);        
 	}
     void OnMinigameReady()
     {
-        GetComponent<Animator>().Play("minigameA_win", 0, 0);
+        GetComponent<Animator>().Play("win", 0, 0);
     }
     void OnMinigameMistake()
     {
-        GetComponent<Animator>().Play("minigameA_lose", 0, 0);
+        GetComponent<Animator>().Play("lose", 0, 0);
     }
     public void SetOff()
     {

@@ -7,7 +7,13 @@ public class Customizer : MonoBehaviour {
     public CharacterManager characterManager;
     private ClothesSettings clothesSettings;
     private SavedSettings savedSettings;
-    public Text SexField; 
+    public Image sex_varon;
+    public Image sex_mujer;
+
+    public Color button_on;
+    public Color button_off;
+
+    public Text usernameField; 
 
 	void Start () {
 
@@ -20,6 +26,8 @@ public class Customizer : MonoBehaviour {
         Invoke("Delay", 0.5f);
 
         SetSexButton();
+
+        usernameField.text = Data.Instance.userData.username;
 	}
    public void ToggleSex()
     {
@@ -30,9 +38,15 @@ public class Customizer : MonoBehaviour {
    void SetSexButton()
    {
        if (savedSettings.GetSex() == SavedSettings.PlayerSettings.sexType.MUJER)
-           SexField.text = "MUJER";
+       {
+           sex_varon.color = button_off;
+           sex_mujer.color = button_on;
+       }
        else
-           SexField.text = "VARON";
+       {
+           sex_varon.color = button_on;
+           sex_mujer.color = button_off;
+       }
    }
     void Delay()
     {
