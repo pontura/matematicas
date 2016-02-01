@@ -3,11 +3,12 @@ using System.Collections;
 
 public class MiningameBackground : MonoBehaviour {
 
-    public CharacterManager characterManagerModel;
+    public Character Character;
+    public Character Npc;
+
     public CharacterManager characterManager;
     public CharacterManager npcCharacterManager;
-    public GameObject container_character;
-    public GameObject container_npc;
+
     private int lastIslandID;
 
     private bool loaded;
@@ -26,6 +27,40 @@ public class MiningameBackground : MonoBehaviour {
         Events.OnMinigameReady -= OnMinigameReady;
         Events.OnMinigameMistake -= OnMinigameMistake;
     }
+    void _Character_Walk()
+    {
+        Character.Walk();
+    }
+    void _Character_Idle()
+    {
+        Character.Idle();
+    }
+    void _Character_Right()
+    {
+        Character.Right();
+    }
+    void _Character_Wrong()
+    {
+        Character.Wrong();
+    }
+
+    void _Npc_Walk()
+    {
+        Npc.Walk();
+    }
+    void _Npc_Idle()
+    {
+        Npc.Idle();
+    }
+    void _Npc_Right()
+    {
+        Npc.Right();
+    }
+    void _Npc_Wrong()
+    {
+        Npc.Wrong();
+    }
+
     public void Init()
     {
         gameObject.SetActive(true);
@@ -37,16 +72,16 @@ public class MiningameBackground : MonoBehaviour {
         if (activeIslandID == lastIslandID) return;
         lastIslandID = activeIslandID;
 
-        if (characterManager != null)
-        {
-            GameObject.Destroy(characterManager.gameObject);
-            characterManager = null;
-        }
-        if (npcCharacterManager != null)
-        {
-            GameObject.Destroy(npcCharacterManager.gameObject);
-            npcCharacterManager = null;
-        }
+        //if (characterManager != null)
+        //{
+        //    GameObject.Destroy(characterManager.gameObject);
+        //    characterManager = null;
+        //}
+        //if (npcCharacterManager != null)
+        //{
+        //    GameObject.Destroy(npcCharacterManager.gameObject);
+        //    npcCharacterManager = null;
+        //}
         CustomizeCharacters();
         loaded = true;
 
@@ -61,10 +96,10 @@ public class MiningameBackground : MonoBehaviour {
         ClothesSettings clothesSettings = Data.Instance.clothesSettings;
         SavedSettings savedSettings = Data.Instance.savedSettings;
 
-        characterManager = Instantiate(characterManagerModel);
-        characterManager.transform.SetParent(container_character.transform);
-        characterManager.transform.localScale = Vector3.one;
-        characterManager.transform.localPosition = Vector3.zero;
+        //characterManager = Instantiate(characterManagerModel);
+        //characterManager.transform.SetParent(container_character.transform);
+        //characterManager.transform.localScale = Vector3.one;
+        //characterManager.transform.localPosition = Vector3.zero;
 
         characterManager.SetSex(savedSettings.GetSex());
         characterManager.SetCloth(clothesSettings.clothes, savedSettings.myPlayerSettings.clothes);
@@ -74,10 +109,10 @@ public class MiningameBackground : MonoBehaviour {
         characterManager.SetCloth(clothesSettings.skin, savedSettings.myPlayerSettings.skin);
 
 
-        npcCharacterManager = Instantiate(characterManagerModel);
-        npcCharacterManager.transform.SetParent(container_npc.transform);
-        npcCharacterManager.transform.localScale = Vector3.one;
-        npcCharacterManager.transform.localPosition = Vector3.zero;
+        //npcCharacterManager = Instantiate(characterManagerModel);
+        //npcCharacterManager.transform.SetParent(container_npc.transform);
+        //npcCharacterManager.transform.localScale = Vector3.one;
+        //npcCharacterManager.transform.localPosition = Vector3.zero;
 
         IslandsManager.NpcSettings npcSetings = Game.Instance.islandsManager.activeIsland.npsSettings;
 
