@@ -10,6 +10,7 @@ public class Barco : Screen
     public GameObject minigameNotReadyPanel;
     public List<ShipBox> boxes;
     public Animator anim;
+    private bool tutorialDisplayed;
 
     void Start()
     {
@@ -21,6 +22,11 @@ public class Barco : Screen
     }
     override public void OnScreenEnable()
     {
+        if (Data.Instance.userData.firstTimeHere && !tutorialDisplayed)
+        {
+            Events.OnTipsOn(4);
+            tutorialDisplayed = true;
+        }
         Events.OnBlockStatus(true);
         if (Game.Instance.state == Game.states.MINIGAME_READY)
         {

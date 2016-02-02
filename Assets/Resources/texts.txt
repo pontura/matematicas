@@ -6,6 +6,18 @@ tutorial:
 	},
 	{	
 		text: "¡Buen look, [username]!\nEste es el mapa del juego, desde aquí puedes ir a todas las islas."
+	},
+	{	
+		text: "Ayudá a los isleños para juntar los recursos necesarios para emprender viajes por las islas."
+	},
+	{	
+		text: "Para ayudarte a solucionar los problemas tenés un block arriba a la izquierda de la pantalla, usalo todo lo que necesites."
+	},
+	{	
+		text: "Cargá el barco con todo lo que necesités para el viaje, ¡cuidado con no quedarte corto ni cargar de más!"
+	},
+	{	
+		text: "A medida que vayas avanzando en las misiones irás consiguiendo logros y acá podrás verlos."
 	}
 ]
 bienvenida:

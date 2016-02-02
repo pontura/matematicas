@@ -15,6 +15,8 @@ public class Isla : Screen {
     public MiningameBackground minigamePeso;
 
     public MinigamesManager.types minigameType;
+    private bool tutorialDisplayed;
+    private bool tutorial2Displayed;
 
     public enum states
     {
@@ -50,7 +52,11 @@ public class Isla : Screen {
         minigamePeso.gameObject.SetActive(false);
     }
 	void OnEnable () {
-
+        if (Data.Instance.userData.firstTimeHere && !tutorialDisplayed)
+        {
+            Events.OnTipsOn(2);
+            tutorialDisplayed = true;
+        }
         dataIsland = Game.Instance.islandsManager.activeIsland;
 
         if(dataIsland.minigameType == MinigamesManager.types.PESAR)
@@ -81,7 +87,7 @@ public class Isla : Screen {
         {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.Bienvenida));
             state = states.BIENVENIDA_DONE;
-        }
+        } else 
         if (Game.Instance.minigamesManager.ready)
         {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
@@ -95,7 +101,7 @@ public class Isla : Screen {
             SetText(texto);
         }
         else if (state == states.MINIGAME_STARTED)
-        {
+        {            
             dialogue.SetActive(false);
             minigame.gameObject.SetActive(true);
         } else
@@ -136,6 +142,11 @@ public class Isla : Screen {
             dialogue.SetActive(false);
             minigame.gameObject.SetActive(true);
             state = states.MINIGAME_STARTED;
+            if (Data.Instance.userData.firstTimeHere && !tutorial2Displayed)
+            {
+                Events.OnTipsOn(3);
+                tutorial2Displayed = true;
+            }
         }
         else if (state == states.MINIGAME_READY)
         {

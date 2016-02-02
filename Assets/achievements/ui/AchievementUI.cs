@@ -7,9 +7,14 @@ public class AchievementUI : MonoBehaviour {
     public AchivementButtonUI achievementButton;
     public Transform container;
     public Text descriptionField;
+    private bool tutorialDisplayed;
 
 	void OnEnable () {
-
+        if (Data.Instance.userData.firstTimeHere && !tutorialDisplayed)
+        {
+            Events.OnTipsOn(5);
+            tutorialDisplayed = true;
+        }
         int num = container.childCount;
         for (int i = 0; i < num; i++) DestroyImmediate(container.GetChild(0).gameObject);
 
