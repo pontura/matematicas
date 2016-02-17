@@ -17,6 +17,7 @@ public class IslandsManager : MonoBehaviour {
         public int clothes;
         public int legs;
         public int shoes;
+        public int skin;
     }
     [Serializable]
     public class DataIsland

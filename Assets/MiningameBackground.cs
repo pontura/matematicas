@@ -128,8 +128,8 @@ public class MiningameBackground : MonoBehaviour {
         npcCharacterManager.SetCloth(clothesSettings.clothes, npcSetings.clothes, true);
         npcCharacterManager.SetCloth(clothesSettings.legs, npcSetings.legs, true);
         npcCharacterManager.SetCloth(clothesSettings.shoes, npcSetings.shoes, true);
-        npcCharacterManager.SetCloth(clothesSettings.hairs, npcSetings.shoes, true);
-        //npcCharacterManager.SetCloth(clothesSettings.skin, 0, true);
+        npcCharacterManager.SetCloth(clothesSettings.hairs, npcSetings.hair, true);
+        npcCharacterManager.SetCloth(clothesSettings.skin, npcSetings.skin, true);
     }
     void OnMinigameStart()
     {
