@@ -28,10 +28,21 @@ public class InventoryButton : MonoBehaviour
     void SetStatus(bool on)
     {
         isOn = on;
+        Color color;
         if (!isOn)
-            foreach (Button button in GetComponentsInChildren<Button>()) button.interactable = false;
+            foreach (Button button in GetComponentsInChildren<Button>())
+            {
+                color = button.image.color;
+                color.a = 0.4f;
+                button.image.color = color;
+            }
         else
-            foreach (Button button in GetComponentsInChildren<Button>()) button.interactable = true;
+            foreach (Button button in GetComponentsInChildren<Button>())
+            {
+                color = button.image.color;
+                color.a = 1;
+                button.image.color = color;
+            }
     }
     void SetQty()
     {
@@ -40,7 +51,21 @@ public class InventoryButton : MonoBehaviour
     }
     public void Add()
     {
-        if (!isOn) return;
+        if (!isOn)
+        {
+            string _element = "";
+            switch (id)
+            {
+                case 3: _element = "madera"; break;
+                case 4: _element = "arena"; break;
+                case 5: _element = "piedras"; break;
+            }
+            string new_description = Data.Instance.texts.elementos[0];
+            new_description = new_description.Replace("[element]", _element);
+
+            Events.OnTipText(new_description);
+            return;
+        }
         if (inventary.IsFull()) return;
         qty++;
         SetQty();

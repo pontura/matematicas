@@ -7,11 +7,20 @@ public class AchievementDistance : Achievement {
 
 	public void Init () {
         this.type = types.DISTANCE;
-        AchievementsEvents.OnMissionComplete += OnMissionComplete;
-	}
-    void OnMissionComplete(int _missionID)
-    {
-        if (missionID == _missionID)
+
+        Debug.Log("pointsToBeReady " + pointsToBeReady + "  Data.Instance.userData.distanceTraveled" + Data.Instance.userData.distanceTraveled);
+
+        if (pointsToBeReady < Data.Instance.userData.distanceTraveled)
             Ready();
+        else
+            AchievementsEvents.OnNewDistance += OnNewDistance;
+    }
+    void OnNewDistance(int distanceTraveled)
+    {
+        if (distanceTraveled > pointsToBeReady)
+        {
+            Ready();
+            AchievementsEvents.OnNewDistance -= OnNewDistance;
+        }
     }
 }

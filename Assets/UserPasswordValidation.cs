@@ -11,7 +11,7 @@ public class UserPasswordValidation : MonoBehaviour
 
     public void Init()
     {
-        title.text = "Bienvenido " + Data.Instance.userData.username + ".\n Te enviamos un email a " + Data.Instance.userData.userID + " con el password para poder jugar.\nCopia el pega el password acá:";
+        title.text = "Bienvenido " + Data.Instance.userData.username + ".\n Te enviamos un email a " + Data.Instance.userData.userID + " con el password para poder jugar.\nPoné el password acá:";
     }
 
     public void Submit()

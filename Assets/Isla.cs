@@ -43,7 +43,7 @@ public class Isla : Screen {
     }
     public void SetArrived()
     {
-        state = states.BIENVENIDA;
+        //state = states.BIENVENIDA;
         minigame.Reset();        
     }
     void OnDisable()
@@ -51,7 +51,8 @@ public class Isla : Screen {
         if (minigamePeso)
         minigamePeso.gameObject.SetActive(false);
     }
-	void OnEnable () {
+    public override void OnScreenEnable()
+    {
         if (Data.Instance.userData.firstTimeHere && !tutorialDisplayed)
         {
             Events.OnTipsOn(2);
@@ -79,20 +80,26 @@ public class Isla : Screen {
         
         dialogue.SetActive(true);
         minigame.gameObject.SetActive(false);
+
         CheckStep();       
 	}
     void CheckStep()
     {
         if (state == states.BIENVENIDA)
         {
+            
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.Bienvenida));
             state = states.BIENVENIDA_DONE;
-        } else 
-        if (Game.Instance.minigamesManager.ready)
+        } else if (Game.Instance.minigamesManager.ready)
         {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
             state = states.MINIGAME_READY;
         }
+        else if (state == states.MINIGAME_STARTED)
+        {
+            dialogue.SetActive(false);
+            minigame.gameObject.SetActive(true);
+        } 
         else if (dataIsland.mission != null && dataIsland.mission.qty > 0)
         {
             state = states.MISSION_PRESENTA;
@@ -100,11 +107,7 @@ public class Isla : Screen {
             texto = SetTextQty(texto, dataIsland.mission.qty);
             SetText(texto);
         }
-        else if (state == states.MINIGAME_STARTED)
-        {            
-            dialogue.SetActive(false);
-            minigame.gameObject.SetActive(true);
-        } else
+       else
         {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameInvita));
             state = states.MINIGAME;

@@ -30,7 +30,6 @@ public class ShipBox : MonoBehaviour {
     {
         containerImage.enabled = true;
 
-        print("ADD" + id);
         switch (id)
         {
             case 1: containerImage.sprite = item1; break;

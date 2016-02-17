@@ -25,4 +25,16 @@ public class Character : MonoBehaviour {
     {
         anim.Play("character_right", 0, 0);
     }
+    public void CalculatorIn()
+    {
+        anim.Play("character_calculatorIn", 0, 0);
+    }
+    public void CalculatorOut()
+    {
+        anim.Play("character_calculatorOut", 0, 0);
+    }
+    public void CalculatorIdle()
+    {
+        anim.Play("character_calculatorIdle", 0, 0);
+    }
 }

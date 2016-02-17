@@ -59,7 +59,7 @@ public class Barco : Screen
     {
         if (Game.Instance.islandsManager.gotoIsland != null && Game.Instance.islandsManager.gotoIsland.distance > 1)
             // Game.Instance.gameManager.OpenTrip();
-            Game.Instance.gameManager.IslandDetailPopup();
+            Game.Instance.gameManager.OpenTrip();
         else if (Game.Instance.state == Game.states.MINIGAME_READY)
             Game.Instance.mainMenu.Mapa();
         else

@@ -10,11 +10,16 @@ public class MathDevice : MonoBehaviour {
 
         minigameA.SetActive(false);
         minigameB.SetActive(false);
-        print("__________________" + type);
+        
+
         switch (type)
         {
-            case MinigamesManager.types.PESAR: minigameA.SetActive(true); break;
-            case MinigamesManager.types.SIMPLE_INPUT: minigameB.SetActive(true); break; 
+            case MinigamesManager.types.PESAR: 
+                minigameA.SetActive(true); 
+                break;
+            case MinigamesManager.types.SIMPLE_INPUT: 
+                minigameB.SetActive(true);                
+                break; 
         }
 	}
     public void Appear()

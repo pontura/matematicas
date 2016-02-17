@@ -9,31 +9,31 @@
 			progress:1
 		},
 		{
-			title: "Agrandar el puente",
-			type: "MISSION",
-			image: "iconBridge.png",
-			mission: 1,
-			progress:2		
-		},
-		{
 			title: "Ayudar a los delfines",
 			type: "MISSION",
 			image: "iconDolphin.png",
-			mission: 2,
+			mission: 1,
 			progress:1		
-		},
-		{
-			title: "Recorrer 1000 kilometros",
-			type: "DISTANCE",
-			image: "iconSail.png",
-			distance: 1000,
-			progress:1			
 		},
 		{
 			title: "Rescatar una familia de tigres",
 			type: "MISSION",
 			image: "iconTiger.png",
+			mission: 2,
+			progress:1			
+		},
+		{
+			title: "Agrandar el puente",
+			type: "MISSION",
+			image: "iconBridge.png",
 			mission: 3,
+			progress:2		
+		},
+		{
+			title: "Recorrer 100 kilometros",
+			type: "DISTANCE",
+			image: "iconSail.png",
+			distance: 100,
 			progress:1			
 		},
 		{
@@ -44,38 +44,38 @@
 			progress:1			
 		},
 		{
-			title: "Salvar la Selva de los Pl·tanos",
+			title: "Salvar la Selva de los Pl√°tanos",
 			type: "MISSION",
 			image: "iconTree.png",
 			mission: 5,
 			progress:1			
 		},
 		{
-			title: "Recorrer 2000 kilometros",
+			title: "Recorrer 500 kilometros",
 			type: "DISTANCE",
 			image: "iconSail.png",
-			distance: 2000,
+			distance: 500,
 			progress:2			
 		},
 		{
-			title: "Recorrer 3000 kilometros",
+			title: "Recorrer 1000 kilometros",
 			type: "DISTANCE",
 			image: "iconSail.png",
-			distance: 3000,
+			distance: 1000,
 			progress:3		
 		},
 		{
-			title: "Recorrer 3000 kilometros",
+			title: "Recorrer 5000 kilometros",
 			type: "DISTANCE",
 			image: "iconSail.png",
-			distance: 10000,
+			distance: 5000,
 			progress:4		
 		},
 		{
-			title: "Recorrer 3000 kilometros",
+			title: "Recorrer 10000 kilometros",
 			type: "DISTANCE",
 			image: "iconSail.png",
-			distance: 100000,
+			distance: 10000,
 			progress:5		
 		}
 	]

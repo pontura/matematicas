@@ -5,7 +5,7 @@ using System;
 public class UserData : MonoBehaviour {
 
     public bool firstTimeHere;
-
+    public int distanceTraveled;
     public string userID;
     public string username;
     public string password;
@@ -21,6 +21,7 @@ public class UserData : MonoBehaviour {
         username = PlayerPrefs.GetString("username");
         password = PlayerPrefs.GetString("password");
         passwordValidated = PlayerPrefs.GetInt("passwordValidated", 0);
+        distanceTraveled = PlayerPrefs.GetInt("distanceTraveled", 0);
 
         if (username == "") firstTimeHere = true;
 
@@ -40,6 +41,7 @@ public class UserData : MonoBehaviour {
         Events.OnNewMission += OnNewMission;
         Events.OnMissionComplete += OnMissionComplete;
         Events.OnResetApp += OnResetApp;
+        Events.NewDistanceTraveled += NewDistanceTraveled;
     }
     public void OnRegistration(string _username, string _userID, string _password)
     {
@@ -103,5 +105,11 @@ public class UserData : MonoBehaviour {
         PlayerPrefs.SetInt("madera", inventary.madera);
         PlayerPrefs.SetInt("arena", inventary.arena);
         PlayerPrefs.SetInt("piedras", inventary.piedras);
+    }
+    void NewDistanceTraveled(int new_distanceTraveled)
+    {
+        distanceTraveled += new_distanceTraveled;
+        PlayerPrefs.SetInt("distanceTraveled", distanceTraveled);
+        AchievementsEvents.OnNewDistance(distanceTraveled);
     }
 }

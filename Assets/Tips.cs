@@ -10,11 +10,13 @@ public class Tips : MonoBehaviour {
 	void Start () {
         SetOff();
         Events.OnTipsOn += OnTipsOn;
+        Events.OnTipText += OnTipText;
 	}
     void OnDestroy()
     {
         panel.SetActive(false);
         Events.OnTipsOn -= OnTipsOn;
+        Events.OnTipText -= OnTipText;
     }
     public void Ready()
     {
@@ -25,6 +27,11 @@ public class Tips : MonoBehaviour {
         field.text = Data.Instance.texts.GetFilteredText(Data.Instance.texts.tutorial, id);
         panel.SetActive(true);
 	}
+    void OnTipText(string text)
+    {
+        field.text = text;
+        panel.SetActive(true);
+    }
     void SetOff()
     {
         panel.SetActive(false);

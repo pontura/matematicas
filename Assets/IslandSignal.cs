@@ -49,8 +49,9 @@ public class IslandSignal : MonoBehaviour {
           //  desc.text += data.mission.GetDescription();
             desc.text += data.mission.description;
             missionPanel.SetActive(true);
-            achievementIcon.LoadImage("iconBridge.png");
-            achievementIcon.SetProgress(1);
+            Achievement achievement = AchievementsManager.Instance.GetAchievement(data.mission.id);
+            achievementIcon.LoadImage(achievement.image);
+            achievementIcon.SetProgress(achievement.progress);
         }
         else
         {

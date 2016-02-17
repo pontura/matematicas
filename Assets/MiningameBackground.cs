@@ -12,17 +12,22 @@ public class MiningameBackground : MonoBehaviour {
     private int lastIslandID;
     public GameObject[] backgrounds;
 
+    private int animationID;
+
     private bool loaded;
 
 	void Start () {
         Events.OnMinigameStart += OnMinigameStart;
+        Events.OnMinigameStartCalculator += OnMinigameStartCalculator;
         Events.OnMinigameReady += OnMinigameReady;
+        
         Events.OnMinigameMistake += OnMinigameMistake;
         Events.OnCustomizerSave += OnCustomizerSave;
 	}
     void OnDestroy()
     {
         Events.OnCustomizerSave -= OnCustomizerSave;
+        Events.OnMinigameStartCalculator -= OnMinigameStartCalculator;
         Events.OnMinigameStart -= OnMinigameStart;
         Events.OnMinigameReady -= OnMinigameReady;
         Events.OnMinigameMistake -= OnMinigameMistake;
@@ -42,6 +47,18 @@ public class MiningameBackground : MonoBehaviour {
     void _Character_Wrong()
     {
         Character.Wrong();
+    }
+    void _Character_CalculatorIn()
+    {
+        Character.CalculatorIn();
+    }
+    void _Character_CalculatorOut()
+    {
+        Character.CalculatorOut();
+    }
+    void _Character_CalculatorIdle()
+    {
+        Character.CalculatorIdle();
     }
 
     void _Npc_Walk()
@@ -63,25 +80,15 @@ public class MiningameBackground : MonoBehaviour {
 
     public void Init()
     {
+        
         gameObject.SetActive(true);
         
         int activeIslandID = Game.Instance.islandsManager.activeIsland.id;
-
-        print("activeIslandID: " + activeIslandID + " lasta: " + lastIslandID);
+        animationID = Game.Instance.islandsManager.activeIsland.animationID;
 
         if (activeIslandID == lastIslandID) return;
         lastIslandID = activeIslandID;
 
-        //if (characterManager != null)
-        //{
-        //    GameObject.Destroy(characterManager.gameObject);
-        //    characterManager = null;
-        //}
-        //if (npcCharacterManager != null)
-        //{
-        //    GameObject.Destroy(npcCharacterManager.gameObject);
-        //    npcCharacterManager = null;
-        //}
         CustomizeCharacters();
         loaded = true;
         SetBackground(Game.Instance.islandsManager.activeIsland.BackgroundBitmapID);
@@ -91,7 +98,6 @@ public class MiningameBackground : MonoBehaviour {
         int num = 1;
         foreach (GameObject background in backgrounds)
         {
-            print("background.name" + background.name);
             if (background.name == "background_" + id)
                 background.SetActive(true);
             else
@@ -109,23 +115,12 @@ public class MiningameBackground : MonoBehaviour {
         ClothesSettings clothesSettings = Data.Instance.clothesSettings;
         SavedSettings savedSettings = Data.Instance.savedSettings;
 
-        //characterManager = Instantiate(characterManagerModel);
-        //characterManager.transform.SetParent(container_character.transform);
-        //characterManager.transform.localScale = Vector3.one;
-        //characterManager.transform.localPosition = Vector3.zero;
-
         characterManager.SetSex(savedSettings.GetSex());
         characterManager.SetCloth(clothesSettings.clothes, savedSettings.myPlayerSettings.clothes);
         characterManager.SetCloth(clothesSettings.legs, savedSettings.myPlayerSettings.legs);
         characterManager.SetCloth(clothesSettings.shoes, savedSettings.myPlayerSettings.shoes);
         characterManager.SetCloth(clothesSettings.hairs, savedSettings.myPlayerSettings.hairs);
         characterManager.SetCloth(clothesSettings.skin, savedSettings.myPlayerSettings.skin);
-
-
-        //npcCharacterManager = Instantiate(characterManagerModel);
-        //npcCharacterManager.transform.SetParent(container_npc.transform);
-        //npcCharacterManager.transform.localScale = Vector3.one;
-        //npcCharacterManager.transform.localPosition = Vector3.zero;
 
         IslandsManager.NpcSettings npcSetings = Game.Instance.islandsManager.activeIsland.npsSettings;
 
@@ -138,15 +133,20 @@ public class MiningameBackground : MonoBehaviour {
     }
     void OnMinigameStart()
     {
-        GetComponent<Animator>().Play("idle", 0, 0);        
+        GetComponent<Animator>().Play("intro" + animationID, 0, 0);
 	}
+    void OnMinigameStartCalculator()
+    {
+        print("OnMinigameStartCalculator");
+        GetComponent<Animator>().Play("calculatorIn" + animationID, 0, 0);
+    }
     void OnMinigameReady()
     {
-        GetComponent<Animator>().Play("win", 0, 0);
+        GetComponent<Animator>().Play("win" + animationID, 0, 0);
     }
     void OnMinigameMistake()
     {
-        GetComponent<Animator>().Play("lose", 0, 0);
+        GetComponent<Animator>().Play("lose" + animationID, 0, 0);
     }
     public void SetOff()
     {

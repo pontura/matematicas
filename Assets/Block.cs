@@ -77,7 +77,7 @@ public class Block : Screen
         }
         if (draggingBlockItem)
         {
-            if (draggingBlockItem.transform.position.x > 350)
+            if (draggingBlockItem.transform.position.x > UnityEngine.Screen.width/2)
             {
                 Destroy(draggingBlockItem.gameObject);
             }

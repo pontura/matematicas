@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.IO;
 using SimpleJSON;
@@ -8,7 +9,7 @@ using SimpleJSON;
 public class Texts :MonoBehaviour {
 
     public List<string> tutorial;
-
+    public List<string> elementos;
     public List<string> Bienvenida;
     public List<string> MisionNoTienesNada;
     public List<string> MisionTienesAlgo;
@@ -54,6 +55,8 @@ public class Texts :MonoBehaviour {
 
     void Start()
     {
+        Encoding utf8 = Encoding.UTF8;
+
         TextAsset file = Resources.Load(json_Texts_Url) as TextAsset;
         LoadDataromServer(file.text);
 
@@ -65,6 +68,7 @@ public class Texts :MonoBehaviour {
         var Json = JSON.Parse(json_data);
 
         fillArray(tutorial, Json["tutorial"]);
+        fillArray(elementos, Json["elementos"]);
         fillArray(Bienvenida, Json["bienvenida"]);
         fillArray(MisionNoTienesNada, Json["MisionNoTienesNada"]);
         fillArray(MisionTienesAlgo, Json["MisionTienesAlgo"]);

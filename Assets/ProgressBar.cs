@@ -6,11 +6,16 @@ public class ProgressBar : MonoBehaviour {
     public Vector2 path;
     public Vector2 duration;
     public float distance;
+    public int DistanceInMeters;
     public GameObject ship;
     private bool isOn;
 
     public void Init(int _duration)
     {
+        DistanceInMeters = Game.Instance.islandsManager.gotoIsland.distance;
+
+        print("DistanceInMeters: " + DistanceInMeters);
+
         this.duration = new Vector2(0, _duration);
         distance = 0;
         ship.transform.localPosition = new Vector2(path.x, ship.transform.localPosition.y);
@@ -31,6 +36,7 @@ public class ProgressBar : MonoBehaviour {
     {
         isOn = false;
         Events.OnShipArrived();
+        Events.NewDistanceTraveled(DistanceInMeters);
     }
     float GetResult(Vector2 vect1, Vector2 vect2, float  p1)
     {

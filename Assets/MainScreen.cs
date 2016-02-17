@@ -17,7 +17,10 @@ public class MainScreen : MonoBehaviour {
         ResetScreens();
         Events.OnUserRegistration += OnUserRegistration;
         Events.OnUserPasswordValidated += OnUserPasswordValidated;
-
+        Invoke("Delay", 0.1f);        
+    }
+    void Delay()
+    {
         if (Data.Instance.userData.userID == "")
             userRegistration.SetActive(true);
         else if (Data.Instance.userData.passwordValidated == 0)

@@ -21,11 +21,11 @@
 	simpleInput:
 	[
 		{
-			title: "Teníamos [1000/2000] trozos de madera y quemamos [100/999]... ¿Cuántas quedan?",
+			title: "(DEMO) TenÃ­amos [20/40] trozos de madera y quemamos [1/10]. Â¿Ahora hay?...",
 			type: "RESTA"		
 		},
 		{
-			title: "Teníamos [1000/2000] piedras y usamos [100/999]... ¿Cuántas quedan?",
+			title: "(DEMO) TenÃ­amos [20/40] piedras y usamos [1/19]. Â¿Quedan?...",
 			type: "RESTA"		
 		}
 	]

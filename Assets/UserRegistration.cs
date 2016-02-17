@@ -132,6 +132,18 @@ public class UserRegistration : MonoBehaviour {
               Debug.Log("received: " + t.Result)
           );
     }
+    public void ReSendEmail()
+    {
+        Dictionary<string, object> parameters = new Dictionary<string, object>();
+        parameters.Add("username", Data.Instance.userData.username);
+        parameters.Add("to", Data.Instance.userData.userID);
+        parameters.Add("password", Data.Instance.userData.password);
+
+        ParseCloud.CallFunctionAsync<string>("sendPassword", parameters)
+          .ContinueWith(t =>
+              Debug.Log("received: " + t.Result)
+          );
+    }
     void EmailExists()
     {
         state = states.IDLE;

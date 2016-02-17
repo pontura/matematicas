@@ -19,7 +19,13 @@ tutorial:
 	{	
 		text: "A medida que vayas avanzando en las misiones irás consiguiendo logros y acá podrás verlos."
 	}
-]
+],
+elementos:
+[
+	{
+		text: "No hay [element] en esta isla."
+	}
+],
 bienvenida:
 [
 	{

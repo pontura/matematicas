@@ -132,10 +132,12 @@ public class MinigamePesos : Minigame {
         }
 
         if (items.Length > 1)
-            Destroy(items[items.Length-1].gameObject);
+        {
+            Destroy(items[items.Length - 1].gameObject);
 
-        this.peso -= _peso;
-        if (peso < 0) peso = 0;
+            this.peso -= _peso;
+            if (peso < 0) peso = 0;
+        }
         //CheckResult();
     }
     public void CheckResult()

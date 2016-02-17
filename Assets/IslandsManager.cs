@@ -26,6 +26,7 @@ public class IslandsManager : MonoBehaviour {
         public Mission mission;
         public IslandButton island;
         public int id;
+        public int animationID;
         public bool madera;
         public bool arena;
         public bool piedras;

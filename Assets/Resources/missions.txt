@@ -2,19 +2,26 @@
 	missions:
 	[
 		{
-			id: "1",
+			id: "0",
 			islandId: "4",
-			description: "Necesitamos [qty] caja/s de [element] para construir un puente entre los R�os A y B",
+			description: "Necesitamos [qty] caja/s de [element] para construir un puente entre los Ríos A y B",
 			element : "MADERA",
-			qty: "4",
+			qty: "4"
 			
 		},
 		{
-			id: "2",
+			id: "1",
 			islandId: "2",
-			description: "Solo nos faltan [qty] caja/s de [element] para hacer un dique y salvar a un tigre que qued� atrapado",
+			description: "Solo nos faltan [qty] caja/s de [element] para hacer un dique y salvar a un delfín que quedó atrapado",
 			element : "PIEDRAS",
-			qty: "5",
+			qty: "4"
+		},
+		{
+			id: "2",
+			islandId: "6",
+			description: "Necesitamos [qty] caja/s de [element] para rellenar un río y a salvar una familia de tigres",
+			element : "ARENA",
+			qty: "5"
 		}
 	]
 }

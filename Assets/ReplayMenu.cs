@@ -8,6 +8,7 @@ public class ReplayMenu : MonoBehaviour {
 
     void Start()
     {
+        Data.Instance.userData.firstTimeHere = false;
         anim.Play(clip.name);
     }
     public void Replay()

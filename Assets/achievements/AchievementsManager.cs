@@ -102,7 +102,7 @@ public class AchievementsManager : MonoBehaviour
     {
         return achievements[id];
     }
-
+    
     
 
 }

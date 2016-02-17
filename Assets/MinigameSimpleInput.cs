@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -6,7 +7,8 @@ public class MinigameSimpleInput : Minigame {
 
     public Text desc;
     public int result = 0;
-    public Text inputField;
+    public InputField inputField;
+    public List<int> numbers;
 
     public MathDevice mathDevice;
 
@@ -14,6 +16,11 @@ public class MinigameSimpleInput : Minigame {
 
     void Start()
     {
+        
+    }
+    void OnEnable()
+    {
+        Events.OnMinigameStartCalculator();
         inputField.text = "";
     }
     public void Init()
@@ -28,10 +35,8 @@ public class MinigameSimpleInput : Minigame {
         if (minigame.type == Texts.Minigame_SimpleInput.Minigame_SimpleInput_type.RESTA)
         {
             textFinal = GenerateRandomResults(textFinal);
-        }   
-        
-
-        print("textFinal ___________" + textFinal);
+            result = numbers[0] - numbers[1];
+        }  
 
         desc.text = textFinal.Replace("[]", insertfield);
 
@@ -41,41 +46,28 @@ public class MinigameSimpleInput : Minigame {
         string FieldToResturn = "";
 
         string[] textSplit = _field.Split("["[0]);
-        
-        foreach (string field in textSplit)
-        {
 
+        numbers.Clear();
+        foreach (string field in textSplit)
+        {            
             string[] textSplit2 = field.Split("]"[0]);
             foreach (string field2 in textSplit2)
             {
+               
                 string[] textSplitRand = field2.Split("/"[0]);
                 if (textSplitRand.Length > 1)
                 {
                     int num1 = int.Parse(textSplitRand[0]);
                     int num2 = int.Parse(textSplitRand[1]);
                     int rand = Random.Range(num1, num2);
-                    if (result > 0) result -= rand;
-                    else result = rand;
                     FieldToResturn += rand.ToString();
+                    numbers.Add( rand );
                 }
                 else
                 {
                     FieldToResturn += field2;
                 }
             }
-
-
-            //print(FieldToResturn);
-
-            //textSplit = textSplit[1].Split("/"[0]);
-            //int num1 = int.Parse(textSplit[0]);
-            //int num2 = int.Parse(textSplit[1].Split("]"[0])[0]);
-
-            //int rand = Random.Range(num1, num2);
-            //result += rand;
-
-            //FieldToResturn += rand.ToString();
-            //FieldToResturn += rand.ToString();
         }
 
         return FieldToResturn;
