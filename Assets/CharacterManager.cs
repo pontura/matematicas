@@ -82,10 +82,12 @@ public class CharacterManager : MonoBehaviour {
 
         if (arr == clothSettings.clothes)
         {
+            string path = "";
             
-            string path =  pathPreFix + clothSettings.clothes[idNum];
             if (npc)
                 path = pathPreFix + @"images\npc\clothes\npcTop_" + clothSettings.npc[idNum];
+            else 
+                path =  pathPreFix + clothSettings.clothes[idNum];
             //boysTop_B_torax1
             pathTemp = path + "_torax1.png";
             StartCoroutine("LoadImages", clothesContainer[0]);
@@ -102,9 +104,11 @@ public class CharacterManager : MonoBehaviour {
         }
         else if (arr == clothSettings.legs)
         {
-            string path = pathPreFix + clothSettings.legs[idNum];
+            string path = "";
             if (npc)
                 path = pathPreFix + @"images\npc\clothes\npcBottom_" + clothSettings.npc[idNum];
+            else 
+                path = pathPreFix + clothSettings.legs[idNum];
             //boysTop_B_torax1
             
             pathTemp = path + "_hips.png";
@@ -122,9 +126,11 @@ public class CharacterManager : MonoBehaviour {
         }
         else if (arr == clothSettings.shoes)
         {
-            string path = pathPreFix + clothSettings.shoes[idNum];
+            string path = "";
             if (npc)
                 path = pathPreFix + @"images\npc\clothes\npcShoes_" + clothSettings.npc[idNum];
+            else
+                path = pathPreFix + clothSettings.shoes[idNum];
             //boysShoes_A_1a
             pathTemp = path + "_1a.png";
             StartCoroutine("LoadImages", shoesContainer[0]);
@@ -186,9 +192,11 @@ public class CharacterManager : MonoBehaviour {
         }
         else if (arr == clothSettings.hairs)
         {
-            string path = pathPreFix + clothSettings.hairs[idNum];
+            string path = "";
             if (npc)
                 path = pathPreFix + @"images\npc\hair\npcHair_" + clothSettings.npc[idNum] + "_color1";
+            else
+                path = pathPreFix + clothSettings.hairs[idNum];
 
             pathTemp = path + "_1.png";
             StartCoroutine("LoadImages", hairsContainer[0]);
