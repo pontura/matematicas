@@ -8,8 +8,6 @@ public class AchievementDistance : Achievement {
 	public void Init () {
         this.type = types.DISTANCE;
 
-        Debug.Log("pointsToBeReady " + pointsToBeReady + "  Data.Instance.userData.distanceTraveled" + Data.Instance.userData.distanceTraveled);
-
         if (pointsToBeReady < Data.Instance.userData.distanceTraveled)
             Ready();
         else
