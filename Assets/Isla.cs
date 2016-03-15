@@ -13,6 +13,7 @@ public class Isla : Screen {
 
     public MiningameBackground minigameSimpleInput;
     public MiningameBackground minigamePeso;
+    public MiningameBackground minigameFracciones;
 
     public MinigamesManager.types minigameType;
     private bool tutorialDisplayed;
@@ -70,6 +71,12 @@ public class Isla : Screen {
             minigameSimpleInput.Init();
             minigame.GetComponent<MinigameSimpleInput>().Init();
         }
+        else
+            if (dataIsland.minigameType == MinigamesManager.types.FRACCIONES)
+            {
+                minigameFracciones.Init();
+                minigame.GetComponent<MinigameFracciones>().Init();
+            }
         Events.OnBlockStatus(true);
 
         
@@ -239,10 +246,14 @@ public class Isla : Screen {
         if (dataIsland.minigameType == MinigamesManager.types.PESAR)
         {
             minigame.GetComponent<MinigamePesos>().CheckResult();
-        }
+        } else
         if (dataIsland.minigameType == MinigamesManager.types.SIMPLE_INPUT)
         {
             minigame.GetComponent<MinigameSimpleInput>().CheckResult();
+        } else
+            if (dataIsland.minigameType == MinigamesManager.types.FRACCIONES)
+        {
+            minigame.GetComponent<MinigameFracciones>().CheckResult();
         }
     }
     public void ResetDevice()

@@ -67,7 +67,7 @@ public class Game : MonoBehaviour
         gameManager = GetComponent<GameManager>();
         minigamesManager = GetComponent<MinigamesManager>();
 
-        Invoke("StartGame", 0.1f);
+        Invoke("StartGame", 1f);
         
     }
     void StartGame()

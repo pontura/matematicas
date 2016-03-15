@@ -7,7 +7,8 @@ public class MinigamesManager : MonoBehaviour {
     public enum types
     {
         SIMPLE_INPUT,
-        PESAR
+        PESAR,
+        FRACCIONES
     }
 
 	void Start () {

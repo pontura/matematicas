@@ -18,7 +18,7 @@ public class UserData : MonoBehaviour {
     void Start()
     {
         userID = PlayerPrefs.GetString("userID");
-        username = PlayerPrefs.GetString("username");
+        username = PlayerPrefs.GetString("username", "");
         password = PlayerPrefs.GetString("password");
         passwordValidated = PlayerPrefs.GetInt("passwordValidated", 0);
         distanceTraveled = PlayerPrefs.GetInt("distanceTraveled", 0);
@@ -77,6 +77,13 @@ public class UserData : MonoBehaviour {
         inventary.madera = 0;
         inventary.arena = 0;
         inventary.piedras = 0;
+
+        distanceTraveled = 0;
+        userID = "";
+        username = "";
+        password = "";
+        islandActive = 1;
+
     }
     void OnMissionComplete()
     {

@@ -5,6 +5,7 @@ public class MathDevice : MonoBehaviour {
 
     public GameObject minigameA;
     public GameObject minigameB;
+    public GameObject minigameC;
 
 	public void Init(MinigamesManager.types type) {
 

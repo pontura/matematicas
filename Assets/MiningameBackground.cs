@@ -137,7 +137,7 @@ public class MiningameBackground : MonoBehaviour {
 	}
     void OnMinigameStartCalculator()
     {
-        print("OnMinigameStartCalculator");
+        print("OnMinigameStartCalculator: " + "calculatorIn" + animationID);
         GetComponent<Animator>().Play("calculatorIn" + animationID, 0, 0);
     }
     void OnMinigameReady()

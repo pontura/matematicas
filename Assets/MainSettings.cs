@@ -11,7 +11,7 @@ public class MainSettings : MonoBehaviour {
         panel.SetActive(false);
 
         quit_btn.SetActive(true);
-        reset_btn.SetActive(false);
+       // reset_btn.SetActive(false);
 
 #if UNITY_EDITOR
         quit_btn.SetActive(false);
@@ -28,9 +28,12 @@ public class MainSettings : MonoBehaviour {
     }
     public void ResetApp()
     {
+        PlayerPrefs.SetString("username", "");
+        PlayerPrefs.DeleteAll();       
         Events.OnResetApp();
-        PlayerPrefs.DeleteAll();
-        Data.Instance.LoadLevel("01_Main");
+        
+      //  Data.Instance.LoadLevel("01_Main");
+        Invoke("Salir", 0.5f);
     }
     public void Customizer()
     {
