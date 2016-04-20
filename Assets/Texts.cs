@@ -28,9 +28,11 @@ public class Texts :MonoBehaviour {
         public Minigame_SimpleInput_type type;
         public enum Minigame_SimpleInput_type
         {
-            RESTA
+            RESTA,
+            MULTIPLICA
         }
     }
+
     [Serializable]
     public class Minigame_Peso
     {
@@ -45,13 +47,30 @@ public class Texts :MonoBehaviour {
             PROMEDIO,
             SUMATORIA
         }
-
     }
+
+    [Serializable]
+    public class Minigame_Fracciones
+    {
+        public string title;
+        public List<string> fracciones;
+        public int slots;
+      //  public Minigame_Peso_type type;
+        //public enum Minigame_Peso_type
+        //{
+        //    PROMEDIO,
+        //    SUMATORIA
+        //}
+    }
+
     public List<Minigame_Peso> minigame_Peso;
     public List<Minigame_SimpleInput> minigame_SimpleInput;
+    public List<Minigame_Fracciones> minigame_Fracciones;
 
     string json_Texts_Url = "texts";
-    string json_Minigames_Url = "minigames";
+    string json_Minigames_pesar_Url = "minigames_pesar";
+    string json_Minigames_fracciones_Url = "minigames_fracciones";
+    string json_Minigames_simpleInput_Url = "minigames_simpleInput";
 
     void Start()
     {
@@ -60,8 +79,14 @@ public class Texts :MonoBehaviour {
         TextAsset file = Resources.Load(json_Texts_Url) as TextAsset;
         LoadDataromServer(file.text);
 
-        file = Resources.Load(json_Minigames_Url) as TextAsset;
-        LoadDataMinigames(file.text);
+        file = Resources.Load(json_Minigames_pesar_Url) as TextAsset;
+        LoadDataMinigames(file.text, "pesar");
+
+        file = Resources.Load(json_Minigames_fracciones_Url) as TextAsset;
+        LoadDataMinigames(file.text, "fracciones");
+
+        file = Resources.Load(json_Minigames_simpleInput_Url) as TextAsset;
+        LoadDataMinigames(file.text, "simpleInput");
     }
     public void LoadDataromServer(string json_data)
     {
@@ -79,46 +104,82 @@ public class Texts :MonoBehaviour {
         fillArray(MinigameInvita, Json["MinigameInvita"]);
         fillArray(RecogeLoQueGustes, Json["RecogeLoQueGustes"]);
     }
-    public void LoadDataMinigames(string json_data)
+    public void LoadDataMinigames(string json_data, string minigameName)
     {
         var Json = JSON.Parse(json_data);
 
+        string gameName = minigameName;
 
-        ////////////////PESAR
-        for (int a = 0; a < Json["pesar"].Count; a++)
+        switch(minigameName)
         {
-            Minigame_Peso minigame = new Minigame_Peso();
-            minigame.title = Json["pesar"][a]["title"];
+            case "pesar":
+                for (int a = 0; a < Json[minigameName].Count; a++)
+                {
+                    Minigame_Peso minigame = new Minigame_Peso();
+                    minigame.title = Json[minigameName][a]["title"];
 
-            minigame.promedios = new List<int>();
-            for (int b = 0; b < Json["pesar"][a]["promedios"].Count; b++)
-                minigame.promedios.Add(int.Parse(Json["pesar"][a]["promedios"][b]));
+                    minigame.promedios = new List<int>();
+                    for (int b = 0; b < Json[minigameName][a]["promedios"].Count; b++)
+                        minigame.promedios.Add(int.Parse(Json[minigameName][a]["promedios"][b]));
 
-            minigame.peso1 = int.Parse(Json["pesar"][a]["peso1"]);
-            minigame.peso2 = int.Parse(Json["pesar"][a]["peso2"]);
-            minigame.peso3 = int.Parse(Json["pesar"][a]["peso3"]);
-            switch(Json["pesar"][a]["type"])
-            {
-                case "PROMEDIO": minigame.type = Minigame_Peso.Minigame_Peso_type.PROMEDIO; break;
-                case "SUMATORIA": minigame.type = Minigame_Peso.Minigame_Peso_type.SUMATORIA; break;
-            }
+                    minigame.peso1 = int.Parse(Json[minigameName][a]["peso1"]);
+                    minigame.peso2 = int.Parse(Json[minigameName][a]["peso2"]);
+                    minigame.peso3 = int.Parse(Json[minigameName][a]["peso3"]);
+                    switch(Json[minigameName][a]["type"])
+                    {
+                        case "PROMEDIO": minigame.type = Minigame_Peso.Minigame_Peso_type.PROMEDIO; break;
+                        case "SUMATORIA": minigame.type = Minigame_Peso.Minigame_Peso_type.SUMATORIA; break;
+                    }
             
-            minigame_Peso.Add(minigame);
-        }
+                    minigame_Peso.Add(minigame);
+                }
+                break;
 
-        /////////////////Simple
-        string gameName = "simpleInput";
-        for (int a = 0; a < Json[gameName].Count; a++)
-        {
-            Minigame_SimpleInput minigame = new Minigame_SimpleInput();
-            minigame.title = Json[gameName][a]["title"];
 
-            switch (Json[gameName][a]["type"])
-            {
-                case "RESTA": minigame.type = Minigame_SimpleInput.Minigame_SimpleInput_type.RESTA; break;
-            }
 
-            minigame_SimpleInput.Add(minigame);
+            case "simpleInput":
+                /////////////////Simple
+        
+                for (int a = 0; a < Json[gameName].Count; a++)
+                {
+                    Minigame_SimpleInput minigame = new Minigame_SimpleInput();
+                    minigame.title = Json[gameName][a]["title"];
+
+                    switch (Json[gameName][a]["type"])
+                    {
+                        case "RESTA": minigame.type = Minigame_SimpleInput.Minigame_SimpleInput_type.RESTA; break;
+                        case "MULTIPLICA": minigame.type = Minigame_SimpleInput.Minigame_SimpleInput_type.MULTIPLICA; break;
+                    }
+
+                    minigame_SimpleInput.Add(minigame);
+                }
+                break;
+
+
+
+
+            case "fracciones":
+                /////////////////fracciones
+                for (int a = 0; a < Json[gameName].Count; a++)
+                {
+                    Minigame_Fracciones minigame = new Minigame_Fracciones();
+                    minigame.title = Json[gameName][a]["title"];
+                    minigame.slots = int.Parse( Json[gameName][a]["slots"] );
+                    minigame.fracciones = new List<string>();
+                    for (int b = 0; b < Json[gameName][a]["fracciones"].Count; b++)
+                        minigame.fracciones.Add(Json[gameName][a]["fracciones"][b]);
+
+                    //switch (Json[gameName][a]["type"])
+                    //{
+                    //    case "RESTA": minigame.type = Minigame_SimpleInput.Minigame_SimpleInput_type.RESTA; break;
+                    //}
+
+                    minigame_Fracciones.Add(minigame);
+                }
+                break;
+
+
+
         }
     }
     private void fillArray(List<string> arr, JSONNode content)
@@ -152,6 +213,11 @@ public class Texts :MonoBehaviour {
     public Minigame_SimpleInput GetMinigame_SimpleInput()
     {
         return minigame_SimpleInput[UnityEngine.Random.Range(0, minigame_Peso.Count)];
+        // return minigame_Peso[1];
+    }
+    public Minigame_Fracciones GetMinigame_Fracciones()
+    {
+        return minigame_Fracciones[UnityEngine.Random.Range(0, minigame_Fracciones.Count)];
         // return minigame_Peso[1];
     }
 

@@ -86,6 +86,9 @@ public class MiningameBackground : MonoBehaviour {
         int activeIslandID = Game.Instance.islandsManager.activeIsland.id;
         animationID = Game.Instance.islandsManager.activeIsland.animationID;
 
+        print("Init" + animationID);
+        GetComponent<Animator>().Play("intro" + animationID, 0, 0);
+
         if (activeIslandID == lastIslandID) return;
         lastIslandID = activeIslandID;
 
@@ -133,6 +136,7 @@ public class MiningameBackground : MonoBehaviour {
     }
     void OnMinigameStart()
     {
+        print("OnMinigameStart" + animationID);
         GetComponent<Animator>().Play("intro" + animationID, 0, 0);
 	}
     void OnMinigameStartCalculator()
@@ -142,10 +146,12 @@ public class MiningameBackground : MonoBehaviour {
     }
     void OnMinigameReady()
     {
+        print("OnMinigameReady" + animationID);
         GetComponent<Animator>().Play("win" + animationID, 0, 0);
     }
     void OnMinigameMistake()
     {
+        print("OnMinigameMistake" + animationID);
         GetComponent<Animator>().Play("lose" + animationID, 0, 0);
     }
     public void SetOff()

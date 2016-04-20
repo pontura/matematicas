@@ -33,14 +33,20 @@ public class Isla : Screen {
     }
     void Start()
     {
+        Events.OnTripStarted += OnTripStarted;
         Events.OnMinigameReady += OnMinigameReady;
         Events.OnMinigameMistake += OnMinigameMistake;
         SetArrived();
     }
     void OnDestroy()
     {
+        Events.OnTripStarted -= OnTripStarted;
         Events.OnMinigameReady -= OnMinigameReady;
         Events.OnMinigameMistake -= OnMinigameMistake;
+    }
+    void OnTripStarted()
+    {
+        state = states.BIENVENIDA;
     }
     public void SetArrived()
     {
@@ -61,22 +67,27 @@ public class Isla : Screen {
         }
         dataIsland = Game.Instance.islandsManager.activeIsland;
 
-        if(dataIsland.minigameType == MinigamesManager.types.PESAR)
+        Debug.Log("arranca: " + dataIsland.minigameType);
+
+        minigameType = dataIsland.minigameType;
+
+        if(minigameType == MinigamesManager.types.PESAR)
         {
             minigamePeso.Init();
             minigame.GetComponent<MinigamePesos>().Init();
         } else
-        if (dataIsland.minigameType == MinigamesManager.types.SIMPLE_INPUT)
+        if (minigameType == MinigamesManager.types.SIMPLE_INPUT)
         {
             minigameSimpleInput.Init();
             minigame.GetComponent<MinigameSimpleInput>().Init();
         }
         else
-            if (dataIsland.minigameType == MinigamesManager.types.FRACCIONES)
-            {
-                minigameFracciones.Init();
-                minigame.GetComponent<MinigameFracciones>().Init();
-            }
+        if (minigameType == MinigamesManager.types.FRACCIONES)
+        {
+            minigameFracciones.Init();
+            minigame.GetComponent<MinigameFracciones>().Init();
+        }
+
         Events.OnBlockStatus(true);
 
         

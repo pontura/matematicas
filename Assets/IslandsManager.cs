@@ -74,7 +74,7 @@ public class IslandsManager : MonoBehaviour {
         DataIsland clickedIsland = GetIslandById(id);
         int distance = (int)Vector3.Distance(clickedIsland.island.transform.position, activeIsland.island.transform.position);
 
-        print(clickedIsland.name + "Clicked : " + id + "   clickedIsland: " + clickedIsland.island.transform.localPosition + "  activeIsland: " + activeIsland.island.transform.localPosition + "  distance: " + distance);
+        //print(clickedIsland.name + "Clicked : " + id + "   clickedIsland: " + clickedIsland.island.transform.localPosition + "  activeIsland: " + activeIsland.island.transform.localPosition + "  distance: " + distance);
 
         if (distance > 1)
         {

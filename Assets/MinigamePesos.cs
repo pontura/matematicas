@@ -44,7 +44,6 @@ public class MinigamePesos : Minigame {
             {
                 int num = GetPromNumber();
                 total += num;
-                print("total" + total + "    " + num);
                 insertfield += " " + num.ToString() + "k";
             }
             result = total / minigame.promedios.Count;

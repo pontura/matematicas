@@ -36,6 +36,11 @@ public class MinigameSimpleInput : Minigame {
         {
             textFinal = GenerateRandomResults(textFinal);
             result = numbers[0] - numbers[1];
+        }
+        else if (minigame.type == Texts.Minigame_SimpleInput.Minigame_SimpleInput_type.MULTIPLICA)
+        {
+            textFinal = GenerateRandomResults(textFinal);
+            result = numbers[0] * numbers[1];
         }  
 
         desc.text = textFinal.Replace("[]", insertfield);

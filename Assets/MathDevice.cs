@@ -11,6 +11,7 @@ public class MathDevice : MonoBehaviour {
 
         minigameA.SetActive(false);
         minigameB.SetActive(false);
+        minigameC.SetActive(false);
         
 
         switch (type)
@@ -20,6 +21,9 @@ public class MathDevice : MonoBehaviour {
                 break;
             case MinigamesManager.types.SIMPLE_INPUT: 
                 minigameB.SetActive(true);                
+                break;
+            case MinigamesManager.types.FRACCIONES:
+                minigameC.SetActive(true);
                 break; 
         }
 	}

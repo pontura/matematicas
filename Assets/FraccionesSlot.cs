@@ -8,14 +8,16 @@ public class FraccionesSlot : MonoBehaviour {
     public GameObject id2;
     public GameObject id3;
 
+    //resultado + piedra puesta:
+    public int resultPiedraID;
+    public int piedraID;
+
     void Start()
     {
         SetOff();
     }
     public void Init(int id)
     {
-        this.id = id;
-
         id1.SetActive(false);
         id2.SetActive(false);
         id3.SetActive(false);
@@ -26,11 +28,14 @@ public class FraccionesSlot : MonoBehaviour {
             case 2: id2.SetActive(true); break;
             case 3: id3.SetActive(true); break;
         }
+
+        this.piedraID = id;
     }
     public void SetOff()
     {
         id1.SetActive(false);
         id2.SetActive(false);
         id3.SetActive(false);
+        this.piedraID = 0;
     }
 }
