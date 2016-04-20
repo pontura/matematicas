@@ -1,0 +1,32 @@
+{
+	pesar:
+	[
+		{
+			title: "Sabemos que la estatua de Knoube pesa un promedio de [] y necesitamos sopesarlo con rocas para poder cruzar el acantilado de la muerte.",
+			promedios: [1000, 1000],
+			peso1: 500,
+			peso2: 50,
+			peso3: 10,
+			type: "PROMEDIO",
+			islandId : 1
+		},
+		{
+			title: "Necesitamos [] kilos de rocas. Colocando esta cantidad de rocas sobre la piedra de la estatua de Yunkal lograrás elevar la plataforma.",
+			promedios: [1000, 1000],
+			peso1: 10000,
+			peso2: 1000,
+			peso3: 100,
+			type: "SUMATORIA",
+			islandId : 2		
+		},
+		{
+			title: "La estatua de Knoube pesa [] y tenemos que sopesarla para poder cruzar el acantilado de la muerte.",
+			promedios: [1000, 1000],
+			peso1: 10000,
+			peso2: 1000,
+			peso3: 100,
+			type: "SUMATORIA",
+			islandId : 3			
+		}
+	]
+}
