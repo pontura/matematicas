@@ -24,6 +24,7 @@ public class IslandsManager : MonoBehaviour {
     {        
         public string name;
         public int distance;
+        public int progress;
         public Mission mission;
         public IslandButton island;
         public int id;
@@ -40,10 +41,25 @@ public class IslandsManager : MonoBehaviour {
         activeIsland = GetIslandById( Data.Instance.userData.islandActive );
         SetNewMission(Data.Instance.userData.missionActive);
         Events.OnNewMission += OnNewMission;
+        int a = 1;
+        foreach (DataIsland dataIsland in islands)
+        {
+            dataIsland.progress = PlayerPrefs.GetInt("progressIsland_" + a, 0);
+            a++;
+        }
+        Events.OnMinigameReady += OnMinigameReady;
 	}
     void OnDestroy()
     {
         Events.OnNewMission -= OnNewMission;
+        Events.OnMinigameReady -= OnMinigameReady;
+    }
+    void OnMinigameReady()
+    {
+        DataIsland dataIsland = GetIslandById(activeIsland.id);
+        dataIsland.progress++;
+        print("dataIsland " + activeIsland + " progress: " + dataIsland.progress);
+        PlayerPrefs.SetInt("progressIsland_" + activeIsland.id, dataIsland.progress);        
     }
     void OnNewMission(int id)
     {

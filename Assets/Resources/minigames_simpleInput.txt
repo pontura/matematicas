@@ -5,16 +5,31 @@
 			title: "Tenés que pagar la tasa portuaria. Esta se calcula en función del peso que soporta tu embarcación, el cual es de [3000/3000]Kg. Por cada kg que soporta tu barco debés pagar una tasa de $[15/25]. ¡Hacé el pago!",
 			type: "MULTIPLICA",
 			islandId : 1
-		},
+		},		
 		{
 			title: "(DEMO) Teníamos [20/40] trozos de madera y quemamos [1/10]. ¿Ahora hay?...",
 			type: "RESTA",
-			islandId : 2			
+			islandId : 9			
 		},
 		{
 			title: "(DEMO) Teníamos [20/40] piedras y usamos [1/19]. ¿Quedan?...",
 			type: "RESTA",
-			islandId : 3
+			islandId : 5
+		},
+		{
+			title: "(DEMO) Teníamos [10/20] manzanas. Cada una sale $[15/25]. ¿Cuánto gastamos en total?",
+			type: "MULTIPLICA",
+			islandId : 16
+		},
+		{
+			title: "(DEMO 2) Teníamos [10/20] manzanas. Cada una sale $[15/25]. ¿Cuánto gastamos en total?",
+			type: "MULTIPLICA",
+			islandId : 16
+		},
+		{
+			title: "(DEMO 3) Teníamos [10/20] manzanas. Cada una sale $[15/25]. ¿Cuánto gastamos en total?",
+			type: "MULTIPLICA",
+			islandId : 16
 		}
 	]
 }

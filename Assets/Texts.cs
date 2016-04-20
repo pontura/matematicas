@@ -24,6 +24,7 @@ public class Texts :MonoBehaviour {
     [Serializable]
     public class Minigame_SimpleInput
     {
+        public int islandID;
         public string title;
         public Minigame_SimpleInput_type type;
         public enum Minigame_SimpleInput_type
@@ -36,6 +37,7 @@ public class Texts :MonoBehaviour {
     [Serializable]
     public class Minigame_Peso
     {
+        public int islandID;
         public string title;
         public List<int> promedios;
         public int peso1;
@@ -52,6 +54,7 @@ public class Texts :MonoBehaviour {
     [Serializable]
     public class Minigame_Fracciones
     {
+        public int islandID;
         public string title;
         public List<string> fracciones;
         public int slots;
@@ -130,7 +133,6 @@ public class Texts :MonoBehaviour {
                         case "PROMEDIO": minigame.type = Minigame_Peso.Minigame_Peso_type.PROMEDIO; break;
                         case "SUMATORIA": minigame.type = Minigame_Peso.Minigame_Peso_type.SUMATORIA; break;
                     }
-            
                     minigame_Peso.Add(minigame);
                 }
                 break;
@@ -144,6 +146,7 @@ public class Texts :MonoBehaviour {
                 {
                     Minigame_SimpleInput minigame = new Minigame_SimpleInput();
                     minigame.title = Json[gameName][a]["title"];
+                    minigame.islandID = int.Parse(Json[gameName][a]["islandId"]);
 
                     switch (Json[gameName][a]["type"])
                     {
@@ -212,7 +215,17 @@ public class Texts :MonoBehaviour {
     }
     public Minigame_SimpleInput GetMinigame_SimpleInput()
     {
-        return minigame_SimpleInput[UnityEngine.Random.Range(0, minigame_Peso.Count)];
+        Minigame_SimpleInput minigame = null;
+        int progress_num = 0;
+        foreach (Minigame_SimpleInput m in minigame_SimpleInput)
+        {
+            if (progress_num <= Game.Instance.islandsManager.activeIsland.progress &&  m.islandID == Game.Instance.islandsManager.activeIsland.id)
+            {
+                minigame = m;
+                progress_num++;
+            }
+        }
+        return minigame;
         // return minigame_Peso[1];
     }
     public Minigame_Fracciones GetMinigame_Fracciones()

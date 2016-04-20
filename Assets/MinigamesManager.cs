@@ -8,7 +8,8 @@ public class MinigamesManager : MonoBehaviour {
     {
         SIMPLE_INPUT,
         PESAR,
-        FRACCIONES
+        FRACCIONES,
+        VELOCIDAD
     }
 
 	void Start () {
