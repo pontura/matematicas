@@ -48,7 +48,7 @@ public class MissionsManager : MonoBehaviour {
                 case "ARENA": newMission.element = Mission.elements.ARENA; break;
             }
             newMission.description = Json["missions"][a]["description"];
-            newMission.description = GetDescription(newMission);
+          //  newMission.description = GetDescription(newMission);
 
             missions.Add(newMission);
         }
@@ -57,7 +57,7 @@ public class MissionsManager : MonoBehaviour {
         //    Debug.Log("M: " + mission.description);
         //}
     }
-    public string GetDescription(Mission mission)
+    public string SetDescription(Mission mission)
     {
         string _element = "";
 
@@ -72,5 +72,27 @@ public class MissionsManager : MonoBehaviour {
         new_description = new_description.Replace("[qty]", mission.qty.ToString());
         return new_description;
     }
-
+    public string GetDescription(int missionID)
+    {
+        string str = "";
+        foreach (Mission mission in missions)
+        {
+            if (missionID == mission.id)
+            {
+                str = SetDescription(mission);
+            }
+        }
+        return str;
+    }
+    public void OnMissionProgress(int missionID, int totalQty)
+    {
+        print("OnMissionProgress  " + missionID + "     totalQty : " + totalQty);
+        foreach (Mission mission in missions)
+        {
+            if (missionID == mission.id)
+            {
+                mission.qty = totalQty;
+            }
+        }
+    }
 }

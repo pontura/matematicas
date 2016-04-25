@@ -207,10 +207,11 @@ public class Isla : Screen {
                 case Mission.elements.MADERA: texto = SetTextQty(texto, Game.Instance.inventary.madera); break;
                 case Mission.elements.PIEDRAS: texto = SetTextQty(texto, Game.Instance.inventary.piedras); break;
             }
-            SetText(texto);
-            dataIsland.mission.qty -= totalInInventory;
+            Data.Instance.missionsManager.OnMissionProgress(dataIsland.mission.id, dataIsland.mission.qty - totalInInventory);
+            //dataIsland.mission.qty -= totalInInventory;            
             inventary.ConsumeElement(element, totalInInventory);
             state = states.MISSION_DISTE_ALGO;
+            SetText(texto);
         }
         else
         {

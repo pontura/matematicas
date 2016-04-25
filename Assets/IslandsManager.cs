@@ -74,13 +74,14 @@ public class IslandsManager : MonoBehaviour {
         else
         {
             Mission mission = Data.Instance.missionsManager.missions[missionID];
-            GetIslandById(mission.islandId).mission = mission;
+            SetMissionToIsland(mission, mission.islandId);
+           // GetIslandById(mission.islandId).mission = mission;
         }
     }
     public DataIsland GetIslandWithMission()
     {
         foreach (DataIsland di in islands)
-            if (di.mission != null)
+            if (di.mission.qty > 0 )
                 return di;
         return null;
     }
@@ -120,6 +121,7 @@ public class IslandsManager : MonoBehaviour {
     }
     public void SetMissionToIsland(Mission mission, int islandId)
     {
+        print("SetMissionToIsland" + islandId + " mission: " + mission.id + " mission.islandId: " +  mission.islandId);
         GetIslandById(islandId).mission = mission;
     }
 }

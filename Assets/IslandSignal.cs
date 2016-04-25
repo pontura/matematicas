@@ -47,7 +47,8 @@ public class IslandSignal : MonoBehaviour {
         if (data.mission != null)
         {
           //  desc.text += data.mission.GetDescription();
-            desc.text += data.mission.description;
+            string missionDesc = Data.Instance.missionsManager.GetDescription(data.mission.id);
+            desc.text += missionDesc;
             missionPanel.SetActive(true);
             Achievement achievement = AchievementsManager.Instance.GetAchievement(data.mission.id);
             achievementIcon.LoadImage(achievement.image);
