@@ -18,7 +18,7 @@
 		},
 		{
 			id: "2",
-			islandId: "13",
+			islandId: "14",
 			description: "Necesitamos [qty] caja/s de [element] para rellenar un río y a salvar una familia de tigres",
 			element : "ARENA",
 			qty: "5"

@@ -44,7 +44,7 @@ public class IslandSignal : MonoBehaviour {
         if (islandData.piedras) { item = "piedras";     iconPiedras.SetActive(true); }
 
 
-        if (data.mission != null)
+        if (data.mission.qty >0)
         {
           //  desc.text += data.mission.GetDescription();
             string missionDesc = Data.Instance.missionsManager.GetDescription(data.mission.id);
