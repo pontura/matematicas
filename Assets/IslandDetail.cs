@@ -23,8 +23,17 @@ public class IslandDetail : Screen {
         anim.Play("MgA_map");
         IslandsManager.DataIsland dataIsland = Game.Instance.islandsManager.gotoIsland;
         titleField.text = dataIsland.name;
-        string details = "Distancia: " + dataIsland.distance + "\n";    
-       // details += "Velocidad: 10km/h \n";|
+      //  string details = "Distancia: " + dataIsland.distance + "\n";
+
+
+
+        string distance = Game.Instance.islandDistances.GetRuta(Game.Instance.islandsManager.activeIsland.id, dataIsland.id);
+        string details = "";
+        if (distance == "")
+            details = "Distancia: " + dataIsland.distance + " Km.";
+        else
+            details = distance;
+
        // details += "Tripulación: 2 pasajeros";
 
       //  dialogueField.text = "¡Hola! ¿Quieres venir a " + dataIsland.name + "?" + "\n";        

@@ -20,7 +20,9 @@ public class Settings : MonoBehaviour {
 
         notas += "1 caja de madera pesa " + pesoMadera + "\n";
         notas += "1 caja de arena pesa " + pesoArena + "\n";
-        notas += "1 caja de piedras pesa " + pesoPiedras;
+        notas += "1 caja de piedras pesa " + pesoPiedras + "\n";
+
+        notas += "Velocidad del barco: " + barcoVelocidad + "Km/h";
 
         return notas;
     }

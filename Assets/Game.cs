@@ -18,6 +18,8 @@ public class Game : MonoBehaviour
     public MainMenu mainMenu;
     [HideInInspector]
     public MinigamesManager minigamesManager;
+    [HideInInspector]
+    public IslandDistances islandDistances;
 
     public states state;
     public enum states
@@ -66,6 +68,7 @@ public class Game : MonoBehaviour
         mainMenu = GetComponent<MainMenu>();
         gameManager = GetComponent<GameManager>();
         minigamesManager = GetComponent<MinigamesManager>();
+        islandDistances = GetComponent<IslandDistances>();
 
         Invoke("StartGame", 1f);
         

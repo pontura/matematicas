@@ -89,7 +89,7 @@ public class IslandsManager : MonoBehaviour {
     {
         
         DataIsland clickedIsland = GetIslandById(id);
-        int distance = (int)Vector3.Distance(clickedIsland.island.transform.position, activeIsland.island.transform.position);
+        int distance = (int)Vector3.Distance(clickedIsland.island.transform.position, activeIsland.island.transform.position)*4;
 
         //print(clickedIsland.name + "Clicked : " + id + "   clickedIsland: " + clickedIsland.island.transform.localPosition + "  activeIsland: " + activeIsland.island.transform.localPosition + "  distance: " + distance);
 

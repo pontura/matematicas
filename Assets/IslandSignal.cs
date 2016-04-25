@@ -36,7 +36,17 @@ public class IslandSignal : MonoBehaviour {
         panel.SetActive(true);
         panel.transform.localPosition = data.island.transform.localPosition / 4;
         title.text = data.name;
-        desc.text = "Distancia: " + data.distance + " Km.\n";
+
+        string distance = Game.Instance.islandDistances.GetRuta(Game.Instance.islandsManager.activeIsland.id, data.id);
+        string details = "";
+        if (distance == "")
+            details = "Distancia: " + data.distance + " Km.\n";
+        else
+            details = distance + "\n";
+
+        desc.text = details;
+
+
 
         string item = "";
         if (islandData.madera) { item = "madera";       iconMadera.SetActive(true); }

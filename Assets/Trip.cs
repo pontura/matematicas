@@ -41,9 +41,13 @@ public class Trip : Screen {
         destinoField.text = Game.Instance.islandsManager.gotoIsland.name;
         saleField.text = Game.Instance.islandsManager.activeIsland.name;
 
-        int secs = (int)Mathf.Ceil(Game.Instance.islandsManager.gotoIsland.distance / 10);
+       
+
+        int secs = (int)Mathf.Ceil(Game.Instance.islandsManager.gotoIsland.distance / 25);
+
+        print("TOTAL secs: " + secs + "  Game.Instance.islandsManager.gotoIsland.distance: " + Game.Instance.islandsManager.gotoIsland.distance);
+
         progressBar.Init(secs);
-        
 
         peso = Game.Instance.inventary.GetPesoTotalEnElBarco();
         if (Game.Instance.inventary.nafta == 0)
@@ -59,32 +63,9 @@ public class Trip : Screen {
         {
             Invoke("DiePorPeso", 2);
         }
-        meters100();
 	}
 
-    void meters100()
-    {
-        if (!isActive) return;
-
-        naftaConsumida++;
-        comidaConsumida++;
-
-        if (naftaConsumida == Data.Instance.settings.distancia_Caja_Energia/10)
-        {
-            Game.Instance.inventary.ConsumeElement("nafta", 1);
-            naftaConsumida = 0;
-            if (Game.Instance.inventary.nafta <= 0)
-                DeadPorNafta();
-        }
-        if (comidaConsumida == Data.Instance.settings.distancia_Caja_Energia)
-        {
-            Game.Instance.inventary.ConsumeElement("comida", 1);
-            comidaConsumida = 0;
-            if (Game.Instance.inventary.comida <= 0)
-                DeadPorComida();
-        }
-        Invoke("meters100", 1);
-    }
+   
     void OnShipArrived()
     {
         Game.Instance.inventary.ConsumeElement("nafta", 1);
@@ -92,14 +73,7 @@ public class Trip : Screen {
         Game.Instance.gameManager.Arrived();
        // Game.Instance.mainMenu.Isla();
     }
-    void DeadPorNafta()
-    {
-        Data.Instance.LoadLevel("DeadSinNafta");
-    }
-    void DeadPorComida()
-    {
-        Data.Instance.LoadLevel("DeadSinComida");
-    }
+    
     void DiePorPeso()
     {
         Data.Instance.LoadLevel("DeadPorPeso");
