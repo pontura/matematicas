@@ -9,6 +9,7 @@ public class UserData : MonoBehaviour {
     public string userID;
     public string username;
     public string password;
+    public string email;
     public int passwordValidated;
 
     public int islandActive;
@@ -20,6 +21,7 @@ public class UserData : MonoBehaviour {
         userID = PlayerPrefs.GetString("userID");
         username = PlayerPrefs.GetString("username", "");
         password = PlayerPrefs.GetString("password");
+        email = PlayerPrefs.GetString("email");
         passwordValidated = PlayerPrefs.GetInt("passwordValidated", 0);
         distanceTraveled = PlayerPrefs.GetInt("distanceTraveled", 0);
 
@@ -44,17 +46,19 @@ public class UserData : MonoBehaviour {
         Events.NewDistanceTraveled += NewDistanceTraveled;
 
     }
-    public void OnRegistration(string _username, string _userID, string _password)
+    public void OnRegistration(string _username, string _email, string _password, string _userID)
     {
         print("OnRegistration");
         this.username = _username;
         this.userID = _userID;
+        this.email = _email;
         this.password = _password;
         passwordValidated = 0;
 
         PlayerPrefs.SetString("userID", _userID);
         PlayerPrefs.SetString("username", _username);
         PlayerPrefs.SetString("password", _password);
+        PlayerPrefs.SetString("email", _email);
         PlayerPrefs.SetInt("passwordValidated", 0);
 
         Events.OnUserRegistration();
@@ -84,6 +88,7 @@ public class UserData : MonoBehaviour {
         userID = "";
         username = "";
         password = "";
+        email = "";
         islandActive = 1;
 
     }
@@ -120,5 +125,11 @@ public class UserData : MonoBehaviour {
         distanceTraveled += new_distanceTraveled;
         PlayerPrefs.SetInt("distanceTraveled", distanceTraveled);
         AchievementsEvents.OnNewDistance(distanceTraveled);
+    }
+    public void SaveObjectID(string _userID)
+    {
+        print("SaveObjectID " + _userID);
+        this.userID = _userID;
+        PlayerPrefs.SetString("userID", _userID);
     }
 }

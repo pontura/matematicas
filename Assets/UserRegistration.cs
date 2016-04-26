@@ -101,7 +101,7 @@ public class UserRegistration : MonoBehaviour {
         feedback.text = "El email ya está usado";
         registrationButton1.SetActive(true);
         registrationButton2.SetActive(true);
-        Data.Instance.userData.OnRegistration(_username, _userID, pass);
+        Data.Instance.userData.OnRegistration(_username, _userID, pass, "");
         Events.OnUserRegistration();
     }
 

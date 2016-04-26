@@ -6,8 +6,10 @@ using SimpleJSON;
 
 public class AchievementsManager : MonoBehaviour
 {
+    public int totalReady;
     public List<Achievement> achievements;
     string jsonUrl = "achievements";
+    public string dataBaseString = "";
 
     const string PREFAB_PATH = "AchievementsManager";
     static AchievementsManager mInstance = null;
@@ -41,6 +43,7 @@ public class AchievementsManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(this);
+        AchievementsEvents.OnReady += OnReady;
     }
 
     /// <summary>
@@ -97,10 +100,50 @@ public class AchievementsManager : MonoBehaviour
                     break;
             }
         }
+        SetAchievements();
     }
     public Achievement GetAchievement(int id)
     {
         return achievements[id];
+    }
+    void SetAchievements()
+    {
+        totalReady = 0;
+        dataBaseString = "";
+        foreach (Achievement ach in achievements)
+        {
+            string result = "0";
+            if (ach.ready)
+            {
+                result = "1";
+                totalReady++;
+            }
+            dataBaseString += result + ",";
+        }
+    }
+    void OnReady(int id)
+    {
+        print("OnReady" + id);
+        SetAchievements();
+        Update_DB();
+    }
+    public void Update_DB()
+    {
+        print("OnChallengeClose objectID totalReady: " + totalReady);
+
+        Hashtable data = new Hashtable();
+        data.Add("achievements", totalReady);
+
+        HTTP.Request theRequest = new HTTP.Request("patch", SocialManager.Instance.FIREBASE + "/users/" + Data.Instance.userData.userID + "/.json", data);
+        theRequest.Send((request) =>
+        {
+            Hashtable jsonObj = (Hashtable)JSON.JsonDecode(request.response.Text);
+            if (jsonObj == null)
+            {
+                Debug.LogError("server returned null or malformed response ):");
+            }
+            Debug.Log("achievements updated: " + request.response.Text);
+        });
     }
     
     

@@ -37,7 +37,6 @@ public class ProgressBar : MonoBehaviour {
 
         float newPos =  GetResult(duration, path, distance);
         ship.transform.localPosition = new Vector2(newPos, ship.transform.localPosition.y);
-        print("distance  " + distance + "     duration.y  "   + duration.y);
         if (distance >= duration.y)
         {
             Ready();

@@ -54,10 +54,10 @@ public class MainScreen : MonoBehaviour {
     void OnUserPasswordValidated()
     {
         string username = Data.Instance.userData.username;
-        string email = Data.Instance.userData.userID;
+        string email = Data.Instance.userData.email;
         string password = Data.Instance.userData.password;
 
-        SocialManager.Instance.loginManager.AddNewUserTODB(username, email, password);
+        SocialManager.Instance.loginManager.CreateUserIfNotExists(username, email, password);
 
         ResetScreens();
         userLogged.SetActive(true);
