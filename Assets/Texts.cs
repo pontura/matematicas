@@ -93,7 +93,7 @@ public class Texts :MonoBehaviour {
     }
     public void LoadDataromServer(string json_data)
     {
-        var Json = JSON.Parse(json_data);
+        var Json = SimpleJSON.JSON.Parse(json_data);
 
         fillArray(tutorial, Json["tutorial"]);
         fillArray(elementos, Json["elementos"]);
@@ -109,7 +109,7 @@ public class Texts :MonoBehaviour {
     }
     public void LoadDataMinigames(string json_data, string minigameName)
     {
-        var Json = JSON.Parse(json_data);
+        var Json = SimpleJSON.JSON.Parse(json_data);
 
         string gameName = minigameName;
 

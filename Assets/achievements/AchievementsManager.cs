@@ -66,7 +66,7 @@ public class AchievementsManager : MonoBehaviour
     }
     public void LoadDataromServer(string json_data)
     {
-        var Json = JSON.Parse(json_data);
+        var Json = SimpleJSON.JSON.Parse(json_data);
         string arrayName = "achievements";
         achievements = new List<Achievement>(Json[arrayName].Count);
         for (int a = 0; a < Json[arrayName].Count; a++)

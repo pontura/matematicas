@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Parse;
 using System;
 using System.Linq;
 
@@ -50,9 +49,16 @@ public class MainScreen : MonoBehaviour {
         ResetScreens();
         userPasswordValidation.SetActive(true);
         GetComponent<UserPasswordValidation>().Init();
+        Events.SendEmail();
     }
     void OnUserPasswordValidated()
     {
+        string username = Data.Instance.userData.username;
+        string email = Data.Instance.userData.userID;
+        string password = Data.Instance.userData.password;
+
+        SocialManager.Instance.loginManager.AddNewUserTODB(username, email, password);
+
         ResetScreens();
         userLogged.SetActive(true);
         GetComponent<UserLogged>().Init();

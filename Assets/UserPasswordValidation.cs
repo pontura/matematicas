@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using Parse;
-
 public class UserPasswordValidation : MonoBehaviour
 {
     public Text title;

@@ -42,6 +42,7 @@ public class UserData : MonoBehaviour {
         Events.OnMissionComplete += OnMissionComplete;
         Events.OnResetApp += OnResetApp;
         Events.NewDistanceTraveled += NewDistanceTraveled;
+
     }
     public void OnRegistration(string _username, string _userID, string _password)
     {
@@ -56,6 +57,7 @@ public class UserData : MonoBehaviour {
         PlayerPrefs.SetString("password", _password);
         PlayerPrefs.SetInt("passwordValidated", 0);
 
+        Events.OnUserRegistration();
     }
     public bool OnValidatePassword(string _password)
     {

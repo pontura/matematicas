@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using Parse;
 using System.Text.RegularExpressions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Parse;
 
 public class UserRegistration : MonoBehaviour {
 
@@ -21,26 +21,30 @@ public class UserRegistration : MonoBehaviour {
     public GameObject registrationButton1;
     public GameObject registrationButton2;
 
-    private enum states
+    public enum states
     {
         IDLE,
         CHECKING,
         EXISTS,
         AVAILABLE
     }
-    private states state;
+    public states state;
 
     void Start()
     {
         registrationButton1.SetActive(false);
         registrationButton2.SetActive(false);
+        Events.SendEmail += SendEmail;
     }
-
+    void OnDestroy()
+    {
+        Events.SendEmail -= SendEmail;
+    }
 	void Update () {
-        if (state == states.AVAILABLE)
-            EmailAvaiable();
-        else if (state == states.EXISTS)
-            EmailExists();
+        //if (state == states.AVAILABLE)
+        //    EmailAvaiable();
+        //else if (state == states.EXISTS)
+        //    EmailExists();
 	}
 
     public void Submit()
@@ -48,73 +52,19 @@ public class UserRegistration : MonoBehaviour {
         state = states.CHECKING;
         if (!IsValidEmail(email.text))
         {
-            feedback.text = "El email es incorrecto"; 
+            feedback.text = "El email es incorrecto";
             return;
         }
         if (username.text.Length < 1)
         {
-            feedback.text = "El nombre de usuario es incorrecto"; 
+            feedback.text = "El nombre de usuario es incorrecto";
             return;
         }
-         CheckEmail(
-                 ParseObject.GetQuery("Users")
-                .WhereEqualTo("userID", email.text)
-            );
-    }
-    void CheckEmail(ParseQuery<ParseObject> query)
-    {
-        //query.FindAsync().ContinueWith(t =>
-        //{
-        //    print("CheckEmail");
-        //    IEnumerable<ParseObject> results = t.Result;
-        //    print(results);
-        //    state = states.AVAILABLE;
-        //    foreach (var result in results)
-        //        state = states.EXISTS;
-
-        //}
-        //);
-
-        query.FindAsync().ContinueWith(t =>
-        {
-            print("CheckEmail");
-            IEnumerable<ParseObject> results = t.Result;
-
-            state = states.AVAILABLE;
-
-            foreach (var result in results)
-            {
-                state = states.EXISTS;
-                _username = result.Get<string>("username");
-                _userID = result.Get<string>("userID");
-                pass = result.Get<string>("password");               
-            }
-        }
-       );
-
-
-    }
-    void EmailAvaiable()
-    {
-        if (!IsValidEmail(email.text))
-        {
-            feedback.text = "El email es incorrecto";
-            return;
-        }
-
-        state = states.IDLE;
-        pass = UnityEngine.Random.Range(10000,99999).ToString();
-
-        ParseObject testObject = new ParseObject("Users");
-        testObject["username"] = username.text;
-        testObject["userID"] = email.text;
-        testObject["password"] = pass;
-        testObject.SaveAsync();
-
-        SendEmail();
-
-        Data.Instance.userData.OnRegistration(username.text, email.text, pass);
-        Events.OnUserRegistration();
+        SocialEvents.OnLogin(email.text, username.text);
+        //CheckEmail(
+        //        ParseObject.GetQuery("Users")
+        //       .WhereEqualTo("userID", email.text)
+        //   );
     }
     bool IsValidEmail(string strIn)
     {
@@ -122,10 +72,11 @@ public class UserRegistration : MonoBehaviour {
     }
     public void SendEmail()
     {
+        this.pass = Data.Instance.userData.password;
         Dictionary<string, object> parameters = new Dictionary<string, object>();
         parameters.Add("username", username.text);
         parameters.Add("to", email.text);
-        parameters.Add("password", pass);
+        parameters.Add("password", pass);        
 
         ParseCloud.CallFunctionAsync<string>("sendPassword", parameters)
           .ContinueWith(t =>
@@ -153,4 +104,83 @@ public class UserRegistration : MonoBehaviour {
         Data.Instance.userData.OnRegistration(_username, _userID, pass);
         Events.OnUserRegistration();
     }
+
+    //public void Submit()
+    //{
+    //    state = states.CHECKING;
+    //    if (!IsValidEmail(email.text))
+    //    {
+    //        feedback.text = "El email es incorrecto"; 
+    //        return;
+    //    }
+    //    if (username.text.Length < 1)
+    //    {
+    //        feedback.text = "El nombre de usuario es incorrecto"; 
+    //        return;
+    //    }
+    //     CheckEmail(
+    //             ParseObject.GetQuery("Users")
+    //            .WhereEqualTo("userID", email.text)
+    //        );
+    //}
+    //void CheckEmail(ParseQuery<ParseObject> query)
+    //{
+    //    //query.FindAsync().ContinueWith(t =>
+    //    //{
+    //    //    print("CheckEmail");
+    //    //    IEnumerable<ParseObject> results = t.Result;
+    //    //    print(results);
+    //    //    state = states.AVAILABLE;
+    //    //    foreach (var result in results)
+    //    //        state = states.EXISTS;
+
+    //    //}
+    //    //);
+
+    //    query.FindAsync().ContinueWith(t =>
+    //    {
+    //        print("CheckEmail");
+    //        IEnumerable<ParseObject> results = t.Result;
+
+    //        state = states.AVAILABLE;
+
+    //        foreach (var result in results)
+    //        {
+    //            state = states.EXISTS;
+    //            _username = result.Get<string>("username");
+    //            _userID = result.Get<string>("userID");
+    //            pass = result.Get<string>("password");               
+    //        }
+    //    }
+    //   );
+
+
+    //}
+    //void EmailAvaiable()
+    //{
+    //    if (!IsValidEmail(email.text))
+    //    {
+    //        feedback.text = "El email es incorrecto";
+    //        return;
+    //    }
+
+    //    state = states.IDLE;
+    //    pass = UnityEngine.Random.Range(10000,99999).ToString();
+
+    //    ParseObject testObject = new ParseObject("Users");
+    //    testObject["username"] = username.text;
+    //    testObject["userID"] = email.text;
+    //    testObject["password"] = pass;
+    //    testObject.SaveAsync();
+
+    //    SendEmail();
+
+    //    Data.Instance.userData.OnRegistration(username.text, email.text, pass);
+    //    Events.OnUserRegistration();
+    //}
+    //bool IsValidEmail(string strIn)
+    //{
+    //    return Regex.IsMatch(strIn, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+    //}
+
 }

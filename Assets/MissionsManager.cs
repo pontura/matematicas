@@ -31,7 +31,7 @@ public class MissionsManager : MonoBehaviour {
     }
     public void LoadDataromServer(string json_data)
     {
-        var Json = JSON.Parse(json_data);
+        var Json = SimpleJSON.JSON.Parse(json_data);
         missions = new List<Mission>(Json["missions"].Count);
         for (int a = 0; a < Json["missions"].Count; a++)
         {
