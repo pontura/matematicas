@@ -29,7 +29,7 @@ public class MinigameFracciones : Minigame {
     public void Init()
     {        
         mathDevice.Init(MinigamesManager.types.FRACCIONES);
-        mathDevice.Appear();
+        
 
         if (Game.Instance.gameManager.Isla.GetComponent<Isla>().state == Isla.states.MINIGAME_STARTED) return;
         if (results != null && results.Count > 0) return;

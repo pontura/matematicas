@@ -67,7 +67,7 @@ public class Isla : Screen {
         }
         dataIsland = Game.Instance.islandsManager.activeIsland;
 
-        Debug.Log("arranca: " + dataIsland.minigameType);
+      //  Debug.Log("arranca: " + dataIsland.minigameType);
 
         minigameType = dataIsland.minigameType;
 

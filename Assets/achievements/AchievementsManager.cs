@@ -125,7 +125,7 @@ public class AchievementsManager : MonoBehaviour
     {
         print("OnReady" + id);
         SetAchievements();
-        Update_DB();
+        //Update_DB();
     }
     public void Update_DB()
     {
@@ -133,8 +133,12 @@ public class AchievementsManager : MonoBehaviour
 
         Hashtable data = new Hashtable();
         data.Add("achievements", totalReady);
+        string url = SocialManager.Instance.FIREBASE + "/users/" + Data.Instance.userData.userID + "/.json";
 
-        HTTP.Request theRequest = new HTTP.Request("patch", SocialManager.Instance.FIREBASE + "/users/" + Data.Instance.userData.userID + "/.json", data);
+        Debug.Log(url);
+
+        HTTP.Request theRequest = new HTTP.Request("patch",url, data);
+
         theRequest.Send((request) =>
         {
             Hashtable jsonObj = (Hashtable)JSON.JsonDecode(request.response.Text);

@@ -86,7 +86,26 @@ public class MainMenu : MonoBehaviour {
         SetActive(3);
         gameManager.Open("Barco");
     }
-    
+    public void BlockOpen()
+    {
+        if (!BlockOpened)
+        {
+            gameManager.OpenBlock();
+            blockOn.SetActive(false);
+            blockOff.SetActive(true);
+            BlockOpened = !BlockOpened;
+        }
+    }
+    public void BlockClose()
+    {
+        if (BlockOpened)
+        {
+            gameManager.CloseBlock();
+            blockOn.SetActive(true);
+            blockOff.SetActive(false);
+            BlockOpened = !BlockOpened;
+        }
+    }
     public void Block()
     {
         if (!BlockOpened)
