@@ -21,4 +21,12 @@ public class InputFieldCustom : MonoBehaviour {
         fields[_id].Select();
         fields[_id].ActivateInputField();
     }
+    public string GetContent()
+    {
+        string result = "";
+        foreach (InputField input in fields)
+            result += input.text;
+
+        return result;
+    }
 }

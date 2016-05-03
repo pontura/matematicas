@@ -9,13 +9,19 @@ public class Block : Screen
     public BlockItem draggingBlockItem;
     public GameObject container;
 
+    public bool opened;
+
     void Start()
     {
+        Events.OnMinigameReady += OnMinigameReady;
         Events.OnBlockStatus += OnBlockStatus;
+        Events.OnBlockSendRequest += OnBlockSendRequest;
     }
     void OnDestroy()
     {
+        Events.OnMinigameReady -= OnMinigameReady;
         Events.OnBlockStatus -= OnBlockStatus;
+        Events.OnBlockSendRequest -= OnBlockSendRequest;
     }
     void OnBlockStatus(bool show)
     {
@@ -24,15 +30,18 @@ public class Block : Screen
     }
     public void Open()
     {
+        opened = true;
         anim.Play("OpenBlock");
     }
     public void Close()
     {
+        opened = false;
         anim.Play("CloseBlock");
         Invoke("Reset", 0.5f);
     }
     void Reset()
     {
+        opened = false;
         gameObject.SetActive(false);
     }
     static private KeyCode[] validKeyCodes;
@@ -87,8 +96,20 @@ public class Block : Screen
     {
         BlockItem bi = blockItems[bb.id];
         BlockItem newBi = Instantiate(bi);
+        newBi.id = bb.id;
         newBi.transform.SetParent(container.transform);
         draggingBlockItem = newBi;
         draggingBlockItem.transform.localScale = Vector3.one;
+    }
+    void OnMinigameReady()
+    {
+        OnBlockSendRequest();
+        print("OnMinigameReady");
+    }
+    void OnBlockSendRequest()
+    {
+        if (!opened)
+            Open();
+        GetComponent<BlockSendRequestPanel>().Init("Hola");
     }
 }

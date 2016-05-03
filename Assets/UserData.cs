@@ -15,6 +15,7 @@ public class UserData : MonoBehaviour {
     public int islandActive;
     public int missionActive;
     private Inventary inventary;
+    public int totalBlocksNotes;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class UserData : MonoBehaviour {
         email = PlayerPrefs.GetString("email");
         passwordValidated = PlayerPrefs.GetInt("passwordValidated", 0);
         distanceTraveled = PlayerPrefs.GetInt("distanceTraveled", 0);
+        totalBlocksNotes = PlayerPrefs.GetInt("totalBlocksNotes", 0);
 
         if (username == "") firstTimeHere = true;
 
@@ -44,6 +46,7 @@ public class UserData : MonoBehaviour {
         Events.OnMissionComplete += OnMissionComplete;
         Events.OnResetApp += OnResetApp;
         Events.NewDistanceTraveled += NewDistanceTraveled;
+        Events.OnSaveBlock += OnSaveBlock;
 
     }
     public void OnRegistration(string _username, string _email, string _password, string _userID)
@@ -131,5 +134,10 @@ public class UserData : MonoBehaviour {
         print("SaveObjectID " + _userID);
         this.userID = _userID;
         PlayerPrefs.SetString("userID", _userID);
+    }
+    void OnSaveBlock(string title)
+    {
+        totalBlocksNotes++;
+        PlayerPrefs.SetInt("totalBlocksNotes", totalBlocksNotes);
     }
 }
