@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+
 using System.Collections;
 
 public class MinigamePesos : Minigame {
 
-    public Text desc;
     public int peso;
     public int result;
     public ButtonAddRemove[] buttons;

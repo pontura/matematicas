@@ -55,7 +55,7 @@ public class MathDevice : MonoBehaviour {
     }
     public void Disappear()
     {
-        Events.OnBlockStatus(false);
+        //Events.OnBlockStatus(false);
         GetComponent<Animator>().Play("deviceDissappear", 0, 0);
     }
 }

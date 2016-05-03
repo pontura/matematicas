@@ -5,7 +5,6 @@ using System.Collections;
 
 public class MinigameSimpleInput : Minigame {
 
-    public Text desc;
     public int result = 0;
     public InputField inputField;
     public List<int> numbers;

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class MinigameFracciones : Minigame {
 
-    public Text desc;
     public MathDevice mathDevice;
     public FraccionesDraggingObject draggingObject;
     private bool dragging;

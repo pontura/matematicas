@@ -49,5 +49,7 @@ public class BlocksManager : MonoBehaviour {
             }
             Debug.Log("block updated: " + request.response.Text);
         });
+
+        Events.OnBlockReset();
     }
 }

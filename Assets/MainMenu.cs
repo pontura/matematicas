@@ -35,14 +35,15 @@ public class MainMenu : MonoBehaviour {
     }
     void OnTripStarted()
     {
-        SetButtonsEnable(true);
+        SetDisableButtons(true);
     }
     void OnShipArrived()
     {
-        SetButtonsEnable(false);
+        SetDisableButtons(false);
     }
-    public void SetButtonsEnable(bool status)
+    public void SetDisableButtons(bool status)
     {
+        print("SetDisableButtons " + status);
         masker.SetActive(status);
     }
     void SetActive(int id)

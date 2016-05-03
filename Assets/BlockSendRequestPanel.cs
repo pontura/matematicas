@@ -17,7 +17,6 @@ public class BlockSendRequestPanel : MonoBehaviour {
     }
     public void Init(string _title)
     {
-        Game.Instance.mainMenu.SetButtonsEnable(false);
         title.text = _title;
         panel.SetActive(true);
 	}
@@ -25,11 +24,14 @@ public class BlockSendRequestPanel : MonoBehaviour {
     public void Send()
     {
         Events.OnSaveBlock(title.text);
+        Cancel();
     }
 
     public void Cancel()
     {
-        Game.Instance.mainMenu.SetButtonsEnable(true);
+        Game.Instance.mainMenu.BlockClose();
+        Game.Instance.mainMenu.SetDisableButtons(false);
         panel.SetActive(false);
+        Events.OnBlockReset();
     }
 }

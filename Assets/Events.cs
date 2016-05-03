@@ -24,10 +24,12 @@ public static class Events {
     
     public static System.Action OnSaveInventary = delegate { };
     public static System.Action OnShipRefreshCarga = delegate { };
+
     public static System.Action<bool> OnBlockStatus = delegate { };
-    public static System.Action OnBlockSendRequest = delegate { };
+    public static System.Action<string> OnBlockSendRequest = delegate { };
     public static System.Action<string> OnSaveBlock = delegate { };
     public static System.Action<string, string> OnSaveBlockToDB = delegate { };
+    public static System.Action OnBlockReset = delegate { };
 
     public static System.Action OnMissionComplete = delegate { };
     public static System.Action<int> OnNewMission = delegate { };

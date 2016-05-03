@@ -9,19 +9,17 @@ public class Block : Screen
     public BlockItem draggingBlockItem;
     public GameObject container;
 
-    public bool opened;
-
     void Start()
     {
-        Events.OnMinigameReady += OnMinigameReady;
         Events.OnBlockStatus += OnBlockStatus;
+        Events.OnBlockReset += OnBlockReset;
         Events.OnBlockSendRequest += OnBlockSendRequest;
     }
     void OnDestroy()
     {
-        Events.OnMinigameReady -= OnMinigameReady;
         Events.OnBlockStatus -= OnBlockStatus;
         Events.OnBlockSendRequest -= OnBlockSendRequest;
+        Events.OnBlockReset -= OnBlockReset;
     }
     void OnBlockStatus(bool show)
     {
@@ -30,18 +28,17 @@ public class Block : Screen
     }
     public void Open()
     {
-        opened = true;
         anim.Play("OpenBlock");
     }
     public void Close()
     {
-        opened = false;
+        print("Close()");
         anim.Play("CloseBlock");
         Invoke("Reset", 0.5f);
     }
     void Reset()
     {
-        opened = false;
+        print("Reset()");
         gameObject.SetActive(false);
     }
     static private KeyCode[] validKeyCodes;
@@ -49,6 +46,12 @@ public class Block : Screen
     {
         if (validKeyCodes != null) return;
         validKeyCodes = (KeyCode[])System.Enum.GetValues(typeof(KeyCode));
+    }
+    void OnBlockReset()
+    {
+        print("_______OnBlockReset");
+        int num = container.transform.childCount;
+        for (int i = 0; i < num; i++) DestroyImmediate(container.transform.GetChild(0).gameObject);
     }
     void Update()
     {
@@ -88,6 +91,7 @@ public class Block : Screen
         {
             if (draggingBlockItem.transform.position.x > UnityEngine.Screen.width/2)
             {
+                
                 Destroy(draggingBlockItem.gameObject);
             }
         }
@@ -101,15 +105,18 @@ public class Block : Screen
         draggingBlockItem = newBi;
         draggingBlockItem.transform.localScale = Vector3.one;
     }
-    void OnMinigameReady()
+    private string title;
+    void OnBlockSendRequest(string title)
     {
-        OnBlockSendRequest();
-        print("OnMinigameReady");
+        this.title = title;
+        Invoke("OnBlockSendRequestDelayed", 1);
+        print("OnBlockSendRequestDelayed");
+        Game.Instance.mainMenu.SetDisableButtons(true);
     }
-    void OnBlockSendRequest()
+    void OnBlockSendRequestDelayed()
     {
-        if (!opened)
-            Open();
-        GetComponent<BlockSendRequestPanel>().Init("Hola");
+        OnBlockStatus(true);
+        Game.Instance.mainMenu.BlockOpen();
+        GetComponent<BlockSendRequestPanel>().Init(title);
     }
 }

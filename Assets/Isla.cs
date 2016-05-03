@@ -244,6 +244,7 @@ public class Isla : Screen {
     }
     public void OnMinigameReady()
     {
+        Events.OnBlockSendRequest(minigame.desc.text);
         dialogue.SetActive(true);
         minigame.gameObject.SetActive(false);
         SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
