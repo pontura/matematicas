@@ -4,32 +4,188 @@
 		{
 			title: "Tenés que pagar la tasa portuaria. Esta se calcula en función del peso que soporta tu embarcación, el cual es de [3000/3000]Kg. Por cada kg que soporta tu barco debés pagar una tasa de $[15/25]. ¡Hacé el pago!",
 			type: "MULTIPLICA",
-			islandId : 1
+			islandId : 1,
+			loop:"false"
 		},		
 		{
 			title: "(DEMO) Teníamos [20/40] trozos de madera y quemamos [1/10]. ¿Ahora hay?...",
 			type: "RESTA",
-			islandId : 9			
+			islandId : 9,
+			loop:"true"			
 		},
-		{
-			title: "(DEMO) Teníamos [20/40] piedras y usamos [1/19]. ¿Quedan?...",
-			type: "RESTA",
-			islandId : 5
-		},
-		{
-			title: "(DEMO) Teníamos [10/20] manzanas. Cada una sale $[15/25]. ¿Cuánto gastamos en total?",
+		
+		
+		
+		
+		{		
+			title: "Para revertir la situación se está pensando en hacer una plantación de eucaliptos. Se estima que por hectárea se siembran [30/40] árboles y el espacio total que se desea sembrar es de [200/300] hectáreas. Ayudá a calcular la cantidad total de árboles a sembrar.",
 			type: "MULTIPLICA",
-			islandId : 16
+			islandId : 5,
+			loop:"true"
+		},
+		{		
+			title: "Se quiere implementar un sistema de riego, para lo que se aprovechará el agua de lluvia. Por mes llueven aproximadamente 120 milímetros. Ayudá a los ingenieros forestales a decidir cuál de los siguientes cálculos que proponen, permite determinar cuántos litros de agua se podrá recolectar en un año.",
+			type: "HARDCODE",
+			result: 3,
+			islandId : 5,
+			loop:"false"
+		},
+		{		
+			title: "Para evitar futuros incendios se colocarán carteles de advertencia y prevención en la ruta que bordea la isla. Se consiguieron 45 carteles, se quiere que estén todos separados por la misma distancia y la extensión total de la ruta es de 405 km. Ayudá a calcular la distancia, en kilómetros, que debe quedar entre cartel y cartel.",
+			type: "HARDCODE",
+			result: 9,
+			islandId : 5,
+			loop:"false"
+		},
+		{		
+			title: "Preocupados por la infertilidad del suelo, los habitantes de la isla realizan ofrendas a la Pachamama: a partir del 1° de agosto, cada 12 días deben rociar la tierra con chicha (bebida milenaria) y cada 15 días deben quemar y arrojar a la tierra hierbas aromáticas e inciensos. El día en que coinciden los dos rituales, los pobladores realizan una celebración a la que asiste todo el pueblo. Ayúdalos a saber cuántos días después del 1° de agosto deberán realizar la celebración.",
+			type: "HARDCODE",
+			result: 60,
+			islandId : 5,
+			loop:"false"
+		},
+		{		
+			title: "En la isla se está pensando en construir un invernadero para sembrar plantas que no crecen a cielo abierto. Los especialistas consultados afirman que por cada planta de tomates a cultivar, es necesario que se siembren 25 semillas. Ayudá a los trabajadores del vivero a calcular la cantidad de semillas que deben plantar para que en el invernadero haya 42 plantas de tomates.",
+			type: "HARDCODE",
+			result: 1050,
+			islandId : 5,
+			loop:"false"
+		},
+		
+		
+		
+		
+		{
+			title: "Las torres de los generadores están hechas de tubos de acero, y cada uno mide aproximadamente 50 metros de altura. Ayudá a calcular la cantidad de metros de tubo necesarios para construir los 400 generadores.",
+			type: "HARDCODE",
+			result: 20000,
+			islandId : 9,
+			loop:"false"
 		},
 		{
-			title: "(DEMO 2) Teníamos [10/20] manzanas. Cada una sale $[15/25]. ¿Cuánto gastamos en total?",
-			type: "MULTIPLICA",
-			islandId : 16
+			title: "Se estima que 20 molinos ocupan un espacio de 1 kilómetro cuadrado. En la isla se desean instalar 400 molinos. Colaborá con el equipo para determinar cuántos kilómetros cuadrados será necesario destinar al parque eólico. Pist: 1 kilómetro cuadrado es un cuadrado en el que cada uno de sus lados mide 1 km.",
+			type: "HARDCODE",
+			result: 20,
+			islandId : 9,
+			loop:"false"
 		},
 		{
-			title: "(DEMO 3) Teníamos [10/20] manzanas. Cada una sale $[15/25]. ¿Cuánto gastamos en total?",
+			title: "Se está organizando la fiesta de inauguración del parque eólico. La leyenda cuenta que si la tercera parte de quienes asisten a la celebración suelta al viento un globo de color rojo, aparece el hada del viento asegurando que el parque funcionará en su máximo potencial. En esta fiesta de inauguración participarán 12.600 personas. Ayudá a los organizadores a saber cuántos globos rojos deben repartir entre los asistentes para que aparezca el hada.",
+			type: "HARDCODE",
+			result: 4200,
+			islandId : 9,
+			loop:"false"
+		},
+		{
+			title: "Los molinos de viento hicieron que se redujera drásticamente la población de murciélagos en la isla. Como los murciélagos se alimentan de insectos, queremos realizar una fumigación para prevenir enfermedades. Una empresa quiere cobrar $1.500.000 por el trabajo completo, la otra cobra $1.300 por metro cuadrado. La isla tiene una superficie total de 1.000 metros cuadrados. Ayudanos a calcular cuánto dinero ahorramos al contratar a la empresa más barata.",
+			type: "HARDCODE",
+			result: 200000,
+			islandId : 9,
+			loop:"false"
+		},
+		{
+			title: "El gobierno de la isla apoya un proyecto de energía novedoso en el parque eólico. Cada uno de los 400 molinos que desean instalar genera, en condiciones favorables, 750 KW de energía por día. Ayudá a los ingenieros a determinar cuál es el cálculo que permite estimar la cantidad de energía que podrá producirse por año en la isla. Cálculo 1: 400 x 750. Cálculo 2: 400 x 750 x 365. Cálculo 3: 400 x 750 : 365",
+			type: "HARDCODE",
+			result: 2,
+			islandId : 9,
+			loop:"false"
+		},
+		{
+			title: "Las torres de los generadores están hechas de tubos de acero, y cada uno mide aproximadamente [20,70] metros de altura. Ayudá a calcular la cantidad de metros de tubo necesarios para construir los [2,9] generadores.",
 			type: "MULTIPLICA",
-			islandId : 16
+			islandId : 9,
+			loop:"true"
+		},
+		
+		
+		
+		{
+			title: "El barco utilizado para transportar a la isla las estructuras de aluminio necesarias para fabricar los 690 paneles solares no puede transportar más de 74 paneles por viaje. Ayudá a calcular cuántos viajes en barco serán necesarios para traer a la isla todas las estructuras necesarias.",
+			type: "HARDCODE",
+			result:10,
+			islandId : 16,
+			loop:"false"
+		},
+		{
+			title: "Los generadores instalados actualmente en los hogares utilizan 1 litro y medio de nafta por hora. El litro de nafta en la isla cuesta $20. Ayudá a los pobladores a calcular el gasto anual que tienen de nafta, así lo pueden comparar con la inversión necesaria para instalar los paneles solares.",
+			type: "HARDCODE",
+			result:262800,
+			islandId : 16,
+			loop:"false"
+		},
+		{
+			title: "Al ser una de las más alejadas, en esta isla sólo viven 230 familias. Se estima que para proporcionar energía eléctrica a un hogar se necesitan 3 paneles solares de 180 Kwh, que cuestan $ 12.000 cada uno. Ayudá a los pobladores de la isla a decidir qué cálculo les permite calcular la inversión que deberán realizar para instalar los paneles solares. Cálculo 1: 230 x 3 x 180 x 12.000. Cálculo 2: 230 x 180 x 12.000. Cálculo 3: 230 x 3 x 12.000",
+			type: "HARDCODE",
+			result:3,
+			islandId : 16,
+			loop:"false"
+		},
+		{
+			title: "Los paneles solares tienen su máximo rendimiento los días soleados, por lo que los habitantes de la isla realizan distintos rituales para asegurar el buen clima. Cada 28 días, con luna llena, realizan la danza del sol en la playa. A su vez, cada 21 días, cada familia realiza una cruz de sal en su jardín. Cuando las fechas de los dos rituales coinciden, los pobladores acordaron hacer una gran fiesta con ofrendas al sol. Ayudalos a calcular cada cuántos días se realizará la gran fiesta.",
+			type: "HARDCODE",
+			result:84,
+			islandId : 16,
+			loop:"false"
+		},
+		{
+			title: "Los científicos e ingenieros de la isla saben que los paneles solares durante los días soleados tienen un rendimiento de 180 KW, mientras que en los días nublados su rendimiento disminuye a la cuarta parte. Colaborá con los expertos para calcular el rendimiento de los paneles solares durante los días nublados.",
+			type: "HARDCODE",
+			result:45,
+			islandId : 16,
+			loop:"false"
+		},
+		{
+			title: "El barco utilizado para transportar a la isla las estructuras de aluminio necesarias para fabricar los [500/800] paneles solares no puede transportar más de [40/90] paneles por viaje. Ayudá a calcular cuántos viajes en barco serán necesarios para traer a la isla todas las estructuras necesarias.",
+			type: "MULTIPLICA",
+			islandId : 16,
+			loop:"true"
+		},
+
+		
+		
+		{
+			title: "La planta potabilizadora de la isla cuenta con 246 tuberías, pero dos terceras partes de las mismas se taparon dejando sin agua potable a gran parte de la población. Hay que reemplazar las tuberías dañadas. Ayudá a los funcionarios de la planta a calcular cuántas tuberías deben reemplazarse.",
+			type: "HARDCODE",
+			result:164,
+			islandId : 15,
+			loop:"false"
+		},
+		{
+			title: "En este mes se registró la visita de 3.500 turistas en la isla. La oficina de turismo estima que cada turista genera un ingreso de $2.700 cuya tercera parte será destinada a la implementación de medidas que buscan reducir los daños ocasionados por la inserción del mejillón dorado. Ayudá a los trabajadores de la oficina de turismo a determinar qué cálculo permite estimar los fondos con los que se contará este mes. Cálculo 1: 2.700 x 3.500 : 3. Cálculo 2: 2.700 x 3.500 x 3. Cálculo 3: 2.700 + 3.500 : 3",
+			type: "HARDCODE",
+			result:1,
+			islandId : 15,
+			loop:"false"
+		},
+		{
+			title: "La limpieza de la torre de toma de agua de la planta potabilizadora cuesta $ 230.000. Antes de la aparición del mejillón dorado en la isla, esta limpieza se realizaba una vez a año, pero actualmente deben realizarla cuatro veces al año ya que estos animales se pegan en las rejas e impiden la entrada del agua. Ayudá a los directivos de la planta a calcular cuánto dinero extra por año deberán destinar a la limpieza de la torre de toma de agua ante esta situación.",
+			type: "HARDCODE",
+			result:690000,
+			islandId : 15,
+			loop:"false"
+		},
+		{
+			title: "Durante el período de limpieza y reparación de la planta no es posible garantizar la potabilidad del agua, por lo que es necesario proveer a la población de agua mineral para su consumo. Se estima un consumo de 3 litros de agua por habitante por día y la isla cuenta con 12.300 habitantes. Ayudá a estimar la cantidad total de agua mineral que será necesaria para abastecer a la población durante los 13 días que durarán las tareas de limpieza y reparación.",
+			type: "HARDCODE",
+			result:479700,
+			islandId : 15,
+			loop:"false"
+		},
+		{
+			title: "¡Alerta! ¡El casco de tu embarcación también fue invadido por el mejillón dorado! No podés continuar tu viaje hasta que no se realicen las tareas de limpieza indicadas. Mientras tu embarcación permanezca en la isla debés pagar un impuesto de $1.250 por día y a su vez, asegurarte de proveer a tu tripulación de comida suficiente. El costo estimado para alimentar a 12 tripulantes es de $3.400 por día. Calculá el gasto que representa quedarte en la isla con tus 144 tripulantes durante una semana.",
+			type: "HARDCODE",
+			result:294350,
+			islandId : 15,
+			loop:"false"
+		},
+		{
+			title: "La planta potabilizadora de la isla cuenta con [100/500] tuberías, pero [2/20] se taparon dejando sin agua potable a gran parte de la población. Hay que reemplazar las tuberías dañadas. Ayudá a los funcionarios de la planta a calcular cuántas tuberías deben reemplazarse.",
+			type: "MULTIPLICA",
+			islandId : 15,
+			loop:"true"
 		}
+		
+		
+		
 	]
 }

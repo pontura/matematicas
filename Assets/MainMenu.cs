@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour {
     }
     public void SetDisableButtons(bool status)
     {
-        print("SetDisableButtons " + status);
+
         masker.SetActive(status);
     }
     void SetActive(int id)

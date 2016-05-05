@@ -40,6 +40,11 @@ public class MinigameSimpleInput : Minigame {
         {
             textFinal = GenerateRandomResults(textFinal);
             result = numbers[0] * numbers[1];
+        }
+        else if (minigame.type == Texts.Minigame_SimpleInput.Minigame_SimpleInput_type.HARDCODE)
+        {
+           // textFinal = GenerateRandomResults(textFinal);
+            result = minigame.result;
         }  
 
         desc.text = textFinal.Replace("[]", insertfield);
@@ -88,8 +93,6 @@ public class MinigameSimpleInput : Minigame {
     
     public void CheckResult()
     {
-        print("CheckResult: " + result.ToString() + " - " + inputField.text);
-
         if (result.ToString() == inputField.text)
         {
             Invoke("MinigameReady", 0.7f);

@@ -51,9 +51,9 @@ public class Ranking : MonoBehaviour {
                 RankingData newData = new RankingData();
                 // s.id = (string)json.Key;
                 newData.username = (string)jsonObj["username"];
-                string ach = (string)jsonObj["achievements"];
+                int ach = (int)jsonObj["achievements"];
                 print(ach);
-                newData.achievements = int.Parse(ach);
+                newData.achievements = ach;
                 data.Add(newData);
             }
             data = OrderByScore(data);

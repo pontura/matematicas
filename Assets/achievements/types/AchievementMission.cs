@@ -18,6 +18,6 @@ public class AchievementMission : Achievement {
         Debug.Log("missionActive" + mission + " missionID: " + missionID);
 
         if (mission == missionID)
-            Ready();
+            Completed();
     }
 }

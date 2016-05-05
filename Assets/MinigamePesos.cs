@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
-
+using System;
 using System.Collections;
 
 public class MinigamePesos : Minigame {
 
-    public int peso;
-    public int result;
+    public float peso;
+    public float result;
     public ButtonAddRemove[] buttons;
 
     public GameObject itemContainer1;
@@ -47,10 +47,14 @@ public class MinigamePesos : Minigame {
             }
             result = total / minigame.promedios.Count;
         }
+        else if (minigame.type == Texts.Minigame_Peso.Minigame_Peso_type.HARDCODE)
+        {
+            result = minigame.result;
+        }
         else
         {
-            int toneladas = Random.Range(20, 50);
-            int kilos = Random.Range(1,9) * 100;
+            int toneladas = UnityEngine.Random.Range(20, 50);
+            int kilos = UnityEngine.Random.Range(1, 9) * 100;
             insertfield += toneladas + " toneladas y " + kilos + " kilos";
             result = (toneladas*1000) + kilos;
         }
@@ -75,15 +79,15 @@ public class MinigamePesos : Minigame {
     }
     private int GetPromNumber()
     {
-        return ((Random.Range(0, 99) * 2)*10)+500;
+        return ((UnityEngine.Random.Range(0, 99) * 2) * 10) + 500;
     }
-    private int GetButtonPorPeso(int peso)
+    private float GetButtonPorPeso(float peso)
     {
         if (buttons[0].peso == peso) return 1;
         else  if (buttons[1].peso == peso) return 2;
         else return 3;
     }
-    public void Add(int _peso)
+    public void Add(float _peso)
     {
         if (GetButtonPorPeso(_peso) == 1)
         {
@@ -110,9 +114,10 @@ public class MinigamePesos : Minigame {
             item.transform.localPosition = new Vector3(0, separationY, 0);
         }
         this.peso += _peso;
+        this.peso = (float)Math.Round((double)peso, 2);
        // CheckResult();
     }
-    public void Remove(int _peso)
+    public void Remove(float _peso)
     {
         Transform[] items;
 

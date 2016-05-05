@@ -48,7 +48,24 @@ public class IslandsManager : MonoBehaviour {
             a++;
         }
         Events.OnMinigameReady += OnMinigameReady;
+        DebugIslands();
 	}
+    void DebugIslands()
+    {
+        int id = 1;
+        string str = "";
+        foreach (DataIsland dataIsland in islands)
+        {
+            string tipo = "";
+            if (dataIsland.madera) tipo = "tipo : MADERA";
+            else if (dataIsland.arena) tipo = "tipo : ARENA";
+            else if (dataIsland.piedras) tipo = "tipo : PIEDRAS";
+
+            str += "isla " + id + ": " + dataIsland.name + "   MINIGAME: " + dataIsland.minigameType + "   " + tipo + "\n";
+            id++;
+        }
+        print(str);
+    }
     void OnDestroy()
     {
         Events.OnNewMission -= OnNewMission;
@@ -58,7 +75,6 @@ public class IslandsManager : MonoBehaviour {
     {
         DataIsland dataIsland = GetIslandById(activeIsland.id);
         dataIsland.progress++;
-        print("dataIsland " + activeIsland + " progress: " + dataIsland.progress);
         PlayerPrefs.SetInt("progressIsland_" + activeIsland.id, dataIsland.progress);        
     }
     void OnNewMission(int id)

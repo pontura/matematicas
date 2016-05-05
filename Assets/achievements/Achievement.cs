@@ -10,7 +10,8 @@ public class Achievement  {
     public enum types
     {
         MISSION_COMPLETE,
-        DISTANCE
+        DISTANCE,
+        BLOCK
     }
     public string image;
     public int id;
@@ -20,6 +21,10 @@ public class Achievement  {
     public int pointsToBeReady;
 
     public void Ready()
+    {
+        this.ready = true;
+    }
+    public void Completed()
     {
         this.ready = true;
         AchievementsEvents.OnReady(id);

@@ -22,7 +22,8 @@ public class MathDevice : MonoBehaviour {
         minigameB.SetActive(false);
         minigameC.SetActive(false);
 
-        print("__________MathDevice Appear" + type);
+       // print("__________MathDevice Appear" + type);
+
         switch (type)
         {
             case MinigamesManager.types.PESAR: 
