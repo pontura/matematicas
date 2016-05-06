@@ -14,6 +14,7 @@ public class Isla : Screen {
     public MiningameBackground minigameSimpleInput;
     public MiningameBackground minigamePeso;
     public MiningameBackground minigameFracciones;
+    public MiningameBackground minigameVelocidad;
 
     public MinigamesManager.types minigameType;
     private bool tutorialDisplayed;
@@ -87,6 +88,12 @@ public class Isla : Screen {
             minigameFracciones.Init();
             minigame.GetComponent<MinigameFracciones>().Init();
         }
+        else
+            if (minigameType == MinigamesManager.types.VELOCIDAD)
+            {
+                minigameVelocidad.Init();
+                minigame.GetComponent<MinigameVelocidad>().Init();
+            }
 
         Events.OnBlockStatus(true);
 

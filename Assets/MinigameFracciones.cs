@@ -36,8 +36,8 @@ public class MinigameFracciones : Minigame {
         Texts.Minigame_Fracciones minigame = Data.Instance.texts.GetMinigame_Fracciones();
         string textFinal = minigame.title;
         //desc.text = textFinal.Replace("[]", insertfield);
-        desc.text = textFinal;
-        desc.text += " Coloca ";
+        descSmall.text = textFinal;
+        descSmall.text += " Coloca ";
 
         int total = minigame.slots;
 
@@ -52,11 +52,11 @@ public class MinigameFracciones : Minigame {
             switch (num)
             {
                 case 1:
-                    desc.text += "una piedra verde a " + result; break;
+                    descSmall.text += "una piedra verde a " + result; break;
                 case 2:
-                    desc.text += ", una roja a " + result; break;
+                    descSmall.text += ", una roja a " + result; break;
                 case 3:
-                    desc.text += " y una amarilla a " + result; break;
+                    descSmall.text += " y una amarilla a " + result; break;
             }
 
             string[] textSplit = result.Split("/"[0]);
