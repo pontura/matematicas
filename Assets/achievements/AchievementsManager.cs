@@ -98,6 +98,16 @@ public class AchievementsManager : MonoBehaviour
                     achievement_distance.Init();
                     achievements.Add(achievement_distance);
                     break;
+                case "BLOCK":
+                    AchievementBlock achievement_block = new AchievementBlock();
+                    achievement_block.title = Json[arrayName][a]["title"];
+                    achievement_block.id = a;
+                    achievement_block.progress = int.Parse(Json[arrayName][a]["progress"]);
+                    achievement_block.image = Json[arrayName][a]["image"];
+                    achievement_block.pointsToBeReady = int.Parse(Json[arrayName][a]["send"]);
+                    achievement_block.Init();
+                    achievements.Add(achievement_block);
+                    break;
             }
         }
         SetAchievements();
@@ -125,11 +135,11 @@ public class AchievementsManager : MonoBehaviour
     {
         print("OnReady" + id);
         SetAchievements();
-        //Update_DB();
+        Update_DB();
     }
     public void Update_DB()
     {
-        print("OnChallengeClose objectID totalReady: " + totalReady);
+        print("____Achievements objectID totalReady: " + totalReady);
 
         Hashtable data = new Hashtable();
         data.Add("achievements", totalReady);

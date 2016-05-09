@@ -17,7 +17,7 @@ public class AchievementDistance : Achievement {
     {
         if (distanceTraveled > pointsToBeReady)
         {
-            Ready();
+            Completed();
             AchievementsEvents.OnNewDistance -= OnNewDistance;
         }
     }

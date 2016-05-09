@@ -32,13 +32,11 @@ public class Block : Screen
     }
     public void Close()
     {
-        print("Close()");
         anim.Play("CloseBlock");
         Invoke("Reset", 0.5f);
     }
     void Reset()
     {
-        print("Reset()");
         gameObject.SetActive(false);
     }
     static private KeyCode[] validKeyCodes;
@@ -109,8 +107,7 @@ public class Block : Screen
     void OnBlockSendRequest(string title)
     {
         this.title = title;
-        Invoke("OnBlockSendRequestDelayed", 1);
-        print("OnBlockSendRequestDelayed");
+        Invoke("OnBlockSendRequestDelayed", 2);
         Game.Instance.mainMenu.SetDisableButtons(true);
     }
     void OnBlockSendRequestDelayed()

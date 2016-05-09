@@ -27,10 +27,13 @@ public class Texts :MonoBehaviour {
         public int islandID;
         public string title;
         public Minigame_SimpleInput_type type;
+        public int result;
+        public bool loop;
         public enum Minigame_SimpleInput_type
         {
             RESTA,
-            MULTIPLICA
+            MULTIPLICA,
+            HARDCODE
         }
     }
 
@@ -40,14 +43,17 @@ public class Texts :MonoBehaviour {
         public int islandID;
         public string title;
         public List<int> promedios;
-        public int peso1;
-        public int peso2;
-        public int peso3;
+        public float peso1;
+        public float peso2;
+        public float peso3;
+        public bool loop;
+        public float result;
         public Minigame_Peso_type type;
         public enum Minigame_Peso_type
         {
             PROMEDIO,
-            SUMATORIA
+            SUMATORIA,
+            HARDCODE
         }
     }
 
@@ -58,6 +64,7 @@ public class Texts :MonoBehaviour {
         public string title;
         public List<string> fracciones;
         public int slots;
+        public bool loop;
       //  public Minigame_Peso_type type;
         //public enum Minigame_Peso_type
         //{
@@ -120,18 +127,26 @@ public class Texts :MonoBehaviour {
                 {
                     Minigame_Peso minigame = new Minigame_Peso();
                     minigame.title = Json[minigameName][a]["title"];
+                    minigame.loop = Json[gameName][a]["loop"].AsBool;
+                    minigame.islandID = int.Parse(Json[gameName][a]["islandId"]);
+                    
 
-                    minigame.promedios = new List<int>();
-                    for (int b = 0; b < Json[minigameName][a]["promedios"].Count; b++)
-                        minigame.promedios.Add(int.Parse(Json[minigameName][a]["promedios"][b]));
-
-                    minigame.peso1 = int.Parse(Json[minigameName][a]["peso1"]);
-                    minigame.peso2 = int.Parse(Json[minigameName][a]["peso2"]);
-                    minigame.peso3 = int.Parse(Json[minigameName][a]["peso3"]);
+                    minigame.peso1 = float.Parse(Json[minigameName][a]["peso1"]);
+                    minigame.peso2 = float.Parse(Json[minigameName][a]["peso2"]);
+                    minigame.peso3 = float.Parse(Json[minigameName][a]["peso3"]);
                     switch(Json[minigameName][a]["type"])
                     {
-                        case "PROMEDIO": minigame.type = Minigame_Peso.Minigame_Peso_type.PROMEDIO; break;
+                        case "PROMEDIO": 
+                            minigame.type = Minigame_Peso.Minigame_Peso_type.PROMEDIO;                             
+                            minigame.promedios = new List<int>();
+                            for (int b = 0; b < Json[minigameName][a]["promedios"].Count; b++)
+                                minigame.promedios.Add(int.Parse(Json[minigameName][a]["promedios"][b]));
+                        break;
                         case "SUMATORIA": minigame.type = Minigame_Peso.Minigame_Peso_type.SUMATORIA; break;
+                        case "HARDCODE": 
+                            minigame.type = Minigame_Peso.Minigame_Peso_type.HARDCODE;
+                            minigame.result = float.Parse(Json[minigameName][a]["result"]);
+                            break;
                     }
                     minigame_Peso.Add(minigame);
                 }
@@ -148,10 +163,17 @@ public class Texts :MonoBehaviour {
                     minigame.title = Json[gameName][a]["title"];
                     minigame.islandID = int.Parse(Json[gameName][a]["islandId"]);
 
+                    minigame.loop = Json[gameName][a]["loop"].AsBool;
+                   
+
                     switch (Json[gameName][a]["type"])
                     {
                         case "RESTA": minigame.type = Minigame_SimpleInput.Minigame_SimpleInput_type.RESTA; break;
                         case "MULTIPLICA": minigame.type = Minigame_SimpleInput.Minigame_SimpleInput_type.MULTIPLICA; break;
+                        case "HARDCODE": 
+                             minigame.result = int.Parse(Json[gameName][a]["result"]);
+                             minigame.type = Minigame_SimpleInput.Minigame_SimpleInput_type.HARDCODE; 
+                             break;
                     }
 
                     minigame_SimpleInput.Add(minigame);
@@ -167,6 +189,8 @@ public class Texts :MonoBehaviour {
                 {
                     Minigame_Fracciones minigame = new Minigame_Fracciones();
                     minigame.title = Json[gameName][a]["title"];
+                    minigame.islandID = int.Parse(Json[gameName][a]["islandId"]);
+                    minigame.loop = Json[gameName][a]["loop"].AsBool;
                     minigame.slots = int.Parse( Json[gameName][a]["slots"] );
                     minigame.fracciones = new List<string>();
                     for (int b = 0; b < Json[gameName][a]["fracciones"].Count; b++)
@@ -210,7 +234,31 @@ public class Texts :MonoBehaviour {
     }
     public Minigame_Peso GetMinigame_Peso()
     {
-        return minigame_Peso[ UnityEngine.Random.Range(0, minigame_Peso.Count) ];
+        Minigame_Peso minigame = null;
+        int progress_num = 0;
+        foreach (Minigame_Peso m in minigame_Peso)
+        {
+            if (progress_num <= Game.Instance.islandsManager.activeIsland.progress && m.islandID == Game.Instance.islandsManager.activeIsland.id)
+            {
+                minigame = m;
+                progress_num++;
+            }
+        }
+        ////////////si ya llegaste al fin:
+        if (Game.Instance.islandsManager.activeIsland.progress >= progress_num)
+        {
+            print("LEVANTA MINIGAME RANDOM: loop = true. progress: " + Game.Instance.islandsManager.activeIsland.progress + "  activeisland: " + Game.Instance.islandsManager.activeIsland.id + " progress_num: " + progress_num);
+            List<Minigame_Peso> newList = new List<Minigame_Peso>();
+            foreach (Minigame_Peso m in minigame_Peso)
+            {
+                if (m.loop)
+                    newList.Add(m);
+            }
+            return newList[UnityEngine.Random.Range(0, newList.Count)];
+        }
+        else
+            //////////////////////
+            return minigame;
        // return minigame_Peso[1];
     }
     public Minigame_SimpleInput GetMinigame_SimpleInput()
@@ -219,19 +267,52 @@ public class Texts :MonoBehaviour {
         int progress_num = 0;
         foreach (Minigame_SimpleInput m in minigame_SimpleInput)
         {
-            if (progress_num <= Game.Instance.islandsManager.activeIsland.progress &&  m.islandID == Game.Instance.islandsManager.activeIsland.id)
+            if (progress_num <= Game.Instance.islandsManager.activeIsland.progress && m.islandID == Game.Instance.islandsManager.activeIsland.id)
             {
                 minigame = m;
                 progress_num++;
             }
         }
+        ////////////si ya llegaste al fin:
+        if (Game.Instance.islandsManager.activeIsland.progress >= progress_num)
+        {
+            List<Minigame_SimpleInput> newList = new List<Minigame_SimpleInput>();
+            foreach (Minigame_SimpleInput m in minigame_SimpleInput)
+            {
+                if (m.loop)
+                    newList.Add(m);
+            }
+            return newList[UnityEngine.Random.Range(0, newList.Count)];
+        } else
+        //////////////////////
         return minigame;
-        // return minigame_Peso[1];
     }
     public Minigame_Fracciones GetMinigame_Fracciones()
     {
-        return minigame_Fracciones[UnityEngine.Random.Range(0, minigame_Fracciones.Count)];
-        // return minigame_Peso[1];
+        Minigame_Fracciones minigame = null;
+        int progress_num = 0;
+        foreach (Minigame_Fracciones m in minigame_Fracciones)
+        {
+            if (progress_num <= Game.Instance.islandsManager.activeIsland.progress && m.islandID == Game.Instance.islandsManager.activeIsland.id)
+            {
+                minigame = m;
+                progress_num++;
+            }
+        }
+        ////////////si ya llegaste al fin:
+        if (Game.Instance.islandsManager.activeIsland.progress >= progress_num)
+        {
+            List<Minigame_Fracciones> newList = new List<Minigame_Fracciones>();
+            foreach (Minigame_Fracciones m in minigame_Fracciones)
+            {
+                if (m.loop)
+                    newList.Add(m);
+            }
+            return newList[UnityEngine.Random.Range(0, newList.Count)];
+        }
+        else
+            //////////////////////
+            return minigame;
     }
 
 

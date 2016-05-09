@@ -1,21 +1,27 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class ButtonAddRemove : MonoBehaviour {
 
     public int qty;
     public int id;
     public Text qtyField;
-    public int peso;
+    public float peso;
     private MinigamePesos minigamePeso;
 
-    public void Init(MinigamePesos minigamePeso,  int peso)
+    public void Init(MinigamePesos minigamePeso,  float peso)
     {
         this.minigamePeso = minigamePeso;
-        this.peso = peso;
+        this.peso = (float)Math.Round((double)peso, 2);
         qty = 0;
-        qtyField.text = peso + " Kilos";
+        if(peso>999)
+            qtyField.text = (peso / 1000) + " toneladas";
+        else if(peso<1)
+            qtyField.text = (peso * 1000) + " grames";
+        else
+            qtyField.text = peso + " Kilos";
         SetQty();
     }
     void SetQty()
@@ -25,6 +31,7 @@ public class ButtonAddRemove : MonoBehaviour {
 	public void Add () {
         qty++;
         SetQty();
+        print("peso: " + peso);
         minigamePeso.Add(peso);
 	}
     public void Remove()

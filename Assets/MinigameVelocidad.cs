@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Collections;
 
-public class MinigameSimpleInput : Minigame {
+public class MinigameVelocidad : Minigame
+{
 
     public int result = 0;
-    public InputField inputField;
+    public InputField inputField1;
+    public InputField inputField2;
+    public InputField inputField3;
+    public InputField inputField4;
+    public InputField inputField5;
+
     public List<int> numbers;
 
     public MathDevice mathDevice;
@@ -20,7 +26,11 @@ public class MinigameSimpleInput : Minigame {
     void OnEnable()
     {
         Events.OnMinigameStartCalculator();
-        inputField.text = "";
+        inputField1.text = "";
+        inputField2.text = "";
+        inputField3.text = "";
+        inputField4.text = "";
+        inputField5.text = "";
     }
     public void Init()
     {
@@ -29,7 +39,7 @@ public class MinigameSimpleInput : Minigame {
 
         Texts.Minigame_SimpleInput minigame = Data.Instance.texts.GetMinigame_SimpleInput();
         string textFinal = minigame.title;
-        string insertfield = "AA";
+        string insertfield = "";
 
         if (minigame.type == Texts.Minigame_SimpleInput.Minigame_SimpleInput_type.RESTA)
         {
@@ -93,7 +103,7 @@ public class MinigameSimpleInput : Minigame {
     
     public void CheckResult()
     {
-        if (result.ToString() == inputField.text)
+        if (result.ToString() == inputField1.text)
         {
             Invoke("MinigameReady", 0.7f);
             mathDevice.Disappear();

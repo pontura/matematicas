@@ -1,6 +1,7 @@
 {
 	pesar:
 	[
+	
 		{
 			title: "Sabemos que la estatua de Knoube pesa un promedio de [] y necesitamos sopesarlo con rocas para poder cruzar el acantilado de la muerte.",
 			promedios: [1000, 1000],
@@ -8,6 +9,7 @@
 			peso2: 50,
 			peso3: 10,
 			type: "PROMEDIO",
+			loop:"true",
 			islandId : 1
 		},
 		{
@@ -17,16 +19,364 @@
 			peso2: 1000,
 			peso3: 100,
 			type: "SUMATORIA",
-			islandId : 2		
+			loop:"true",
+			islandId : 1		
 		},
+		
+		
+		
+		
+		
+		
 		{
-			title: "La estatua de Knoube pesa [] y tenemos que sopesarla para poder cruzar el acantilado de la muerte.",
+			title: "Para la construcción del dique se necesitará contar con []. Colocando esta cantidad de rocas sobre la piedra de la estatua de Yunkal lograrás elevar la plataforma que se necesita para comenzar la construcción.",
 			promedios: [1000, 1000],
 			peso1: 10000,
 			peso2: 1000,
 			peso3: 100,
 			type: "SUMATORIA",
-			islandId : 3			
+			loop: "false",
+			islandId : 3
+		},
+		{
+			title: "La estatua de Quierix pesa 3.240 kg. Si lográs sopesar las rocas que equivalen a su peso, podrás construir un puente para trasladar los materiales que se necesitan para la construcción.",
+			peso1: 500,
+			peso2: 50,
+			peso3: 10,
+			result: 3240,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 3
+		},
+		{
+			title: "La estatua de Tamboca pesa el doble de 3.845 kg. Si lográs ubicar en la piedra central rocas equivalentes a su peso, se elevará el puente que te permitirá encontrar al ingeniero que tiene los planos con el diseño del dique a construir.",
+			peso1: 1000,
+			peso2: 20,
+			peso3: 30,
+			result: 7690,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 3
+		},
+		{
+			title: "Un temblor sacudió la isla y parte del dique se derrumbó. Si descubrís el peso equivalente al promedio entre el peso de la cabeza de la estatua Romel, que es de 5 kg y el peso de su cuerpo, que es de 9 kg y 380 gramos, colocá esa cantidad de rocas sobre la piedra y se elevará la plataforma que te comunica con los lugareños para que colaboren en la reparación del dique.",
+			peso1: 1,
+			peso2: 0.100,
+			peso3: 0.010,
+			result: 7.190,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 3
+		},
+		{
+			title: "Los isleños se están quedando sin energía eléctrica y necesitan acelerar la construcción del dique. Para cruzar el pasadizo que te lleva a un rincón mágico de la isla en donde habitan duendes constructores que colaborarán con esta misión, hay que calcular el peso de la estatua mayor de la isla. Los lugareños dicen que la estatua menor de 2.700 kg equivale a la quinta parte de ella.",
+			peso1: 10000,
+			peso2: 1000,
+			peso3: 100,
+			result: 13500,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 3
+		},		
+		{
+			title: "Para la construcción del dique se necesitará contar con []. Colocando esta cantidad de rocas sobre la piedra de la estatua de Yunkal lograrás elevar la plataforma que se necesita para comenzar la construcción.",
+			promedios: [1000, 1000],
+			peso1: 10000,
+			peso2: 1000,
+			peso3: 100,
+			type: "SUMATORIA",
+			loop:"true",
+			islandId : 3
+		},
+		{
+			title: "Un temblor sacudió la isla y parte del dique se derrumbó. Pesa un promedio de [], colocá esa cantidad de rocas sobre la piedra y se elevará la plataforma que te comunica con los lugareños para que colaboren en la reparación del dique.",
+			promedios: [1000, 1000],
+			peso1: 500,
+			peso2: 50,
+			peso3: 10,
+			type: "PROMEDIO",
+			loop:"true",
+			islandId : 3
+		},
+		
+		
+		
+		
+		
+		{
+			title: "La estatua al Palchamca pesa 3.890 kg. Si lográs sopesarla con rocas de distintos pesos, podrás levantar el camino que nos lleva a la vivienda de un sabio, el cual tiene conocimientos ancestrales sobre la ubicación de un río subterráneo.",
+			peso1: 500,
+			peso2: 200,
+			peso3: 30,
+			result: 3890,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 6
+		},
+		{
+			title: "Este es el tótem de la tribu Duntai que pesa la mitad de 17.300 kg. Si lográs sopesarlo, ayudarás a construir un puente que les permitirá atravesar el acantilado y los llevará a las partes altas de las islas donde llueve con mayor regularidad para almacenar el agua de lluvia que podrán potabilizar y usar para el consumo.",
+			peso1: 1000,
+			peso2: 100,
+			peso3: 25,
+			result: 8650,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 6
+		},
+		{
+			title: "El monumento al dios Furcam tiene un peso equivalente a la cuarta parte de 16.820 kg. Si podés sopesarlo, atravesarás el puente para llegar a una región en la que se pueden obtener algodón y carbón, dos de los elementos que te servirán para construir filtros de agua caseros en la isla.",
+			peso1: 500,
+			peso2: 50,
+			peso3: 5,
+			result: 4205,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 6
+		},
+		{
+			title: "Los lugareños necesitan destilar el agua que filtraron para poder consumirla. Si lográs sopesar el peso de la estatua Neguil que equivale al quíntuplo de 1.370, podrás elevar el pasadizo que te lleva hacia un antiguo alquimista que les dará prestados las probetas, vaso de precipitados y vasos de Erlenmeyer para realizar la destilación.",
+			peso1: 1200,
+			peso2: 160,
+			peso3: 10,
+			result: 6850,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 6
+		},
+		{
+			title: "Esta roca tallada por la tribu Cortewa tiene un peso promedio entre 1.300 kg, 2.590 kg y 1.000 kg. Ayudá a sopesarla para cruzar hacia la casa del científico que les enseñará a los lugareños a construir humedales artificiales para el riego por medio del tratamiento de las aguas residuales.",
+			peso1: 1000,
+			peso2: 150,
+			peso3: 10,
+			result: 1630,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 6
+		},
+		{
+			title: "Este es el tótem de la tribu Duntai que pesa []. Colocando esta cantidad de rocas sobre la piedra de la estatua de Yunkal lograrás elevar la plataforma que se necesita para comenzar la construcción.",
+			promedios: [1000, 1000],
+			peso1: 10000,
+			peso2: 1000,
+			peso3: 100,
+			type: "SUMATORIA",
+			loop:"true",
+			islandId : 6
+		},
+		{
+			title: "Este es el tótem de la tribu Duntai que pesa un promedio de [], colocá esa cantidad de rocas sobre la piedra y se elevará la plataforma.",
+			promedios: [1000, 1000],
+			peso1: 500,
+			peso2: 50,
+			peso3: 10,
+			type: "PROMEDIO",
+			loop:"true",
+			islandId : 6
+		},
+		
+		
+		
+		
+		{
+			title: "Para conseguir el traslado de los aerogeneradores es necesario cruzar un puente. Este se elevará únicamente si lográs sopesar con piedras el peso exacto de la gran estatua Celfora. Usá esta pista: Su peso es igual al promedio entre 23.100 kg, 42.900 y 300 kg.",
+			peso1: 10000,
+			peso2: 1000,
+			peso3: 25,
+			result: 22100,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 13
+		},
+		{
+			title: "Los habitantes de la aldea Prinquel no poseen energía eléctrica. Ayudalos a construir una pequeña instalación eólica doméstica. Necesitarán un ingeniero que los guíe. Si cruzás la plataforma encontrarás el camino que te lleva a su vivienda. La plataforma se elevará si lográs colocar las piedras equivalentes al peso de la escultura que es de 640.700 kilos",
+			peso1: 100000,
+			peso2: 10000,
+			peso3: 140,
+			result: 640700,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 13
+		},
+		{
+			title: "La energía del viento es más estable y fuerte en el mar que en tierra. Ayudá a los habitantes a instalar un parque eólico marino. Una organización viene en camino para colaborar con su construcción. Si lográs sopesar el peso de la estatua Vifruxa se elevará la plataforma que les permitirá llegar. El peso es igual a las dos terceras partes de 15.960 kilos.",
+			peso1: 1000,
+			peso2: 150,
+			peso3: 5,
+			result: 10640,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 13
+		},
+		{
+			title: "Es importante conocer las variaciones diurnas, nocturnas y estacionales de los vientos para poder aprovechar la energía eólica. El peso del monumento Plicar equivale a la décima parte de 250.800 kilos, Si lográs sopesarlo se elevará una plataforma que te conecta con la casa del meteorólogo de la isla.",
+			peso1: 10000,
+			peso2: 1000,
+			peso3: 20,
+			result: 25080,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 13
+		},
+		{
+			title: "¡Hay que construir un parque eólico para abastecer de energía eléctrica a las zonas más alejadas de la ciudad! Sopesá con las rocas el peso de la efigie Tibred y subirá la rampa que permitirá a los constructores acceder a la zona de construcción. Te damos una pista: el peso de la efigie es igual al séxtuplo de 2.550 kilos.",
+			peso1: 10000,
+			peso2: 1000,
+			peso3: 60,
+			result: 15300,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 13
+		},
+		{
+			title: "La energía del viento es más estable y fuerte en el mar que en tierra. Ayudá a los habitantes a instalar un parque eólico marino que pesa []. Colocando esta cantidad de rocas sobre la piedra y ya estarás colaborando para la construcción.",
+			promedios: [1000, 1000],
+			peso1: 10000,
+			peso2: 1000,
+			peso3: 100,
+			type: "SUMATORIA",
+			loop:"true",
+			islandId : 13
+		},
+		{
+			title: "El peso del monumento Plicar pesa un promedio de [], colocá esa cantidad de rocas sobre la piedra y se elevará la plataforma.",
+			promedios: [1000, 1000],
+			peso1: 500,
+			peso2: 50,
+			peso3: 10,
+			type: "PROMEDIO",
+			loop:"true",
+			islandId : 13
+		},
+		
+		
+		
+		
+		
+		{
+			title: "Para impedir que la mancha se extienda, hay que colocar una barrera como método de contención. Si lográs sopesar el peso la torre Banchi se elevará la plataforma que te comunica con el depósito donde se encuentras los materiales para armar la barrera. El peso de la torre es igual al doble de 136.000 kilos.",
+			peso1: 50000,
+			peso2: 10000,
+			peso3: 400,
+			result: 272000,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 17
+		},
+		{
+			title: "Es necesario desviar el petróleo para proteger aquellas áreas de la costa de alto valor ecológico. Los aviones y helicópteros guiarán la tarea desde el aire, donde el campo visual es perfecto. Sopesá exitosamente el peso de la efigie Arquel y se elevará la pista de despegue de las naves aéreas. Su peso es la cuarta parte de 10.040 kilos.",
+			peso1: 1000,
+			peso2: 100,
+			peso3: 10,
+			result: 2510,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 17
+		},
+		{
+			title: "Para que pueda llegar el equipo especialista al lugar del derrame con los camiones, remolcadores y lanchas debe elevarse el puente. Esto sucederá si lográs sopesar con las piedras el equivalente al peso de la estatua Kelod que es de 3.400.500 kilos",
+			peso1: 1000000,
+			peso2: 100000,
+			peso3: 100,
+			result: 3400500,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 17
+		},
+		{
+			title: "¡Pronto! Es indispensable armar un cerco a lo largo de la costa para que los animales que la habitan no se dirijan hacia el mar y corran peligro. Cruzá la rampa que te comunica a la zona donde deben extender el cerco. Esta se elevará si sopesás con rocas el peso del tótem que es igual al triple de 16.200 kilos.",
+			peso1: 20000,
+			peso2: 2000,
+			peso3: 200,
+			result: 48600,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 17
+		},
+		{
+			title: "Para recuperar el petróleo derramado y limpiar las aguas son necesarios los succionadores de disco. Hay que llevarlos al mar cruzando la plataforma que se elevará si lográs sopesar con las piedras el peso de la estatua Zojen que equivale al promedio entre el peso de la roca mayor que pesa 3.570 kilos y la roca menos que tiene un peso de 2.890 kilos.",
+			peso1: 500,
+			peso2: 50,
+			peso3: 5,
+			result: 3230,
+			type: "HARDCODE",
+			loop:"false",
+			islandId : 17
+		},
+		{
+			title: "Para impedir que la mancha se extienda, hay que colocar una barrera como método de contención. Si lográs sopesar el peso la torre Banchi se elevará la plataforma que te comunica con el depósito donde se encuentras los materiales para armar la barrera. El peso de la torre es []",
+			promedios: [1000, 1000],
+			peso1: 10000,
+			peso2: 1000,
+			peso3: 100,
+			type: "SUMATORIA",
+			loop:"true",
+			islandId : 13
+		},
+		{
+			title: "La torre Banchipesa pesa un promedio de []. Colocá esa cantidad de rocas sobre la piedra y se elevará la plataforma.",
+			promedios: [1000, 1000],
+			peso1: 500,
+			peso2: 50,
+			peso3: 10,
+			type: "PROMEDIO",
+			loop:"true",
+			islandId : 13
+		},
+		
+		
+		
+		
+		
+		
+		{
+			title: "Para contabilizar cuántos animales de esta especie existen en la isla, es importante marcar a cada yaguareté encontrado. Si lográs sopesar con las rocas el peso de la estatua Gintru, podrás cruzar el puente que permite llegar a la zona de la isla donde estos animales habitan. Seguí esta pista: su peso equivale las dos terceras partes de 6.390 kilos.",
+			peso1: 500,
+			peso2: 50,
+			peso3: 6,
+			result: 4260,
+			type: "HARDCODE",
+			loop:"true",
+			islandId : 19			
+		},
+		{
+			title: "Se desea delimitar una zona de la isla para crear una reserva que aporte a la conservación del yaguareté. Para lograrlo necesitan cruzar el acantilado selvático que los comunica con esta zona. Deberás sopesar la estatua Felincham y el camino se elevará. Tené en cuenta que el peso de la estatua es igual a la mitad de 25.108 kilos.",
+			peso1: 2000,
+			peso2: 110,
+			peso3: 2,
+			result: 12554,
+			type: "HARDCODE",
+			loop:"true",
+			islandId : 19			
+		},
+		{
+			title: "En tu visita anterior a esta isla colaboraste en la construcción de una reserva para la preservación del yaguareté. Si sopesás exitosamente el peso de la torre Walsi, se elevará una plataforma que permitirá trasladar a los ejemplares existentes, hacia la reserva ya finalizada. La torre pesa el equivalente al doble de 17.230 kilos.",
+			peso1: 10000,
+			peso2: 1100,
+			peso3: 10,
+			result: 34460,
+			type: "HARDCODE",
+			loop:"true",
+			islandId : 19			
+		},
+		{
+			title: "Un grupo de biólogos está llegando a colaborar con esta misión. Tendrás que sopesar correctamente con piedras el peso de la estatua Ñumoc para que puedan cruzar el camino que los comunica a su destino. El peso de la estatua es igual al triple de 7.890 kilos.",
+			peso1: 10000,
+			peso2: 1200,
+			peso3: 7,
+			result: 23670,
+			type: "HARDCODE",
+			loop:"true",
+			islandId : 19
+		},
+		{
+			title: "Con éxito se ha logrado aumentar la población de yaguaretés en la reserva. Para alimentarse deben capturar y consumir pequeños roedores, pecaríes, corzuelas, carpinchos, pacas, coatíes y yacarés. Es necesario habilitar caminos que los acerquen al hábitat de estos felinos. En el monumento del Yaguareté que pesa 150.348 kilos se encuentra la clave para crear nuevos senderos. Sopesá con las rocas su peso y uno de los caminos aparecerá.",
+			peso1: 30000,
+			peso2: 30,
+			peso3: 12,
+			result: 150348,
+			type: "HARDCODE",
+			loop: "true",
+			islandId : 19			
 		}
 	]
 }

@@ -9,6 +9,13 @@
 			progress:1
 		},
 		{
+			title: "Enviá un ejercicio resulto desde el block",
+			type: "BLOCK",
+			image: "iconBlock.png",
+			send: 1,
+			progress:1
+		},
+		{
 			title: "Ayudar a los delfines",
 			type: "MISSION",
 			image: "iconDolphin.png",
@@ -30,10 +37,17 @@
 			progress:2		
 		},
 		{
-			title: "Recorrer 100 kilometros",
+			title: "Enviá tres ejercicios resultos desde el block",
+			type: "BLOCK",
+			image: "iconBlock.png",
+			send: 3,
+			progress:2
+		},
+		{
+			title: "Recorrer 500 kilometros",
 			type: "DISTANCE",
 			image: "iconSail.png",
-			distance: 100,
+			distance: 500,
 			progress:1			
 		},
 		{
@@ -44,6 +58,13 @@
 			progress:1			
 		},
 		{
+			title: "Enviá diez ejercicios resultos desde el block",
+			type: "BLOCK",
+			image: "iconBlock.png",
+			send: 10,
+			progress:3
+		},
+		{
 			title: "Salvar la Selva de los Plátanos",
 			type: "MISSION",
 			image: "iconTree.png",
@@ -51,32 +72,46 @@
 			progress:1			
 		},
 		{
-			title: "Recorrer 500 kilometros",
+			title: "Recorrer 2000 kilometros",
 			type: "DISTANCE",
 			image: "iconSail.png",
-			distance: 500,
+			distance: 2000,
 			progress:2			
 		},
 		{
-			title: "Recorrer 1000 kilometros",
-			type: "DISTANCE",
-			image: "iconSail.png",
-			distance: 1000,
-			progress:3		
-		},
-		{
-			title: "Recorrer 5000 kilometros",
-			type: "DISTANCE",
-			image: "iconSail.png",
-			distance: 5000,
-			progress:4		
+			title: "Enviá veinte ejercicios resultos desde el block",
+			type: "BLOCK",
+			image: "iconBlock.png",
+			send: 20,
+			progress:4
 		},
 		{
 			title: "Recorrer 10000 kilometros",
 			type: "DISTANCE",
 			image: "iconSail.png",
 			distance: 10000,
+			progress:3		
+		},
+		{
+			title: "Recorrer 25000 kilometros",
+			type: "DISTANCE",
+			image: "iconSail.png",
+			distance: 25000,
+			progress:4		
+		},
+		{
+			title: "Recorrer 100000 kilometros",
+			type: "DISTANCE",
+			image: "iconSail.png",
+			distance: 100000,
 			progress:5		
 		}
+		{
+			title: "Enviá cincuenta ejercicios resultos desde el block",
+			type: "BLOCK",
+			image: "iconBlock.png",
+			send: 50,
+			progress:5
+		},
 	]
 }

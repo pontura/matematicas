@@ -58,7 +58,7 @@ public class AchivementButtonUI : MonoBehaviour {
     }
     private IEnumerator LoadRoutine()
     {
-        print("LoadImages url: " + url);
+       // print("LoadImages url: " + url);
         WWW www = new WWW(url);
         yield return www;
 
