@@ -8,6 +8,7 @@ public class AchievementUI : MonoBehaviour {
     public Transform container;
     public Text descriptionField;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private bool tutorialDisplayed;
 
 	void OnEnable () {
@@ -23,6 +24,10 @@ public class AchievementUI : MonoBehaviour {
 
 	void OnEnable () {
 >>>>>>> Stashed changes
+=======
+
+	void OnEnable () {
+>>>>>>> Stashed changes
         descriptionField.text = "Seleccioná un logro para saber de qué se trata...";
         int id = 0;
         foreach (Achievement achievement in AchievementsManager.Instance.achievements)
@@ -31,9 +36,12 @@ public class AchievementUI : MonoBehaviour {
             button.transform.SetParent(container);
             button.id = id;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             button.LoadImage(achievement.image);
             button.SetProgress(achievement.progress);
             button.SetReady(achievement.ready);
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
             button.GetComponent<Button>().onClick.AddListener(() => { Clicked(button); });

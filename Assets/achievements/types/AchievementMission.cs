@@ -19,7 +19,11 @@ public class AchievementMission : Achievement {
 
         if (mission == missionID)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             Completed();
+=======
+            Ready();
+>>>>>>> Stashed changes
 =======
             Ready();
 >>>>>>> Stashed changes

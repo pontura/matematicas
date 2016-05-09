@@ -8,6 +8,7 @@ public class AchievementDistance : Achievement {
 	public void Init () {
         this.type = types.DISTANCE;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
         if (pointsToBeReady < Data.Instance.userData.distanceTraveled)
             Ready();
@@ -22,12 +23,17 @@ public class AchievementDistance : Achievement {
             AchievementsEvents.OnNewDistance -= OnNewDistance;
         }
 =======
+=======
+>>>>>>> Stashed changes
         AchievementsEvents.OnMissionComplete += OnMissionComplete;
 	}
     void OnMissionComplete(int _missionID)
     {
         if (missionID == _missionID)
             Ready();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }

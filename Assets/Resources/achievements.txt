@@ -5,6 +5,7 @@
 			title: "Construir el puente",
 			type: "MISSION",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			image: "iconBridge.png",
 			mission: 0,
 			progress:1
@@ -72,6 +73,8 @@
 			mission: 5,
 			progress:1			
 =======
+=======
+>>>>>>> Stashed changes
 			mission: 0			
 		},
 		{
@@ -103,11 +106,15 @@
 			title: "Evitar que se derrita el polo",
 			type: "MISSION",
 			mission: 5			
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		},
 		{
 			title: "Recorrer 2000 kilometros",
 			type: "DISTANCE",
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			image: "iconSail.png",
 			distance: 2000,
@@ -149,6 +156,8 @@
 			progress:5
 		},
 =======
+=======
+>>>>>>> Stashed changes
 			distance: 2000			
 		},
 		{
@@ -156,6 +165,9 @@
 			type: "DISTANCE",
 			distance: 3000			
 		}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	]
 }
