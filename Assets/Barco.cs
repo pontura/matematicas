@@ -22,11 +22,14 @@ public class Barco : Screen
     }
     override public void OnScreenEnable()
     {
+<<<<<<< Updated upstream
         if (Data.Instance.userData.firstTimeHere && !tutorialDisplayed)
         {
             Events.OnTipsOn(4);
             tutorialDisplayed = true;
         }
+=======
+>>>>>>> Stashed changes
         Events.OnBlockStatus(true);
         if (Game.Instance.state == Game.states.MINIGAME_READY)
         {

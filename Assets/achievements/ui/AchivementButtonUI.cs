@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+<<<<<<< Updated upstream
 using UnityEngine.UI;
 
 public class AchivementButtonUI : MonoBehaviour {
@@ -73,4 +74,9 @@ public class AchivementButtonUI : MonoBehaviour {
             container.sprite = sprite;
         }
     }
+=======
+
+public class AchivementButtonUI : MonoBehaviour {
+    public int id;
+>>>>>>> Stashed changes
 }

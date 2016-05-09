@@ -90,8 +90,12 @@ public class IslandsManager : MonoBehaviour {
         else
         {
             Mission mission = Data.Instance.missionsManager.missions[missionID];
+<<<<<<< Updated upstream
             SetMissionToIsland(mission, mission.islandId);
            // GetIslandById(mission.islandId).mission = mission;
+=======
+            GetIslandById(mission.islandId).mission = mission;
+>>>>>>> Stashed changes
         }
     }
     public DataIsland GetIslandWithMission()
