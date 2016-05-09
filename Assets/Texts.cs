@@ -73,14 +73,33 @@ public class Texts :MonoBehaviour {
         //}
     }
 
+    [Serializable]
+    public class Minigame_Velocidad
+    {
+        public int islandID;
+        public string title;
+        public List<Ejercicio> ejercicios;
+        public int time;
+        public bool loop;
+        [Serializable]
+        public class Ejercicio
+        {
+            public string ejercicio;
+            public int resultado;
+            public bool show;
+        }
+    }
+
     public List<Minigame_Peso> minigame_Peso;
     public List<Minigame_SimpleInput> minigame_SimpleInput;
     public List<Minigame_Fracciones> minigame_Fracciones;
+    public List<Minigame_Velocidad> minigame_Velocidad;
 
     string json_Texts_Url = "texts";
     string json_Minigames_pesar_Url = "minigames_pesar";
     string json_Minigames_fracciones_Url = "minigames_fracciones";
     string json_Minigames_simpleInput_Url = "minigames_simpleInput";
+    string json_Minigames_velocidad_Url = "minigames_velocidad";
 
     void Start()
     {
@@ -97,6 +116,9 @@ public class Texts :MonoBehaviour {
 
         file = Resources.Load(json_Minigames_simpleInput_Url) as TextAsset;
         LoadDataMinigames(file.text, "simpleInput");
+
+        file = Resources.Load(json_Minigames_velocidad_Url) as TextAsset;
+        LoadDataMinigames(file.text, "velocidad");
     }
     public void LoadDataromServer(string json_data)
     {
@@ -207,6 +229,34 @@ public class Texts :MonoBehaviour {
 
 
 
+
+
+            case "velocidad":
+                /////////////////velocidad
+                print("velocidad");
+                for (int a = 0; a < Json[gameName].Count; a++)
+                {
+                    print("velocidad" + a);
+                    Minigame_Velocidad minigame = new Minigame_Velocidad();
+                    minigame.title = Json[gameName][a]["title"];
+                    minigame.islandID = int.Parse(Json[gameName][a]["islandId"]);
+                    minigame.loop = Json[gameName][a]["loop"].AsBool;
+                    minigame.time = int.Parse(Json[gameName][a]["time"]);
+                    minigame.ejercicios = new List<Minigame_Velocidad.Ejercicio>();
+                    for (int b = 0; b < Json[gameName][a]["ejercicios"].Count; b++)
+                    {
+                        Minigame_Velocidad.Ejercicio ejercicio = new Minigame_Velocidad.Ejercicio();
+                        ejercicio.ejercicio = Json[gameName][a]["ejercicios"][b]["ejercicio"];
+                        ejercicio.resultado = int.Parse(Json[gameName][a]["ejercicios"][b]["resultado"]);
+                        ejercicio.show = Json[gameName][a]["ejercicios"][b]["show"].AsBool;
+                        minigame.ejercicios.Add(ejercicio);
+                    }
+                    minigame_Velocidad.Add(minigame);
+                }
+                break;
+
+
+
         }
     }
     private void fillArray(List<string> arr, JSONNode content)
@@ -304,6 +354,33 @@ public class Texts :MonoBehaviour {
         {
             List<Minigame_Fracciones> newList = new List<Minigame_Fracciones>();
             foreach (Minigame_Fracciones m in minigame_Fracciones)
+            {
+                if (m.loop)
+                    newList.Add(m);
+            }
+            return newList[UnityEngine.Random.Range(0, newList.Count)];
+        }
+        else
+            //////////////////////
+            return minigame;
+    }
+    public Minigame_Velocidad GetMinigame_Velocidad()
+    {
+        Minigame_Velocidad minigame = null;
+        int progress_num = 0;
+        foreach (Minigame_Velocidad m in minigame_Velocidad)
+        {
+            if (progress_num <= Game.Instance.islandsManager.activeIsland.progress && m.islandID == Game.Instance.islandsManager.activeIsland.id)
+            {
+                minigame = m;
+                progress_num++;
+            }
+        }
+        ////////////si ya llegaste al fin:
+        if (Game.Instance.islandsManager.activeIsland.progress >= progress_num)
+        {
+            List<Minigame_Velocidad> newList = new List<Minigame_Velocidad>();
+            foreach (Minigame_Velocidad m in minigame_Velocidad)
             {
                 if (m.loop)
                     newList.Add(m);
