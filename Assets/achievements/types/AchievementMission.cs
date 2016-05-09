@@ -18,6 +18,14 @@ public class AchievementMission : Achievement {
         Debug.Log("missionActive" + mission + " missionID: " + missionID);
 
         if (mission == missionID)
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             Completed();
+=======
+            Ready();
+>>>>>>> Stashed changes
+=======
+            Ready();
+>>>>>>> Stashed changes
     }
 }

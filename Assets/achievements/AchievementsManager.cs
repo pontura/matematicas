@@ -6,10 +6,20 @@ using SimpleJSON;
 
 public class AchievementsManager : MonoBehaviour
 {
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public int totalReady;
     public List<Achievement> achievements;
     string jsonUrl = "achievements";
     public string dataBaseString = "";
+=======
+    public List<Achievement> achievements;
+    string jsonUrl = "achievements";
+>>>>>>> Stashed changes
+=======
+    public List<Achievement> achievements;
+    string jsonUrl = "achievements";
+>>>>>>> Stashed changes
 
     const string PREFAB_PATH = "AchievementsManager";
     static AchievementsManager mInstance = null;
@@ -43,7 +53,13 @@ public class AchievementsManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(this);
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         AchievementsEvents.OnReady += OnReady;
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     }
 
     /// <summary>
@@ -58,6 +74,8 @@ public class AchievementsManager : MonoBehaviour
         string filepath = (Application.dataPath + jsonUrl);
         TextAsset file = Resources.Load(jsonUrl) as TextAsset;
         LoadDataromServer(file.text);
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         Events.OnResetApp += OnResetApp;
     }
     void OnResetApp()
@@ -70,6 +88,17 @@ public class AchievementsManager : MonoBehaviour
     public void LoadDataromServer(string json_data)
     {
         var Json = SimpleJSON.JSON.Parse(json_data);
+=======
+=======
+>>>>>>> Stashed changes
+    }
+    public void LoadDataromServer(string json_data)
+    {
+        var Json = JSON.Parse(json_data);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         string arrayName = "achievements";
         achievements = new List<Achievement>(Json[arrayName].Count);
         for (int a = 0; a < Json[arrayName].Count; a++)
@@ -82,8 +111,14 @@ public class AchievementsManager : MonoBehaviour
                     AchievementMission achievement_mission = new AchievementMission();
                     achievement_mission.title = Json[arrayName][a]["title"];
                     achievement_mission.id = a;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     achievement_mission.progress = int.Parse(Json[arrayName][a]["progress"]);
                     achievement_mission.image = Json[arrayName][a]["image"];
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
                     achievement_mission.mission = int.Parse(Json[arrayName][a]["mission"]);
                     achievement_mission.Init();
                     achievements.Add(achievement_mission);
@@ -92,12 +127,20 @@ public class AchievementsManager : MonoBehaviour
                     AchievementDistance achievement_distance = new AchievementDistance();
                     achievement_distance.title = Json[arrayName][a]["title"];
                     achievement_distance.id = a;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     achievement_distance.progress = int.Parse(Json[arrayName][a]["progress"]);
                     achievement_distance.image = Json[arrayName][a]["image"];
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
                     achievement_distance.pointsToBeReady = int.Parse(Json[arrayName][a]["distance"]);
                     achievement_distance.Init();
                     achievements.Add(achievement_distance);
                     break;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 case "BLOCK":
                     AchievementBlock achievement_block = new AchievementBlock();
                     achievement_block.title = Json[arrayName][a]["title"];
@@ -111,11 +154,21 @@ public class AchievementsManager : MonoBehaviour
             }
         }
         SetAchievements();
+=======
+            }
+        }
+>>>>>>> Stashed changes
+=======
+            }
+        }
+>>>>>>> Stashed changes
     }
     public Achievement GetAchievement(int id)
     {
         return achievements[id];
     }
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     void SetAchievements()
     {
         totalReady = 0;
@@ -160,6 +213,12 @@ public class AchievementsManager : MonoBehaviour
         });
     }
     
+=======
+
+>>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
     
 
 }

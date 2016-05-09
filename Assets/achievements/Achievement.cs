@@ -10,6 +10,8 @@ public class Achievement  {
     public enum types
     {
         MISSION_COMPLETE,
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         DISTANCE,
         BLOCK
     }
@@ -18,15 +20,34 @@ public class Achievement  {
     public bool ready;
     public int points;
     public int progress;
+=======
+=======
+>>>>>>> Stashed changes
+        DISTANCE
+    }
+
+    public int id;
+    public bool ready;
+    public int points;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     public int pointsToBeReady;
 
     public void Ready()
     {
         this.ready = true;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     }
     public void Completed()
     {
         this.ready = true;
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         AchievementsEvents.OnReady(id);
     }
 }
