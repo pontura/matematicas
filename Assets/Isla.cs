@@ -23,6 +23,7 @@ public class Isla : Screen {
     public enum states
     {
         BIENVENIDA,
+        BIENVENIDA_ISLA,
         BIENVENIDA_DONE,        
         MISSION_PRESENTA,
         MISSION_DISTE_ALGO,
@@ -89,11 +90,11 @@ public class Isla : Screen {
             minigame.GetComponent<MinigameFracciones>().Init();
         }
         else
-            if (minigameType == MinigamesManager.types.VELOCIDAD)
-            {
-                minigameVelocidad.Init();
-                minigame.GetComponent<MinigameVelocidad>().Init();
-            }
+        if (minigameType == MinigamesManager.types.VELOCIDAD)
+        {
+            minigameVelocidad.Init();
+            minigame.GetComponent<MinigameVelocidad>().Init();
+        }
 
         Events.OnBlockStatus(true);
 
@@ -114,6 +115,10 @@ public class Isla : Screen {
         {
             
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.Bienvenida));
+            state = states.BIENVENIDA_ISLA;
+        } else if (state == states.BIENVENIDA_ISLA)
+        {            
+            SetText(Data.Instance.texts.GetBienvenidaXIsland(Game.Instance.islandsManager.activeIsland.id));
             state = states.BIENVENIDA_DONE;
         } else if (Game.Instance.minigamesManager.ready)
         {
@@ -140,7 +145,7 @@ public class Isla : Screen {
     }
     public void Next()
     {
-        if (state == states.BIENVENIDA || state == states.BIENVENIDA_DONE)
+        if (state == states.BIENVENIDA || state == states.BIENVENIDA_ISLA  || state == states.BIENVENIDA_DONE)
         {
             CheckStep();
         } 
@@ -274,6 +279,11 @@ public class Isla : Screen {
             if (dataIsland.minigameType == MinigamesManager.types.FRACCIONES)
         {
             minigame.GetComponent<MinigameFracciones>().CheckResult();
+        }
+        else
+        if (dataIsland.minigameType == MinigamesManager.types.VELOCIDAD)
+        {
+            minigame.GetComponent<MinigameVelocidad>().CheckResult();
         }
     }
     public void ResetDevice()

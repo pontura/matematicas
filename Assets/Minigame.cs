@@ -9,8 +9,8 @@ public class Minigame : MonoBehaviour {
 
     void OnEnable()
     {
-        desc.text = "";
-        descSmall.text = "";
+       // desc.text = "";
+      //  descSmall.text = "";
     }
 
     virtual public void Reset()

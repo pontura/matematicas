@@ -6,16 +6,24 @@ using System.Collections;
 public class MinigameVelocidad : Minigame
 {
 
-    public int result = 0;
-    public InputField inputField1;
-    public InputField inputField2;
-    public InputField inputField3;
-    public InputField inputField4;
-    public InputField inputField5;
+    public int result;
+    public InputField inputField;
+    public Text label;
+    public int active;
 
-    public List<int> numbers;
+    public GameObject gemas1;
+    public GameObject gemas2;
+    public GameObject gemas3;
+    public GameObject gemas4;
+    public GameObject gemas5;
+
 
     public MathDevice mathDevice;
+
+    public GameObject StartButton;
+    public Text ClockFiled;
+
+    public int secs;
 
     private float _separationY = 0.16f;
 
@@ -25,91 +33,148 @@ public class MinigameVelocidad : Minigame
     }
     void OnEnable()
     {
+        active = 0;
+        StartButton.SetActive(true);
         Events.OnMinigameStartCalculator();
-        inputField1.text = "";
-        inputField2.text = "";
-        inputField3.text = "";
-        inputField4.text = "";
-        inputField5.text = "";
+        inputField.text = "";
+
+        
     }
+    private Texts.Minigame_Velocidad minigame;
     public void Init()
     {
+        ClockFiled.text = "";
+        StartButton.SetActive(true);
+
         mathDevice.Init(Game.Instance.islandsManager.activeIsland.minigameType);
         mathDevice.Appear();
 
-        Texts.Minigame_SimpleInput minigame = Data.Instance.texts.GetMinigame_SimpleInput();
+        minigame = Data.Instance.texts.GetMinigame_Velocidad();
         string textFinal = minigame.title;
-        string insertfield = "";
+        secs = minigame.time * 60;
 
-        if (minigame.type == Texts.Minigame_SimpleInput.Minigame_SimpleInput_type.RESTA)
-        {
-            textFinal = GenerateRandomResults(textFinal);
-            result = numbers[0] - numbers[1];
-        }
-        else if (minigame.type == Texts.Minigame_SimpleInput.Minigame_SimpleInput_type.MULTIPLICA)
-        {
-            textFinal = GenerateRandomResults(textFinal);
-            result = numbers[0] * numbers[1];
-        }
-        else if (minigame.type == Texts.Minigame_SimpleInput.Minigame_SimpleInput_type.HARDCODE)
-        {
-           // textFinal = GenerateRandomResults(textFinal);
-            result = minigame.result;
-        }  
+        print("textFinal: " + textFinal);
+        descSmall.text = "";
+        desc.text = textFinal;
 
-        desc.text = textFinal.Replace("[]", insertfield);
-
-    }
-    string GenerateRandomResults(string _field)
+        gemas1.SetActive(false);
+        gemas2.SetActive(false);
+        gemas3.SetActive(false);
+        gemas4.SetActive(false);
+        gemas5.SetActive(false);
+    }    
+    public void StartGame()
     {
-        string FieldToResturn = "";
+        InitGame();
+    }
+    void InitGame()
+    {
+        StartButton.SetActive(false);
 
-        string[] textSplit = _field.Split("["[0]);
+        ActivateNext();
 
-        numbers.Clear();
-        foreach (string field in textSplit)
-        {            
-            string[] textSplit2 = field.Split("]"[0]);
-            foreach (string field2 in textSplit2)
-            {
-               
-                string[] textSplitRand = field2.Split("/"[0]);
-                if (textSplitRand.Length > 1)
-                {
-                    int num1 = int.Parse(textSplitRand[0]);
-                    int num2 = int.Parse(textSplitRand[1]);
-                    int rand = Random.Range(num1, num2);
-                    FieldToResturn += rand.ToString();
-                    numbers.Add( rand );
-                }
-                else
-                {
-                    FieldToResturn += field2;
-                }
-            }
+        desc.text = "";
+        string textFinal = "";
+
+        int a = 0;
+        foreach (Texts.Minigame_Velocidad.Ejercicio ejercicio in minigame.ejercicios)
+        {
+            if (a > 0) 
+                textFinal += "\n";
+
+            a++;
+
+            textFinal += a + ") " + ejercicio.ejercicio ;
+            
         }
 
-        return FieldToResturn;
+        descSmall.text = textFinal;
+
+        UpdateClock();
+    }
+    void UpdateClock()
+    {
+        secs--;
+        int min = (int)Mathf.Floor(secs / 60);
+        int sec = secs - (min*60);
+
+        Invoke("UpdateClock", 1);
+
+        string sec_field = sec.ToString();
+        if (sec < 10) sec_field = "0" + sec;
+
+        ClockFiled.text = min + ":" + sec_field;
     }
     override public void Reset()
     {
         print("RESET");
         result = 0;
     }
-    private int GetPromNumber()
+    private int GetValue(InputField inputField)
     {
-        return ((Random.Range(0, 99) * 2)*10)+500;
+        try
+        {
+            return int.Parse(inputField.text);
+        }
+        catch
+        {
+            return 0;
+        }
     }
-    
     public void CheckResult()
     {
-        if (result.ToString() == inputField1.text)
+        if (GetValue(inputField) == result)
+            CheckNextResult();
+        else
+        {
+            Events.OnMinigameMistake();
+            inputField.text = "";
+        }
+    }
+    void CheckNextResult()
+    {
+        if (active >= minigame.ejercicios.Count)
         {
             Invoke("MinigameReady", 0.7f);
             mathDevice.Disappear();
         }
         else
-            Events.OnMinigameMistake();
+        {
+            ActivateNext();
+        }        
+    }
+    void ActivateNext()
+    {       
+        active++;
+        inputField.text = "";
+        label.text = active + ")";
+        result = minigame.ejercicios[active - 1].resultado;
+
+        int gemasActivas = (int)(active * 5 / minigame.ejercicios.Count);
+
+        if (gemasActivas > 1)
+            gemas1.SetActive(true);
+        else if (active > 2)
+            gemas2.SetActive(true);
+        else if (active > 2)
+            gemas3.SetActive(true);
+        else if (active > 4)
+            gemas4.SetActive(true);
+        else if (active > 5)
+            gemas5.SetActive(true);
+
+        if (active > 1)
+        {
+            if (Game.Instance.mainMenu.blockOn)
+            {
+                Game.Instance.mainMenu.BlockClose();
+                Invoke("OpenBlock", 2);
+            }
+        }        
+    }
+    void OpenBlock()
+    {
+        Game.Instance.mainMenu.BlockOpen();
     }
     void MinigameReady()
     {

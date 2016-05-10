@@ -89,11 +89,11 @@ public class LoginManager : MonoBehaviour
         data.Add("username", username);
         data.Add("email", email);
         data.Add("password", password);
-        data.Add("achievements", "");
+        data.Add("achievements", 0);
 
         Hashtable blockContent = new Hashtable();
-        blockContent.Add("title", "");
-        blockContent.Add("content", "");
+        //blockContent.Add("title", "");
+        //blockContent.Add("content", "");
 
         data.Add("block", blockContent);        
 

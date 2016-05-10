@@ -76,12 +76,29 @@ public class UserRegistration : MonoBehaviour {
         Dictionary<string, object> parameters = new Dictionary<string, object>();
         parameters.Add("username", username.text);
         parameters.Add("to", email.text);
-        parameters.Add("password", pass);        
+        parameters.Add("password", pass);
+
+        print("__________SEND EMAIL username" + username.text + "email: " + email.text + " pass: " + pass);
 
         ParseCloud.CallFunctionAsync<string>("sendPassword", parameters)
           .ContinueWith(t =>
               Debug.Log("received: " + t.Result)
           );
+        StartCoroutine(SendIt());
+    }
+    private IEnumerator SendIt( )
+    {
+        WWW www = new WWW("http://www.pontura.com/matematicas/PHPMailer/examples/mail.php?username=pontura&to=pontura@gmail.com&password=CACA&from=apontura@gmail.com");
+        yield return www;
+
+        if (www.error != null)
+        {
+            Debug.Log("EMAIL ENVIADO");
+        }
+        else
+        {
+            Debug.Log("EMAIL ERROR!");
+        }
     }
     public void ReSendEmail()
     {

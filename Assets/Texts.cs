@@ -10,6 +10,7 @@ public class Texts :MonoBehaviour {
 
     public List<string> tutorial;
     public List<string> elementos;
+    public List<string> Bienvenida_x_isla;
     public List<string> Bienvenida;
     public List<string> MisionNoTienesNada;
     public List<string> MisionTienesAlgo;
@@ -127,6 +128,7 @@ public class Texts :MonoBehaviour {
         fillArray(tutorial, Json["tutorial"]);
         fillArray(elementos, Json["elementos"]);
         fillArray(Bienvenida, Json["bienvenida"]);
+        fillArray(Bienvenida_x_isla, Json["bienvenida_x_isla"]);        
         fillArray(MisionNoTienesNada, Json["MisionNoTienesNada"]);
         fillArray(MisionTienesAlgo, Json["MisionTienesAlgo"]);
         fillArray(MisionNosFalta, Json["MisionNosFalta"]);
@@ -135,6 +137,10 @@ public class Texts :MonoBehaviour {
         fillArray(MinigameReady, Json["MinigameReady"]);
         fillArray(MinigameInvita, Json["MinigameInvita"]);
         fillArray(RecogeLoQueGustes, Json["RecogeLoQueGustes"]);
+    }
+    public string GetBienvenidaXIsland(int islandID)
+    {
+        return Bienvenida_x_isla[islandID-1];
     }
     public void LoadDataMinigames(string json_data, string minigameName)
     {
@@ -236,7 +242,6 @@ public class Texts :MonoBehaviour {
                 print("velocidad");
                 for (int a = 0; a < Json[gameName].Count; a++)
                 {
-                    print("velocidad" + a);
                     Minigame_Velocidad minigame = new Minigame_Velocidad();
                     minigame.title = Json[gameName][a]["title"];
                     minigame.islandID = int.Parse(Json[gameName][a]["islandId"]);

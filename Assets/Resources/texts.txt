@@ -26,6 +26,85 @@ elementos:
 		text: "No hay [element] en esta isla."
 	}
 ],
+bienvenida_x_isla:
+[
+	{	
+		text: "Tenés que pagar la tasa portuaria.",
+		islandID:1
+	},
+	{	
+		text: "La semana pasada, un terremoto sacudió la isla provocando problemas de acceso, incomunicación de grupos y devastando diversas zonas.",
+		islandID:2
+	},
+	{	
+		text: "En esta isla necesitamos construir un dique para aportar energía eléctrica para la vida de los habitantes.",
+		islandID:3
+	},
+	{	
+		text: "Una tormenta tropical con fuertes vientos causó estragos en la isla, provocando deslizamientos de suelo, calles inundadas y árboles caídos. La ayuda es necesaria y urgente.",
+		islandID:4
+	},
+	{	
+		text: "En esta isla existe un problema de deforestación causado por la constante tala de árboles para abastecer de madera a esta y otras islas cercanas.",
+		islandID:5
+	},
+	{	
+		text: "A causa del calentamiento global se está produciendo una menor incidencia de lluvias en esta isla, provocando precipitaciones muy escasas, motivo por el que casi no hay agua potable.",
+		islandID:6
+	},
+	{	
+		text: "En esta isla se necesitamos cajas de arena para ayudar a contener la crecida del río.",
+		islandID:7
+	},
+	{	
+		text: "En esta isla existe una enfermedad que genera manchas en la piel en una de las especies animales que la habita.",
+		islandID:8
+	},
+	{	
+		text: "Debido a las corrientes que la atraviesan, esta isla tiene un caudal de viento constante, por lo tanto queremos aprovechar la energía del viento y construir un parque eólico.",
+		islandID:9
+	},
+	{	
+		text: "En esta isla habitan ciertas especies vegetales en extinción. Se requiere la siembra en cantidad para paliar los efectos de la acción del ser humano sobre la vegetación de la región.",
+		islandID:10
+	},
+	{	
+		text: "En esta isla, la acción del ser humano provocó distintos problemas ambientales. ¡Ayudanos a solucionarlos!",
+		islandID:11
+	},
+	{	
+		text: "Isla Final",
+		islandID:12
+	},
+	{	
+		text: "Esta es la isla de Eolicurs, aquí los isleños desarrollamos nuestras actividades gracias a la energía eólica que producimos aprovechando los vientos de la región. Ayudanos a producir electricidad mediante aerogeneradores.",
+		islandID:13
+	},
+	{	
+		text: "En esta isla se está construyendo una reserva para animales en peligro de extinción.",
+		islandID:14
+	},
+	{	
+		text: "Piratas chinos que comercializaban con los pobladores de esta isla introdujeron accidentalmente el mejillón dorado a las aguas de la isla, generando distintos tipos de inconvenientes. ¡Ayudanos a solucionarlos!",
+		islandID:15
+	},
+	{	
+		text: "Esta isla es una de las más alejadas y es muy difícil hacer llegar la energía eléctrica hasta aquí. Actualmente utilizamos generadores eléctricos que funcionan con nafta. Sin embargo, éstos generan gases nocivos para el medio ambiente, por lo que queremos hacer una instalación de paneles solares para aprovechar la energía del sol.",
+		islandID:16
+	},
+	{	
+		text: "¡Alerta máxima! Una mancha de petróleo se aproxima a la isla poniendo en peligro a todas las especies. Ayudanos a tomar precauciones para que no llegue a la costa.",
+		islandID:17
+	},
+	{	
+		text: "Esta es una isla misteriosa donde se alojan portales que te comunican a otras dimensiones. Si lográs descifrar los códigos secretos podrás abrirlos para ayudar a sus habitantes con lo que necesiten. ¡Suerte!",
+		islandID:18
+	},
+	{	
+		text: "En esta isla habita el yaguareté, el felino de mayor tamaño del continente americano. Ayudanos a realizar las actividades que colaboran con su preservación ya que se trata de una especie en peligro de extinción.",
+		islandID:19
+	}
+],
 bienvenida:
 [
 	{
