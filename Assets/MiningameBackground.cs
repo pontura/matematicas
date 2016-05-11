@@ -148,11 +148,13 @@ public class MiningameBackground : MonoBehaviour {
     {
         print("OnMinigameReady" + animationID);
         GetComponent<Animator>().Play("win" + animationID, 0, 0);
+        print("PLAY: " + "win" + animationID);
     }
     void OnMinigameMistake()
     {
         print("OnMinigameMistake" + animationID);
         GetComponent<Animator>().Play("lose" + animationID, 0, 0);
+        print("PLAY: " + "lose" + animationID);
     }
     public void SetOff()
     {

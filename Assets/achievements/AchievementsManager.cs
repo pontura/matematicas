@@ -108,6 +108,16 @@ public class AchievementsManager : MonoBehaviour
                     achievement_block.Init();
                     achievements.Add(achievement_block);
                     break;
+                case "SPEED":
+                    AchievementSpeed achievement_speed= new AchievementSpeed();
+                    achievement_speed.title = Json[arrayName][a]["title"];
+                    achievement_speed.id = a;
+                    achievement_speed.progress = int.Parse(Json[arrayName][a]["progress"]);
+                    achievement_speed.image = Json[arrayName][a]["image"];
+                    achievement_speed.pointsToBeReady = int.Parse(Json[arrayName][a]["ejercicios"]);
+                    achievement_speed.Init();
+                    achievements.Add(achievement_speed);
+                    break;
             }
         }
         SetAchievements();

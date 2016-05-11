@@ -6,6 +6,7 @@ public class UserData : MonoBehaviour {
 
     public bool firstTimeHere;
     public int distanceTraveled;
+    public int speedExercices;
     public string userID;
     public string username;
     public string password;
@@ -25,6 +26,7 @@ public class UserData : MonoBehaviour {
         email = PlayerPrefs.GetString("email");
         passwordValidated = PlayerPrefs.GetInt("passwordValidated", 0);
         distanceTraveled = PlayerPrefs.GetInt("distanceTraveled", 0);
+        speedExercices = PlayerPrefs.GetInt("speedExercices", 0);
         totalBlocksNotes = PlayerPrefs.GetInt("totalBlocksNotes", 0);
 
         if (username == "") firstTimeHere = true;
@@ -46,6 +48,7 @@ public class UserData : MonoBehaviour {
         Events.OnMissionComplete += OnMissionComplete;
         Events.OnResetApp += OnResetApp;
         Events.NewDistanceTraveled += NewDistanceTraveled;
+        Events.NewSpeedExercicesReady += NewSpeedExercicesReady;
         Events.OnSaveBlock += OnSaveBlock;
 
     }
@@ -128,6 +131,12 @@ public class UserData : MonoBehaviour {
         distanceTraveled += new_distanceTraveled;
         PlayerPrefs.SetInt("distanceTraveled", distanceTraveled);
         AchievementsEvents.OnNewDistance(distanceTraveled);
+    }
+    void NewSpeedExercicesReady()
+    {
+        speedExercices += 1;
+        PlayerPrefs.SetInt("speedExercices", speedExercices);
+        AchievementsEvents.OnNewSpeedExercices();
     }
     public void SaveObjectID(string _userID)
     {

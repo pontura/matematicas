@@ -76,23 +76,27 @@ public class Isla : Screen {
         if(minigameType == MinigamesManager.types.PESAR)
         {
             minigamePeso.Init();
+            minigame = minigame.GetComponent<MinigamePesos>();
             minigame.GetComponent<MinigamePesos>().Init();
         } else
         if (minigameType == MinigamesManager.types.SIMPLE_INPUT)
         {
             minigameSimpleInput.Init();
+            minigame = minigame.GetComponent<MinigameSimpleInput>();
             minigame.GetComponent<MinigameSimpleInput>().Init();
         }
         else
         if (minigameType == MinigamesManager.types.FRACCIONES)
         {
             minigameFracciones.Init();
+            minigame = minigame.GetComponent<MinigameFracciones>();
             minigame.GetComponent<MinigameFracciones>().Init();
         }
         else
         if (minigameType == MinigamesManager.types.VELOCIDAD)
         {
             minigameVelocidad.Init();
+            minigame = minigame.GetComponent<MinigameVelocidad>();
             minigame.GetComponent<MinigameVelocidad>().Init();
         }
 
@@ -256,7 +260,7 @@ public class Isla : Screen {
     }
     public void OnMinigameReady()
     {
-        Events.OnBlockSendRequest(minigame.desc.text);
+        Events.OnBlockSendRequest( minigame.GetDescriptionForBlock() );
         dialogue.SetActive(true);
         minigame.gameObject.SetActive(false);
         SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));

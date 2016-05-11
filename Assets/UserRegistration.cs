@@ -88,7 +88,7 @@ public class UserRegistration : MonoBehaviour {
     }
     private IEnumerator SendIt( )
     {
-        WWW www = new WWW("http://www.pontura.com/matematicas/PHPMailer/examples/mail.php?username=pontura&to=pontura@gmail.com&password=CACA&from=apontura@gmail.com");
+        WWW www = new WWW("http://www.pontura.com/matematicas/PHPMailer/examples/mail.php?username=" + username.text + "&to=" + email.text + "&password=" + pass + "&from=no-responder@email.com");
         yield return www;
 
         if (www.error != null)

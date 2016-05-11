@@ -95,6 +95,11 @@ public class MinigameVelocidad : Minigame
     void UpdateClock()
     {
         secs--;
+        if (secs == 0)
+        {
+            ClockFiled.text = "Pasó el timepo (No suma logros)";
+            return;
+        }
         int min = (int)Mathf.Floor(secs / 60);
         int sec = secs - (min*60);
 
@@ -135,6 +140,7 @@ public class MinigameVelocidad : Minigame
     {
         if (active >= minigame.ejercicios.Count)
         {
+            if (secs > 0) Events.NewSpeedExercicesReady();
             Invoke("MinigameReady", 0.7f);
             mathDevice.Disappear();
         }
@@ -152,15 +158,17 @@ public class MinigameVelocidad : Minigame
 
         int gemasActivas = (int)(active * 5 / minigame.ejercicios.Count);
 
+        print("gemasActivas " + gemasActivas + " active: " + active + " minigame.ejercicios.Count): " + minigame.ejercicios.Count);
+
         if (gemasActivas > 1)
             gemas1.SetActive(true);
-        else if (active > 2)
+        if (active > 2)
             gemas2.SetActive(true);
-        else if (active > 2)
+        if (active > 3)
             gemas3.SetActive(true);
-        else if (active > 4)
+        if (active > 4)
             gemas4.SetActive(true);
-        else if (active > 5)
+        if (active > 5)
             gemas5.SetActive(true);
 
         if (active > 1)
@@ -179,5 +187,18 @@ public class MinigameVelocidad : Minigame
     void MinigameReady()
     {
         Events.OnMinigameReady();
+    }
+    override public string GetDescriptionForBlock()
+    {
+        string clockResult = "";
+        if (secs > 0)
+        {
+            clockResult = ClockFiled.text;
+        }
+        else
+        {
+            clockResult = "Fuera de tiempo";
+        }
+        return descSmall.text + "\n(tiempo: " + clockResult + ")";
     }
 }

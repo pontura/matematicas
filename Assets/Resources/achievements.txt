@@ -30,6 +30,13 @@
 			progress:1			
 		},
 		{
+			title: "Resolver 1 ejercicio de velocidad dentro del tiempo",
+			type: "SPEED",
+			ejercicios: 1,
+			image: "iconSpeed.png",
+			progress:1
+		},
+		{
 			title: "Agrandar el puente",
 			type: "MISSION",
 			image: "iconBridge.png",
@@ -49,6 +56,13 @@
 			image: "iconSail.png",
 			distance: 500,
 			progress:1			
+		},
+		{
+			title: "Resolver 5 ejercicios de velocidad dentro del tiempo",
+			type: "SPEED",
+			image: "iconSpeed.png",
+			ejercicios: 5,
+			progress:2
 		},
 		{
 			title: "Recuperar el habitat de los gorilas",
@@ -72,11 +86,25 @@
 			progress:1			
 		},
 		{
+			title: "Resolver 20 ejercicios de velocidad dentro del tiempo",
+			type: "SPEED",
+			image: "iconSpeed.png",
+			ejercicios: 20,
+			progress:3
+		},
+		{
 			title: "Recorrer 2000 kilometros",
 			type: "DISTANCE",
 			image: "iconSail.png",
 			distance: 2000,
 			progress:2			
+		},
+		{
+			title: "Resolver 50 ejercicios de velocidad dentro del tiempo",
+			type: "SPEED",
+			image: "iconSpeed.png",
+			ejercicios: 50,
+			progress:4
 		},
 		{
 			title: "Enviá veinte ejercicios resultos desde el block",
@@ -105,13 +133,20 @@
 			image: "iconSail.png",
 			distance: 100000,
 			progress:5		
-		}
+		},
+		{
+			title: "Resolver 100 ejercicios de velocidad dentro del tiempo",
+			type: "SPEED",
+			image: "iconSpeed.png",
+			ejercicios: 100,
+			progress:5
+		},
 		{
 			title: "Enviá cincuenta ejercicios resultos desde el block",
 			type: "BLOCK",
 			image: "iconBlock.png",
 			send: 50,
 			progress:5
-		},
+		}
 	]
 }

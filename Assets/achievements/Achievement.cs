@@ -11,7 +11,8 @@ public class Achievement  {
     {
         MISSION_COMPLETE,
         DISTANCE,
-        BLOCK
+        BLOCK,
+        SPEED
     }
     public string image;
     public int id;

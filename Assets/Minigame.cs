@@ -17,4 +17,11 @@ public class Minigame : MonoBehaviour {
     {
 
     }
+    virtual public string GetDescriptionForBlock()
+    {
+        if (desc.text.Length > 0)
+            return desc.text;
+        else
+            return descSmall.text;
+    }
 }
