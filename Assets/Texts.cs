@@ -63,7 +63,8 @@ public class Texts :MonoBehaviour {
     {
         public int islandID;
         public string title;
-        public List<string> fracciones;
+        public List<int> fracciones;
+        public Vector2 recta;
         public int slots;
         public bool loop;
       //  public Minigame_Peso_type type;
@@ -220,9 +221,10 @@ public class Texts :MonoBehaviour {
                     minigame.islandID = int.Parse(Json[gameName][a]["islandId"]);
                     minigame.loop = Json[gameName][a]["loop"].AsBool;
                     minigame.slots = int.Parse( Json[gameName][a]["slots"] );
-                    minigame.fracciones = new List<string>();
+                    minigame.recta = new Vector2(int.Parse(Json[gameName][a]["recta"][0]), int.Parse(Json[gameName][a]["recta"][1]));
+                    minigame.fracciones = new List<int>();
                     for (int b = 0; b < Json[gameName][a]["fracciones"].Count; b++)
-                        minigame.fracciones.Add(Json[gameName][a]["fracciones"][b]);
+                        minigame.fracciones.Add(int.Parse(Json[gameName][a]["fracciones"][b]));
 
                     //switch (Json[gameName][a]["type"])
                     //{

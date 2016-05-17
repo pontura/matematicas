@@ -24,6 +24,7 @@ public class MinigameSimpleInput : Minigame {
     }
     public void Init()
     {
+        descSmall.text = "";
         mathDevice.Init(Game.Instance.islandsManager.activeIsland.minigameType);
         mathDevice.Appear();
 

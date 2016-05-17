@@ -11,72 +11,53 @@ public class MinigameFracciones : Minigame {
     public FraccionesSlot fraccionesSlot;
     public Transform container;
 
-    public List<ResultLine> results;
+
     public int totalResults;
 
-    [SerializeField]
-    public class ResultLine
-    {
-        public int piedraID;
-        public int num;
-    }
+    public Text recta1;
+    public Text recta2;
+
+    public List<int> results;
 
     void Start()
     {
 
     }
     public void Init()
-    {        
-        mathDevice.Init(MinigamesManager.types.FRACCIONES);
-        
+    {
+        desc.text = "";
+        descSmall.text = "";
+        mathDevice.Init(MinigamesManager.types.FRACCIONES);       
 
         if (Game.Instance.gameManager.Isla.GetComponent<Isla>().state == Isla.states.MINIGAME_STARTED) return;
-        if (results != null && results.Count > 0) return;
 
         Texts.Minigame_Fracciones minigame = Data.Instance.texts.GetMinigame_Fracciones();
         string textFinal = minigame.title;
-        //desc.text = textFinal.Replace("[]", insertfield);
+
         descSmall.text = textFinal;
-        descSmall.text += " Coloca ";
 
         int total = minigame.slots;
 
-        total++;
+        recta1.text = minigame.recta[0].ToString();
+        recta2.text = minigame.recta[1].ToString();
 
-        results = new List<ResultLine>();
-        int num = 1;
-        foreach (string result in minigame.fracciones)
-        {
-            ResultLine line = new ResultLine();
+        results.Add(minigame.fracciones[0]);
+        results.Add(minigame.fracciones[1]);
+        results.Add(minigame.fracciones[2]);
+        results.Add(minigame.fracciones[3]);
 
-            switch (num)
-            {
-                case 1:
-                    descSmall.text += "una piedra verde a " + result; break;
-                case 2:
-                    descSmall.text += ", una roja a " + result; break;
-                case 3:
-                    descSmall.text += " y una amarilla a " + result; break;
-            }
-
-            string[] textSplit = result.Split("/"[0]);
-
-            float frac = (float.Parse(textSplit[0]) / float.Parse(textSplit[1]));
-            line.num = (int)(minigame.slots * frac);
-            line.piedraID = num;
-            results.Add(line);
-            num++;
-        }
         for (int a = 0; a < total; a++ )
         {
             FraccionesSlot button = Instantiate(fraccionesSlot);
             button.transform.SetParent(container);
-            button.id = a;
+            button.id = a+1;
             button.GetComponent<Button>().onClick.AddListener(() => { SlotClicked(button); });
             button.transform.localScale = Vector2.one;
-            foreach (ResultLine line in results)
+            int _id = 1;
+            foreach (int piedraID in results)
             {
-                if (line.num == button.id) button.resultPiedraID = line.piedraID;
+                if (piedraID == button.id) button.resultPiedraID = _id;
+                _id++;
             }
         }
        
@@ -119,8 +100,8 @@ public class MinigameFracciones : Minigame {
     }
     override public void Reset()
     {
-        if (results != null)
-        results.Clear();
+        //if (results != null)
+        //        results.Clear();
         foreach (FraccionesSlot slot in container.GetComponentsInChildren<FraccionesSlot>())
         {
             Destroy(slot.gameObject);

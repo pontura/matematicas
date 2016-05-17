@@ -1,19 +1,177 @@
 {
+
 	fracciones:
 	[
 		{
-			title: "Ayúdanos con estas piedras",
-			fracciones: ["1/3", "2/3", "2/9"],
+			title: "Para poder auxiliar a parte de la población que quedó en el lado este de la isla, es necesario mover grandes rocas que bloquean el camino. Si descubrís la ubicación correcta de cada gema, el camino se desbloqueará: ubicá la gema roja en la hendidura que corresponde a 1/2 y la gema verde en la que corresponde a 7/8.",
+			fracciones: [8,5,0,0],
 			slots: 9,
+			recta: [0,1],
 			loop:"true",
-			islandId : 1			
+			islandId : 2			
 		},
 		{
-			title: "Ayúdanos con estas piedras",
-			fracciones: ["1/3", "4/9", "2/3"],
-			slots: 9,
+			title: "El sismo derribó árboles causando la obstrucción de carreteras y caminos. Es necesario regularizar el tránsito para abastecer de insumos médicos y alimentos a los pobladores de las zonas anegadas. Ubicá la gema roja en la hendidura que corresponde a ⅔ y la gema verde en la hendidura que corresponde a 5/12 para quitar la obstrucción.",
+			fracciones: [6,9,0,0],
+			slots: 13,
+			recta: [0,1],
 			loop:"true",
-			islandId : 1		
+			islandId : 2			
+		},
+		{
+			title: "Es bien conocido que los temblores de los terremotos producen grietas, hendiduras y desniveles en el suelo; no es raro que durante las sacudidas esas grietas se abran y cierren alternativamente. Por efecto de las sacudidas se desplazaron tierra y rocas que es necesario mover para hacer llegar a la zona, agua potable para la población. ¡Descubrí la ubicación de cada gema! La gema amarilla va a la derecha de la gema azul; la gema verde va a la izquierda de la gema azul pero a la derecha de la roja.",
+			fracciones: [2,1,4,3],
+			slots: 5,
+			recta: [0,0],
+			loop:"true",
+			islandId : 2			
+		},
+		{
+			title: "Luego de un sismo, las quemaduras y la inhalación de humo por incendios son peligros importantes. Es necesario hacer llegar madera y otros materiales para la reconstrucción de viviendas de las zonas afectadas, pero un incendio bloquea el paso. Ubicá la gema amarilla en la hendidura que corresponde a 3/2, la gema roja en la hendidura que corresponde a 3 y la gema verde en la hendidura que corresponde a 9/2 para abrir el camino.",
+			fracciones: [10,7,4,0],
+			slots: 11,
+			recta: [0,5],
+			loop:"true",
+			islandId : 2			
+		},
+		{
+			title: "Durante el terremoto, algunos animales sufrieron quemaduras y quiebres en sus huesos. Los veterinarios de la zona necesitan que los suministros lleguen con urgencia pero el acceso se encuentra imposibilitado por el fuego. ¡Descubrí dónde ubicar cada gema para extinguir el incendio! Ubicá la gema amarilla en la hendidura que corresponde a ⅖, la gema roja en la hendidura que corresponde a 6/5 y la gema azul en la que corresponde a 9/5.",
+			fracciones: [0,7,3,10],
+			slots: 11,
+			recta: [0,2],
+			loop:"true",
+			islandId : 2			
+		},
+		
+		
+		
+		
+		
+		{
+			title: "Durante la tormenta se produjeron relámpagos y fuertes truenos. Uno de ellos cayó en un árbol de la plaza central de la isla provocando un incendio. Ayudanos a extinguir el fuego colocando la gema amarilla en la hendidura que corresponde a 1/9 y la gema roja en la hendidura que corresponde ⅔.",
+			fracciones: [0,7,2,0],
+			slots: 10,
+			recta: [0,1],
+			loop:"true",
+			islandId : 4			
+		},
+		{
+			title: "La inundación en los senderos provocó un alud que bloqueó el acceso principal al poblado con tierra y rocas. Es necesario liberar la entrada para la llegada de ayuda y suministros. Ayudá a los pobladores a desbloquearlo ubicando las gemas en la posición exacta. La gema amarilla y la gema azul van juntas, al igual que la gema azul y la gema roja. La gema verde va a la derecha de la gema amarilla.",
+			fracciones: [1,4,2,3],
+			slots: 5,
+			recta: [0,0],
+			loop:"true",
+			islandId : 4			
+		},
+		{
+			title: "Sigue lloviendo; el agua acumulada y la fuerza de los vientos derribaron árboles en distintas zonas de la isla. Ayudá a los pobladores a levantar los árboles y mejorar el tránsito por la isla ubicando las gemas en el lugar correcto. Colocá la gema verde en la hendidura correspondiente a ¾, la gema azul en la hendidura correspondiente a ½ y la gema roja en la hendidura correspondiente a ⅜.",
+			fracciones: [7,4,0,5],
+			slots: 9,
+			recta: [0,1],
+			loop:"true",
+			islandId : 4			
+		},
+		{
+			title: "La tormenta causó el incendio del tendido de cables de electricidad. Hace días que la isla se encuentra sin suministro eléctrico y muchos hogares, salas de atención y la escuela están sin luz. Descubrí dónde colocar cada gema y ayudá a apagar los focos de fuego. Ubicá la gema roja en la hendidura correspondiente al 1, la gema azul en la hendidura correspondiente al 8/3 y la gema amarilla en la hendidura correspondiente a 11/3.",
+			fracciones: [0,4,12,9],
+			slots: 13,
+			recta: [0,4],
+			loop:"true",
+			islandId : 4			
+		},
+		{
+			title: "Tras la tormenta, la lluvia y la falta de canalización del agua, provocó inundaciones y deslizamientos de suelo y roca. Ayudá a los pobladores a mover estas grandes masas de tierra para facilitar el paso del agua, colocando la gema azul en la hendidura correspondiente a ¼, la gema roja en la hendidura correspondiente a 3/2 y la gema verde en la hendidura correspondiente a 9/4.",
+			fracciones: [10,7,0,2],
+			slots: 13,
+			recta: [0,3],
+			loop:"true",
+			islandId : 4			
+		},
+		
+		
+		
+		
+		{
+			title: "Mientras se realizaba la construcción de un edificio se cortaron las raíces de árboles milenarios provocando su caída y así, el bloqueo del camino. Ayudá a los pobladores a desbloquearlo ubicando las gemas en la posición exacta. Colocá la gema roja en la hendidura que corresponde a ½ y la gema azul en la hendidura que corresponde a 3/4.",
+			fracciones: [0,3,0,4],
+			slots: 5,
+			recta: [0,1],
+			loop:"true",
+			islandId : 11			
+		},{
+			title: "La basura acumulada, producto de los residuos que generan los pobladores de la zona, se autoincendió debido al biogas que esta produce en su fermentación natural. Es necesario apagar el incendio con urgencia. Para ayudar con su extinción, ubicá la gema azul en la hendidura correspondiente a 3/14, la gema amarilla en la hendidura que corresponde a 5/7 y la gema verde en la que corresponde a ½.",
+			fracciones: [8,0,11,4],
+			slots: 15,
+			recta: [0,1],
+			loop:"true",
+			islandId : 11			
+		},
+		{
+			title: "Se construyeron muchas edificaciones en una zona muy pequeña. El terreno era débil y poco propicio lo que provocó el un deslizamiento de tierra, desprendiendo rocas que bloquearon el camino. Ayudá a los pobladores a desbloquearlo ubicando las gemas en las hendiduras indicadas. Las gemas amarilla y azul van en los extremos. La gema verde va a la derecha de la roja y no tiene a su lado a la gema amarilla.",
+			fracciones: [3,2,1,4],
+			slots: 5,
+			recta: [0,0],
+			loop:"true",
+			islandId : 11			
+		},
+		{
+			title: "Cazadores prendieron fuego intencionalmente para que las presas escapen de sus madrigueras. El fuego se extendió y se perdió su control. Si colocás las gemas en las hendiduras indicadas, el fuego se extinguirá: la gema verde en la hendidura correspondiente a 9/5, la gema azul en la que corresponde a 1 y la gema amarilla en la correspondiente a ⅗.",
+			fracciones: [10,0,4,6],
+			slots: 11,
+			recta: [0,2],
+			loop:"true",
+			islandId : 11			
+		},
+		{
+			title: "La tala de un grupo de árboles de una ladera originó el deslizamiento de su tierra y el derrumbe de rocas que obstaculizan caminos y senderos. Ayudá a los pobladores a desbloquearlo encontrando la posición exacta de las gemas en las hendiduras: la gema verde en la hendidura correspondiente a 5/6, la gema roja en la hendidura correspondiente a 4/3 y la gema amarilla en la hendidura correspondiente a 11/6.",
+			fracciones: [6,9,12,0],
+			slots: 13,
+			recta: [0,2],
+			loop:"true",
+			islandId : 11			
+		},
+		
+		
+		
+		{
+			title: "Para evitar la tala de especies vegetales, se estudió la superficie y se encontró una zona posible, completamente libre. ¡Pero también un problema! Se detectaron muchos árboles caídos, enfermos por el hongo janoderma. Es necesario limpiar la superficie y tratar la zona. Para hacerlo, ubicá la gema verde en la hendidura que corresponde a 1/2 y la gema azul en la hendidura que corresponde a 3/12.",
+			fracciones: [7,0,0,4],
+			slots: 13,
+			recta: [0,1],
+			loop:"true",
+			islandId : 14			
+		},
+		{
+			title: "La basura acumulada en una zona cercana a la reserva generó focos de incendio a partir de botellas que generaban un efecto lupa con el sol. Para apagar el fuego y llegar a la zona para su limpieza, descubrí cómo ubicar las gemas: la gema roja va a la derecha de la gema amarilla; la gema azul va a la izquierda de la gema verde; la gema verde y la gema amarilla no van una al lado de la otra.",
+			fracciones: [2,4,3,1],
+			slots: 5,
+			recta: [0,0],
+			loop:"true",
+			islandId : 14			
+		},
+		{
+			title: "La lluvia y la falta de canales para que el agua transite generó un desplazamiento de tierra en la zona cercana al puerto donde llegarán los materiales para la construcción. Las rocas y la tierra deben moverse antes de que la embarcación llegue. Para ayudarlos, ubicá la gema azul en la hendidura correspondiente a ⅚, la gema amarilla en la hendidura correspondiente a ½ y la gema verde en la hendidura correspondiente a ⅓.",
+			fracciones: [3,0,4,6],
+			slots: 7,
+			recta: [0,1],
+			loop:"true",
+			islandId : 14			
+		},
+		{
+			title: "Un árbol ha caído en el camino. Por su tamaño y grosor es fácil deducir que es muy añejo. Es necesario moverlo del camino para facilitar la circulación vehicular y así no alterar los senderos que utilizan los animales vespertinos. Colocá la gema roja en la hendidura correspondiente a 8/3, la gema verde en la hendidura correspondiente al número 3 y la gema azul en la hendidura que corresponde a ⅔.",
+			fracciones: [10,9,0,3],
+			slots: 13,
+			recta: [0,4],
+			loop:"true",
+			islandId : 14			
+		},
+		{
+			title: "Un corte accidental de las raíces de un árbol generó que el mismo cayera en la entrada de la zona de construcción de la reserva. Para continuar con el proceso es necesario despejar esa entrada. Ubicá la gema verde en la hendidura correspondiente a 3/4, la gema roja en la hendidura correspondiente a 5/2 y la gema amarilla en la hendidura correspondiente a 7/4 y el paso se despejará.",
+			fracciones: [4,11,8,0],
+			slots: 13,
+			recta: [0,3],
+			loop:"true",
+			islandId : 14			
 		}
 	]
 }
