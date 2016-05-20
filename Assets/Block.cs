@@ -8,6 +8,7 @@ public class Block : Screen
     public BlockItem[] blockItems;
     public BlockItem draggingBlockItem;
     public GameObject container;
+    public GameObject Helper;
 
     void Start()
     {
@@ -53,6 +54,9 @@ public class Block : Screen
     }
     void Update()
     {
+        if (container.transform.childCount >0) Helper.SetActive(false);
+        else Helper.SetActive(true);
+
         if (Input.anyKeyDown)
         {
             if (draggingBlockItem != null && draggingBlockItem.inputField != null)

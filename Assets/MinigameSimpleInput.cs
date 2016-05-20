@@ -41,6 +41,7 @@ public class MinigameSimpleInput : Minigame {
         {
             textFinal = GenerateRandomResults(textFinal);
             result = numbers[0] * numbers[1];
+            print("_________M_  " + (numbers[0] * numbers[1]));
         }
         else if (minigame.type == Texts.Minigame_SimpleInput.Minigame_SimpleInput_type.HARDCODE)
         {

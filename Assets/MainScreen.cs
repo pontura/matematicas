@@ -20,17 +20,20 @@ public class MainScreen : MonoBehaviour {
     }
     void Delay()
     {
+        //nuevo usuario:
         if (Data.Instance.userData.userID == "")
         {
             userRegistration.SetActive(true);
             Data.Instance.userData.firstTimeHere = true;
         }
+        //todavia no puso el password:
         else if (Data.Instance.userData.passwordValidated == 0)
         {
             userPasswordValidation.SetActive(true);
             GetComponent<UserPasswordValidation>().Init();
             Data.Instance.userData.firstTimeHere = true;
         }
+        //ya existe:
         else
         {
             userLogged.SetActive(true);

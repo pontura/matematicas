@@ -53,7 +53,7 @@ public class Isla : Screen {
     public void SetArrived()
     {
         //state = states.BIENVENIDA;
-        minigame.Reset();        
+        //minigame.Reset();        
     }
     void OnDisable()
     {
