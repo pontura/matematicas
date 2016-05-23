@@ -6,8 +6,7 @@
 			islandId: "2",
 			description: "Necesitamos [qty] caja/s de [element] para construir un puente entre los Ríos A y B",
 			element : "MADERA",
-			qty: "4"
-			
+			qty: "4"			
 		},
 		{
 			id: "1",

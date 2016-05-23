@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
 public class UserData : MonoBehaviour {
@@ -11,12 +12,15 @@ public class UserData : MonoBehaviour {
     public string username;
     public string password;
     public string email;
+    public int logros;
     public int passwordValidated;
 
     public int islandActive;
     public int missionActive;
     private Inventary inventary;
     public int totalBlocksNotes;
+
+  
 
     void Start()
     {

@@ -52,7 +52,6 @@ public class Ranking : MonoBehaviour {
                 // s.id = (string)json.Key;
                 newData.username = (string)jsonObj["username"];
                 int ach = (int)jsonObj["achievements"];
-                print(ach);
                 newData.achievements = ach;
                 data.Add(newData);
             }
