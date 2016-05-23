@@ -6,6 +6,7 @@ public class BlockSendRequestPanel : MonoBehaviour {
 
     public GameObject panel;
     public Text title;
+    public Button SendButton;
 
     void Start()
     {
@@ -21,6 +22,13 @@ public class BlockSendRequestPanel : MonoBehaviour {
         panel.SetActive(true);
 	}
 
+    void Update()
+    {
+        if (Game.Instance.gameManager.Block.GetComponent<Block>().isEmpty)
+            SendButton.interactable = false;
+        else
+            SendButton.interactable = true;
+    }
     public void Send()
     {
         Events.OnSaveBlock(title.text);

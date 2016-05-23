@@ -308,7 +308,7 @@ public class Texts :MonoBehaviour {
             List<Minigame_Peso> newList = new List<Minigame_Peso>();
             foreach (Minigame_Peso m in minigame_Peso)
             {
-                if (m.loop)
+                if (m.loop && m.islandID == Game.Instance.islandsManager.activeIsland.id)
                     newList.Add(m);
             }
             return newList[UnityEngine.Random.Range(0, newList.Count)];
@@ -336,7 +336,7 @@ public class Texts :MonoBehaviour {
             List<Minigame_SimpleInput> newList = new List<Minigame_SimpleInput>();
             foreach (Minigame_SimpleInput m in minigame_SimpleInput)
             {
-                if (m.loop)
+                if (m.loop && m.islandID == Game.Instance.islandsManager.activeIsland.id)
                     newList.Add(m);
             }
             return newList[UnityEngine.Random.Range(0, newList.Count)];
@@ -362,7 +362,7 @@ public class Texts :MonoBehaviour {
             List<Minigame_Fracciones> newList = new List<Minigame_Fracciones>();
             foreach (Minigame_Fracciones m in minigame_Fracciones)
             {
-                if (m.loop)
+                if (m.loop && m.islandID == Game.Instance.islandsManager.activeIsland.id)
                     newList.Add(m);
             }
             return newList[UnityEngine.Random.Range(0, newList.Count)];
@@ -389,7 +389,7 @@ public class Texts :MonoBehaviour {
             List<Minigame_Velocidad> newList = new List<Minigame_Velocidad>();
             foreach (Minigame_Velocidad m in minigame_Velocidad)
             {
-                if (m.loop)
+                if (m.loop && m.islandID == Game.Instance.islandsManager.activeIsland.id)
                     newList.Add(m);
             }
             return newList[UnityEngine.Random.Range(0, newList.Count)];

@@ -9,6 +9,7 @@ public class Block : Screen
     public BlockItem draggingBlockItem;
     public GameObject container;
     public GameObject Helper;
+    public bool isEmpty;
 
     void Start()
     {
@@ -54,8 +55,16 @@ public class Block : Screen
     }
     void Update()
     {
-        if (container.transform.childCount >0) Helper.SetActive(false);
-        else Helper.SetActive(true);
+        if (container.transform.childCount > 0)
+        {
+            isEmpty = false;
+            Helper.SetActive(false);
+        }
+        else
+        {
+            Helper.SetActive(true);
+            isEmpty = true;
+        }
 
         if (Input.anyKeyDown)
         {

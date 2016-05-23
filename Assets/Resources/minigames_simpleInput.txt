@@ -91,7 +91,7 @@
 			loop:"false"
 		},
 		{
-			title: "Las torres de los generadores están hechas de tubos de acero, y cada uno mide aproximadamente [20,70] metros de altura. Ayudá a calcular la cantidad de metros de tubo necesarios para construir los [2,9] generadores.",
+			title: "Las torres de los generadores están hechas de tubos de acero, y cada uno mide aproximadamente [20/70] metros de altura. Ayudá a calcular la cantidad de metros de tubo necesarios para construir los [2/9] generadores.",
 			type: "MULTIPLICA",
 			islandId : 9,
 			loop:"true"
