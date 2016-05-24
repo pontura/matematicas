@@ -71,4 +71,8 @@ public class MainScreen : MonoBehaviour {
         ResetScreens();
         userRegistration.SetActive(true);
     }
+    public void Admin()
+    {
+        Data.Instance.LoadLevel("Admin");
+    }
 }

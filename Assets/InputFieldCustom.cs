@@ -25,7 +25,18 @@ public class InputFieldCustom : MonoBehaviour {
     {
         string result = "";
         foreach (InputField input in fields)
-            result += input.text;
+        {
+            int num = 0;
+            try
+            {
+                num = int.Parse(input.text);
+            }
+            catch
+            {
+                Debug.Log("no hya numero");
+            }
+            result += num.ToString();
+        }
 
         return result;
     }

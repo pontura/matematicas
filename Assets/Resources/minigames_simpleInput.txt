@@ -6,12 +6,6 @@
 			type: "MULTIPLICA",
 			islandId : 1,
 			loop:"true"
-		},		
-		{
-			title: "(DEMO) Teníamos [20/40] trozos de madera y quemamos [1/10]. ¿Ahora hay?...",
-			type: "RESTA",
-			islandId : 1,
-			loop:"true"		
 		},
 		
 		

@@ -8,6 +8,7 @@ public static class Events {
     public static System.Action<string> OnTipText = delegate { };
     public static System.Action OnLoading = delegate { };
     public static System.Action SendEmail = delegate { };  
+    public static System.Action<bool> OnAdminLoading = delegate { };
     
 
     public static System.Action OnUserRegistration = delegate { };

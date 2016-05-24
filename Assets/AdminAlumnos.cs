@@ -9,6 +9,7 @@ public class AdminAlumnos : MonoBehaviour {
 
     void Start()
     {
+        Events.OnAdminLoading(true);
         string url = SocialManager.Instance.FIREBASE + "/users.json";
 
         Debug.Log(url);
@@ -16,6 +17,7 @@ public class AdminAlumnos : MonoBehaviour {
         HTTP.Request someRequest = new HTTP.Request("get", url);
         someRequest.Send((request) =>
         {
+            Events.OnAdminLoading(false);
             Hashtable decoded = (Hashtable)JSON.JsonDecode(request.response.Text);
             
             if (decoded == null)
@@ -62,5 +64,9 @@ public class AdminAlumnos : MonoBehaviour {
     public void Delete(UserData userdata)
     {
         print("Delete: " + userdata.username);
+    }
+    public void Close()
+    {
+        Application.Quit();
     }
 }

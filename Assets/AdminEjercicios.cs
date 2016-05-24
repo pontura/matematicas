@@ -22,14 +22,20 @@ public class AdminEjercicios : MonoBehaviour
 
     public void Init(UserData userdata)
     {
+        Events.OnAdminLoading(true);
+        blocks.Clear();
         title.text = "Ejercicios de : " + userdata.username;
         string url = SocialManager.Instance.FIREBASE + "/block.json?orderBy=\"userID\"&equalTo=\"" + userdata.userID + "\"";
+
+        int num = content.transform.childCount;
+        for (int i = 0; i < num; i++) DestroyImmediate(content.transform.GetChild(0).gameObject);
 
         Debug.Log(url);
 
         HTTP.Request someRequest = new HTTP.Request("get", url);
         someRequest.Send((request) =>
         {
+            Events.OnAdminLoading(false);
             Hashtable decoded = (Hashtable)JSON.JsonDecode(request.response.Text);
 
             if (decoded == null)
