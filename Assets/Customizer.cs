@@ -13,9 +13,16 @@ public class Customizer : MonoBehaviour {
     public Color button_on;
     public Color button_off;
 
+    public GameObject SexoInitial;
     public Text usernameField; 
 
 	void Start () {
+
+        if (Data.Instance.userData.firstTimeHere)
+        {
+            SexoInitial.SetActive(true);
+        } else
+            SexoInitial.SetActive(false);
 
         Events.OnCustomizerButtonPrevClicked += OnCustomizerButtonPrevClicked;
         Events.OnCustomizerButtonNextClicked += OnCustomizerButtonNextClicked;
@@ -29,6 +36,19 @@ public class Customizer : MonoBehaviour {
 
         usernameField.text = Data.Instance.userData.username;
 	}
+
+
+    //primera vez que jugas
+    public void SetSexo(bool varon)
+    {
+        if (varon)
+            savedSettings.myPlayerSettings.sex = SavedSettings.PlayerSettings.sexType.VARON;
+        else
+            savedSettings.myPlayerSettings.sex = SavedSettings.PlayerSettings.sexType.MUJER;
+        SetSexButton();
+        Delay();
+        SexoInitial.SetActive(false);
+    }
    public void ToggleSex()
     {
        savedSettings.ToggleSex();
