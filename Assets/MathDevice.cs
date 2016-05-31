@@ -48,7 +48,10 @@ public class MathDevice : MonoBehaviour {
     }
     void DelayToOpen()
     {
-        Game.Instance.mainMenu.BlockOpen();
+        if (minigameD.activeSelf)
+            return;
+        else
+            Game.Instance.mainMenu.BlockOpen();
     }
     void OnDisable()
     {

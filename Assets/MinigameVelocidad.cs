@@ -176,13 +176,13 @@ public class MinigameVelocidad : Minigame
             if (Game.Instance.mainMenu.blockOn)
             {
                 Game.Instance.mainMenu.BlockClose();
-                Invoke("OpenBlock", 2);
+               // Invoke("OpenBlock", 2);
             }
         }        
     }
     void OpenBlock()
     {
-        Game.Instance.mainMenu.BlockOpen();
+        //Game.Instance.mainMenu.BlockOpen();
     }
     void MinigameReady()
     {
