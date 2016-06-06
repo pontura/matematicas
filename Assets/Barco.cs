@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class Barco : Screen
 {
+    public Text buttonText;
     public Text notasField;
     public GameObject panel;
     public GameObject minigameNotReadyPanel;
@@ -22,6 +23,7 @@ public class Barco : Screen
     }
     override public void OnScreenEnable()
     {
+
         if (Data.Instance.userData.firstTimeHere && !tutorialDisplayed)
         {
             Events.OnTipsOn(4);
@@ -45,7 +47,16 @@ public class Barco : Screen
         notasField.text = distance + "\n";
 
         notasField.text += "El barco soporta " + Data.Instance.settings.barcoPesoMaximo.ToString() + " kilos " + " y va a " + Data.Instance.settings.barcoVelocidad.ToString() + "km/h \n";
-        notasField.text += Data.Instance.settings.GetNotes();        
+        notasField.text += Data.Instance.settings.GetNotes();
+
+        if (Game.Instance.islandsManager.gotoIsland != null && Game.Instance.islandsManager.gotoIsland.distance > 1)
+        {
+            buttonText.text = "ZARPAR";
+        }
+        else
+        {
+            buttonText.text = "LISTO";
+        }
     }
     public void Ready()
     {

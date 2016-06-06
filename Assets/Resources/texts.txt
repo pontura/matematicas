@@ -5,7 +5,7 @@ tutorial:
 		text: "Hola [username],\nEmpezá preparando tu avatar."
 	},
 	{	
-		text: "¡Buen look, [username]!\nEste es el mapa del juego, desde aquí puedes ir a todas las islas."
+		text: "¡Buen look, [username]!\nElegí un destino en el mapa y prepará tu embarcación"
 	},
 	{	
 		text: "Ayudá a los isleños para juntar los recursos necesarios para emprender viajes por las islas."
@@ -156,7 +156,7 @@ MisionTienesTodoLoQueFalta:
 MinigameReady:
 [
 	{
-		text: "¡Genial! ¡Muchas gracias! Ahora puedes tomar lo que necesites de nuestra isla."			
+		text: "¡Gracias por tu ayuda! Continuá tu viaje. Si lo necesitás, podés utilizar los recursos de la isla. ¿Cuál es tu próximo destino?"			
 	}
 ],
 MinigameInvita:

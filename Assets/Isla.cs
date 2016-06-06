@@ -187,7 +187,7 @@ public class Isla : Screen {
         }
         else if (state == states.MINIGAME_READY)
         {
-            Game.Instance.mainMenu.Barco();
+            Game.Instance.mainMenu.Mapa();
         }
     }
     void CheckIfConsume(string element)
