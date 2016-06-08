@@ -16,17 +16,20 @@ public class Ranking : MonoBehaviour {
     {
         public int achievements;
         public string username;
+        public string userID;
     }
     void Start()
     {
         data.Clear();
         LoadRanking();
+        AchievementsEvents.OnRefreshTotalAchievements += OnRefreshTotalAchievements;
         //SocialEvents.OnNewHiscore += OnNewHiscore;
         ////SocialEvents.OnFacebookFriends += OnFacebookFriends;
         //SocialEvents.OnRefreshRanking += OnRefreshRanking;
     }
     void OnDestroy()
     {
+        AchievementsEvents.OnRefreshTotalAchievements -= OnRefreshTotalAchievements;
         //SocialEvents.OnNewHiscore -= OnNewHiscore;
         //// SocialEvents.OnFacebookFriends -= OnFacebookFriends;
         //SocialEvents.OnRefreshRanking -= OnRefreshRanking;
@@ -49,9 +52,9 @@ public class Ranking : MonoBehaviour {
             {
                 Hashtable jsonObj = (Hashtable)json.Value;
                 RankingData newData = new RankingData();
-                // s.id = (string)json.Key;
                 newData.username = (string)jsonObj["username"];
                 int ach = (int)jsonObj["achievements"];
+                newData.userID = (string)json.Key;
                 newData.achievements = ach;
                 data.Add(newData);
             }
@@ -62,54 +65,15 @@ public class Ranking : MonoBehaviour {
     {
         return rankingData.OrderBy(go => go.achievements).Reverse().ToList();
     }
-    //void OnRefreshRanking()
-    //{
-    //    int hiscore = SocialManager.Instance.userHiscore.GetHiscore();
-
-    //    bool userExistsInRanking = false;
-    //    foreach (RankingData rankingData in data)
-    //    {
-    //        if (rankingData.facebookID == SocialManager.Instance.userData.facebookID)
-    //        {
-    //            rankingData.score = hiscore;
-    //            userExistsInRanking = true;
-    //            rankingData.isYou = true;
-    //        }
-    //    }
-    //    if (!userExistsInRanking)
-    //    {
-    //        RankingData rankingData = new RankingData();
-    //        rankingData.facebookID = SocialManager.Instance.userData.facebookID;
-    //        rankingData.score = hiscore;
-    //        rankingData.playerName = SocialManager.Instance.userData.username;
-    //        rankingData.isYou = true;
-    //        data.Add(rankingData);
-    //    }
-    //    //OrderByScore();
-    //}
-    
-    //void OnNewHiscore(int score)
-    //{
-    //    int levelID = Data.Instance.moodsManager.currentMood;
-
-    //    if (!SocialManager.Instance.userData.logged) return;
-
-    //    List<RankingData> currentLevelData = levels[levelID - 1].data;
-
-    //    foreach (RankingData rankingData in currentLevelData)
-    //    {
-    //        if (rankingData.facebookID == SocialManager.Instance.userData.facebookID)
-    //        {
-    //            rankingData.score = score;
-    //            return;
-    //        }
-    //    }
-    //    RankingData newData = new RankingData();
-    //    newData.facebookID = SocialManager.Instance.userData.facebookID;
-    //    newData.isYou = true;
-    //    newData.playerName = SocialManager.Instance.userData.username;
-    //    newData.score = score;
-    //    currentLevelData.Add(newData);
-    //    levels[levelID - 1].data = OrderByScore(currentLevelData);
-    //}
+    void OnRefreshTotalAchievements(int total)
+    {
+        foreach (RankingData rd in data)
+        {
+            if (rd.userID == Data.Instance.userData.userID)
+            {
+                rd.achievements = total;
+            }
+        }
+        data = OrderByScore(data);
+    }
 }

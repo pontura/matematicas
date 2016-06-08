@@ -13,6 +13,7 @@ public class IslandDistances : MonoBehaviour {
         public string name;
         public List<IslaData> islas;
         public int total;
+        public GameObject lineAsset;
     }
 
     [Serializable]
@@ -27,6 +28,14 @@ public class IslandDistances : MonoBehaviour {
     public List<IslaData> resultsIslaA;
     public List<IslaData> resultsIslaB;
 
+    void OnEnable()
+    {
+        foreach (Ruta ruta in rutas)
+        {
+            ruta.lineAsset.SetActive(false);
+        }
+    }
+
 	public string GetRuta (int islaA, int islaB) {
         print("GetRuta " + islaA + "     islaB   " + islaB);
 
@@ -36,6 +45,7 @@ public class IslandDistances : MonoBehaviour {
         
         foreach (Ruta ruta in rutas)
         {
+            ruta.lineAsset.SetActive(false);
             foreach (IslaData isla in ruta.islas)
             {
                 if (isla.islaID == islaA) 
@@ -56,6 +66,7 @@ public class IslandDistances : MonoBehaviour {
             {
                 if (dataA.ruta == dataB.ruta)
                 {
+                    SetActiveRuta(dataA.ruta);
                     string origen = "el continente";
                     if (dataA.ruta == "E")
                         origen = "la Ruta E";
@@ -75,4 +86,14 @@ public class IslandDistances : MonoBehaviour {
         
         return result;
 	}
+    void SetActiveRuta(string rutaName)
+    {
+        foreach(Ruta ruta in rutas)
+        {
+            if (ruta.name == rutaName)
+            {
+                ruta.lineAsset.SetActive(true);
+            }
+        }
+    }
 }

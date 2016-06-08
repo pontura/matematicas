@@ -8,7 +8,7 @@ tutorial:
 		text: "¡Buen look, [username]!\nElegí un destino en el mapa y prepará tu embarcación"
 	},
 	{	
-		text: "Ayudá a los isleños para juntar los recursos necesarios para emprender viajes por las islas."
+		text: "Antes de salir a explorar las islas tenés que pagar la tasa portuaria"
 	},
 	{	
 		text: "Para ayudarte a solucionar los problemas tenés un block arriba a la izquierda de la pantalla, usalo todo lo que necesites."

@@ -103,7 +103,11 @@ public class IslandsManager : MonoBehaviour {
     }
     public void Clicked(int id)
     {
-        
+        if (Data.Instance.userData.firstTimeHere)
+        {
+            Game.Instance.mainMenu.Isla();
+            return;
+        }
         DataIsland clickedIsland = GetIslandById(id);
         int distance = (int)Vector3.Distance(clickedIsland.island.transform.position, activeIsland.island.transform.position)*4;
 

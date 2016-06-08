@@ -35,6 +35,10 @@ public class Isla : Screen {
     }
     void Start()
     {
+        if (Data.Instance.userData.firstTimeHere)
+        {
+            state = states.MINIGAME;
+        }
         Events.OnTripStarted += OnTripStarted;
         Events.OnMinigameReady += OnMinigameReady;
         Events.OnMinigameMistake += OnMinigameMistake;
@@ -120,14 +124,11 @@ public class Isla : Screen {
             
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.Bienvenida));
             state = states.BIENVENIDA_ISLA;
-        } else if (state == states.BIENVENIDA_ISLA)
-        {            
-            SetText(Data.Instance.texts.GetBienvenidaXIsland(Game.Instance.islandsManager.activeIsland.id));
-            state = states.BIENVENIDA_DONE;
-        } else if (Game.Instance.minigamesManager.ready)
+        }  else if (Game.Instance.minigamesManager.ready)
         {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
             state = states.MINIGAME_READY;
+            Data.Instance.userData.firstTimeHere = false;
         }
         else if (state == states.MINIGAME_STARTED)
         {
@@ -140,6 +141,11 @@ public class Isla : Screen {
             string texto = dataIsland.mission.description;
             texto = SetTextQty(texto, dataIsland.mission.qty);
             SetText(texto);
+        }
+        else if (state == states.BIENVENIDA_ISLA)
+        {
+            SetText(Data.Instance.texts.GetBienvenidaXIsland(Game.Instance.islandsManager.activeIsland.id));
+            state = states.MINIGAME;
         }
        else
         {

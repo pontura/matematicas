@@ -54,6 +54,7 @@ public class MinigameVelocidad : Minigame
         secs = minigame.time * 60;
 
         print("textFinal: " + textFinal);
+
         descSmall.text = "";
         desc.text = textFinal;
 

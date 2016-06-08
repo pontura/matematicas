@@ -25,8 +25,8 @@ public class MinigameFracciones : Minigame {
     }
     public void Init()
     {
-        desc.text = "";
-        descSmall.text = "";
+       // desc.text = "";
+       // descSmall.text = "";
         mathDevice.Init(MinigamesManager.types.FRACCIONES);       
 
         if (Game.Instance.gameManager.Isla.GetComponent<Isla>().state == Isla.states.MINIGAME_STARTED) return;

@@ -136,10 +136,11 @@ public class AchievementsManager : MonoBehaviour
             if (ach.ready)
             {
                 result = "1";
-                totalReady++;
+                totalReady++;                
             }
             dataBaseString += result + ",";
         }
+        AchievementsEvents.OnRefreshTotalAchievements(totalReady);
     }
     void OnReady(int id)
     {
