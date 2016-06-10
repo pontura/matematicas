@@ -7,6 +7,7 @@ public class MathDevice : MonoBehaviour {
     public GameObject minigameB;
     public GameObject minigameC;
     public GameObject minigameD;
+    public GameObject minigameE;
 
     void Start()
     {
@@ -19,10 +20,14 @@ public class MathDevice : MonoBehaviour {
     }
 	public void Init(MinigamesManager.types type) {
 
+        gameObject.SetActive(true);
+
         minigameA.SetActive(false);
         minigameB.SetActive(false);
         minigameC.SetActive(false);
         minigameD.SetActive(false);
+        minigameE.SetActive(false);
+
        // print("__________MathDevice Appear" + type);
 
         switch (type)
@@ -38,6 +43,10 @@ public class MathDevice : MonoBehaviour {
                 break;
             case MinigamesManager.types.VELOCIDAD:
                 minigameD.SetActive(true);
+                break;
+            case MinigamesManager.types.FINAL:
+                gameObject.SetActive(false);
+                minigameE.SetActive(true);
                 break; 
         }
 	}

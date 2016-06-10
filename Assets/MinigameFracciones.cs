@@ -34,6 +34,7 @@ public class MinigameFracciones : Minigame {
         Texts.Minigame_Fracciones minigame = Data.Instance.texts.GetMinigame_Fracciones();
         string textFinal = minigame.title;
 
+        desc.text = "";
         descSmall.text = textFinal;
 
         int total = minigame.slots;

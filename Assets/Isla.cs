@@ -15,6 +15,9 @@ public class Isla : Screen {
     public MiningameBackground minigamePeso;
     public MiningameBackground minigameFracciones;
     public MiningameBackground minigameVelocidad;
+    public MiningameBackground minigameFinal;
+
+    public MathDevice mathDevice;
 
     public MinigamesManager.types minigameType;
     private bool tutorialDisplayed;
@@ -66,14 +69,13 @@ public class Isla : Screen {
     }
     public override void OnScreenEnable()
     {
+        dialogue.SetActive(true);
         if (Data.Instance.userData.firstTimeHere && !tutorialDisplayed)
         {
             Events.OnTipsOn(2);
             tutorialDisplayed = true;
         }
         dataIsland = Game.Instance.islandsManager.activeIsland;
-
-      //  Debug.Log("arranca: " + dataIsland.minigameType);
 
         minigameType = dataIsland.minigameType;
 
@@ -103,9 +105,16 @@ public class Isla : Screen {
             minigame = minigame.GetComponent<MinigameVelocidad>();
             minigame.GetComponent<MinigameVelocidad>().Init();
         }
+        else if (minigameType == MinigamesManager.types.FINAL)
+        {
+            minigameFinal.Init();
+            minigame = minigame.GetComponent<MinigameFinal>();
+            minigame.GetComponent<MinigameFinal>().Init();
+            SetText("Llegaste a la Isla Final ¡Ayudanos a abrir el portal fantástico!");
+            return;
+        }
 
         Events.OnBlockStatus(true);
-
         
         titleField.text = dataIsland.name;
 

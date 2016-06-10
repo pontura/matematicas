@@ -86,7 +86,7 @@ public class MiningameBackground : MonoBehaviour {
         int activeIslandID = Game.Instance.islandsManager.activeIsland.id;
         animationID = Game.Instance.islandsManager.activeIsland.animationID;
 
-        print("Init" + animationID);
+        print("intro" + animationID);
         GetComponent<Animator>().Play("intro" + animationID, 0, 0);
 
         if (activeIslandID == lastIslandID) return;
@@ -98,7 +98,9 @@ public class MiningameBackground : MonoBehaviour {
     }
     void SetBackground(int id)
     {
+        print("SetBackground" + id);
         int num = 1;
+
         foreach (GameObject background in backgrounds)
         {
             if (background.name == "background_" + id)
