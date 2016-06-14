@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -6,6 +7,7 @@ using System;
 public class IslandDistances : MonoBehaviour {
 
     public List<Ruta> rutas;
+    public Text field;
 
     [Serializable]
     public class Ruta
@@ -34,9 +36,11 @@ public class IslandDistances : MonoBehaviour {
         {
             ruta.lineAsset.SetActive(false);
         }
+        field.text = "";
     }
 
 	public string GetRuta (int islaA, int islaB) {
+        field.text = "";
         print("GetRuta " + islaA + "     islaB   " + islaB);
 
         resultsIslaA.Clear();
@@ -79,6 +83,8 @@ public class IslandDistances : MonoBehaviour {
                         result = "La isla en la que estás se encuentra a " + dataA.km + " km de el continente.";
 
                     result += "\nTu destino está a " + dataB.fraccion + "  de la distancia entre " + origen + " y el final de esta ruta.";
+
+                    field.text = "Ruta " + dataA.ruta + ". Total: " + GetRuta(dataA.ruta).total + "km.";
                 }
             }
         }
@@ -95,5 +101,16 @@ public class IslandDistances : MonoBehaviour {
                 ruta.lineAsset.SetActive(true);
             }
         }
+    }
+    private Ruta GetRuta(string rutaName)
+    {
+        foreach (Ruta ruta in rutas)
+        {
+            if (ruta.name == rutaName)
+            {
+                return ruta;
+            }
+        }
+        return null;
     }
 }

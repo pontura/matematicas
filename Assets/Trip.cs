@@ -18,7 +18,18 @@ public class Trip : Screen {
     void Start()
     {
         Events.OnShipArrived += OnShipArrived;
-
+    }
+    void Update()
+    {
+        if (Data.Instance.DEBUG)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                Events.OnShipArrived();
+                Data.Instance.GetComponent<Inventary>().nafta = 9;
+                Data.Instance.GetComponent<Inventary>().comida = 9;
+            }
+        }
     }
     void OnDestroy()
     {

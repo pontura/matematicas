@@ -16,6 +16,48 @@
 			progress:1
 		},
 		{
+			title: "Gema 1",
+			type: "GEMA",
+			image: "iconGema1.png",
+			gema: 1,
+			progress:1
+		},
+		{
+			title: "Gema 2",
+			type: "GEMA",
+			image: "iconGema2.png",
+			gema: 2,
+			progress:2
+		},
+		{
+			title: "Gema 3",
+			type: "GEMA",
+			image: "iconGema3.png",
+			gema: 3,
+			progress:3
+		},
+		{
+			title: "Gema 4",
+			type: "GEMA",
+			image: "iconGema4.png",
+			gema: 4,
+			progress:4
+		},
+		{
+			title: "Gema 5",
+			type: "GEMA",
+			image: "iconGema5.png",
+			gema: 5,
+			progress:5
+		},
+		{
+			title: "Gema 6",
+			type: "GEMA",
+			image: "iconGema6.png",
+			gema: 6,
+			progress:5
+		},
+		{
 			title: "Ayudar a los delfines",
 			type: "MISSION",
 			image: "iconDolphin.png",
@@ -147,6 +189,13 @@
 			image: "iconBlock.png",
 			send: 50,
 			progress:5
+		},
+		{
+			title: "Abre el portal máginco",
+			type: "EVENT",
+			image: "iconPortal.png",
+			eventID: 1,
+			progress:1
 		}
 	]
 }

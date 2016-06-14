@@ -75,6 +75,12 @@ public class Game : MonoBehaviour
     }
     void StartGame()
     {
+        if (Data.Instance.DEBUG)
+        {
+            Data.Instance.GetComponent<Inventary>().nafta = 9;
+            Data.Instance.GetComponent<Inventary>().comida = 9;
+        }
+
         if (Data.Instance.userData.firstTimeHere)
         {            
             Events.OnTipsOn(0);

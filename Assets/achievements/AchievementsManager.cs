@@ -118,6 +118,26 @@ public class AchievementsManager : MonoBehaviour
                     achievement_speed.Init();
                     achievements.Add(achievement_speed);
                     break;
+                case "GEMA":
+                    AchievementGema achievement_gema = new AchievementGema();
+                    achievement_gema.title = Json[arrayName][a]["title"];
+                    achievement_gema.id = a;
+                    achievement_gema.progress = int.Parse(Json[arrayName][a]["progress"]);
+                    achievement_gema.image = Json[arrayName][a]["image"];
+                    achievement_gema.gemaID = int.Parse(Json[arrayName][a]["gema"]);
+                    achievement_gema.Init();
+                    achievements.Add(achievement_gema);
+                    break;
+                case "EVENT":
+                    AchievementEvent achievement_event = new AchievementEvent();
+                    achievement_event.title = Json[arrayName][a]["title"];
+                    achievement_event.id = a;
+                    achievement_event.progress = int.Parse(Json[arrayName][a]["progress"]);
+                    achievement_event.image = Json[arrayName][a]["image"];
+                    achievement_event.eventID = int.Parse(Json[arrayName][a]["eventID"]);
+                    achievement_event.Init();
+                    achievements.Add(achievement_event);
+                    break;
             }
         }
         SetAchievements();

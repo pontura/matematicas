@@ -9,4 +9,6 @@ public static class AchievementsEvents
     public static System.Action OnNewSpeedExercices = delegate { };
     public static System.Action OnNewBlockSended = delegate { };
     public static System.Action<int> OnRefreshTotalAchievements = delegate { };
+    public static System.Action<int> OnGema = delegate { };
+    public static System.Action<int> OnAchievementEvent = delegate { };
 }

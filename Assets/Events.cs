@@ -41,8 +41,8 @@ public static class Events {
     public static System.Action<int> OnCustomizerButtonPrevClicked = delegate { };
     public static System.Action<int> OnCustomizerButtonNextClicked = delegate { };
     public static System.Action OnCustomizerSave = delegate { };
-    
-    
+
+    public static System.Action<int> OnGetGema = delegate { };
     
 
     

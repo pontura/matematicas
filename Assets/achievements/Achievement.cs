@@ -12,7 +12,9 @@ public class Achievement  {
         MISSION_COMPLETE,
         DISTANCE,
         BLOCK,
-        SPEED
+        SPEED,
+        GEMA,
+        EVENT
     }
     public string image;
     public int id;

@@ -30,7 +30,7 @@ public class Barco : Screen
             tutorialDisplayed = true;
         }
         Events.OnBlockStatus(true);
-        if (Game.Instance.state == Game.states.MINIGAME_READY)
+        if (Game.Instance.islandsManager.activeIsland.id == 12 || Game.Instance.state == Game.states.MINIGAME_READY)
         {
             
             minigameNotReadyPanel.SetActive(false);

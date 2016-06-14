@@ -7,6 +7,7 @@ public class Data : MonoBehaviour
 {
    // const string PREFAB_PATH = "Data";
     static Data mInstance = null;
+    public bool DEBUG;
     
     [HideInInspector]
     public MissionsManager missionsManager;
@@ -17,6 +18,8 @@ public class Data : MonoBehaviour
     public UserData userData;
     public ClothesSettings clothesSettings;
     public SavedSettings savedSettings;
+    public GemasManager gemasManager;
+    public AchievementEventsManager achievementEventsManager;
 
     public static Data Instance
     {
@@ -59,5 +62,7 @@ public class Data : MonoBehaviour
         userData = GetComponent<UserData>();
         clothesSettings = GetComponent<ClothesSettings>();
         savedSettings = GetComponent<SavedSettings>();
+        gemasManager = GetComponent<GemasManager>();
+        achievementEventsManager = GetComponent<AchievementEventsManager>();
     }
 }

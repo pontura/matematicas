@@ -30,6 +30,7 @@ public class Block : Screen
     }
     public void Open()
     {
+        print("BLOCK Open" );
         anim.Play("OpenBlock");
     }
     public void Close()
@@ -125,6 +126,8 @@ public class Block : Screen
     }
     void OnBlockSendRequestDelayed()
     {
+        if (Game.Instance.gameManager.Block.GetComponent<Block>().isEmpty) return;
+
         OnBlockStatus(true);
         Game.Instance.mainMenu.BlockOpen();
         GetComponent<BlockSendRequestPanel>().Init(title);

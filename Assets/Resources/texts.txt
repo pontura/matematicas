@@ -73,7 +73,7 @@ bienvenida_x_isla:
 		islandID:11
 	},
 	{	
-		text: "Isla Final",
+		text: "Para salvar la vida en la Tierra debemos invocar la magia del Gran Templo. Solo así podremos abrir el portal hacia una dimensión fantástica con ecosistemas desconocidos por descubrir.",
 		islandID:12
 	},
 	{	

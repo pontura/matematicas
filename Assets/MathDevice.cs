@@ -9,6 +9,8 @@ public class MathDevice : MonoBehaviour {
     public GameObject minigameD;
     public GameObject minigameE;
 
+    private MinigamesManager.types type;
+
     void Start()
     {
         Events.OnMinigameMistake += OnMinigameMistake;
@@ -20,6 +22,8 @@ public class MathDevice : MonoBehaviour {
     }
 	public void Init(MinigamesManager.types type) {
 
+        this.type = type;
+
         gameObject.SetActive(true);
 
         minigameA.SetActive(false);
@@ -27,8 +31,6 @@ public class MathDevice : MonoBehaviour {
         minigameC.SetActive(false);
         minigameD.SetActive(false);
         minigameE.SetActive(false);
-
-       // print("__________MathDevice Appear" + type);
 
         switch (type)
         {
@@ -45,7 +47,6 @@ public class MathDevice : MonoBehaviour {
                 minigameD.SetActive(true);
                 break;
             case MinigamesManager.types.FINAL:
-                gameObject.SetActive(false);
                 minigameE.SetActive(true);
                 break; 
         }
@@ -59,8 +60,10 @@ public class MathDevice : MonoBehaviour {
     {
         if (minigameD.activeSelf)
             return;
-        else
+        else if (type != MinigamesManager.types.VELOCIDAD && type != MinigamesManager.types.FINAL)
+        {
             Game.Instance.mainMenu.BlockOpen();
+        }
     }
     void OnDisable()
     {

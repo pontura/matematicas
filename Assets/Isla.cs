@@ -108,10 +108,17 @@ public class Isla : Screen {
         else if (minigameType == MinigamesManager.types.FINAL)
         {
             minigameFinal.Init();
-            minigame = minigame.GetComponent<MinigameFinal>();
-            minigame.GetComponent<MinigameFinal>().Init();
-            SetText("Llegaste a la Isla Final ¡Ayudanos a abrir el portal fantástico!");
-            return;
+            if (Data.Instance.achievementEventsManager.portal == 1)
+            {
+                Isla12Ready();
+                minigame.gameObject.SetActive(false);
+                return;
+            }
+            else
+            {
+                minigame = minigame.GetComponent<MinigameFinal>();
+                minigame.GetComponent<MinigameFinal>().Init();
+            }
         }
 
         Events.OnBlockStatus(true);
@@ -128,6 +135,11 @@ public class Isla : Screen {
 	}
     void CheckStep()
     {
+        if (minigameType == MinigamesManager.types.FINAL && Data.Instance.achievementEventsManager.portal == 1)
+        {
+            Game.Instance.gameManager.Open("Barco");
+            return;
+        }
         if (state == states.BIENVENIDA)
         {
             
@@ -275,11 +287,26 @@ public class Isla : Screen {
     }
     public void OnMinigameReady()
     {
-        Events.OnBlockSendRequest( minigame.GetDescriptionForBlock() );
+        if (dataIsland.minigameType != MinigamesManager.types.FINAL && dataIsland.minigameType != MinigamesManager.types.VELOCIDAD)
+            Events.OnBlockSendRequest( minigame.GetDescriptionForBlock() );
+
         dialogue.SetActive(true);
         minigame.gameObject.SetActive(false);
-        SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
+        if (dataIsland.minigameType == MinigamesManager.types.FINAL)
+        {
+           AchievementsEvents.OnAchievementEvent(1);
+           Isla12Ready();
+        }
+        else
+        {
+            SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
+        }
+
         state = states.MINIGAME_READY;
+    }
+    public void Isla12Ready()
+    {
+        SetText("¡Lo lograste!\nLideraste la misión Hypatia con valor, activaste tus poderes matemáticos en cada isla y ahora preparate para una nueva aventura.");         
     }
     public void OnMinigameMistake()
     {
@@ -303,6 +330,11 @@ public class Isla : Screen {
         if (dataIsland.minigameType == MinigamesManager.types.VELOCIDAD)
         {
             minigame.GetComponent<MinigameVelocidad>().CheckResult();
+        }
+        else
+        if (dataIsland.minigameType == MinigamesManager.types.FINAL)
+        {
+            minigame.GetComponent<MinigameFinal>().CheckResult();
         }
     }
     public void ResetDevice()
