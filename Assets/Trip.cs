@@ -15,6 +15,8 @@ public class Trip : Screen {
     public Text piedras;
     public Text madera;
 
+    bool arrived;
+
     void Start()
     {
         Events.OnShipArrived += OnShipArrived;
@@ -28,6 +30,7 @@ public class Trip : Screen {
                 Events.OnShipArrived();
                 Data.Instance.GetComponent<Inventary>().nafta = 9;
                 Data.Instance.GetComponent<Inventary>().comida = 9;
+                arrived = true;
             }
         }
     }
@@ -38,6 +41,7 @@ public class Trip : Screen {
 
     override public void OnScreenEnable()
     {
+        arrived = false;
         Events.OnBlockStatus(false);
 
         arena.text = "x" + Game.Instance.inventary.arena.ToString();
@@ -61,15 +65,8 @@ public class Trip : Screen {
         progressBar.Init(secs);
 
         peso = Game.Instance.inventary.GetPesoTotalEnElBarco();
-        if (Game.Instance.inventary.nafta == 0)
-        {
-            Invoke("DeadPorNafta", 2);
-        }
-        else if (Game.Instance.inventary.comida == 0)
-        {
-            Invoke("DeadPorComida", 2);
-        }
-        else
+
+
         if (peso > Data.Instance.settings.barcoPesoMaximo)
         {
             Invoke("DiePorPeso", 2);
@@ -87,6 +84,8 @@ public class Trip : Screen {
     
     void DiePorPeso()
     {
+        if (arrived) return;
+        Events.OnShipDie();
         Data.Instance.LoadLevel("DeadPorPeso");
     }
 }

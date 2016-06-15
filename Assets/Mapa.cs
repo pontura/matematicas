@@ -6,8 +6,25 @@ public class Mapa : Screen {
     public GameObject ship;
     public IslandsManager islandManager;
     public GameObject missionIcon;
+    public GameObject fog;
 
 	void OnEnable () {
+
+        //desbloquea la ultima isla:
+        if (Data.Instance.achievementEventsManager.unblockedLastIsland == 1)
+        {
+            fog.SetActive(false);
+        } else
+            if (Data.Instance.achievementEventsManager.unblockedLastIsland == 0 && Data.Instance.userData.missionActive >= 10)
+            {
+                AchievementsEvents.OnAchievementEvent(7);
+                fog.SetActive(false);
+            }
+            else
+            {
+                fog.SetActive(true);
+            }
+
         //Game.Instance.islandsManager.gotoIsland = null;
         ChangeIslandActive();
         IslandsManager.DataIsland data = Game.Instance.islandsManager.GetIslandWithMission();

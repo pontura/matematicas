@@ -11,4 +11,5 @@ public static class AchievementsEvents
     public static System.Action<int> OnRefreshTotalAchievements = delegate { };
     public static System.Action<int> OnGema = delegate { };
     public static System.Action<int> OnAchievementEvent = delegate { };
+    public static System.Action OnNewTravelSuccess = delegate { };
 }

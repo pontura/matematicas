@@ -16,6 +16,7 @@ public class Mission {
     public string description;
     public elements element;
     public int qty;
+    public string achievementIcon;
 
     //public string GetDescription()
     //{

@@ -25,9 +25,7 @@ public class IslandSignal : MonoBehaviour {
         Events.Map_OpenIslandSignal -= Map_OpenIslandSignal;
     }
     void Map_OpenIslandSignal(IslandsManager.DataIsland data)
-    {
-        
-        
+    {        
         iconMadera.SetActive(false);
         iconArena.SetActive(false);
         iconPiedras.SetActive(false);
@@ -46,13 +44,10 @@ public class IslandSignal : MonoBehaviour {
 
         desc.text = details;
 
-
-
         string item = "";
         if (islandData.madera) { item = "madera";       iconMadera.SetActive(true); }
         if (islandData.arena) { item = "arena";         iconArena.SetActive(true); }
         if (islandData.piedras) { item = "piedras";     iconPiedras.SetActive(true); }
-
 
         if (data.mission.qty >0)
         {
@@ -61,7 +56,7 @@ public class IslandSignal : MonoBehaviour {
             desc.text += missionDesc;
             missionPanel.SetActive(true);
             Achievement achievement = AchievementsManager.Instance.GetAchievement(data.mission.id);
-            achievementIcon.LoadImage(achievement.image);
+            achievementIcon.LoadImage(Data.Instance.missionsManager.GetActiveMission().achievementIcon);
             achievementIcon.SetProgress(achievement.progress);
         }
         else

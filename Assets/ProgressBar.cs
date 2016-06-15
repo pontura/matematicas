@@ -80,10 +80,12 @@ public class ProgressBar : MonoBehaviour {
     }
     void DeadPorNafta()
     {
+        Events.OnShipDie();
         Data.Instance.LoadLevel("DeadSinNafta");
     }
     void DeadPorComida()
     {
+        Events.OnShipDie();
         Data.Instance.LoadLevel("DeadSinComida");
     }
 

@@ -16,8 +16,6 @@ public class AchievementEvent : Achievement {
 	}
     void OnAchievementEvent(int _eventID)
     {
-        Debug.Log("OnGema" + eventID + " - " + _eventID);
-
         if (this.eventID == _eventID)
             Completed();
     }

@@ -9,60 +9,18 @@
 			progress:1
 		},
 		{
-			title: "Enviá un ejercicio resulto desde el block",
-			type: "BLOCK",
-			image: "iconBlock.png",
-			send: 1,
-			progress:1
-		},
-		{
-			title: "Gema 1",
-			type: "GEMA",
-			image: "iconGema1.png",
-			gema: 1,
-			progress:1
-		},
-		{
-			title: "Gema 2",
-			type: "GEMA",
-			image: "iconGema2.png",
-			gema: 2,
-			progress:2
-		},
-		{
-			title: "Gema 3",
-			type: "GEMA",
-			image: "iconGema3.png",
-			gema: 3,
-			progress:3
-		},
-		{
-			title: "Gema 4",
-			type: "GEMA",
-			image: "iconGema4.png",
-			gema: 4,
-			progress:4
-		},
-		{
-			title: "Gema 5",
-			type: "GEMA",
-			image: "iconGema5.png",
-			gema: 5,
-			progress:5
-		},
-		{
-			title: "Gema 6",
-			type: "GEMA",
-			image: "iconGema6.png",
-			gema: 6,
-			progress:5
+			title: "Agrandar el puente",
+			type: "MISSION",
+			image: "iconBridge.png",
+			mission: 1,
+			progress:2	
 		},
 		{
 			title: "Ayudar a los delfines",
 			type: "MISSION",
 			image: "iconDolphin.png",
 			mission: 1,
-			progress:1		
+			progress:1	
 		},
 		{
 			title: "Rescatar una familia de tigres",
@@ -72,19 +30,76 @@
 			progress:1			
 		},
 		{
+			title: "Recuperar el habitat de los gorilas",
+			type: "MISSION",
+			image: "iconGorilla.png",
+			mission: 4,
+			progress:1			
+		},
+		{
+			title: "Salvar la Selva de los Plátanos",
+			type: "MISSION",
+			image: "iconTree.png",
+			mission: 5,
+			progress:1			
+		},
+		{
+			title: "Enviá un ejercicio resulto desde el block",
+			type: "BLOCK",
+			image: "iconBlock.png",
+			send: 1,
+			progress:1
+		},
+		{
+			title: "Descubrí el significado de este signo escondido",
+			type: "GEMA",
+			image: "iconGema1.png",
+			gema: 1,
+			progress:1
+		},
+		{
+			title: "Descubrí el significado de este signo escondido",
+			type: "GEMA",
+			image: "iconGema6.png",
+			gema: 6,
+			progress:5
+		},
+		{
+			title: "Descubrí el significado de este signo escondido",
+			type: "GEMA",
+			image: "iconGema2.png",
+			gema: 2,
+			progress:2
+		},
+		{
+			title: "Descubrí el significado de este signo escondido",
+			type: "GEMA",
+			image: "iconGema3.png",
+			gema: 3,
+			progress:3
+		},
+		{
+			title: "Descubrí el significado de este signo escondido",
+			type: "GEMA",
+			image: "iconGema4.png",
+			gema: 4,
+			progress:4
+		},
+		{
+			title: "Descubrí el significado de este signo escondido",
+			type: "GEMA",
+			image: "iconGema5.png",
+			gema: 5,
+			progress:5
+		},		
+		{
 			title: "Resolver 1 ejercicio de velocidad dentro del tiempo",
 			type: "SPEED",
 			ejercicios: 1,
 			image: "iconSpeed.png",
 			progress:1
 		},
-		{
-			title: "Agrandar el puente",
-			type: "MISSION",
-			image: "iconBridge.png",
-			mission: 3,
-			progress:2		
-		},
+		
 		{
 			title: "Enviá tres ejercicios resultos desde el block",
 			type: "BLOCK",
@@ -106,12 +121,40 @@
 			ejercicios: 5,
 			progress:2
 		},
-		{
-			title: "Recuperar el habitat de los gorilas",
-			type: "MISSION",
-			image: "iconGorilla.png",
-			mission: 4,
-			progress:1			
+		{ 
+			title: "Viajar 2 veces sin hundirte",
+			type: "EVENT",
+			image: "iconTravels.png",
+			eventID: 2,
+			progress:1
+		},
+		{ 
+			title: "Viajar 4 veces sin hundirte",
+			type: "EVENT",
+			image: "iconTravels.png",
+			eventID: 3,
+			progress:2
+		},
+		{ 
+			title: "Viajar 8 veces sin hundirte",
+			type: "EVENT",
+			image: "iconTravels.png",
+			eventID: 4,
+			progress:3
+		},
+		{ 
+			title: "Viajar 16 veces sin hundirte",
+			type: "EVENT",
+			image: "iconTravels.png",
+			eventID: 5,
+			progress:4
+		},
+		{ 
+			title: "Viajar 32 veces sin hundirte",
+			type: "EVENT",
+			image: "iconTravels.png",
+			eventID: 6,
+			progress:5
 		},
 		{
 			title: "Enviá diez ejercicios resultos desde el block",
@@ -119,13 +162,6 @@
 			image: "iconBlock.png",
 			send: 10,
 			progress:3
-		},
-		{
-			title: "Salvar la Selva de los Plátanos",
-			type: "MISSION",
-			image: "iconTree.png",
-			mission: 5,
-			progress:1			
 		},
 		{
 			title: "Resolver 20 ejercicios de velocidad dentro del tiempo",
@@ -189,6 +225,13 @@
 			image: "iconBlock.png",
 			send: 50,
 			progress:5
+		},
+		{
+			title: "Desbloquear la última isla, logrando 10 misiones",
+			type: "EVENT",
+			image: "iconIslandUnlocked.png",
+			eventID: 7,
+			progress:1
 		},
 		{
 			title: "Abre el portal máginco",

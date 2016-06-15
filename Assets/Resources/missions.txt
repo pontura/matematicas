@@ -1,26 +1,142 @@
 {
-	missions:
-	[
-		{
-			id: "0",
-			islandId: "2",
-			description: "Necesitamos [qty] caja/s de [element] para construir un puente entre los Ríos A y B",
-			element : "MADERA",
-			qty: "4"			
-		},
-		{
-			id: "1",
-			islandId: "4",
-			description: "Solo nos faltan [qty] caja/s de [element] para hacer un dique y salvar a un delfín que quedó atrapado",
-			element : "PIEDRAS",
-			qty: "4"
-		},
-		{
-			id: "2",
-			islandId: "14",
-			description: "Necesitamos [qty] caja/s de [element] para rellenar un río y a salvar una familia de tigres",
-			element : "ARENA",
-			qty: "5"
-		}
-	]
+
+missions:
+[
+	{
+		id: "0",
+		islandId: "2",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para habilitar caminos y cruces luego de un terremoto.",
+		element : "MADERA",
+		qty: "4"			
+	},
+	{
+		id: "1",
+		islandId: "3",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para colaborar en la construcción de un puente.",
+		element : "MADERA",
+		qty: "4"
+	},
+	{
+		id: "2",
+		islandId: "4",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para contener el agua que desbordó debido a una fuerte tormenta.",
+		element : "PIEDRAS",
+		qty: "3"
+	},
+	{
+		id: "3",
+		islandId: "5",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para realizar diferentes construcciones y evitar el uso excesivo de madera.",
+		element : "ARENA",
+		qty: "5"
+	},
+	{
+		id: "4",
+		islandId: "6",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para construir puentes en distintas zonas de la isla.",
+		element : "MADERA",
+		qty: "4"
+	},
+	{
+		id: "5",
+		islandId: "7",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para ayudar a contener la crecida del río a causa de abundantes lluvias.",
+		element : "PIEDRAS",
+		qty: "4"
+	},
+	{
+		id: "6",
+		islandId: "8",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para armar el aislamiento de animales enfermos.",
+		element : "PIEDRAS",
+		qty: "5"
+	},
+	{
+		id: "7",
+		islandId: "9",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para colaborar en la construcción de las palas de los molinos de un parque eólico.",
+		element : "MADERA",
+		qty: "4"
+	},
+	{
+		id: "8",
+		islandId: "10",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para la siembra de algunas especies vegetales.",
+		element : "ARENA",
+		qty: "2"
+	},
+	{
+		id: "9",
+		islandId: "11",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para realizar obras que subsanen distintos problemas ambientales.",
+		element : "PIEDRAS",
+		qty: "4"
+	},
+	{
+		id: "10",
+		islandId: "13",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para la construcción de aerogeneradores.",
+		element : "ARENA",
+		qty: "3"
+	},
+	{
+		id: "11",
+		islandId: "14",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para la construcción de una reserva para animales en peligro de extinción.",
+		element : "MADERA",
+		qty: "4"
+	},
+	{
+		id: "12",
+		islandId: "15",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para crear una barrera que evite el paso del mejillón dorado.",
+		element : "PIEDRAS",
+		qty: "5"
+	},
+	{
+		id: "13",
+		islandId: "16",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para armar contenedores que permitan trasladar partes de paneles solares.",
+		element : "MADERA",
+		qty: "3"
+	},
+	{
+		id: "14",
+		islandId: "17",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para la construcción de un puente para llegar a zonas afectadas por un derrame de petróleo.",
+		element : "MADERA",
+		qty: "3"
+	},
+	{
+		id: "15",
+		islandId: "18",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para marcar senderos que conducen a distintos portales mágicos.",
+		element : "PIEDRAS",
+		qty: "4"
+	},
+	{
+		id: "16",
+		islandId: "19",
+		achievementIcon: "iconBridge.png",
+		description: "Se necesitan [qty] caja/s de [element] para edificar una reserva de preservación del yaguareté.",
+		element : "ARENA",
+		qty: "4"
+	}
+]
 }

@@ -49,7 +49,7 @@ public class MissionsManager : MonoBehaviour {
             }
             newMission.description = Json["missions"][a]["description"];
           //  newMission.description = GetDescription(newMission);
-
+            newMission.achievementIcon = Json["missions"][a]["achievementIcon"];
             missions.Add(newMission);
         }
         //foreach(Mission mission in missions)

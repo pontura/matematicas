@@ -21,6 +21,7 @@ public static class Events {
 
     public static System.Action OnTripStarted = delegate { };
     public static System.Action OnShipArrived = delegate { };
+    public static System.Action OnShipDie = delegate { };
     public static System.Action<int> NewDistanceTraveled = delegate { };
     public static System.Action NewSpeedExercicesReady = delegate { };
     
