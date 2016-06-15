@@ -13,6 +13,7 @@ public class UserPasswordValidation : MonoBehaviour
         title.text = "Se ha enviado un correo electrónico a " + Data.Instance.userData.email + " con la contraseña para empezar a jugar..\nEscribila acá:";
        // title.text = "Bienvenido " + Data.Instance.userData.username + ".\n Te enviamos un email a " + Data.Instance.userData.email + " con el password para poder jugar.\nPoné el password acá:";
         password.text = Data.Instance.userData.password.ToString();
+        //password.text = "";
     }
 
     public void Submit()

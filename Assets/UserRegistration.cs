@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Parse;
 
 public class UserRegistration : MonoBehaviour {
 
@@ -80,11 +79,11 @@ public class UserRegistration : MonoBehaviour {
 
         print("__________SEND EMAIL username" + username.text + "email: " + email.text + " pass: " + pass);
 
-        ParseCloud.CallFunctionAsync<string>("sendPassword", parameters)
-          .ContinueWith(t =>
-              Debug.Log("received: " + t.Result)
-          );
-        StartCoroutine(SendIt());
+        //ParseCloud.CallFunctionAsync<string>("sendPassword", parameters)
+        //  .ContinueWith(t =>
+        //      Debug.Log("received: " + t.Result)
+        //  );
+        //StartCoroutine(SendIt());
     }
     private IEnumerator SendIt( )
     {
@@ -107,10 +106,10 @@ public class UserRegistration : MonoBehaviour {
         parameters.Add("to", Data.Instance.userData.userID);
         parameters.Add("password", Data.Instance.userData.password);
 
-        ParseCloud.CallFunctionAsync<string>("sendPassword", parameters)
-          .ContinueWith(t =>
-              Debug.Log("received: " + t.Result)
-          );
+        //ParseCloud.CallFunctionAsync<string>("sendPassword", parameters)
+        //  .ContinueWith(t =>
+        //      Debug.Log("received: " + t.Result)
+        //  );
     }
     void EmailExists()
     {

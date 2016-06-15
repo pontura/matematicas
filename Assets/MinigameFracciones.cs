@@ -47,6 +47,9 @@ public class MinigameFracciones : Minigame {
         results.Add(minigame.fracciones[2]);
         results.Add(minigame.fracciones[3]);
 
+        int num = container.childCount;
+        for (int i = 0; i < num; i++) DestroyImmediate(container.transform.GetChild(0).gameObject);
+
         for (int a = 0; a < total; a++ )
         {
             FraccionesSlot button = Instantiate(fraccionesSlot);
@@ -66,6 +69,15 @@ public class MinigameFracciones : Minigame {
     private int clickedId;
     public void Clicked(int clickedId)
     {
+       
+        int num = container.childCount;
+        for (int i = 0; i < num; i++) 
+        {
+            FraccionesSlot button = container.transform.GetChild(i).GetComponent<FraccionesSlot>();
+            if (button.piedraID == clickedId)
+                button.Init(0);
+        }
+        print("Clicked clickedId: " + clickedId + " num: " + num);
         this.clickedId = clickedId;
         draggingObject.Init(clickedId);
         dragging = true;
