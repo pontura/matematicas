@@ -6,6 +6,7 @@ using System;
 
 public class AdminBlock : MonoBehaviour {
 
+    public GameObject buttons;
     public Text field;
     public GameObject panel;
     public GameObject container;
@@ -40,12 +41,19 @@ public class AdminBlock : MonoBehaviour {
             {
                 if (itemDataAll.Length > 1)
                 {
-                    String[] itemData = itemDataAll.Split("_"[0]);
-                    BlockItemData blockItemData = new BlockItemData();
-                    blockItemData.id = int.Parse(itemData[0]);
-                    blockItemData.value = itemData[1];
-                    blockItemData.position = new Vector2(int.Parse(itemData[2]), int.Parse(itemData[3]));
-                    blockItemsData.Add(blockItemData);
+                    try
+                    {
+                        String[] itemData = itemDataAll.Split("_"[0]);
+                        BlockItemData blockItemData = new BlockItemData();
+                        blockItemData.id = int.Parse(itemData[0]);
+                        blockItemData.value = itemData[1];
+                        blockItemData.position = new Vector2(int.Parse(itemData[2]), int.Parse(itemData[3]));
+                        blockItemsData.Add(blockItemData);
+                    }
+                    catch
+                    {
+                        Debug.Log("Algo en esta cuenta está mal.. quizás el contenido no es un int");
+                    }
                 }
             }
         }
@@ -57,7 +65,14 @@ public class AdminBlock : MonoBehaviour {
             blockItem.transform.localPosition = blockItemData.position;
             blockItem.SetContent(blockItemData.value);
         }
+        buttons.SetActive(false);
+        Application.CaptureScreenshot("ScreenshotAAA.png");
+        Invoke("Delay", 1);
 	}
+    void Delay()
+    {
+        buttons.SetActive(true);
+    }
     public void AddItem(int id)
     {
         BlockItem bi = blockItems[id];
@@ -68,5 +83,10 @@ public class AdminBlock : MonoBehaviour {
     public void Close()
     {
         panel.SetActive(false);
+    }
+    public void Print()
+    {
+        string filename = @"\ScreenshotAAA.png";
+        System.Diagnostics.Process.Start("mspaint.exe", Application.dataPath + filename);
     }
 }

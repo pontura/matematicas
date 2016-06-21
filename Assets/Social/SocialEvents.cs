@@ -3,6 +3,13 @@ using System.Collections;
 
 public static class SocialEvents {
 
+    //userID, filtered -> 1 si, 0 no
+    public static System.Action<int, int, System.Action> OnSetFiltered = delegate { };
+
+    public static System.Action<int> OnSaveAchievements = delegate { };
+    public static System.Action<System.Action<string>> OnGetRanking = delegate { };
+    public static System.Action<int, System.Action<string>> OnGetAlumnos = delegate { };
+    public static System.Action<int, System.Action<string>> OnGetEjercicios = delegate { };
     public static System.Action<bool> OnUserExistInDB = delegate { };
     public static System.Action OnUserCreatedInDB = delegate { };
     public static System.Action ResetApp = delegate { };

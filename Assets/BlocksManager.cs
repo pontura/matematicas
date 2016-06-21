@@ -25,32 +25,6 @@ public class BlocksManager : MonoBehaviour {
     
     void OnSaveBlockToDB(string title, string content)
     {
-        print("OnSaveBlockToDB title: " + title + "result: " + content);
-
-        Hashtable blockData = new Hashtable();
-        blockData.Add("title", title);
-        blockData.Add("content", content);
-        blockData.Add("userID", Data.Instance.userData.userID);
-
-        Hashtable data = new Hashtable();
-        data.Add( Data.Instance.userData.totalBlocksNotes.ToString() , blockData);
-
-       // string url = SocialManager.Instance.FIREBASE + "/users/" + Data.Instance.userData.userID + "/block/.json";
-        string url = SocialManager.Instance.FIREBASE + "/block.json";
-
-        Debug.Log(url);
-
-        HTTP.Request theRequest = new HTTP.Request("patch", url, data);
-
-        theRequest.Send((request) =>
-        {
-            Hashtable jsonObj = (Hashtable)JSON.JsonDecode(request.response.Text);
-            if (jsonObj == null)
-            {
-                Debug.LogError("server returned null or malformed response ):");
-            }
-            Debug.Log("block updated: " + request.response.Text);
-        });
         AchievementsEvents.OnNewBlockSended();
         Events.OnBlockReset();
     }

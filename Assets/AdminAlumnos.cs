@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 public class AdminAlumnos : MonoBehaviour {
 
@@ -9,47 +10,41 @@ public class AdminAlumnos : MonoBehaviour {
 
     void Start()
     {
+        print("OnGetAlumnosReady Start");
+        Invoke("LoadData", 0.1f);
+    }
+    public void LoadData()
+    {
         Events.OnAdminLoading(true);
-        string url = SocialManager.Instance.FIREBASE + "/users.json";
+        SocialEvents.OnGetAlumnos(0, OnGetAlumnosReady);
+    }
+    void OnGetAlumnosReady(string result)
+    {
+        int num = content.transform.childCount;
+        for (int i = 0; i < num; i++) DestroyImmediate(content.transform.GetChild(0).gameObject);
 
-        Debug.Log(url);
+        print("OnGetAlumnosReady" + result);
+        string[] allData = Regex.Split(result, "</n>");
 
-        HTTP.Request someRequest = new HTTP.Request("get", url);
-        someRequest.Send((request) =>
+        for (var i = 0; i < allData.Length - 1; i++)
         {
-            Events.OnAdminLoading(false);
-            Hashtable decoded = (Hashtable)JSON.JsonDecode(request.response.Text);
+            string[] userData = Regex.Split(allData[i], ":");
+
+            UserData newData = new UserData();
+            newData.userID = int.Parse(userData[0]);
+            newData.username = userData[1];
+            newData.password = userData[2];
+            newData.email = userData[3];
+            newData.logros = int.Parse(userData[4]);
+            newData.filtered = int.Parse(userData[5]); 
+
+            AdminAlumnosButton newButton = Instantiate(button);
+            newButton.transform.SetParent(content);
+            newButton.Init(this, newData);
+            newButton.transform.localScale = Vector2.one;
             
-            if (decoded == null)
-            {
-                Debug.Log("no existe el user or malformed response ):");
-                return;
-            }
-            else
-            {
-                foreach (DictionaryEntry json in decoded)
-                {
-                    
-                    Hashtable jsonObj = (Hashtable)json.Value;
-                    string id = (string)json.Key.ToString();
-
-                    UserData userData = new UserData();
-
-                    userData.userID = (string)json.Key.ToString();
-                    userData.username = (string)jsonObj["username"];
-                    userData.password = (string)jsonObj["password"];
-                    userData.email = (string)jsonObj["email"];
-                    userData.logros = (int)jsonObj["achievements"];
-                  
-                    AdminAlumnosButton newButton = Instantiate(button);
-                    newButton.transform.SetParent(content);
-                    newButton.Init(this, userData);
-                    newButton.transform.localScale = Vector2.one;
-
-                    Debug.Log(userData.username);
-                }
-            }
-        });
+        }
+        Events.OnAdminLoading(false);
     }
     public void Clicked(UserData userdata)
     {

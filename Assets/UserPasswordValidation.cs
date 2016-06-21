@@ -7,13 +7,19 @@ public class UserPasswordValidation : MonoBehaviour
     public InputField password;
     public Text feedback;
 
-    public void Init()
+    public void Init(bool newUser)
     {
         print("Data.Instance.userData.password" + Data.Instance.userData.password);
-        title.text = "Se ha enviado un correo electrónico a " + Data.Instance.userData.email + " con la contraseña para empezar a jugar..\nEscribila acá:";
-       // title.text = "Bienvenido " + Data.Instance.userData.username + ".\n Te enviamos un email a " + Data.Instance.userData.email + " con el password para poder jugar.\nPoné el password acá:";
-        password.text = Data.Instance.userData.password.ToString();
-        //password.text = "";
+        if (newUser)
+        {
+            title.text = "Se ha enviado un correo electrónico a " + Data.Instance.userData.email + " con la contraseña para empezar a jugar..\nEscribila acá:";
+            password.text = Data.Instance.userData.password.ToString();
+        }
+        else
+        {
+            title.text = "Bienvenido nuevamente, " + Data.Instance.userData.username + ".\n Te enviamos un email a " + Data.Instance.userData.email + " con el password para poder jugar.\nPoné el password acá:";
+            password.text = "";
+        }
     }
 
     public void Submit()

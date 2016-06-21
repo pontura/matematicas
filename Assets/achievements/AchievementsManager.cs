@@ -164,32 +164,32 @@ public class AchievementsManager : MonoBehaviour
     }
     void OnReady(int id)
     {
-        print("OnReady" + id);
+        print("OnReady" + id);        
+        SocialEvents.OnSaveAchievements(totalReady);
         SetAchievements();
-        Update_DB();
     }
-    public void Update_DB()
-    {
-        print("____Achievements objectID totalReady: " + totalReady);
+    //public void Update_DB()
+    //{
+    //    print("____Achievements objectID totalReady: " + totalReady);
 
-        Hashtable data = new Hashtable();
-        data.Add("achievements", totalReady);
-        string url = SocialManager.Instance.FIREBASE + "/users/" + Data.Instance.userData.userID + "/.json";
+    //    Hashtable data = new Hashtable();
+    //    data.Add("achievements", totalReady);
+    //    string url = SocialManager.Instance.FIREBASE + "/users/" + Data.Instance.userData.userID + "/.json";
 
-        Debug.Log(url);
+    //    Debug.Log(url);
 
-        HTTP.Request theRequest = new HTTP.Request("patch",url, data);
+    //    HTTP.Request theRequest = new HTTP.Request("patch",url, data);
 
-        theRequest.Send((request) =>
-        {
-            Hashtable jsonObj = (Hashtable)JSON.JsonDecode(request.response.Text);
-            if (jsonObj == null)
-            {
-                Debug.LogError("server returned null or malformed response ):");
-            }
-            Debug.Log("achievements updated: " + request.response.Text);
-        });
-    }
+    //    theRequest.Send((request) =>
+    //    {
+    //        Hashtable jsonObj = (Hashtable)JSON.JsonDecode(request.response.Text);
+    //        if (jsonObj == null)
+    //        {
+    //            Debug.LogError("server returned null or malformed response ):");
+    //        }
+    //        Debug.Log("achievements updated: " + request.response.Text);
+    //    });
+    //}
     
     
 

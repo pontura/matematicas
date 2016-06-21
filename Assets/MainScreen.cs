@@ -16,12 +16,12 @@ public class MainScreen : MonoBehaviour {
         ResetScreens();
         Events.OnUserRegistration += OnUserRegistration;
         Events.OnUserPasswordValidated += OnUserPasswordValidated;
-        Invoke("Delay", 0.1f);        
+        Invoke("Delay", 0.1f);
     }
     void Delay()
     {
         //nuevo usuario:
-        if (Data.Instance.userData.userID == "")
+        if (Data.Instance.userData.userID == 0)
         {
             userRegistration.SetActive(true);
             Data.Instance.userData.firstTimeHere = true;
@@ -30,7 +30,7 @@ public class MainScreen : MonoBehaviour {
         else if (Data.Instance.userData.passwordValidated == 0)
         {
             userPasswordValidation.SetActive(true);
-            GetComponent<UserPasswordValidation>().Init();
+            GetComponent<UserPasswordValidation>().Init(false);
             Data.Instance.userData.firstTimeHere = true;
         }
         //ya existe:
@@ -47,11 +47,11 @@ public class MainScreen : MonoBehaviour {
         userLogged.SetActive(false);
         userPasswordValidation.SetActive(false);
     }
-    void OnUserRegistration()
+    void OnUserRegistration(bool newUser)
     {
         ResetScreens();
         userPasswordValidation.SetActive(true);
-        GetComponent<UserPasswordValidation>().Init();
+        GetComponent<UserPasswordValidation>().Init(newUser);
         Events.SendEmail();
     }
     void OnUserPasswordValidated()

@@ -8,23 +8,25 @@ public class UserData : MonoBehaviour {
     public bool firstTimeHere;
     public int distanceTraveled;
     public int speedExercices;
-    public string userID;
+    public int userID;
     public string username;
     public string password;
     public string email;
+
+    //solo para el admin
     public int logros;
+    public int filtered;
+
     public int passwordValidated;
 
     public int islandActive;
     public int missionActive;
     private Inventary inventary;
-    public int totalBlocksNotes;
-
-  
+    public int totalBlocksNotes;  
 
     void Start()
     {
-        userID = PlayerPrefs.GetString("userID");
+        userID = PlayerPrefs.GetInt("userID");
         username = PlayerPrefs.GetString("username", "");
         password = PlayerPrefs.GetString("password");
         email = PlayerPrefs.GetString("email");
@@ -56,7 +58,7 @@ public class UserData : MonoBehaviour {
         Events.OnSaveBlock += OnSaveBlock;
 
     }
-    public void OnRegistration(string _username, string _email, string _password, string _userID)
+    public void OnRegistration(string _username, string _email, string _password, int _userID, bool newUser)
     {
         print("OnRegistration");
         this.username = _username;
@@ -65,13 +67,13 @@ public class UserData : MonoBehaviour {
         this.password = _password;
         passwordValidated = 0;
 
-        PlayerPrefs.SetString("userID", _userID);
+        PlayerPrefs.SetInt("userID", _userID);
         PlayerPrefs.SetString("username", _username);
         PlayerPrefs.SetString("password", _password);
         PlayerPrefs.SetString("email", _email);
         PlayerPrefs.SetInt("passwordValidated", 0);
 
-        Events.OnUserRegistration();
+        Events.OnUserRegistration(newUser);
     }
     public bool OnValidatePassword(string _password)
     {
@@ -95,7 +97,7 @@ public class UserData : MonoBehaviour {
         inventary.piedras = 0;
 
         distanceTraveled = 0;
-        userID = "";
+        userID = 0;
         username = "";
         password = "";
         email = "";
@@ -142,11 +144,11 @@ public class UserData : MonoBehaviour {
         PlayerPrefs.SetInt("speedExercices", speedExercices);
         AchievementsEvents.OnNewSpeedExercices();
     }
-    public void SaveObjectID(string _userID)
+    public void SaveObjectID(int _userID)
     {
         print("SaveObjectID " + _userID);
         this.userID = _userID;
-        PlayerPrefs.SetString("userID", _userID);
+        PlayerPrefs.SetInt("userID", _userID);
     }
     void OnSaveBlock(string title)
     {

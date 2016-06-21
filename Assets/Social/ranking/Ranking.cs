@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
+
 
 public class Ranking : MonoBehaviour {
 
@@ -16,16 +18,17 @@ public class Ranking : MonoBehaviour {
     {
         public int achievements;
         public string username;
-        public string userID;
+        public int userID;
     }
     void Start()
     {
-        data.Clear();
-        LoadRanking();
+        data.Clear();       
         AchievementsEvents.OnRefreshTotalAchievements += OnRefreshTotalAchievements;
-        //SocialEvents.OnNewHiscore += OnNewHiscore;
-        ////SocialEvents.OnFacebookFriends += OnFacebookFriends;
-        //SocialEvents.OnRefreshRanking += OnRefreshRanking;
+        Invoke("Delay", 1);
+    }
+    void Delay()
+    {
+        LoadRanking();
     }
     void OnDestroy()
     {
@@ -36,30 +39,22 @@ public class Ranking : MonoBehaviour {
     }
     public void LoadRanking()
     {
-        data = new List<RankingData>();
-        string url = SocialManager.Instance.FIREBASE + "/" + TABLE + ".json?orderBy=\"achievements\"&limitToLast=100";
-        Debug.Log("LoadRanking: " + url);
-        HTTP.Request someRequest = new HTTP.Request("get", url);
-        someRequest.Send((request) =>
+        SocialEvents.OnGetRanking(OnGetRanking);
+    }
+    void OnGetRanking(string result)
+    {
+        string[] allData = Regex.Split(result, "</n>");
+
+        for (var i = 0; i < allData.Length - 1; i++)
         {
-            Hashtable decoded = (Hashtable)JSON.JsonDecode(request.response.Text);
-            if (decoded == null || decoded.Count == 0)
-            {
-                Debug.LogError("server returned null or     malformed response ):");
-                return;
-            }
-            foreach (DictionaryEntry json in decoded)
-            {
-                Hashtable jsonObj = (Hashtable)json.Value;
-                RankingData newData = new RankingData();
-                newData.username = (string)jsonObj["username"];
-                int ach = (int)jsonObj["achievements"];
-                newData.userID = (string)json.Key;
-                newData.achievements = ach;
-                data.Add(newData);
-            }
-            data = OrderByScore(data);
-        });
+            string[] userData = Regex.Split(allData[i], ":");
+
+            RankingData newData = new RankingData();
+            newData.userID = int.Parse(userData[0]);
+            newData.username = userData[1];
+            newData.achievements = int.Parse(userData[2]);
+            data.Add(newData);
+        }
     }
     List<RankingData> OrderByScore(List<RankingData> rankingData)
     {

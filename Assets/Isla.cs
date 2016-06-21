@@ -195,6 +195,7 @@ public class Isla : Screen {
         {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
             state = states.MINIGAME_READY;
+            Data.Instance.userData.firstTimeHere = false;
         }
         else if (state == states.MISSION_NO_TENES_NADA)
         {
@@ -303,6 +304,7 @@ public class Isla : Screen {
         }
 
         state = states.MINIGAME_READY;
+        Data.Instance.userData.firstTimeHere = false;
     }
     public void Isla12Ready()
     {

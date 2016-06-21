@@ -6,6 +6,7 @@ public class SocialManager : MonoBehaviour
 {
     static SocialManager mInstance = null;
     public string FIREBASE = "https://matematicas.firebaseio.com";
+    public string PHP = "http://www.pontura.com/matematicas/";
 
     [HideInInspector]
     public UserData userData;

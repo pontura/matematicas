@@ -17,7 +17,6 @@ public class BlockSaver : MonoBehaviour
     }
     void OnSaveBlock(string title)
     {
-        print("OnSaveBlock " + title);
         string result = "";
         foreach(BlockItem blockItem in container.GetComponentsInChildren<BlockItem>())
         {

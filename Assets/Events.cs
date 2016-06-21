@@ -9,9 +9,10 @@ public static class Events {
     public static System.Action OnLoading = delegate { };
     public static System.Action SendEmail = delegate { };  
     public static System.Action<bool> OnAdminLoading = delegate { };
-    
 
-    public static System.Action OnUserRegistration = delegate { };
+    //bool: isNewUser pregunta si es nuevo el usuario:
+    public static System.Action<bool> OnUserRegistration = delegate { };
+
     public static System.Action OnUserPasswordValidated = delegate { };
 
     public static System.Action OnMinigameStart = delegate { };
