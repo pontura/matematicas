@@ -53,9 +53,6 @@ public class LoginManager : MonoBehaviour
     public void CreateUserIfNotExists(string username, string _email, string password)
     {
 
-        string url = SocialManager.Instance.PHP + "";
-
-
         //Debug.Log("CreateUserIfNotExists: " + _email);
 
         //string url = SocialManager.Instance.FIREBASE + "/users.json?orderBy=\"email\"&equalTo=\"" + _email + "\"";
@@ -86,64 +83,64 @@ public class LoginManager : MonoBehaviour
     }
     void AddNewUserTODB(string username, string email, string password)
     {
-        Debug.Log("AddNewUser" + username + "_" + email + "_" + password);
+        //Debug.Log("AddNewUser" + username + "_" + email + "_" + password);
 
-        Hashtable data = new Hashtable();
+        //Hashtable data = new Hashtable();
 
-        data.Add("username", username);
-        data.Add("email", email);
-        data.Add("password", password);
-        data.Add("achievements", 0);
+        //data.Add("username", username);
+        //data.Add("email", email);
+        //data.Add("password", password);
+        //data.Add("achievements", 0);
 
-        Hashtable blockContent = new Hashtable();
-        //blockContent.Add("title", "");
-        //blockContent.Add("content", "");
+        //Hashtable blockContent = new Hashtable();
+        ////blockContent.Add("title", "");
+        ////blockContent.Add("content", "");
 
-        data.Add("block", blockContent);        
+        //data.Add("block", blockContent);        
 
-        HTTP.Request theRequest = new HTTP.Request("post", SocialManager.Instance.FIREBASE + "/users.json", data);
-        theRequest.Send((request) =>
-        {
-            Hashtable jsonObj = (Hashtable)JSON.JsonDecode(request.response.Text);
-            if (jsonObj == null)
-            {
-                Debug.LogError("server returned null or malformed response ):");
-            }
-            else
-            {
-                Debug.Log("nuevo usuario!!");
-                GetObjectID(email);
-            }
-        });
+        //HTTP.Request theRequest = new HTTP.Request("post", SocialManager.Instance.FIREBASE + "/users.json", data);
+        //theRequest.Send((request) =>
+        //{
+        //    Hashtable jsonObj = (Hashtable)JSON.JsonDecode(request.response.Text);
+        //    if (jsonObj == null)
+        //    {
+        //        Debug.LogError("server returned null or malformed response ):");
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("nuevo usuario!!");
+        //        GetObjectID(email);
+        //    }
+        //});
     }
     void GetObjectID(string _email)
     {
-        Debug.Log("GetObjectID: " + _email);
+        //Debug.Log("GetObjectID: " + _email);
 
-        string url = SocialManager.Instance.FIREBASE + "/users.json?orderBy=\"email\"&equalTo=\"" + _email + "\"";
+        //string url = SocialManager.Instance.FIREBASE + "/users.json?orderBy=\"email\"&equalTo=\"" + _email + "\"";
 
-        Debug.Log(url);
+        //Debug.Log(url);
 
-        HTTP.Request someRequest = new HTTP.Request("get", url);
-        someRequest.Send((request) =>
-        {
-            Hashtable decoded = (Hashtable)JSON.JsonDecode(request.response.Text);
+        //HTTP.Request someRequest = new HTTP.Request("get", url);
+        //someRequest.Send((request) =>
+        //{
+        //    Hashtable decoded = (Hashtable)JSON.JsonDecode(request.response.Text);
 
-            if (decoded == null)
-            {
-                Debug.Log("no existe el user or malformed response ):");
-                return;
-            }
-            else if (decoded.Count > 0)
-            {
-                foreach (DictionaryEntry json in decoded)
-                {
-                    Hashtable jsonObj = (Hashtable)json.Value;
-                    string id = (string)json.Key.ToString();
-                   // Data.Instance.userData.SaveObjectID(id);
-                }
-            }
-        });
+        //    if (decoded == null)
+        //    {
+        //        Debug.Log("no existe el user or malformed response ):");
+        //        return;
+        //    }
+        //    else if (decoded.Count > 0)
+        //    {
+        //        foreach (DictionaryEntry json in decoded)
+        //        {
+        //            Hashtable jsonObj = (Hashtable)json.Value;
+        //            string id = (string)json.Key.ToString();
+        //           // Data.Instance.userData.SaveObjectID(id);
+        //        }
+        //    }
+        //});
         
     }
 }

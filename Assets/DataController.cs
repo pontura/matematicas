@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 public class DataController : MonoBehaviour
 {
     private string secretKey = "mySecretKey";
-    const string URL = "http://www.pontura.com/matematicas/";
+    const string URL = "http://juegos.buber.edu.ar/chacmool/";
     private string getUserIdByEmail_URL = URL + "getUserIdByEmail.php?";
     private string createUser_URL = URL + "createUser.php?";
     private string getRanking_URL = URL + "getRanking.php?";

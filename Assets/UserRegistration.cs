@@ -82,7 +82,7 @@ public class UserRegistration : MonoBehaviour {
     }
     private IEnumerator SendIt( String username, String email, String pass)
     {
-        WWW www = new WWW("http://www.pontura.com/matematicas/PHPMailer/examples/mail.php?username=" + username + "&to=" + email + "&password=" + pass + "&from=no-responder@email.com");
+        WWW www = new WWW("http://juegos.buber.edu.ar/chacmool/PHPMailer/examples/mail.php?username=" + username + "&to=" + email + "&password=" + pass + "&from=no-responder@email.com");
         yield return www;
 
         if (www.error != null)
