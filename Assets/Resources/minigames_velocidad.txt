@@ -1,4 +1,4 @@
-{
+﻿{
 	velocidad:
 	[
 		{
@@ -122,7 +122,7 @@
 		{
 			title: "Una de las especies es Sedum frutescens. En un sector de la isla existen napas subterráneas donde se aloja gran cantidad de estas semillas. Si lográs descifrar el código en 2 minutos, te indicará la ubicación exacta para que puedas encontrarlas y ayudar a los habitantes de la isla a sembrarlas.",
 			ejercicios: [
-				{ ejercicio: "260 x 10 ", resultado: 520, show: "false" },
+				{ ejercicio: "260 x 10 ", resultado: 2600, show: "false" },
 				{ ejercicio: "260 x 100", resultado: 26000, show: "false" },
 				{ ejercicio: "260 x 1.000 ", resultado: 260000, show: "false" },
 				{ ejercicio: "260 x 10.000", resultado: 2600000, show: "false" },
