@@ -24,6 +24,8 @@ public class ClothesSettings : MonoBehaviour {
 
     private void LoadArray(List<string> arr, string path)
     {
+        path = Events.GetPathBySystem(path);
+
         string lastName = "";
 
         foreach (string name in System.IO.Directory.GetFiles(path, "*.png"))

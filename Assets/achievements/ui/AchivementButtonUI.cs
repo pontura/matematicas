@@ -54,6 +54,7 @@ public class AchivementButtonUI : MonoBehaviour {
     public void LoadImage(string _url)
     {
         this.url =  @"file://" + @"images\achievements\" + _url;
+        this.url = Events.GetPathBySystem(this.url);
         StartCoroutine("LoadRoutine");        
     }
     private IEnumerator LoadRoutine()

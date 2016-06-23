@@ -88,6 +88,8 @@ public class CharacterManager : MonoBehaviour {
                 path = pathPreFix + @"images\npc\clothes\npcTop_" + clothSettings.npc[idNum];
             else 
                 path =  pathPreFix + clothSettings.clothes[idNum];
+
+
             //boysTop_B_torax1
             pathTemp = path + "_torax1.png";
             StartCoroutine("LoadImages", clothesContainer[0]);
@@ -219,6 +221,7 @@ public class CharacterManager : MonoBehaviour {
         pathTemp = pathTemp.Replace("_SEX_", sex);
 
         WWW www = new WWW(Events.OnGetFilePath(pathTemp));
+
         yield return www;
 
         if (www.error != null)

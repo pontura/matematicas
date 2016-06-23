@@ -60,4 +60,11 @@ public static class Events {
 
         return pathTemp;
     }
+    public static string GetPathBySystem(string pathTemp)
+    {
+        if (Application.platform == RuntimePlatform.OSXPlayer)
+            pathTemp = pathTemp.Replace(@"\", @"/");
+
+        return pathTemp;
+    }
 }
