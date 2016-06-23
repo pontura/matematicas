@@ -145,7 +145,7 @@ public class CharacterManager : MonoBehaviour {
         }
         else if (arr == clothSettings.skin)
         {
-            string path = pathPreFix + @"images\skin\";
+            string path = Events.GetPathBySystem( pathPreFix + @"images\skin\");
             idNum += 1;
 
             string sex_skin = "boys_boy";
