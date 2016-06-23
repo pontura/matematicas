@@ -85,7 +85,7 @@ public class CharacterManager : MonoBehaviour {
             string path = "";
             
             if (npc)
-                path = pathPreFix + @"images\npc\clothes\npcTop_" + clothSettings.npc[idNum];
+				path = Events.GetPathBySystem( pathPreFix + @"images\npc\clothes\npcTop_" + clothSettings.npc[idNum] );
             else 
                 path =  pathPreFix + clothSettings.clothes[idNum];
 
@@ -108,7 +108,7 @@ public class CharacterManager : MonoBehaviour {
         {
             string path = "";
             if (npc)
-                path = pathPreFix + @"images\npc\clothes\npcBottom_" + clothSettings.npc[idNum];
+				path = Events.GetPathBySystem( pathPreFix + @"images\npc\clothes\npcBottom_" + clothSettings.npc[idNum] );
             else 
                 path = pathPreFix + clothSettings.legs[idNum];
             //boysTop_B_torax1
@@ -130,7 +130,7 @@ public class CharacterManager : MonoBehaviour {
         {
             string path = "";
             if (npc)
-                path = pathPreFix + @"images\npc\clothes\npcShoes_" + clothSettings.npc[idNum];
+				path = Events.GetPathBySystem( pathPreFix + @"images\npc\clothes\npcShoes_" + clothSettings.npc[idNum] );
             else
                 path = pathPreFix + clothSettings.shoes[idNum];
             //boysShoes_A_1a
@@ -196,7 +196,7 @@ public class CharacterManager : MonoBehaviour {
         {
             string path = "";
             if (npc)
-                path = pathPreFix + @"images\npc\hair\npcHair_" + clothSettings.npc[idNum] + "_color1";
+				path = Events.GetPathBySystem( pathPreFix + @"images\npc\hair\npcHair_" + clothSettings.npc[idNum] + "_color1" );
             else
                 path = pathPreFix + clothSettings.hairs[idNum];
 
