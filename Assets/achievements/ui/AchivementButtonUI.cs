@@ -59,7 +59,7 @@ public class AchivementButtonUI : MonoBehaviour {
     private IEnumerator LoadRoutine()
     {
        // print("LoadImages url: " + url);
-        WWW www = new WWW(url);
+        WWW www = new WWW(Events.OnGetFilePath(url));
         yield return www;
 
         if (www.error != null)

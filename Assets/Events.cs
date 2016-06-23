@@ -45,7 +45,19 @@ public static class Events {
     public static System.Action OnCustomizerSave = delegate { };
 
     public static System.Action<int> OnGetGema = delegate { };
-    
 
-    
+
+    public static string OnGetFilePath(string pathTemp)
+    {
+        string path = Application.dataPath;
+        if (Application.platform == RuntimePlatform.OSXPlayer)
+            path += "/../../";
+        else
+            path += "/../";
+
+        pathTemp = pathTemp.Replace("file://", "");
+        pathTemp = "file://" + path + pathTemp;
+
+        return pathTemp;
+    }
 }

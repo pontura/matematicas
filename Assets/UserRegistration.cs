@@ -82,7 +82,8 @@ public class UserRegistration : MonoBehaviour {
     }
     private IEnumerator SendIt( String username, String email, String pass)
     {
-        WWW www = new WWW("http://juegos.buber.edu.ar/chacmool/PHPMailer/examples/mail.php?username=" + username + "&to=" + email + "&password=" + pass + "&from=no-responder@email.com");
+        string cuerpo = "http://juegos.buber.edu.ar/chacmool/PHPMailer/examples/mail.php?username=" + username + "&to=" + email + "&password=" + pass + "&from=no-responder@email.com";
+        WWW www = new WWW(cuerpo);
         yield return www;
 
         if (www.error != null)
@@ -91,7 +92,7 @@ public class UserRegistration : MonoBehaviour {
         }
         else
         {
-            Debug.Log("EMAIL DONE " + www.error);
+            Debug.Log("EMAIL DONE " + cuerpo);
         }
     }
     public void ReSendEmail()

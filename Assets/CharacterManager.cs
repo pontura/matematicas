@@ -218,8 +218,7 @@ public class CharacterManager : MonoBehaviour {
     {
         pathTemp = pathTemp.Replace("_SEX_", sex);
 
-       // print("LoadImages pathTemp: " + pathTemp);
-        WWW www = new WWW(pathTemp);
+        WWW www = new WWW(Events.OnGetFilePath(pathTemp));
         yield return www;
 
         if (www.error != null)
