@@ -86,7 +86,8 @@ public class AdminBlock : MonoBehaviour {
     }
     public void Print()
     {
-        string filename = @"\ScreenshotAAA.png";
+        string filename = Events.GetPathBySystem(@"\ScreenshotAAA.png");
+
         System.Diagnostics.Process.Start("mspaint.exe", Application.dataPath + filename);
     }
 }

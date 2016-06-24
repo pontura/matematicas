@@ -10,6 +10,7 @@ public class Block : Screen
     public GameObject container;
     public GameObject Helper;
     public bool isEmpty;
+    public GameObject calculator;
 
     void Start()
     {
@@ -22,6 +23,11 @@ public class Block : Screen
         Events.OnBlockStatus -= OnBlockStatus;
         Events.OnBlockSendRequest -= OnBlockSendRequest;
         Events.OnBlockReset -= OnBlockReset;
+    }
+    void OnEnable()
+    {
+        calculator.SetActive(true);
+        calculator.transform.localPosition = new Vector3(-162, -170, 0);
     }
     void OnBlockStatus(bool show)
     {
@@ -37,6 +43,7 @@ public class Block : Screen
     {
         anim.Play("CloseBlock");
         Invoke("Reset", 0.5f);
+        calculator.SetActive(false);
     }
     void Reset()
     {
