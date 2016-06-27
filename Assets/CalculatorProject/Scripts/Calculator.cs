@@ -205,16 +205,16 @@ public class Calculator : MonoBehaviour {
 
 	
 	// Update is called once per frame
-	void Update () {
-		//Keypresses. The keycode is stores in the ButtonSetup class
-		if(Input.anyKeyDown){
-			foreach(Transform t in buttonHolder.transform){
-				if(Input.GetKeyDown (t.gameObject.GetComponent<ButtonSetup>().keycode) ){
-					t.gameObject.GetComponent<Button>().OnPointerClick (
-						new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current));
-				}
-			}
+    //void Update () {
+    //    //Keypresses. The keycode is stores in the ButtonSetup class
+    //    if(Input.anyKeyDown){
+    //        foreach(Transform t in buttonHolder.transform){
+    //            if(Input.GetKeyDown (t.gameObject.GetComponent<ButtonSetup>().keycode) ){
+    //                t.gameObject.GetComponent<Button>().OnPointerClick (
+    //                    new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current));
+    //            }
+    //        }
 
-		}
-	}
+    //    }
+    //}
 }

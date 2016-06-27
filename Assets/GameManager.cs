@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     public Screen Trip;
 
     public GameObject tvImage;
+    public GameObject BlockButton;
 
 	void Start () {
 	
@@ -22,18 +23,44 @@ public class GameManager : MonoBehaviour {
     {
         if (name != "IslandDetail")
              Events.OnLoading();
-
+        ActivateBlockButton();
         InactivateScreens();
         switch (name)
         {
-            case "Mapa": Mapa.Activate(true); tvImage.SetActive(true); break;
-            case "Isla": Isla.Activate(true); tvImage.SetActive(false); break;
-            case "Barco": Barco.Activate(true); tvImage.SetActive(true); break;
-            case "Trip": Block.Activate(true); tvImage.SetActive(false); break;
-            case "Logros": Logros.Activate(true); tvImage.SetActive(false); break;
-            case "IslandDetail": IslandDetail.Activate(true); tvImage.SetActive(false); break;
+            case "Mapa": 
+                Mapa.Activate(true); 
+                tvImage.SetActive(true); 
+                break;
+            case "Isla": 
+                Isla.Activate(true); 
+                ActivateBlockButton();  
+                tvImage.SetActive(false); 
+                break;
+            case "Barco": 
+                Barco.Activate(true); 
+                tvImage.SetActive(true); 
+                break;
+            case "Trip": 
+                Block.Activate(true); 
+                tvImage.SetActive(false); 
+                break;
+            case "Logros": 
+                Logros.Activate(true); 
+                tvImage.SetActive(false); 
+                break;
+            case "IslandDetail": 
+                IslandDetail.Activate(true); 
+                tvImage.SetActive(false); 
+                break;
         }
 	}
+    void ActivateBlockButton()
+    {
+        if (Game.Instance.islandsManager.activeIsland.minigameType == MinigamesManager.types.VELOCIDAD)
+            BlockButton.SetActive(false);
+        else
+            BlockButton.SetActive(true);
+    }
     public void OpenCustomizer()
     {
         InactivateScreens();

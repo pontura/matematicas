@@ -17,6 +17,7 @@ public class UserLogged : MonoBehaviour
     }
     public void Submit()
     {
+        Events.OnAdminLoading(true);
         if (Data.Instance.userData.firstTimeHere)
         {
             Data.Instance.LoadLevel("Intro");

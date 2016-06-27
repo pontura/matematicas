@@ -26,7 +26,7 @@ public class Block : Screen
     }
     void OnEnable()
     {
-        calculator.SetActive(true);
+        calculator.SetActive(false);
         calculator.transform.localPosition = new Vector3(-162, -170, 0);
     }
     void OnBlockStatus(bool show)
@@ -36,6 +36,7 @@ public class Block : Screen
     }
     public void Open()
     {
+        calculator.SetActive(true);
         print("BLOCK Open" );
         anim.Play("OpenBlock");
     }

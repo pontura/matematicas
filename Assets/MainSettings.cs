@@ -24,6 +24,7 @@ public class MainSettings : MonoBehaviour {
     }
     public void Open()
     {
+        print("Open");
         panel.SetActive(true);
     }
     public void ResetApp()

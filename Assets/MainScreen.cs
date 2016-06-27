@@ -11,13 +11,26 @@ public class MainScreen : MonoBehaviour {
     public GameObject userLogin;
     public GameObject userLogged;
     public GameObject userPasswordValidation;
+    public GameObject loading;
     
     void Start()
     {
+        loading.SetActive(false);
         ResetScreens();
         Events.OnUserRegistration += OnUserRegistration;
-        Events.OnUserPasswordValidated += OnUserPasswordValidated;
+        Events.OnUserPasswordValidated += OnUserPasswordValidated;        
+        Events.OnAdminLoading += OnAdminLoading;
         Invoke("Delay", 0.1f);
+    }
+    void OnDestroy()
+    {
+        Events.OnUserRegistration -= OnUserRegistration;
+        Events.OnUserPasswordValidated -= OnUserPasswordValidated;
+        Events.OnAdminLoading -= OnAdminLoading;
+    }
+    void OnAdminLoading(bool state)
+    {
+        loading.SetActive(true);
     }
     void Delay()
     {
