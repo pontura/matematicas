@@ -4,16 +4,19 @@ using System.Collections;
 
 public class Intro : MonoBehaviour {
 
+    public int[] secs;
     public GameObject[] texts;
     public int num;
+    public GameObject loading;
 
 	void Start () {
+        Data.Instance.VolumenIntro();
         foreach (GameObject go in texts)
             go.SetActive(false);
         texts[num].SetActive(true);
+        Invoke("Next", secs[num]);
 	}
-	
-	public void Next () {
+	void Next () {
         foreach (GameObject go in texts)
             go.SetActive(false);
         num++;
@@ -22,10 +25,15 @@ public class Intro : MonoBehaviour {
         else
         {
             texts[num].SetActive(true);
+            Invoke("Next", secs[num]);
         }
+
 	}
-    void Ready()
+    public void Ready()
     {
+        Events.OnSoundFX("click");
+        loading.SetActive(true);
         Data.Instance.LoadLevel("Game");
+        GetComponent<AudioSource>().Stop();
     }
 }

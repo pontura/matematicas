@@ -41,6 +41,7 @@ public class Trip : Screen {
 
     override public void OnScreenEnable()
     {
+        Data.Instance.SuenaTema(1);
         arrived = false;
         Events.OnBlockStatus(false);
 

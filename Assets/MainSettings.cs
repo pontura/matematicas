@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MainSettings : MonoBehaviour {
@@ -6,6 +7,7 @@ public class MainSettings : MonoBehaviour {
     public GameObject panel;
     public GameObject quit_btn;
     public GameObject reset_btn;
+    public Text soundField;
 
 	void Start () {
         panel.SetActive(false);
@@ -15,7 +17,7 @@ public class MainSettings : MonoBehaviour {
 
 #if UNITY_EDITOR
         quit_btn.SetActive(false);
-        reset_btn.SetActive(true);
+      //  reset_btn.SetActive(true);
 #endif
     }
     public void Close()
@@ -26,6 +28,18 @@ public class MainSettings : MonoBehaviour {
     {
         print("Open");
         panel.SetActive(true);
+    }
+    public void ToogleSounds()
+    {
+        Data.Instance.ToogleSounds();
+        SetSonidosText();
+    }
+    void SetSonidosText()
+    {
+        if (Data.Instance.soundsOn)
+            soundField.text = "SONIDO OFF";
+        else
+            soundField.text = "SONIDO ON";
     }
     public void ResetApp()
     {

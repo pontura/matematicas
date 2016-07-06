@@ -60,6 +60,7 @@ public class MainMenu : MonoBehaviour {
     
     public void Mapa()
     {
+        Events.OnSoundFX("click");
         if (Data.Instance.userData.firstTimeHere && showTutorial == true)
         {
             Events.OnTipsOn( 1 );
@@ -71,6 +72,7 @@ public class MainMenu : MonoBehaviour {
     }
     public void Isla(bool forceGoToMainIsland = false)
     {
+        Events.OnSoundFX("click");
         scenesBackground.ResetScenes();
         SetActive(2);
 
@@ -81,12 +83,14 @@ public class MainMenu : MonoBehaviour {
     }
     public void IslaActiva()
     {
+        Events.OnSoundFX("click");
         scenesBackground.ResetScenes();
         SetActive(2);
         gameManager.Open("Isla");
     }
     public void Barco()
     {
+        Events.OnSoundFX("click");
         scenesBackground.ResetScenes();
         SetActive(3);
         gameManager.Open("Barco");
@@ -113,6 +117,7 @@ public class MainMenu : MonoBehaviour {
     }
     public void Block()
     {
+        Events.OnSoundFX("click");
         if (!BlockOpened)
         {
             gameManager.OpenBlock();
@@ -130,6 +135,7 @@ public class MainMenu : MonoBehaviour {
     }
     public void Logros()
     {
+        Events.OnSoundFX("click");
         scenesBackground.ResetScenes();
         SetActive(5);
         gameManager.Open("Logros");

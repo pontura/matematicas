@@ -9,7 +9,7 @@ public class Mapa : Screen {
     public GameObject fog;
 
 	void OnEnable () {
-
+        Data.Instance.SuenaTema(0.2f);
         //desbloquea la ultima isla:
         if (Data.Instance.achievementEventsManager.unblockedLastIsland == 1)
         {

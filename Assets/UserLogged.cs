@@ -9,7 +9,8 @@ public class UserLogged : MonoBehaviour
 
     public void Init()
     {
-        introText.text = "Bienvenido " + Data.Instance.userData.username + "!\n Estás listo para jugar?";
+       // introText.text = "Bienvenido " + Data.Instance.userData.username + "!\n Estás listo para jugar?";
+        introText.text = "";
         if (!Data.Instance.userData.firstTimeHere)
         {
             buttonText.text = "SEGUIR JUGANDO";
@@ -17,14 +18,8 @@ public class UserLogged : MonoBehaviour
     }
     public void Submit()
     {
+        Events.OnSoundFX("click");
         Events.OnAdminLoading(true);
-        if (Data.Instance.userData.firstTimeHere)
-        {
-            Data.Instance.LoadLevel("Intro");
-        }
-        else
-        {
-            Data.Instance.LoadLevel("Game");
-        }
+        Data.Instance.LoadLevel("Intro");
     }
 }

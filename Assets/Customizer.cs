@@ -51,6 +51,7 @@ public class Customizer : MonoBehaviour {
     }
    public void ToggleSex()
     {
+        Events.OnSoundFX("click");
        savedSettings.ToggleSex();
        SetSexButton();
        Delay();
@@ -92,6 +93,7 @@ public class Customizer : MonoBehaviour {
     }
     void Clicked(int id, bool next)
     {
+        Events.OnSoundFX("click");
         switch (id)
         {
             case 1:

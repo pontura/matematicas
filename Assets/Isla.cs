@@ -69,6 +69,7 @@ public class Isla : Screen {
     }
     public override void OnScreenEnable()
     {
+        Data.Instance.VolumenBaja();
         dialogue.SetActive(true);
         if (Data.Instance.userData.firstTimeHere && !tutorialDisplayed)
         {
@@ -81,12 +82,14 @@ public class Isla : Screen {
 
         if(minigameType == MinigamesManager.types.PESAR)
         {
+            Data.Instance.SuenaBosque();
             minigamePeso.Init();
             minigame = minigame.GetComponent<MinigamePesos>();
             minigame.GetComponent<MinigamePesos>().Init();
         } else
         if (minigameType == MinigamesManager.types.SIMPLE_INPUT)
         {
+            Data.Instance.SuenaPlaya();
             minigameSimpleInput.Init();
             minigame = minigame.GetComponent<MinigameSimpleInput>();
             minigame.GetComponent<MinigameSimpleInput>().Init();
@@ -94,6 +97,7 @@ public class Isla : Screen {
         else
         if (minigameType == MinigamesManager.types.FRACCIONES)
         {
+            Data.Instance.SuenaBosque();
             minigameFracciones.Init();
             minigame = minigame.GetComponent<MinigameFracciones>();
             minigame.GetComponent<MinigameFracciones>().Init();
@@ -101,12 +105,14 @@ public class Isla : Screen {
         else
         if (minigameType == MinigamesManager.types.VELOCIDAD)
         {
+            Data.Instance.SuenaPlaya();
             minigameVelocidad.Init();
             minigame = minigame.GetComponent<MinigameVelocidad>();
             minigame.GetComponent<MinigameVelocidad>().Init();
         }
         else if (minigameType == MinigamesManager.types.FINAL)
         {
+            Data.Instance.SuenaBosque();
             minigameFinal.Init();
             if (Data.Instance.achievementEventsManager.portal == 1)
             {

@@ -17,7 +17,7 @@ public class UserPasswordValidation : MonoBehaviour
         }
         else
         {
-            title.text = "Bienvenido nuevamente, " + Data.Instance.userData.username + ".\n Te enviamos un email a " + Data.Instance.userData.email + " con el password para poder jugar.\nPoné el password acá:";
+            title.text = "¡Hola " + Data.Instance.userData.username + "!.\n Se envió un correo electrónico a " + Data.Instance.userData.email + " con la contraseña para empezar a jugar.\nEscribila acá:";
             password.text = "";
         }
     }
@@ -25,14 +25,14 @@ public class UserPasswordValidation : MonoBehaviour
     public void Submit()
     {
         if (password.text == "")
-            feedback.text = "Chequeá tu email e ingresa el password que te haya llegado";
+            feedback.text = "Chequeá tu correo electrónico e ingresa la contraseña que te haya llegado";
         else if (Data.Instance.userData.OnValidatePassword(password.text))
         {
             Events.OnUserPasswordValidated();
         }
         else
         {
-            feedback.text = "El password es incorrecto...";
+            feedback.text = "La contraseña es incorrecta...";
         }
     }
 }
