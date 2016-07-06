@@ -9,6 +9,10 @@ public class Mapa : Screen {
     public GameObject fog;
 
 	void OnEnable () {
+        if (Data.Instance.userData.firstTimeHere)
+        {
+            Game.Instance.gameManager.Isla.GetComponent<Isla>().state = Isla.states.MINIGAME_STARTED;
+        }
         Data.Instance.SuenaTema(0.2f);
         //desbloquea la ultima isla:
         if (Data.Instance.achievementEventsManager.unblockedLastIsland == 1)

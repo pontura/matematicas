@@ -5,10 +5,10 @@ tutorial:
 		text: "Hola [username],\nEmpezá preparando tu avatar."
 	},
 	{	
-		text: "¡Buen look, [username]!\nElegí un destino en el mapa y prepará tu embarcación"
+		text: "¡Buen look, [username]!\nElegí un destino en el mapa y prepará tu embarcación."
 	},
 	{	
-		text: "Antes de salir a explorar las islas tenés que pagar la tasa portuaria"
+		text: "Antes de salir a explorar las islas tenés que pagar la tasa portuaria."
 	},
 	{	
 		text: "Para ayudarte a solucionar los problemas tenés un block arriba a la izquierda de la pantalla, usalo todo lo que necesites."
@@ -108,10 +108,10 @@ bienvenida_x_isla:
 bienvenida:
 [
 	{
-		text: "Bienvenido, ¿Has tenido un buen viaje?"			
+		text: "¡Hola! ¿Has tenido un buen viaje?"			
 	},
 	{
-		text: "Bienvenido ¿Que tal el viaje?"			
+		text: "¡Hola! ¿Que tal el viaje?"			
 	},
 	{
 		text: "¡Hola! ¿Qué tal el viaje?, ¡Siéntanse como en casa!"			
@@ -129,7 +129,7 @@ MisionNoTienesNada:
 MisionTienesAlgo:
 [
 	{
-		text: "Veo que tienes [qty] caja/s de  [element]. Muchas gracias"			
+		text: "Veo que tienes [qty] caja/s de  [element]. Muchas gracias."			
 	}
 ],
 MisionNosFalta:
@@ -162,7 +162,7 @@ MinigameReady:
 MinigameInvita:
 [
 	{
-		text: "Si me ayudás con este simple problema podrás llevarte todos los recursos que necesites"			
+		text: "Si me ayudás con este simple problema podrás llevarte todos los recursos que necesites."			
 	}
 ],
 RecogeLoQueGustes:

@@ -38,10 +38,7 @@ public class Isla : Screen {
     }
     void Start()
     {
-        if (Data.Instance.userData.firstTimeHere)
-        {
-            state = states.MINIGAME;
-        }
+        
         Events.OnTripStarted += OnTripStarted;
         Events.OnMinigameReady += OnMinigameReady;
         Events.OnMinigameMistake += OnMinigameMistake;
@@ -148,8 +145,10 @@ public class Isla : Screen {
         }
         if (state == states.BIENVENIDA)
         {
-            
-            SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.Bienvenida));
+            if (Data.Instance.achievementEventsManager.travelsSuccess == 0)
+                SetText("¡Hola! Te damos la bienvenida.");
+            else
+                SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.Bienvenida));
             state = states.BIENVENIDA_ISLA;
         }  else if (Game.Instance.minigamesManager.ready)
         {
