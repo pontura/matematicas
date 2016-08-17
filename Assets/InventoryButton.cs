@@ -72,7 +72,7 @@ public class InventoryButton : MonoBehaviour
     }
     public void Remove()
     {
-        if (!isOn) return;
+        //if (!isOn) return;
         if (qty > 0) qty--;
         SetQty();
     }

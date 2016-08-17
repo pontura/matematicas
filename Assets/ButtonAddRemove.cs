@@ -5,6 +5,7 @@ using System;
 
 public class ButtonAddRemove : MonoBehaviour {
 
+    public Text infoField;
     public int qty;
     public int id;
     public Text qtyField;
@@ -26,7 +27,7 @@ public class ButtonAddRemove : MonoBehaviour {
     }
     void SetQty()
     {
-        
+        infoField.text = qty.ToString();
     }
 	public void Add () {
         qty++;
