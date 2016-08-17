@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class Barco : Screen
 {
+    public GameObject HelpPanel;
     public Text buttonText;
     public Text notasField;
     public GameObject panel;
@@ -23,13 +24,17 @@ public class Barco : Screen
     }
     override public void OnScreenEnable()
     {
-
+        minigameNotReadyPanel.SetActive(true);
         if (Data.Instance.userData.firstTimeHere && !tutorialDisplayed)
         {
             Events.OnTipsOn(4);
             tutorialDisplayed = true;
         }
         Events.OnBlockStatus(true);
+        if (Game.Instance.islandsManager.activeIsland.id == 1)
+        {
+            HelpPanel.SetActive(false);
+        } else
         if (Game.Instance.islandsManager.activeIsland.id == 12 || Game.Instance.state == Game.states.MINIGAME_READY)
         {
             
@@ -60,6 +65,7 @@ public class Barco : Screen
     }
     public void Ready()
     {
+        minigameNotReadyPanel.SetActive(false);
         anim.Play("Ship_close");
         panel.SetActive(false);
         Game.Instance.mainMenu.DeselectButtons();

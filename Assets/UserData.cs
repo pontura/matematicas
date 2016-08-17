@@ -122,7 +122,8 @@ public class UserData : MonoBehaviour {
     {
         if (Game.Instance)
              PlayerPrefs.SetInt("islandActive", Game.Instance.islandsManager.activeIsland.id);
-        OnSaveInventary();        
+        OnSaveInventary();
+        this.islandActive = Game.Instance.islandsManager.activeIsland.id;
     }
     void OnSaveInventary()
     {

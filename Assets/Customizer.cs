@@ -119,6 +119,14 @@ public class Customizer : MonoBehaviour {
         Events.OnCustomizerSave();
         gameObject.SetActive(false);
         Events.OnCustomizerActive(false);
-        Game.Instance.mainMenu.Mapa();
+        if (Data.Instance.userData.firstTimeHere)
+        {
+            Game.Instance.mainMenu.Isla();
+            Game.Instance.mainMenu.SetDisableButtons(true);
+        }
+        else
+        {
+            Game.Instance.mainMenu.Mapa();
+        }
     }
 }

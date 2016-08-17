@@ -162,7 +162,7 @@ MinigameReady:
 MinigameInvita:
 [
 	{
-		text: "Si me ayudás con este simple problema podrás llevarte todos los recursos que necesites."			
+		text: "Si me ayudás con este problema podrás llevarte todos los recursos que necesites."			
 	}
 ],
 RecogeLoQueGustes:

@@ -72,19 +72,19 @@ public class IslandDistances : MonoBehaviour {
                 {
                     SetActiveRuta(dataA.ruta);
                     string origen = "el continente";
-                    if (dataA.ruta == "E")
-                        origen = "la Ruta E";
+                    if (dataA.islaID == 5)
+                        origen = "la Ruta " + GetRutaTitle("E");
 
                     if (dataA.islaID == 1)
                         result = "Estás en el continente.";
                     else if (dataA.islaID == 4)
-                        result = "Estás al inicio de la Ruta E";
+                        result = "Estás al inicio de la Ruta " + GetRutaTitle("E");
                     else
-                        result = "La isla en la que estás se encuentra a " + dataA.km + " km de el continente.";
+                        result = "La isla en la que estás se encuentra a " + dataA.km + " km del continente.";
 
                     result += "\nTu destino está a " + dataB.fraccion + "  de la distancia entre " + origen + " y el final de esta ruta.";
 
-                    field.text = "Ruta " + dataA.ruta + ". Total: " + GetRuta(dataA.ruta).total + "km.";
+                    field.text = "Ruta " + GetRutaTitle(dataA.ruta) + ". Total: " + GetRuta(dataA.ruta).total + "km.";
                 }
             }
         }
@@ -92,6 +92,18 @@ public class IslandDistances : MonoBehaviour {
         
         return result;
 	}
+    public string GetRutaTitle(string referenceName)
+    {
+        switch (referenceName)
+        {
+            case "A": return "Alfa";
+            case "B": return "Beta";
+            case "C": return "Gamma";
+            case "D": return "Delta";
+            default: return "Epsilon";
+        }
+
+    }
     void SetActiveRuta(string rutaName)
     {
         foreach(Ruta ruta in rutas)

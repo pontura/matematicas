@@ -51,7 +51,7 @@
 		{
 			title: "La estatua de Tamboca pesa el doble de 3.845 kg. Si lográs ubicar en la piedra central rocas equivalentes a su peso, se elevará el puente que te permitirá encontrar al ingeniero que tiene los planos con el diseño del dique a construir.",
 			peso1: 1000,
-			peso2: 20,
+			peso2: 200,
 			peso3: 30,
 			result: 7690,
 			type: "HARDCODE",

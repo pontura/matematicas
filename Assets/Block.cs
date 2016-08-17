@@ -130,7 +130,7 @@ public class Block : Screen
     {
         this.title = title;
         Invoke("OnBlockSendRequestDelayed", 2);
-        Game.Instance.mainMenu.SetDisableButtons(true);
+       // Game.Instance.mainMenu.SetDisableButtons(true);
     }
     void OnBlockSendRequestDelayed()
     {

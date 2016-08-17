@@ -33,7 +33,11 @@ public class Intro : MonoBehaviour {
     {
         Events.OnSoundFX("click");
         loading.SetActive(true);
-        Data.Instance.LoadLevel("Game");
         GetComponent<AudioSource>().Stop();
+        Invoke("Delay", 0.1f);
+    }
+    public void Delay()
+    {
+        Data.Instance.LoadLevel("Game");        
     }
 }

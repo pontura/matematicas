@@ -18,9 +18,9 @@ public class Settings : MonoBehaviour {
         notas += "1 caja de energía cubre " + distancia_Caja_Energia + " km\n";
         notas += "1 caja de comida dura " + horas_Caja_Comida + " horas\n";
 
-        notas += "1 caja de madera pesa " + pesoMadera + "\n";
-        notas += "1 caja de arena pesa " + pesoArena + "\n";
-        notas += "1 caja de piedras pesa " + pesoPiedras + "\n";
+        notas += "1 caja de madera pesa " + pesoMadera + " kg\n";
+        notas += "1 caja de arena pesa " + pesoArena + " kg\n";
+        notas += "1 caja de piedras pesa " + pesoPiedras + " kg\n";
 
         notas += "Velocidad del barco: " + barcoVelocidad + "Km/h";
 

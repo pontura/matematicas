@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Data : MonoBehaviour
 {
@@ -45,10 +46,11 @@ public class Data : MonoBehaviour
     }
     public void LoadLevel(string aLevelName)
     {     
-        Application.LoadLevel(aLevelName);
+        SceneManager.LoadScene(aLevelName);
     }
     void Awake()
     {
+       // PlayerPrefs.DeleteAll();
         soundsOn = true;
         //PlayerPrefs.DeleteAll();
         if (!mInstance)
