@@ -8,10 +8,10 @@ tutorial:
 		text: "¡Buen look, [username]!\nElegí un destino en el mapa y prepará tu embarcación."
 	},
 	{	
-		text: "Antes de salir a explorar las islas tenés que pagar la tasa portuaria."
+		text: "¡Buen look, [username]!\nAntes de salir a explorar las islas tenés que pagar la tasa portuaria."
 	},
 	{	
-		text: "Para ayudarte a solucionar los problemas tenés un block arriba a la izquierda de la pantalla, usalo todo lo que necesites."
+		text: "Para ayudarte a solucionar los problemas tenés un block disponible a la izquierda, arriba de la pantalla."
 	},
 	{	
 		text: "Cargá el barco con todo lo que necesités para el viaje, ¡cuidado con no quedarte corto ni cargar de más!"
@@ -53,7 +53,7 @@ bienvenida_x_isla:
 		islandID:6
 	},
 	{	
-		text: "En esta isla se necesitamos cajas de arena para ayudar a contener la crecida del río.",
+		text: "En esta isla, la crecida de los ríos a causa de abundantes lluvias suele generar severas inundaciones. Ayudanos a contrarrestar y prevenir este problema.",
 		islandID:7
 	},
 	{	
@@ -144,7 +144,7 @@ MisionNosFalta:
 MisionCompleta:
 [
 	{
-		text: "Nos ayudaste muchísimo, Ya tenemos todas las cajas de [element]."			
+		text: "Tenés todas las cajas de [element] que necesitamos. ¡Gracias por traerlas!"			
 	}
 ],
 MisionTienesTodoLoQueFalta:
@@ -156,7 +156,7 @@ MisionTienesTodoLoQueFalta:
 MinigameReady:
 [
 	{
-		text: "¡Gracias por tu ayuda! Continuá tu viaje. Si lo necesitás, podés utilizar los recursos de la isla. ¿Cuál es tu próximo destino?"			
+		text: "¡Gracias por tu ayuda! Continuá tu viaje. Si lo necesitás, podés utilizar los recursos de la isla."			
 	}
 ],
 MinigameInvita:

@@ -11,22 +11,22 @@ public class Intro : MonoBehaviour {
 
 	void Start () {
         Data.Instance.VolumenIntro();
-        foreach (GameObject go in texts)
-            go.SetActive(false);
-        texts[num].SetActive(true);
-        Invoke("Next", secs[num]);
+        //foreach (GameObject go in texts)
+        //    go.SetActive(false);
+        //texts[num].SetActive(true);
+        Invoke("Ready", 30);
 	}
 	void Next () {
-        foreach (GameObject go in texts)
-            go.SetActive(false);
-        num++;
-        if (num >= texts.Length)
-            Ready();
-        else
-        {
-            texts[num].SetActive(true);
-            Invoke("Next", secs[num]);
-        }
+        //foreach (GameObject go in texts)
+        //    go.SetActive(false);
+        //num++;
+        //if (num >= texts.Length)
+        //    Ready();
+        //else
+        //{
+        //    texts[num].SetActive(true);
+        //    Invoke("Next", secs[num]);
+        //}
 
 	}
     public void Ready()

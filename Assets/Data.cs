@@ -50,9 +50,8 @@ public class Data : MonoBehaviour
     }
     void Awake()
     {
-       // PlayerPrefs.DeleteAll();
+     //   PlayerPrefs.DeleteAll();
         soundsOn = true;
-        //PlayerPrefs.DeleteAll();
         if (!mInstance)
             mInstance = this;
         //otherwise, if we do, kill this thing

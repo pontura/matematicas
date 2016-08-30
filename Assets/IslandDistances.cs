@@ -71,13 +71,13 @@ public class IslandDistances : MonoBehaviour {
                 if (dataA.ruta == dataB.ruta)
                 {
                     SetActiveRuta(dataA.ruta);
-                    string origen = "el continente";
+                    string origen = "el inicio";
                     if (dataA.islaID == 5)
                         origen = "la Ruta " + GetRutaTitle("E");
 
                     if (dataA.islaID == 1)
                         result = "Estás en el continente.";
-                    else if (dataA.islaID == 4)
+                    else if (dataA.islaID == 4 && dataB.ruta == "E")
                         result = "Estás al inicio de la Ruta " + GetRutaTitle("E");
                     else
                         result = "La isla en la que estás se encuentra a " + dataA.km + " km del continente.";

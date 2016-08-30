@@ -51,7 +51,7 @@ public class MinigameVelocidad : Minigame
 
         minigame = Data.Instance.texts.GetMinigame_Velocidad();
         string textFinal = minigame.title;
-        secs = minigame.time * 60;
+        secs = minigame.time;
 
         print("textFinal: " + textFinal);
 

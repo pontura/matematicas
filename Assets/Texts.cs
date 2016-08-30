@@ -287,7 +287,11 @@ public class Texts :MonoBehaviour {
     }
     public string GetRandomText(List<string> arr)
     {
-        return arr[ UnityEngine.Random.Range(0,arr.Count) ];
+        print("_________GetRandomText " + arr + " Data.Instance.userData.firstTimeHere: " + Data.Instance.userData.firstTimeHere);
+        if (arr == Data.Instance.texts.MinigameReady && Data.Instance.userData.firstTimeHere)
+            return "¡Gracias! Empezá la expedición eligiendo tu primer destino en el mapa.";
+        else
+            return arr[ UnityEngine.Random.Range(0,arr.Count) ];
     }
     public Minigame_Peso GetMinigame_Peso()
     {

@@ -199,7 +199,8 @@ public class Isla : Screen {
               state == states.MISSION_EXITOSA)
         {
             SetText(Data.Instance.texts.GetRandomText(Data.Instance.texts.MinigameReady));
-            state = states.MINIGAME_READY;
+         //   state = states.MINIGAME_READY;
+            state = states.MINIGAME;
             Data.Instance.userData.firstTimeHere = false;
         }
         else if (state == states.MISSION_NO_TENES_NADA)
@@ -220,7 +221,10 @@ public class Isla : Screen {
         }
         else if (state == states.MINIGAME_READY)
         {
-            Game.Instance.mainMenu.Mapa();
+            if(Game.Instance.islandsManager.gotoIsland.id >0)
+                Game.Instance.mainMenu.Barco();
+            else
+                Game.Instance.mainMenu.Mapa();
         }
     }
     void CheckIfConsume(string element)
@@ -234,7 +238,7 @@ public class Isla : Screen {
 
         if (totalInInventory >= dataIsland.mission.qty)
         {
-            Events.OnMinigameReady();
+            //Events.OnMinigameReady();
 
             string texto = Data.Instance.texts.GetRandomText(Data.Instance.texts.MisionTienesTodoLoQueFalta);
             texto = SetTextQty(texto, dataIsland.mission.qty);
