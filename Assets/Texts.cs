@@ -224,7 +224,16 @@ public class Texts :MonoBehaviour {
                     minigame.recta = new Vector2(int.Parse(Json[gameName][a]["recta"][0]), int.Parse(Json[gameName][a]["recta"][1]));
                     minigame.fracciones = new List<int>();
                     for (int b = 0; b < Json[gameName][a]["fracciones"].Count; b++)
-                        minigame.fracciones.Add(int.Parse(Json[gameName][a]["fracciones"][b]));
+                    {
+                        int num = int.Parse(Json[gameName][a]["fracciones"][b]);
+
+                        // se fija si la recta es 0,0 (o sea hay que ordenar los slots por orden, no por fracciones...                       
+                        if (minigame.recta.y == 0)
+                            num++;
+                        //////////////////////////////
+
+                        minigame.fracciones.Add(num);
+                    }
 
                     //switch (Json[gameName][a]["type"])
                     //{

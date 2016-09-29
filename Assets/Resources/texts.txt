@@ -2,7 +2,7 @@
 tutorial:
 [
 	{	
-		text: "Hola [username],\nEmpezá preparando tu avatar."
+		text: "Hola [username],\nempezá diseñando tu avatar."
 	},
 	{	
 		text: "¡Buen look, [username]!\nElegí un destino en el mapa y prepará tu embarcación."
@@ -14,16 +14,16 @@ tutorial:
 		text: "Para ayudarte a solucionar los problemas tenés un block disponible a la izquierda, arriba de la pantalla."
 	},
 	{	
-		text: "Cargá el barco con todo lo que necesités para el viaje, ¡cuidado con no quedarte corto ni cargar de más!"
+		text: "Cargá el barco con todo lo que necesites para la expedición. ¡Cuidado con no sobrecargarlo o llevar menos de lo que necesitás!"
 	},
 	{	
-		text: "A medida que vayas avanzando en las misiones irás consiguiendo logros y acá podrás verlos."
+		text: "A medida que vayas cumpliendo las misiones irás consiguiendo logros que podrás ver acá."
 	}
 ],
 elementos:
 [
 	{
-		text: "No hay [element] en esta isla."
+		text: "En esta isla no hay [element]."
 	}
 ],
 bienvenida_x_isla:
@@ -33,7 +33,7 @@ bienvenida_x_isla:
 		islandID:1
 	},
 	{	
-		text: "La semana pasada, un terremoto sacudió la isla provocando problemas de acceso, incomunicación de grupos y devastando diversas zonas.",
+		text: "La semana pasada un terremoto sacudió la isla provocando problemas de acceso, incomunicación de grupos y devastando diversas zonas.",
 		islandID:2
 	},
 	{	
@@ -108,49 +108,49 @@ bienvenida_x_isla:
 bienvenida:
 [
 	{
-		text: "¡Hola! ¿Has tenido un buen viaje?"			
+		text: "¡Hola! ¿Tuviste un buen viaje?"			
 	},
 	{
-		text: "¡Hola! ¿Que tal el viaje?"			
+		text: "¡Hola! ¿Qué tal el viaje?"			
 	},
 	{
-		text: "¡Hola! ¿Qué tal el viaje?, ¡Siéntanse como en casa!"			
+		text: "¡Hola! ¿Qué tal el viaje? ¡Siéntanse como en casa!"			
 	}
 ],
 MisionNoTienesNada:
 [
 	{
-		text: "No tienes nada de [element], cuando tengas vuelve..."			
+		text: "No traés [element] en tu embarcación. ¡Volvé cuando hayas conseguido!"			
 	},
 	{
-		text: "Veo que no cargas [element], cuando tengas vuelve..."			
+		text: "Veo que no tenés [element] en tu embarcación. Volvé cuando hayas conseguido."			
 	}
 ],
 MisionTienesAlgo:
 [
 	{
-		text: "Veo que tienes [qty] caja/s de  [element]. Muchas gracias."			
+		text: "Trajiste [qty] caja/s de  [element]. Muchas gracias por colaborar."			
 	}
 ],
 MisionNosFalta:
 [
 	{
-		text: "Ahora nos faltan solo [qty] caja/s de [element]."			
+		text: "Solo nos faltan [qty] caja/s de [element]."			
 	},
 	{
-		text: "Gracias a tu ayuda con [qty] caja/s de [element] ya estaríamos listos!"			
+		text: "¡Gracias a tu ayuda solo necesitamos [qty] caja/s de [element] más!"			
 	}
 ],
 MisionCompleta:
 [
 	{
-		text: "Tenés todas las cajas de [element] que necesitamos. ¡Gracias por traerlas!"			
+		text: "Trajiste todas las cajas de [element] que necesitábamos. ¡Gracias por tu ayuda!"			
 	}
 ],
 MisionTienesTodoLoQueFalta:
 [
 	{
-		text: "Oh! Veo que tienes todas las caja/s de [element] que nos faltan!. Mil Gracias!"			
+		text: "Veo que traés todas las caja/s de [element] que nos faltaban. ¡Mil gracias!"			
 	}
 ],
 MinigameReady:
@@ -168,7 +168,7 @@ MinigameInvita:
 RecogeLoQueGustes:
 [
 	{
-		text: "Puedes recoger todas las cajas de [element] que gustes."			
+		text: "Podés tomar todas las cajas de [element] que necesites."			
 	}
 ]
 }

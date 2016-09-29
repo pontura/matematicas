@@ -2,7 +2,7 @@
 	velocidad:
 	[
 		{
-			title: "¡Ayudá a los lugareños a contener la crecida del río, descifrando este código en 2 minutos! Así se abrirá un portal a un depósito que contiene gran cantidad de sacos de arena que se podrán colocar sobre las orillas, junto con la arena que trajiste en tu embarcación.",
+			title: "¡Ayudá a los lugareños a contener la crecida del río, descifrando este código en 90 segundos! Así se abrirá un portal a un depósito que contiene gran cantidad de sacos de arena que se podrán colocar sobre las orillas, junto con la arena que trajiste en tu embarcación.",
 			ejercicios: [
 				{ ejercicio: "25 x 100", resultado: 2500, show: "true" },
 				{ ejercicio: "25 x 1.000", resultado: 25000, show: "false" },
@@ -14,7 +14,7 @@
 			islandId : 	7		
 		},
 		{
-			title: "Turistas que visitaron la isla recientemente, arrojaron gran cantidad de basura que al caer al río, tapó su cauce. Ayudá a los pobladores a limpiar la zona para evitar una inminente inundación. Si descifrás el código en 2 minutos, se abrirá un portal para que avance una retroexcavadora que saneará el cauce.",
+			title: "Turistas que visitaron la isla recientemente, arrojaron gran cantidad de basura que al caer al río, tapó su cauce. Ayudá a los pobladores a limpiar la zona para evitar una inminente inundación. Si descifrás el código en 90 segundos, se abrirá un portal para que avance una retroexcavadora que saneará el cauce.",
 			ejercicios: [
 				{ ejercicio: "450 X 10", resultado: 4500, show: "false" },
 				{ ejercicio: "450 X 20", resultado: 9000, show: "false" },
@@ -26,7 +26,7 @@
 			islandId : 7	
 		},
 		{
-			title: "Para prevenir las inundaciones es necesario limpiar el cauce de los ríos. Si lográs descifrar el código en 2 minutos, un portal te comunicará con un área de la isla que posee las máquinas para esta tarea.",
+			title: "Para prevenir las inundaciones es necesario limpiar el cauce de los ríos. Si lográs descifrar el código en 90 segundos, un portal te comunicará con un área de la isla que posee las máquinas para esta tarea.",
 			ejercicios: [
 				{ ejercicio: "134.000 : 10", resultado: 13400, show: "true" },
 				{ ejercicio: "134.000 : 100", resultado: 1340, show: "false" },
@@ -37,7 +37,7 @@
 			islandId : 7			
 		},
 		{
-			title: "Vientos fuertes derribaron árboles que obstruyen el cauce del río, empeorando la situación. Tenés 2 minutos para abrir el portal que permitirá el ingreso de una fuerza mágica que quitará los troncos. ¡Descifrá el código!",
+			title: "Vientos fuertes derribaron árboles que obstruyen el cauce del río, empeorando la situación. Tenés 90 segundos para abrir el portal que permitirá el ingreso de una fuerza mágica que quitará los troncos. ¡Descifrá el código!",
 			ejercicios: [
 				{ ejercicio: "120.600 : 10", resultado: 12060, show: "false" },
 				{ ejercicio: "120.600 : 100", resultado: 1206, show: "false" },
@@ -48,7 +48,7 @@
 			islandId : 	7		
 		},
 		{
-			title: "Para proveer a los habitantes de esta isla de alimentos no perecederos, linternas, medicinas, mantas y otros elementos necesarios, abrí el portal que te comunica con una cueva que los contiene. ¡Solo se abrirá si descifrás el código en 2 minutos!",
+			title: "Para proveer a los habitantes de esta isla de alimentos no perecederos, linternas, medicinas, mantas y otros elementos necesarios, abrí el portal que te comunica con una cueva que los contiene. ¡Solo se abrirá si descifrás el código en 90 segundos!",
 			ejercicios: [
 				{ ejercicio: "2.185.000 : 1.000", resultado: 2185, show: "false" },
 				{ ejercicio: "2.185.000 : 100 ", resultado: 21850, show: "false" },
@@ -58,15 +58,63 @@
 			],
 			loop:"true", time:90, 
 			islandId : 	7		
-		},
-		
-		
-		
-		
-		
-		
+		},		
 		{
-			title: "Para traspasar el portal que te lleva a una dimensión rica en plantas medicinales que podrían ayudar a curar esta enfermedad, tenés que encontrar el código secreto en 2 minutos. ¡Suerte!",
+			title: "¡Ayudá a los lugareños a contener la crecida del río, descifrando este código en 90 segundos! Así se abrirá un portal a un depósito que contiene gran cantidad de sacos de arena que se podrán colocar sobre las orillas, junto con la arena que trajiste en tu embarcación.",
+			ejercicios: [
+				{ ejercicio: "2.400 x 12", resultado: 28800, show: "true" },
+				{ ejercicio: "2.400 x 6", resultado: 14400, show: "false" },
+				{ ejercicio: "1.200 x 12", resultado: 14400, show: "false" },
+				{ ejercicio: "1.200 x 6", resultado: 7200, show: "false" },
+				{ ejercicio: "2.400 x 11", resultado: 24400, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 	7		
+		},
+		{
+			title: "Turistas que visitaron la isla recientemente, arrojaron gran cantidad de basura que al caer al río, tapó su cauce. Ayudá a los pobladores a limpiar la zona para evitar una inminente inundación. Si descifrás el código en 90 segundos, se abrirá un portal para que avance una retroexcavadora que saneará el cauce.",
+			ejercicios: [
+				{ ejercicio: "298.020 – 100.000", resultado: 198020, show: "false" },
+				{ ejercicio: "298.020 – 98.000", resultado: 200020, show: "false" },
+				{ ejercicio: "298.020 – 8.000", resultado: 290020, show: "false" },
+				{ ejercicio: "298.020 – 100", resultado: 297920, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 7	
+		},
+		{
+			title: "Para prevenir las inundaciones es necesario limpiar el cauce de los ríos. Si lográs descifrar el código en 30 segundos, un portal te comunicará con un área de la isla que posee las máquinas para esta tarea.",
+			ejercicios: [
+				{ ejercicio: "5.400.010 + 600.000 + 30.000 + 900", resultado: 6030910, show: "false" }
+			],
+			loop:"true", time:30, 
+			islandId : 7			
+		},
+		{
+			title: "Vientos fuertes derribaron árboles que obstruyen el cauce del río, empeorando la situación. Tenés 90 segundos para abrir el portal que permitirá el ingreso de una fuerza mágica que quitará los troncos. ¡Descifrá el código!",
+			ejercicios: [
+				{ ejercicio: "8.460 x 10", resultado: 84600, show: "false" },
+				{ ejercicio: "8.460 x 100", resultado: 846000, show: "false" },
+				{ ejercicio: "8.460 x 20", resultado: 169200, show: "false" },
+				{ ejercicio: "8.460 x 5", resultado: 42300, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 	7		
+		},
+		{
+			title: "Para proveer a los habitantes de esta isla de alimentos no perecederos, linternas, medicinas, mantas y otros elementos necesarios, abrí el portal que te comunica con una cueva que los contiene. ¡Solo se abrirá si descifrás el código en 90 segundos!",
+			ejercicios: [
+				{ ejercicio: "7.876 – 849", resultado: 7027, show: "true" },
+				{ ejercicio: "7.875 - 849", resultado: 7026, show: "false" },
+				{ ejercicio: "7.876 - 850", resultado: 7026, show: "false" },
+				{ ejercicio: "7.875 - 850", resultado: 7025, show: "false" },
+				{ ejercicio: "7.877 - 849", resultado: 7028, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 	7		
+		},
+		{
+			title: "Para traspasar el portal que te lleva a una dimensión rica en plantas medicinales que podrían ayudar a curar esta enfermedad, tenés que encontrar el código secreto en 90 segundos. ¡Suerte!",
 			ejercicios: [
 				{ ejercicio: "La mitad de 1.400 es:", resultado: 700, show: "false" },
 				{ ejercicio: "La mitad de 1.300 es:", resultado: 650, show: "false" },
@@ -74,7 +122,7 @@
 				{ ejercicio: "La mitad de 1.440 es:", resultado: 720, show: "false" },
 				{ ejercicio: "La mitad de 1.340 es:", resultado: 670, show: "false" }
 			],
-			loop:"true", time:120, 
+			loop:"true", time:90, 
 			islandId : 	8
 		},
 		{
@@ -82,11 +130,11 @@
 			ejercicios: [
 				{ ejercicio: "El doble de 8.520 es: ", resultado: 17040, show: "false" }
 			],
-			loop:"true", time:90, 
+			loop:"true", time:5, 
 			islandId : 8			
 		},
 		{
-			title: "Tenés 2 minutos para encontrar el código que abre un botiquín que contiene un ungüento que ayuda a reducir las manchas en estos animales.",
+			title: "Tenés 90 segundos para encontrar el código que abre un botiquín que contiene un ungüento que ayuda a reducir las manchas en estos animales.",
 			ejercicios: [
 				{ ejercicio: "3.290.000 + 8 ", resultado: 3290008, show: "false" },
 				{ ejercicio: "3.290.000 + 80 ", resultado: 3290080, show: "false" },
@@ -102,7 +150,7 @@
 			ejercicios: [
 				{ ejercicio: "70.000 + 6.000 + 300", resultado: 76300, show: "false" }
 			],
-			loop:"true", time:90, 
+			loop:"true", time:5, 
 			islandId : 8			
 		},
 		{
@@ -110,17 +158,62 @@
 			ejercicios: [
 				{ ejercicio: "250.000 + 8.000 + 30", resultado: 258030, show: "false" }
 			],
+			loop:"true", time:5, 
+			islandId : 8
+		},		
+		{
+			title: "Para traspasar el portal que te lleva a una dimensión rica en plantas medicinales que podrían ayudar a curar esta enfermedad, tenés que encontrar el código secreto en 90 segundos. ¡Suerte!",
+			ejercicios: [
+				{ ejercicio: "69.745 x 10", resultado: 697450, show: "false" },
+				{ ejercicio: "69.745 x 100", resultado: 6974500, show: "false" },
+				{ ejercicio: "69.745 x 50", resultado: 3487250, show: "false" },
+				{ ejercicio: "69.745 x 500", resultado: 34872500, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 	8
+		},
+		{
+			title: "Es necesario encontrar el código que abre el cofre en el que hay un agua rica en sales que ayuda a la hidratación de esta especie. ¡Tenés 90 segundos para descifrarlo!",
+			ejercicios: [
+				{ ejercicio: "600 x 20", resultado: 12000, show: "true" },
+				{ ejercicio: "300 x ... = 12.000", resultado: 40, show: "false" },
+				{ ejercicio: "1.200 x ... = 12.000", resultado: 10, show: "false" },
+				{ ejercicio: "6.000 x ... = 12.000", resultado: 2, show: "false" },
+				{ ejercicio: "60 x ... = 12.000", resultado: 200, show: "false" }
+			],
 			loop:"true", time:90, 
 			islandId : 8			
 		},
-		
-		
-		
-		
-		
-		
 		{
-			title: "Una de las especies es Sedum frutescens. En un sector de la isla existen napas subterráneas donde se aloja gran cantidad de estas semillas. Si lográs descifrar el código en 2 minutos, te indicará la ubicación exacta para que puedas encontrarlas y ayudar a los habitantes de la isla a sembrarlas.",
+			title: "Tenés 90 segundos para encontrar el código que abre un botiquín que contiene un ungüento que ayuda a reducir las manchas en estos animales.",
+			ejercicios: [
+				{ ejercicio: "239.979 + 1", resultado: 239980, show: "false" },
+				{ ejercicio: "239.976 + 10", resultado: 239986, show: "false" },
+				{ ejercicio: "239.976 + 100", resultado: 240076, show: "false" },
+				{ ejercicio: "239.976 + 1.000", resultado: 240976, show: "false" },
+				{ ejercicio: "239.976 + 10.000.000", resultado: 10239976, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 8			
+		},
+		{
+			title: "Descifrando el código en 5 segundos lograrás destapar la piedra que cubre las raíces del árbol mágico que nutre a esta especie.",
+			ejercicios: [
+				{ ejercicio: "El doble de 19.064 es:", resultado: 39128, show: "false" }
+			],
+			loop:"true", time:5, 
+			islandId : 8			
+		},
+		{
+			title: "Si lográs descifrar el código en 5 segundos, podrás abrir la puerta del refugio en el que podés resguardar y aislar a estos animales para evitar el contagio a otras especies.",
+			ejercicios: [
+				{ ejercicio: "La mitad de 96.496 es:", resultado: 48248, show: "false" }
+			],
+			loop:"true", time:5, 
+			islandId : 8			
+		},
+		{
+			title: "Una de las especies es Sedum frutescens. En un sector de la isla existen napas subterráneas donde se aloja gran cantidad de estas semillas. Si lográs descifrar el código en 90 segundos, te indicará la ubicación exacta para que puedas encontrarlas y ayudar a los habitantes de la isla a sembrarlas.",
 			ejercicios: [
 				{ ejercicio: "260 x 10 ", resultado: 2600, show: "false" },
 				{ ejercicio: "260 x 100", resultado: 26000, show: "false" },
@@ -132,7 +225,7 @@
 			islandId : 10			
 		},
 		{
-			title: "Si lográs descifrar el código oculto en 2 minutos, encontrarás la ubicación exacta de un brote de una de las especies, Agave titanota. Esto te permitirá sembrarlo y que se multiplique.",
+			title: "Si lográs descifrar el código oculto en 90 segundos, encontrarás la ubicación exacta de un brote de una de las especies, Agave titanota. Esto te permitirá sembrarlo y que se multiplique.",
 			ejercicios: [
 				{ ejercicio: "1.200 x 10 ", resultado: 12000, show: "false" },
 				{ ejercicio: "1.200 x 20", resultado: 24000, show: "false" },
@@ -144,11 +237,11 @@
 			islandId : 10			
 		},
 		{
-			title: "El código te revelará la ubicación de un ejemplar del Cactus de alcachofa que contiene frutos con semillas para resembrar, si lo descubrís en menos de 2 minutos.",
+			title: "El código te revelará la ubicación de un ejemplar del Cactus de alcachofa que contiene frutos con semillas para resembrar, si lo descubrís en menos de 90 segundos.",
 			ejercicios: [
-				{ ejercicio: "600 x 7 ", resultado: 4200, show: "false" },
+				{ ejercicio: "600 x 7", resultado: 4200, show: "false" },
 				{ ejercicio: "600 x 7 + 3", resultado: 4203, show: "false" },
-				{ ejercicio: "600 x 14 ", resultado: 8400, show: "false" },
+				{ ejercicio: "600 x 14", resultado: 8400, show: "false" },
 				{ ejercicio: "600 x 14 + 3", resultado: 8403, show: "false" }
 			],
 			loop:"true", time:90, 
@@ -159,44 +252,95 @@
 			ejercicios: [
 				{ ejercicio: "3 x 1.000.000 + 2 x 100.000 + 50", resultado: 3200050, show: "false" }
 			],
-			loop:"true", time:90, 
+			loop:"true", time:5, 
 			islandId : 10			
 		},
 		{
-			title: "Si descubrís el código en 2 minutos, encontrarás una zona en la isla que contiene tierra fértil y apta para la siembra de la especie Ferocactus histrix.",
+			title: "Si descubrís el código en 90 segundos, encontrarás una zona en la isla que contiene tierra fértil y apta para la siembra de la especie Ferocactus histrix.",
 			ejercicios: [
-				{ ejercicio: "1568 – 759", resultado: 809, show: "false" },
-				{ ejercicio: "1569 – 759", resultado: 810, show: "false" },
-				{ ejercicio: "1568 – 760", resultado: 808, show: "false" },
-				{ ejercicio: "1569 – 760", resultado: 809, show: "false" }
+				{ ejercicio: "1.568 – 759", resultado: 809, show: "false" },
+				{ ejercicio: "1.569 – 759", resultado: 810, show: "false" },
+				{ ejercicio: "1.568 – 760", resultado: 808, show: "false" },
+				{ ejercicio: "1.569 – 760", resultado: 809, show: "false" }
 			],
 			loop:"true", time:90, 
 			islandId : 10			
 		},
-		
-		
-		
-		
 		{
-			title: "Hace semanas que llueve y algunas regiones de esta isla se han inundado. ¡Sus habitantes están muy preocupados! Ayudalos descifrando el código para abrir el portal que permitirá pasar a una hechicera que con un encanto, hará que salga el sol y se detengan las precipitaciones. ¡Tenés 2 minutos!",
+			title: "Una de las especies es Sedum frutescens. En un sector de la isla existen napas subterráneas donde se aloja gran cantidad de estas semillas. Si lográs descifrar el código en 90 segundos, te indicará la ubicación exacta para que puedas encontrarlas y ayudar a los habitantes de la isla a sembrarlas.",
+			ejercicios: [
+				{ ejercicio: "167.000 - 1", resultado: 166999, show: "true" },
+				{ ejercicio: "167.000 – 10", resultado: 166990, show: "false" },
+				{ ejercicio: "167.000 – 100", resultado: 166900, show: "false" },
+				{ ejercicio: "167.000 – 1.000", resultado: 166000, show: "false" },
+				{ ejercicio: "167.000 - 10.000", resultado: 157000, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 10			
+		},
+		{
+			title: "Si lográs descifrar el código oculto en 90 segundos, encontrarás la ubicación exacta de un brote de una de las especies, Agave titanota. Esto te permitirá sembrarlo y que se multiplique.",
+			ejercicios: [
+				{ ejercicio: "54.987.654 – 4.000.000", resultado: 50987654, show: "false" },
+				{ ejercicio: "54.987.654 – 980.004", resultado: 54007650, show: "false" },
+				{ ejercicio: "54.987.654 – 7.650", resultado: 54980004, show: "false" },
+				{ ejercicio: "54.987.654 – 50.080.050", resultado: 4907604, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 10			
+		},
+		{
+			title: "El código te revelará la ubicación de un ejemplar del Cactus de alcachofa que contiene frutos con semillas para resembrar, si lo descubrís en menos de 90 segundos.",
+			ejercicios: [
+				{ ejercicio: "La mitad de 3.600 es:", resultado: 1800, show: "true" },
+				{ ejercicio: "La mitad de 3.500 es:", resultado: 1750, show: "false" },
+				{ ejercicio: "La mitad de 90 es:", resultado: 45, show: "false" },
+				{ ejercicio: "La mitad de 3.690 es:", resultado: 1845, show: "false" },
+				{ ejercicio: "La mitad de 3.690 es:", resultado: 1795, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 10			
+		},
+		{
+			title: "Averiguando este código, podés abrir el portal a una zona de la isla en la cual los seres humanos no han tenido acceso, por lo que la especie Pinus maximartinezii se encuentra intacta. ¡Tenés 90 segundos!",
+			ejercicios: [
+				{ ejercicio: "180 x 20", resultado: 3600, show: "true" },
+				{ ejercicio: "90 x ... = 3.600", resultado: 40, show: "false" },
+				{ ejercicio: "45 x ... = 3.600", resultado: 80, show: "false" },
+				{ ejercicio: "18 x ... = 3.600", resultado: 200, show: "false" },
+				{ ejercicio: "360 x ... = 3.600", resultado: 10, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 10			
+		},
+		{
+			title: "Si descubrís el código en 30 segundos, encontrarás una zona en la isla que contiene tierra fértil y apta para la siembra de la especie Ferocactus histrix.",
+			ejercicios: [
+				{ ejercicio: "17.890.700 + 10.000 + 300", resultado: 17901000, show: "false" }
+			],
+			loop:"true", time:30, 
+			islandId : 10			
+		},
+		{
+			title: "Hace semanas que llueve y algunas regiones de esta isla se han inundado. ¡Sus habitantes están muy preocupados! Ayudalos descifrando el código para abrir el portal que permitirá pasar a una hechicera que con un encanto, hará que salga el sol y se detengan las precipitaciones. ¡Tenés 90 segundos!",
 			ejercicios: [
 				{ ejercicio: "78.000 - 1 ", resultado: 77999, show: "false" },
 				{ ejercicio: "78.000 - 10 ", resultado: 77990, show: "false" },
 				{ ejercicio: "78.000 - 100 ", resultado: 77900, show: "false" },
-				{ ejercicio: "78.000 - 1000 ", resultado: 77000, show: "false" },
-				{ ejercicio: "78.000 - 10000 ", resultado: 68000, show: "false" }
+				{ ejercicio: "78.000 - 1.000 ", resultado: 77000, show: "false" },
+				{ ejercicio: "78.000 - 10.000 ", resultado: 68000, show: "false" }
 			],
 			loop:"true", time:90, 
 			islandId : 18			
 		},
 		{
-			title: "Los habitantes de la isla quieren crear sus propias huertas para la alimentación de sus familias, pero el suelo en esta región es infértil. Si descifrás el código para abrir el portal, podrás encontrar un mago que posee una pócima mágica para fertilizar el suelo. ¡Tenés 2 minutos!",
+			title: "Los habitantes de la isla quieren crear sus propias huertas para la alimentación de sus familias, pero el suelo en esta región es infértil. Si descifrás el código para abrir el portal, podrás encontrar un mago que posee una pócima mágica para fertilizar el suelo. ¡Tenés 90 segundos!",
 			ejercicios: [
 				{ ejercicio: "25.094.500 + 100", resultado: 25094600, show: "false" },
-				{ ejercicio: "25.094.500 + 1000", resultado: 25095500, show: "false" },
-				{ ejercicio: "25.094.500 + 10000", resultado: 25104500, show: "false" },
-				{ ejercicio: "25.094.500 + 100000", resultado: 25194500, show: "false" },
-				{ ejercicio: "25.094.500 + 1000000", resultado: 26094500, show: "false" }
+				{ ejercicio: "25.094.500 + 1.000", resultado: 25095500, show: "false" },
+				{ ejercicio: "25.094.500 + 10.000", resultado: 25104500, show: "false" },
+				{ ejercicio: "25.094.500 + 100.000", resultado: 25194500, show: "false" },
+				{ ejercicio: "25.094.500 + 1.000.000", resultado: 26094500, show: "false" }
 			],
 			loop:"true", time:90, 
 			islandId : 18			
@@ -206,11 +350,11 @@
 			ejercicios: [
 				{ ejercicio: "6.980.000 + 20.000", resultado: 7000000, show: "false" }
 			],
-			loop:"true", time:90, 
+			loop:"true", time:5, 
 			islandId : 18			
 		},
 		{
-			title: "Un temporal azotó la isla y se necesita con urgencia, ropa seca y abrigada para su población. Descifrá el código oculto para traspasar el portal y llegar a una dimensión donde habita una comunidad de tejedores que podrán ayudarlos. ¡Tenés 2 minutos!",
+			title: "Un temporal azotó la isla y se necesita con urgencia, ropa seca y abrigada para su población. Descifrá el código oculto para traspasar el portal y llegar a una dimensión donde habita una comunidad de tejedores que podrán ayudarlos. ¡Tenés 90 segundos!",
 			ejercicios: [
 				{ ejercicio: "65.200.621 - 5.000.000", resultado: 60200621, show: "false" },
 				{ ejercicio: "65.200.621 – 621", resultado: 65200000, show: "false" },
@@ -222,7 +366,7 @@
 			islandId : 18			
 		},
 		{
-			title: "Una familia de ogros traspasó el portal mágico hacia la isla y no encuentra el camino de regreso. Tenés 2 minutos para descifrar el código que los ayudará a regresar a su dimensión.",
+			title: "Una familia de ogros traspasó el portal mágico hacia la isla y no encuentra el camino de regreso. Tenés 90 segundos para descifrar el código que los ayudará a regresar a su dimensión.",
 			ejercicios: [
 				{ ejercicio: "40 x 20", resultado: 800, show: "true" },
 				{ ejercicio: "80 x ...  = 800", resultado: 10, show: "false" },
@@ -232,7 +376,56 @@
 			],
 			loop:"true", time:90, 
 			islandId : 18			
+		},
+		{
+			title: "Hace semanas que llueve y algunas regiones de esta isla se han inundado. ¡Sus habitantes están muy preocupados! Ayudalos descifrando el código para abrir el portal que permitirá pasar a una hechicera que con un encanto, hará que salga el sol y se detengan las precipitaciones. ¡Tenés 5 segundos!",
+			ejercicios: [
+				{ ejercicio: "El doble de 28.454 es:", resultado: 56908, show: "false" }
+			],
+			loop:"true", time:5, 
+			islandId : 18			
+		},
+		{
+			title: "Los habitantes de la isla quieren crear sus propias huertas para la alimentación de sus familias, pero el suelo en esta región es infértil. Si descifrás el código para abrir el portal, podrás encontrar un mago que posee una pócima mágica para fertilizar el suelo. ¡Tenés 90 segundos!",
+			ejercicios: [
+				{ ejercicio: "7.000 x 8", resultado: 56000, show: "true" },
+				{ ejercicio: "7.000 x 8", resultado: 56078, show: "false" },
+				{ ejercicio: "7.000 x 16", resultado: 112000, show: "false" },
+				{ ejercicio: "7.000 x 16 + 78", resultado: 112078, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 18			
+		},
+		{
+			title: "Los habitantes de la isla necesitan construir embarcaciones pero este territorio no posee árboles. Descubriendo el código secreto en 30 segundos, podrás atravesar el portal que te lleva a un bosque mágico donde los árboles talados se regeneran infinitamente.",
+			ejercicios: [
+				{ ejercicio: "4.000.000 x 2 +300.000 x 3 + 19.654", resultado: 8919654, show: "false" }
+			],
+			loop:"true", time:30, 
+			islandId : 18			
+		},
+		{
+			title: "Un temporal azotó la isla y se necesita con urgencia, ropa seca y abrigada para su población. Descifrá el código oculto para traspasar el portal y llegar a una dimensión donde habita una comunidad de tejedores que podrán ayudarlos. ¡Tenés 90 segundos!",
+			ejercicios: [
+				{ ejercicio: "74.650 x 10", resultado: 746500, show: "false" },
+				{ ejercicio: "74.650 x 100", resultado: 7465000, show: "false" },
+				{ ejercicio: "74.650 x 50", resultado: 3732500, show: "false" },
+				{ ejercicio: "74.650 x 500", resultado: 37325000, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 18			
+		},
+		{
+			title: "Una familia de ogros traspasó el portal mágico hacia la isla y no encuentra el camino de regreso. Tenés 90 segundos para descifrar el código que los ayudará a regresar a su dimensión.",
+			ejercicios: [
+				{ ejercicio: "5.456.000 + 4", resultado: 5456004, show: "true" },
+				{ ejercicio: "5.456.000 + 40", resultado: 5456040, show: "false" },
+				{ ejercicio: "5.456.000 + 400", resultado: 5456400, show: "false" },
+				{ ejercicio: "5.456.000 + 4.000", resultado: 5457000, show: "false" },
+				{ ejercicio: "5.456.000 + 40.000", resultado: 5496000, show: "false" }
+			],
+			loop:"true", time:90, 
+			islandId : 18	
 		}
-
 	]
 }

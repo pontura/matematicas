@@ -14,7 +14,7 @@ public class Intro : MonoBehaviour {
         //foreach (GameObject go in texts)
         //    go.SetActive(false);
         //texts[num].SetActive(true);
-        Invoke("Ready", 30);
+        Invoke("Ready", 26);
 	}
 	void Next () {
         //foreach (GameObject go in texts)

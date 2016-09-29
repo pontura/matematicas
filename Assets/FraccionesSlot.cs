@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class FraccionesSlot : MonoBehaviour {
@@ -16,9 +17,18 @@ public class FraccionesSlot : MonoBehaviour {
     void Start()
     {
         SetOff();
+        Invoke("Delay", 0.1f);
+    }
+    void Delay()
+    {
+        if (id == 1)
+        {
+            GetComponent<Button>().enabled = false;
+            GetComponentInChildren<Image>().color = Color.black;
+        }
     }
     public void Init(int id)
-    {
+    {        
         id1.SetActive(false);
         id2.SetActive(false);
         id3.SetActive(false);

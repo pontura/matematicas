@@ -42,6 +42,8 @@ public class MinigameFracciones : Minigame {
         recta1.text = minigame.recta[0].ToString();
         recta2.text = minigame.recta[1].ToString();
 
+        results.Clear();
+
         results.Add(minigame.fracciones[0]);
         results.Add(minigame.fracciones[1]);
         results.Add(minigame.fracciones[2]);
@@ -113,8 +115,7 @@ public class MinigameFracciones : Minigame {
     }
     override public void Reset()
     {
-        //if (results != null)
-        //        results.Clear();
+        
         foreach (FraccionesSlot slot in container.GetComponentsInChildren<FraccionesSlot>())
         {
             Destroy(slot.gameObject);
