@@ -222,6 +222,10 @@ public class Texts :MonoBehaviour {
                     minigame.loop = Json[gameName][a]["loop"].AsBool;
                     minigame.slots = int.Parse( Json[gameName][a]["slots"] );
                     minigame.recta = new Vector2(int.Parse(Json[gameName][a]["recta"][0]), int.Parse(Json[gameName][a]["recta"][1]));
+
+                    if (minigame.recta.y == 0)
+                        minigame.slots++;
+
                     minigame.fracciones = new List<int>();
                     for (int b = 0; b < Json[gameName][a]["fracciones"].Count; b++)
                     {

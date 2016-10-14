@@ -9,6 +9,9 @@ public class FraccionesSlot : MonoBehaviour {
     public GameObject id2;
     public GameObject id3;
     public GameObject id4;
+    public GameObject id5;
+
+    public GameObject fondo;
 
     //resultado + piedra puesta:
     public int resultPiedraID;
@@ -24,7 +27,13 @@ public class FraccionesSlot : MonoBehaviour {
         if (id == 1)
         {
             GetComponent<Button>().enabled = false;
-            GetComponentInChildren<Image>().color = Color.black;
+            fondo.SetActive(false);
+            id5.SetActive(true);
+            //GetComponentInChildren<Image>().color = Color.black;
+        }
+        else
+        {
+            id5.SetActive(false);
         }
     }
     public void Init(int id)
@@ -50,6 +59,7 @@ public class FraccionesSlot : MonoBehaviour {
         id2.SetActive(false);
         id3.SetActive(false);
         id4.SetActive(false);
+        id5.SetActive(false);
         this.piedraID = 0;
     }
 }
