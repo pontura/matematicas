@@ -9,6 +9,7 @@ public class Data : MonoBehaviour
    // const string PREFAB_PATH = "Data";
     static Data mInstance = null;
     public bool DEBUG;
+    public bool admin;
     
     [HideInInspector]
     public MissionsManager missionsManager;

@@ -12,9 +12,21 @@ public class MainScreen : MonoBehaviour {
     public GameObject userLogged;
     public GameObject userPasswordValidation;
     public GameObject loading;
+
+    public GameObject admin;
+    public GameObject notAdmin;
     
     void Start()
     {
+        if (Data.Instance.admin)
+        {
+            notAdmin.transform.localPosition = new Vector3(1000, 0, 0);
+            admin.SetActive(true);
+        }
+        else
+        {
+            admin.SetActive(false);
+        }
         loading.SetActive(false);
         ResetScreens();
         Events.OnUserRegistration += OnUserRegistration;

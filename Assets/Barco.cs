@@ -31,10 +31,10 @@ public class Barco : Screen
             tutorialDisplayed = true;
         }
         Events.OnBlockStatus(true);
-        if (Game.Instance.islandsManager.activeIsland.id == 1)
-        {
-            HelpPanel.SetActive(false);
-        } else
+      //  if (Game.Instance.islandsManager.activeIsland.id == 1)
+     //   {
+      //      HelpPanel.SetActive(false);
+     //   } else
         if (Game.Instance.islandsManager.activeIsland.id == 12 || Game.Instance.state == Game.states.MINIGAME_READY)
         {
             

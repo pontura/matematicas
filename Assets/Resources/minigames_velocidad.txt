@@ -199,7 +199,7 @@
 		{
 			title: "Descifrando el código en 5 segundos lograrás destapar la piedra que cubre las raíces del árbol mágico que nutre a esta especie.",
 			ejercicios: [
-				{ ejercicio: "El doble de 19.064 es:", resultado: 39128, show: "false" }
+				{ ejercicio: "El doble de 19.064 es:", resultado: 38128, show: "false" }
 			],
 			loop:"true", time:5, 
 			islandId : 8			

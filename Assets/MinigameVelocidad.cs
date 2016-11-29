@@ -98,7 +98,7 @@ public class MinigameVelocidad : Minigame
         secs--;
         if (secs == 0)
         {
-            ClockFiled.text = "Pasó el timepo (No suma logros)";
+            ClockFiled.text = "Pasó el tiempo (No suma logros)";
             return;
         }
         int min = (int)Mathf.Floor(secs / 60);

@@ -19,7 +19,7 @@
 			loop:"false"
 		},
 		{		
-			title: "Se quiere implementar un sistema de riego, para lo que se aprovechará el agua de lluvia. Por mes llueven aproximadamente 120 milímetros. Ayudá a los ingenieros forestales a decidir cuál de los siguientes cálculos que proponen, permite determinar cuántos litros de agua se podrá recolectar en un año.",
+			title: "Se quiere implementar un sistema de riego, para lo que se aprovechará el agua de lluvia. Por mes llueven aproximadamente 120 milímetros. Ayudá a los ingenieros forestales a decidir cuál de los siguientes cálculos que proponen, permite determinar cuántos litros de agua se podrá recolectar en un año. Cálculo 1: 120x365. Cálculo 2: 120:12. Cálculo 3: 120x12",
 			type: "HARDCODE",
 			result: 3,
 			islandId : 5,
