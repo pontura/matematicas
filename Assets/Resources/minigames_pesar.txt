@@ -1,4 +1,4 @@
-{
+﻿{
 	pesar:
 	[
 	
@@ -59,10 +59,10 @@
 			islandId : 3
 		},
 		{
-			title: "Un temblor sacudió la isla y parte del dique se derrumbó. Si descubrís el peso equivalente al promedio entre el peso de la cabeza de la estatua Romel, que es de 5 kg y el peso de su cuerpo, que es de 9 kg y 380 gramos, colocá esa cantidad de rocas sobre la piedra y se elevará la plataforma que te comunica con los lugareños para que colaboren en la reparación del dique.",
-			peso1: 1,
-			peso2: 0.100,
-			peso3: 0.010,
+			title: "Un temblor sacudió la isla y parte del dique se derrumbó. Si descubrís el peso equivalente al promedio entre el peso de la cabeza de la estatua Romel, que es de 5 toneladas y el peso de su cuerpo, que es de 9 tomeladas y 380 kilos, colocá esa cantidad de rocas sobre la piedra y se elevará la plataforma que te comunica con los lugareños para que colaboren en la reparación del dique.",
+			peso1: 1000,
+			peso2: 100,
+			peso3: 10,
 			result: 7190,
 			type: "HARDCODE",
 			loop:"false",
