@@ -23,13 +23,15 @@ public class MinigameVelocidad : Minigame
     public GameObject StartButton;
     public Text ClockFiled;
 
+    bool playing;
+
     public int secs;
 
     private float _separationY = 0.16f;
 
     void Start()
     {
-        
+        UpdateClock();
     }
     void OnEnable()
     {
@@ -37,12 +39,13 @@ public class MinigameVelocidad : Minigame
         StartButton.SetActive(true);
         Events.OnMinigameStartCalculator();
         inputField.text = "";
-
-        
+        ClockFiled.text = "";
+        secs = minigame.time;
     }
     private Texts.Minigame_Velocidad minigame;
     public void Init()
     {
+        
         ClockFiled.text = "";
         StartButton.SetActive(true);
 
@@ -50,8 +53,11 @@ public class MinigameVelocidad : Minigame
         mathDevice.Appear();
 
         minigame = Data.Instance.texts.GetMinigame_Velocidad();
-        string textFinal = minigame.title;
+
         secs = minigame.time;
+
+        string textFinal = minigame.title;
+        
 
         print("textFinal: " + textFinal);
 
@@ -70,6 +76,8 @@ public class MinigameVelocidad : Minigame
     }
     void InitGame()
     {
+        
+
         StartButton.SetActive(false);
 
         ActivateNext();
@@ -90,22 +98,25 @@ public class MinigameVelocidad : Minigame
         }
 
         descSmall.text = textFinal;
-
-        UpdateClock();
+        
     }
     void UpdateClock()
     {
-        secs--;
-        if (secs == 0)
+        Invoke("UpdateClock", 1);
+        if (!playing) return;
+        if(secs>0)
+            secs--;
+        if (secs <= 0)
         {
-            ClockFiled.text = "Pasó el tiempo (No suma logros)";
+            if(secs == minigame.time)
+                ClockFiled.text = "";
+            else
+                ClockFiled.text = "Pasó el tiempo (No suma logros)";
             return;
         }
         int min = (int)Mathf.Floor(secs / 60);
         int sec = secs - (min*60);
-
-        Invoke("UpdateClock", 1);
-
+        
         string sec_field = sec.ToString();
         if (sec < 10) sec_field = "0" + sec;
 
@@ -115,6 +126,7 @@ public class MinigameVelocidad : Minigame
     {
         print("RESET");
         result = 0;
+        playing = false;
     }
     private int GetValue(InputField inputField)
     {
@@ -151,7 +163,8 @@ public class MinigameVelocidad : Minigame
         }        
     }
     void ActivateNext()
-    {       
+    {
+        playing = true;
         active++;
         inputField.text = "";
         label.text = active + ")";
