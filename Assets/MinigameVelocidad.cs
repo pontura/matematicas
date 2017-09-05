@@ -40,12 +40,16 @@ public class MinigameVelocidad : Minigame
         Events.OnMinigameStartCalculator();
         inputField.text = "";
         ClockFiled.text = "";
-        secs = minigame.time;
+        
+    }
+    void OnDisable()
+    {
+        playing = false;
     }
     private Texts.Minigame_Velocidad minigame;
     public void Init()
     {
-        
+       
         ClockFiled.text = "";
         StartButton.SetActive(true);
 
@@ -53,11 +57,10 @@ public class MinigameVelocidad : Minigame
         mathDevice.Appear();
 
         minigame = Data.Instance.texts.GetMinigame_Velocidad();
-
-        secs = minigame.time;
+      
 
         string textFinal = minigame.title;
-        
+
 
         print("textFinal: " + textFinal);
 
@@ -69,15 +72,15 @@ public class MinigameVelocidad : Minigame
         gemas3.SetActive(false);
         gemas4.SetActive(false);
         gemas5.SetActive(false);
-    }    
+    }
     public void StartGame()
     {
         InitGame();
+        secs = minigame.time;
+        playing = true;
     }
     void InitGame()
-    {
-        
-
+    {        
         StartButton.SetActive(false);
 
         ActivateNext();
@@ -88,35 +91,35 @@ public class MinigameVelocidad : Minigame
         int a = 0;
         foreach (Texts.Minigame_Velocidad.Ejercicio ejercicio in minigame.ejercicios)
         {
-            if (a > 0) 
+            if (a > 0)
                 textFinal += "\n";
 
             a++;
 
-            textFinal += a + ") " + ejercicio.ejercicio ;
-            
+            textFinal += a + ") " + ejercicio.ejercicio;
+
         }
 
         descSmall.text = textFinal;
-        
+
     }
     void UpdateClock()
     {
         Invoke("UpdateClock", 1);
         if (!playing) return;
-        if(secs>0)
+        if (secs > 0)
             secs--;
         if (secs <= 0)
         {
-            if(secs == minigame.time)
+            if (secs == minigame.time)
                 ClockFiled.text = "";
             else
                 ClockFiled.text = "Pasó el tiempo (No suma logros)";
             return;
         }
         int min = (int)Mathf.Floor(secs / 60);
-        int sec = secs - (min*60);
-        
+        int sec = secs - (min * 60);
+
         string sec_field = sec.ToString();
         if (sec < 10) sec_field = "0" + sec;
 
@@ -160,11 +163,11 @@ public class MinigameVelocidad : Minigame
         else
         {
             ActivateNext();
-        }        
+        }
     }
     void ActivateNext()
     {
-        playing = true;
+        
         active++;
         inputField.text = "";
         label.text = active + ")";
@@ -190,9 +193,9 @@ public class MinigameVelocidad : Minigame
             if (Game.Instance.mainMenu.blockOn)
             {
                 Game.Instance.mainMenu.BlockClose();
-               // Invoke("OpenBlock", 2);
+                // Invoke("OpenBlock", 2);
             }
-        }        
+        }
     }
     void OpenBlock()
     {
@@ -205,6 +208,7 @@ public class MinigameVelocidad : Minigame
     override public string GetDescriptionForBlock()
     {
         string clockResult = "";
+        if (!playing) return "";
         if (secs > 0)
         {
             clockResult = ClockFiled.text;
