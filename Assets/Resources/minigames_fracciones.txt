@@ -128,7 +128,7 @@
 			islandId : 4
 		},
 		{
-			title: "Durante la tormenta se produjeron relámpagos y fuertes truenos. Uno de ellos cayó en un árbol de la plaza central de la isla provocando un incendio. Ayudanos a extinguir el fuego colocando la gema roja en la hendidura correspondiente a 13/6, la gema verde en la hendidura correspondiente a 15/2 y la gema amarilla en la hendidura correspondiente a 8/3.",
+			title: "Durante la tormenta se produjeron relámpagos y fuertes truenos. Uno de ellos cayó en un árbol de la plaza central de la isla provocando un incendio. Ayudanos a extinguir el fuego colocando la gema roja en la hendidura correspondiente a 13/6, la gema verde en la hendidura correspondiente a 5/2 y la gema amarilla en la hendidura correspondiente a 8/3.",
 			fracciones: [4,2,5,0], 
 			slots: 7,
 			recta: [2,3],
@@ -244,8 +244,8 @@
 			islandId : 11			
 		},
 		{
-			title: "La tala de un grupo de árboles de una ladera originó el deslizamiento de su tierra y el derrumbe de rocas que obstaculizan caminos y senderos. Ayudá a los pobladores a desbloquearlo encontrando la posición exacta de las gemas en las hendiduras: la gema roja en la hendidura correspondiente a 12/3, la gema verde en la hendidura correspondiente a 6 y la gema azul en la hendidura correspondiente a 16/3.",
-			fracciones: [7,1,0,5],
+			title: "La tala de un grupo de árboles de una ladera originó el deslizamiento de su tierra y el derrumbe de rocas que obstaculizan caminos y senderos. Ayudá a los pobladores a desbloquearlo encontrando la posición exacta de las gemas en las hendiduras: la gema roja en la hendidura correspondiente a 13/3, la gema verde en la hendidura correspondiente a 6 y la gema azul en la hendidura correspondiente a 16/3.",
+			fracciones: [7,2,0,5],
 			slots: 10,
 			recta: [4,7],
 			loop:"true",
@@ -311,8 +311,8 @@
 			islandId : 14			
 		},
 		{
-			title: "La lluvia y la falta de canales para que el agua transite generó un desplazamiento de tierra en la zona cercana al puerto donde llegarán los materiales para la construcción. Las rocas y la tierra deben moverse antes de que la embarcación llegue. Para ayudarlos, ubicá la gema azul en la hendidura correspondiente a 16/4, la gema amarilla en la hendidura correspondiente a 11/2 y la gema verde en la hendidura correspondiente a 21/4.",
-			fracciones: [6,0,7,1],
+			title: "La lluvia y la falta de canales para que el agua transite generó un desplazamiento de tierra en la zona cercana al puerto donde llegarán los materiales para la construcción. Las rocas y la tierra deben moverse antes de que la embarcación llegue. Para ayudarlos, ubicá la gema azul en la hendidura correspondiente a 20/4, la gema amarilla en la hendidura correspondiente a 11/2 y la gema verde en la hendidura correspondiente a 21/4.",
+			fracciones: [6,0,7,5],
 			slots: 9,
 			recta: [4,6],
 			loop:"true",

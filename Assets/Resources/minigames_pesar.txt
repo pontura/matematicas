@@ -520,7 +520,7 @@
 			peso3: 10,
 			type: "PROMEDIO",
 			loop:"true",
-			islandId : 13
+			islandId : 17
 		},
 		
 		
@@ -590,10 +590,10 @@
 		},
 		{
 			title: "Se desea delimitar una zona de la isla para crear una reserva que aporte a la conservación del yaguareté. Para lograrlo necesitan cruzar el acantilado selvático que los comunica con esta zona. Deberás sopesar la estatua Felincham y el camino se elevará. El peso de la estatua es igual a la décima parte de 35.700 kilogramos.",
-			peso1: 1000,
+			peso1: 2000,
 			peso2: 250,
 			peso3: 10,
-			result: 3.570,
+			result: 3570,
 			type: "HARDCODE",
 			loop:"true",
 			islandId : 19			

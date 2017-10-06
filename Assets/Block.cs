@@ -36,7 +36,14 @@ public class Block : Screen
     }
     public void Open()
     {
-        calculator.SetActive(true);
+        if (Game.Instance.gameManager.Isla.isActive
+            &&
+            Game.Instance.islandsManager.activeIsland.minigameType == MinigamesManager.types.VELOCIDAD
+            )
+            calculator.SetActive(false);
+        else
+            calculator.SetActive(true);
+
         print("BLOCK Open" );
         anim.Play("OpenBlock");
     }

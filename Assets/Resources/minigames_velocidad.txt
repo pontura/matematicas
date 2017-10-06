@@ -39,10 +39,10 @@
 		{
 			title: "Vientos fuertes derribaron árboles que obstruyen el cauce del río, empeorando la situación. Tenés 90 segundos para abrir el portal que permitirá el ingreso de una fuerza mágica que quitará los troncos. ¡Descifrá el código!",
 			ejercicios: [
-				{ ejercicio: "120.600 : 10", resultado: 12060, show: "false" },
-				{ ejercicio: "120.600 : 100", resultado: 1206, show: "false" },
-				{ ejercicio: "120.600 : 20", resultado: 6030, show: "false" },
-				{ ejercicio: "120.600 : 10", resultado: 603, show: "false" }
+				{ ejercicio: "8.426 x 10", resultado: 84260, show: "false" },
+				{ ejercicio: "8.426 x 100", resultado: 842600, show: "false" },
+				{ ejercicio: "8.426 x 50", resultado: 421300, show: "false" },
+				{ ejercicio: "8.426 x 500", resultado: 4213000, show: "false" }
 			],
 			loop:"true", time:90, 
 			islandId : 	7		
@@ -66,7 +66,7 @@
 				{ ejercicio: "2.400 x 6", resultado: 14400, show: "false" },
 				{ ejercicio: "1.200 x 12", resultado: 14400, show: "false" },
 				{ ejercicio: "1.200 x 6", resultado: 7200, show: "false" },
-				{ ejercicio: "2.400 x 11", resultado: 24400, show: "false" }
+				{ ejercicio: "2.400 x 11", resultado: 26400, show: "false" }
 			],
 			loop:"true", time:90, 
 			islandId : 	7		
@@ -93,10 +93,10 @@
 		{
 			title: "Vientos fuertes derribaron árboles que obstruyen el cauce del río, empeorando la situación. Tenés 90 segundos para abrir el portal que permitirá el ingreso de una fuerza mágica que quitará los troncos. ¡Descifrá el código!",
 			ejercicios: [
-				{ ejercicio: "8.460 x 10", resultado: 84600, show: "false" },
-				{ ejercicio: "8.460 x 100", resultado: 846000, show: "false" },
-				{ ejercicio: "8.460 x 20", resultado: 169200, show: "false" },
-				{ ejercicio: "8.460 x 5", resultado: 42300, show: "false" }
+				{ ejercicio: "120.600 : 10", resultado: 12060, show: "false" },
+				{ ejercicio: "120.600 : 100", resultado: 1206, show: "false" },
+				{ ejercicio: "120.600 : 20", resultado:  6030, show: "false" },
+				{ ejercicio: "120.600 : 200", resultado: 603, show: "false" }	
 			],
 			loop:"true", time:90, 
 			islandId : 	7		
@@ -296,7 +296,7 @@
 				{ ejercicio: "La mitad de 3.500 es:", resultado: 1750, show: "false" },
 				{ ejercicio: "La mitad de 90 es:", resultado: 45, show: "false" },
 				{ ejercicio: "La mitad de 3.690 es:", resultado: 1845, show: "false" },
-				{ ejercicio: "La mitad de 3.690 es:", resultado: 1795, show: "false" }
+				{ ejercicio: "La mitad de 3.590 es:", resultado: 1795, show: "false" }
 			],
 			loop:"true", time:90, 
 			islandId : 10			
@@ -389,7 +389,7 @@
 			title: "Los habitantes de la isla quieren crear sus propias huertas para la alimentación de sus familias, pero el suelo en esta región es infértil. Si descifrás el código para abrir el portal, podrás encontrar un mago que posee una pócima mágica para fertilizar el suelo. ¡Tenés 90 segundos!",
 			ejercicios: [
 				{ ejercicio: "7.000 x 8", resultado: 56000, show: "true" },
-				{ ejercicio: "7.000 x 8", resultado: 56078, show: "false" },
+				{ ejercicio: "7.000 x 8 + 78", resultado: 56078, show: "false" },
 				{ ejercicio: "7.000 x 16", resultado: 112000, show: "false" },
 				{ ejercicio: "7.000 x 16 + 78", resultado: 112078, show: "false" }
 			],
@@ -421,7 +421,7 @@
 				{ ejercicio: "5.456.000 + 4", resultado: 5456004, show: "true" },
 				{ ejercicio: "5.456.000 + 40", resultado: 5456040, show: "false" },
 				{ ejercicio: "5.456.000 + 400", resultado: 5456400, show: "false" },
-				{ ejercicio: "5.456.000 + 4.000", resultado: 5457000, show: "false" },
+				{ ejercicio: "5.456.000 + 4.000", resultado: 5460000, show: "false" },
 				{ ejercicio: "5.456.000 + 40.000", resultado: 5496000, show: "false" }
 			],
 			loop:"true", time:90, 

@@ -247,8 +247,30 @@
 			loop:"false"
 		},
 		{
-			title: "El barco utilizado para transportar a la isla las estructuras de aluminio necesarias para fabricar los [500/800] paneles solares no puede transportar más de [40/90] paneles por viaje. Ayudá a calcular cuántos viajes en barco serán necesarios para traer a la isla todas las estructuras necesarias.",
-			type: "MULTIPLICA",
+			title: "El barco utilizado para transportar a la isla las estructuras de aluminio necesarias para fabricar los 633 paneles solares no puede transportar más de 65 paneles por viaje. Ayudá a calcular cuántos viajes en barco serán necesarios para traer a la isla todas las estructuras necesarias.",
+			type: "HARDCODE",
+			result: 10,
+			islandId : 16,
+			loop:"true"
+		},
+		{
+			title: "El barco utilizado para transportar a la isla las estructuras de aluminio necesarias para fabricar los 723 paneles solares no puede transportar más de 76 paneles por viaje. Ayudá a calcular cuántos viajes en barco serán necesarios para traer a la isla todas las estructuras necesarias.",
+			type: "HARDCODE",
+			result: 10,
+			islandId : 16,
+			loop:"true"
+		},
+		{
+			title: "El barco utilizado para transportar a la isla las estructuras de aluminio necesarias para fabricar los 115 paneles solares no puede transportar más de 12 paneles por viaje. Ayudá a calcular cuántos viajes en barco serán necesarios para traer a la isla todas las estructuras necesarias.",
+			type: "HARDCODE",
+			result: 10,
+			islandId : 16,
+			loop:"true"
+		},
+		{
+			title: "El barco utilizado para transportar a la isla las estructuras de aluminio necesarias para fabricar los 445 paneles solares no puede transportar más de 45 paneles por viaje. Ayudá a calcular cuántos viajes en barco serán necesarios para traer a la isla todas las estructuras necesarias.",
+			type: "HARDCODE",
+			result: 10,
 			islandId : 16,
 			loop:"true"
 		},
@@ -327,7 +349,7 @@
 		},
 		{
 			title: "La planta potabilizadora de la isla cuenta con [100/500] tuberías, pero [2/20] se taparon dejando sin agua potable a gran parte de la población. Hay que reemplazar las tuberías dañadas. Ayudá a los funcionarios de la planta a calcular cuántas tuberías deben reemplazarse.",
-			type: "MULTIPLICA",
+			type: "RESTA",
 			islandId : 15,
 			loop:"true"
 		}

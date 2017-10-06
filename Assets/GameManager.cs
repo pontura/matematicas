@@ -57,7 +57,9 @@ public class GameManager : MonoBehaviour {
     void ActivateBlockButton()
     {
         if (Game.Instance.islandsManager.activeIsland.minigameType == MinigamesManager.types.VELOCIDAD)
-            BlockButton.SetActive(false);
+        {
+            //  BlockButton.SetActive(false);
+        }
         else
             BlockButton.SetActive(true);
     }

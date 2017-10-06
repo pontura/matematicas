@@ -63,7 +63,7 @@ public class SoundManager : MonoBehaviour
         }
 
         if (!Data.Instance.soundsOn) return;
-        print("_________________soundName: " + soundName);
+
         audioSource.PlayOneShot(Resources.Load("sound/" + soundName) as AudioClip);
 
     }

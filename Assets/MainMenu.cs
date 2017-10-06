@@ -25,7 +25,8 @@ public class MainMenu : MonoBehaviour {
     }
     void OnBlockStatus(bool show)
     {
-        buttons[3].gameObject.SetActive(show);
+        if (Game.Instance.gameManager.Logros.isActive || Game.Instance.gameManager.Trip.isActive)
+            buttons[3].gameObject.SetActive(show);
     }
     void OnDestroy()
     {
@@ -135,9 +136,11 @@ public class MainMenu : MonoBehaviour {
     }
     public void Logros()
     {
+      
         Events.OnSoundFX("click");
         scenesBackground.ResetScenes();
         SetActive(5);
         gameManager.Open("Logros");
+        buttons[3].gameObject.SetActive(false);
     }
 }
