@@ -513,7 +513,7 @@
 			islandId : 13
 		},
 		{
-			title: "La torre Banchipesa pesa un promedio de []. Colocá esa cantidad de rocas sobre la piedra y se elevará la plataforma.",
+			title: "La torre Banchi pesa pesa un promedio de []. Colocá esa cantidad de rocas sobre la piedra y se elevará la plataforma.",
 			promedios: [1000, 1000],
 			peso1: 500,
 			peso2: 50,

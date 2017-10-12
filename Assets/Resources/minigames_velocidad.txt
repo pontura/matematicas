@@ -39,10 +39,10 @@
 		{
 			title: "Vientos fuertes derribaron árboles que obstruyen el cauce del río, empeorando la situación. Tenés 90 segundos para abrir el portal que permitirá el ingreso de una fuerza mágica que quitará los troncos. ¡Descifrá el código!",
 			ejercicios: [
-				{ ejercicio: "8.426 x 10", resultado: 84260, show: "false" },
-				{ ejercicio: "8.426 x 100", resultado: 842600, show: "false" },
-				{ ejercicio: "8.426 x 50", resultado: 421300, show: "false" },
-				{ ejercicio: "8.426 x 500", resultado: 4213000, show: "false" }
+				{ ejercicio: "120.600 : 10", resultado: 12060, show: "false" },
+				{ ejercicio: "120.600 : 100", resultado: 1206, show: "false" },
+				{ ejercicio: "120.600 : 20", resultado: 6030, show: "false" },
+				{ ejercicio: "120.600 : 200", resultado: 603, show: "false" }
 			],
 			loop:"true", time:90, 
 			islandId : 	7		
@@ -130,7 +130,7 @@
 			ejercicios: [
 				{ ejercicio: "El doble de 8.520 es: ", resultado: 17040, show: "false" }
 			],
-			loop:"true", time:5, 
+			loop:"true", time:15, 
 			islandId : 8			
 		},
 		{
@@ -150,7 +150,7 @@
 			ejercicios: [
 				{ ejercicio: "70.000 + 6.000 + 300", resultado: 76300, show: "false" }
 			],
-			loop:"true", time:5, 
+			loop:"true", time:15, 
 			islandId : 8			
 		},
 		{
@@ -158,16 +158,16 @@
 			ejercicios: [
 				{ ejercicio: "250.000 + 8.000 + 30", resultado: 258030, show: "false" }
 			],
-			loop:"true", time:5, 
+			loop:"true", time:15, 
 			islandId : 8
 		},		
 		{
 			title: "Para traspasar el portal que te lleva a una dimensión rica en plantas medicinales que podrían ayudar a curar esta enfermedad, tenés que encontrar el código secreto en 90 segundos. ¡Suerte!",
 			ejercicios: [
-				{ ejercicio: "69.745 x 10", resultado: 697450, show: "false" },
-				{ ejercicio: "69.745 x 100", resultado: 6974500, show: "false" },
-				{ ejercicio: "69.745 x 50", resultado: 3487250, show: "false" },
-				{ ejercicio: "69.745 x 500", resultado: 34872500, show: "false" }
+				{ ejercicio: "8.426 x 10", resultado: 84260, show: "false" },
+				{ ejercicio: "8.426 x 100", resultado: 842600, show: "false" },
+				{ ejercicio: "8.426 x 50", resultado: 421300, show: "false" },
+				{ ejercicio: "8.426 x 500", resultado: 4213000, show: "false" }
 			],
 			loop:"true", time:90, 
 			islandId : 	8
@@ -201,7 +201,7 @@
 			ejercicios: [
 				{ ejercicio: "El doble de 19.064 es:", resultado: 38128, show: "false" }
 			],
-			loop:"true", time:5, 
+			loop:"true", time:15, 
 			islandId : 8			
 		},
 		{
@@ -209,7 +209,7 @@
 			ejercicios: [
 				{ ejercicio: "La mitad de 96.496 es:", resultado: 48248, show: "false" }
 			],
-			loop:"true", time:5, 
+			loop:"true", time:15, 
 			islandId : 8			
 		},
 		{
@@ -252,7 +252,7 @@
 			ejercicios: [
 				{ ejercicio: "3 x 1.000.000 + 2 x 100.000 + 50", resultado: 3200050, show: "false" }
 			],
-			loop:"true", time:5, 
+			loop:"true", time:15, 
 			islandId : 10			
 		},
 		{
@@ -350,7 +350,7 @@
 			ejercicios: [
 				{ ejercicio: "6.980.000 + 20.000", resultado: 7000000, show: "false" }
 			],
-			loop:"true", time:5, 
+			loop:"true", time:15, 
 			islandId : 18			
 		},
 		{
@@ -382,7 +382,7 @@
 			ejercicios: [
 				{ ejercicio: "El doble de 28.454 es:", resultado: 56908, show: "false" }
 			],
-			loop:"true", time:5, 
+			loop:"true", time:15, 
 			islandId : 18			
 		},
 		{

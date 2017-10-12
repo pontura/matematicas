@@ -40,11 +40,16 @@ public class MinigamePesos : Minigame {
 
         if (minigame.type == Texts.Minigame_Peso.Minigame_Peso_type.PROMEDIO)
         {
+            int a = 0;
             foreach (int prom in minigame.promedios)
             {
                 int num = GetPromNumber();
                 total += num;
-                insertfield += " " + num.ToString() + "k";
+                if(a==0)
+                    insertfield =  num.ToString() + " kilos";
+                else
+                  insertfield += " y " + num.ToString() + " kilos";
+                a++;
             }
             result = total / minigame.promedios.Count;
         }

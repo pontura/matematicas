@@ -289,67 +289,68 @@
 			type: "HARDCODE",
 			result: 1,
 			islandId : 15,
-			loop:"false"
+			loop:"true"
 		},
 		{
 			title: "La limpieza de la torre de toma de agua de la planta potabilizadora cuesta $ 230.000. Antes de la aparición del mejillón dorado en la isla, esta limpieza se realizaba una vez a año, pero actualmente deben realizarla cuatro veces al año ya que estos animales se pegan en las rejas e impiden la entrada del agua. Ayudá a los directivos de la planta a calcular cuánto dinero extra por año deberán destinar a la limpieza de la torre de toma de agua ante esta situación.",
 			type: "HARDCODE",
 			result: 690000,
 			islandId : 15,
-			loop:"false"
+			loop:"true"
 		},
 		{
 			title: "Durante el período de limpieza y reparación de la planta no es posible garantizar la potabilidad del agua, por lo que es necesario proveer a la población de agua mineral para su consumo. Se estima un consumo de 3 litros de agua por habitante por día y la isla cuenta con 12.300 habitantes. Ayudá a estimar la cantidad total de agua mineral que será necesaria para abastecer a la población durante los 13 días que durarán las tareas de limpieza y reparación.",
 			type: "HARDCODE",
 			result: 479700,
 			islandId : 15,
-			loop:"false"
+			loop:"true"
 		},
 		{
 			title: "¡Alerta! ¡El casco de tu embarcación también fue invadido por el mejillón dorado! No podés continuar tu viaje hasta que no se realicen las tareas de limpieza indicadas. Mientras tu embarcación permanezca en la isla debés pagar un impuesto de $1.250 por día y a su vez, asegurarte de proveer a tu tripulación de comida suficiente. El costo estimado para alimentar a 12 tripulantes es de $3.400 por día. Calculá el gasto que representa quedarte en la isla con tus 144 tripulantes durante una semana.",
 			type: "HARDCODE",
 			result: 294350,
 			islandId : 15,
-			loop:"false"
+			loop:"true"
 		},
 		{
 			title: "La planta potabilizadora de la isla debe realizar una limpieza profunda en todas sus tomas de agua. El costo que tiene realizar dicho trabajo es de $ 625.000. Sin embargo pueden pagar 2/5 del total al iniciar y el resto luego de finalizarlas. Ayudá a los funcionarios de la planta a calcular cuánto dinero deberán pagar para comenzar la limpieza.",
 			type: "HARDCODE",
 			result: 250000,
 			islandId : 15,
-			loop:"false"
+			loop:"true"
 		},
 		{
 			title: "El año pasado llegaron a la isla 2700 turistas. Cada uno pagó una tasa de ingreso de $210. Este año se espera triplicar la cantidad de turistas que ingresen a la isla. Ayudanos a decidir qué cálculo permite conocer cuánto se recaudará en total por la tasa de ingreso. Cálculo 1: 2.700 x 210 + 3. Cálculo 2: 2.700 : 210 x 3. Cálculo 3: 2.700 x 210 x 3.",
 			type: "HARDCODE",
 			result: 3,
 			islandId : 15,
-			loop:"false"
+			loop:"true"
 		},
 		{
 			title: "La limpieza de la torre de toma de agua de la planta potabilizadora cuesta $ 230.000. Antes de la aparición del mejillón dorado en la isla, esta limpieza se realizaba una vez al año, pero actualmente deben realizarla cuatro veces al año ya que estos animales se pegan en las rejas e impiden la entrada del agua. La empresa que se ocupa de la limpieza decidió hacer un descuento de 1/10 del costo total. Ayudá a los directivos de la planta a calcular cuánto dinero deberán pagar por la limpieza de la torre.",
 			type: "HARDCODE",
 			result: 828000,
 			islandId : 15,
-			loop:"false"
+			loop:"true"
 		},
 		{
 			title: "Durante el período de limpieza y reparación de la planta no es posible garantizar la potabilidad del agua. El gobierno de la isla deberá comprar 480.000 litros de agua potable para abastecer a la población. El agua la compran en cajones de 12 botellones cada uno, y cada botellón tiene 5 litros. Ayudá a calcular la cantidad de cajones necesarios para abastecer de agua a la población.",
 			type: "HARDCODE",
 			result: 8000,
 			islandId : 15,
-			loop:"false"
+			loop:"true"
 		},
 		{
 			title: "¡Alerta! ¡El casco de tu embarcación también fue invadido por el mejillón dorado! No podés continuar tu viaje hasta que no se realicen las tareas de limpieza indicadas. Mientras tu embarcación permanezca en la isla debés pagar un impuesto de $1.300 por día por tener el barco anclado en el puerto. A su vez, deberás asegurarte de proveer a tu tripulación de comida suficiente. El costo estimado para alimentar a 12 tripulantes es de $3.400 por día. Colaborá en la elección del cálculo que permite estimar el gasto diario que representa quedarte en la isla con tus 120 tripulantes. Cálculo 1: $3.400 x 10 x $1.300. Cálculo 2: $3.400 x 10 + $1.300. Cálculo 3: $3.400 x 120 + $1.300.",
 			type: "HARDCODE",
 			result: 2,
 			islandId : 15,
-			loop:"false"
+			loop:"true"
 		},
 		{
-			title: "La planta potabilizadora de la isla cuenta con [100/500] tuberías, pero [2/20] se taparon dejando sin agua potable a gran parte de la población. Hay que reemplazar las tuberías dañadas. Ayudá a los funcionarios de la planta a calcular cuántas tuberías deben reemplazarse.",
-			type: "RESTA",
+			title: "La planta potabilizadora de la isla cuenta con 240 tuberías, pero la mitad se taparon dejando sin agua potable a gran parte de la población. Hay que reemplazar las tuberías dañadas. Ayudá a los funcionarios de la planta a calcular cuántas tuberías deben reemplazarse.",
+			type: "HARDCODE",
+			result: 120,
 			islandId : 15,
 			loop:"true"
 		}
