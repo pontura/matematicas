@@ -8,6 +8,7 @@ public class DataController : MonoBehaviour
     const string URL = "http://juegos.buber.edu.ar/chacmool/";
     private string getUserIdByEmail_URL = URL + "getUserIdByEmail.php?";
     private string createUser_URL = URL + "createUser.php?";
+    private string addNewData_URL = URL + "addNewData.php?";
     private string getRanking_URL = URL + "getRanking.php?";
     private string saveRanking_URL = URL + "saveRanking.php?";
     private string setUserFilter_URL = URL + "setUserFilter.php?";
@@ -55,7 +56,74 @@ public class DataController : MonoBehaviour
                 string email = userData[4];
                 int achievements = System.Int32.Parse(userData[5]);
 
-                //SetUserData(username, userID, email);
+                int distance = System.Int32.Parse(userData[5]);
+                int island_active = System.Int32.Parse(userData[6]);
+                int mission_active = System.Int32.Parse(userData[7]);
+                int sex = System.Int32.Parse(userData[8]);
+                int clothes = System.Int32.Parse(userData[9]);
+                int legs = System.Int32.Parse(userData[10]);
+                int shoes = System.Int32.Parse(userData[11]);
+                int skin = System.Int32.Parse(userData[12]);
+                int hairs    = System.Int32.Parse(userData[13]);
+
+                int progressIsland_1 = System.Int32.Parse(userData[14]);
+                int progressIsland_2 = System.Int32.Parse(userData[15]);
+                int progressIsland_3 = System.Int32.Parse(userData[16]);
+                int progressIsland_4 = System.Int32.Parse(userData[17]);
+                int progressIsland_5 = System.Int32.Parse(userData[18]);
+                int progressIsland_6 = System.Int32.Parse(userData[19]);
+                int progressIsland_7 = System.Int32.Parse(userData[20]);
+                int progressIsland_8 = System.Int32.Parse(userData[21]);
+                int progressIsland_9 = System.Int32.Parse(userData[22]);
+                int progressIsland_10 = System.Int32.Parse(userData[23]);
+                int progressIsland_11 = System.Int32.Parse(userData[24]);
+                int progressIsland_12 = System.Int32.Parse(userData[25]);
+                int progressIsland_13 = System.Int32.Parse(userData[26]);
+                int progressIsland_14 = System.Int32.Parse(userData[27]);
+                int progressIsland_15 = System.Int32.Parse(userData[28]);
+                int progressIsland_16 = System.Int32.Parse(userData[29]);
+                int progressIsland_17 = System.Int32.Parse(userData[30]);
+                int progressIsland_18 = System.Int32.Parse(userData[31]);
+                int progressIsland_19 = System.Int32.Parse(userData[32]);
+                //SetUserData(username, userID, email)
+
+                if (distance == 0)
+                {
+                    Debug.Log("Ya existias pero sos nuevo en esta compu");
+                    SaveNewData(email);
+                } else
+                {
+                    Debug.Log("Ya jugo antes");
+                    PlayerPrefs.SetInt("progressIsland_1", progressIsland_1);
+                    PlayerPrefs.SetInt("progressIsland_2", progressIsland_2);
+                    PlayerPrefs.SetInt("progressIsland_3", progressIsland_3);
+                    PlayerPrefs.SetInt("progressIsland_4", progressIsland_4);
+                    PlayerPrefs.SetInt("progressIsland_5", progressIsland_5);
+                    PlayerPrefs.SetInt("progressIsland_6", progressIsland_6);
+                    PlayerPrefs.SetInt("progressIsland_7", progressIsland_7);
+                    PlayerPrefs.SetInt("progressIsland_8", progressIsland_8);
+                    PlayerPrefs.SetInt("progressIsland_9", progressIsland_9);
+                    PlayerPrefs.SetInt("progressIsland_10", progressIsland_10);
+                    PlayerPrefs.SetInt("progressIsland_11", progressIsland_11);
+                    PlayerPrefs.SetInt("progressIsland_12", progressIsland_12);
+                    PlayerPrefs.SetInt("progressIsland_13", progressIsland_13);
+                    PlayerPrefs.SetInt("progressIsland_14", progressIsland_14);
+                    PlayerPrefs.SetInt("progressIsland_15", progressIsland_15);
+                    PlayerPrefs.SetInt("progressIsland_16", progressIsland_16);
+                    PlayerPrefs.SetInt("progressIsland_17", progressIsland_17);
+                    PlayerPrefs.SetInt("progressIsland_18", progressIsland_18);
+                    PlayerPrefs.SetInt("progressIsland_19", progressIsland_19);
+
+                    PlayerPrefs.SetInt("distance", distance);
+                    PlayerPrefs.SetInt("island_active", island_active);
+                    PlayerPrefs.SetInt("mission_active", mission_active);
+                    PlayerPrefs.SetInt("sex", sex);
+                    PlayerPrefs.SetInt("clothes", clothes);
+                    PlayerPrefs.SetInt("legs", legs);
+                    PlayerPrefs.SetInt("shoes", shoes);
+                    PlayerPrefs.SetInt("skin", skin);
+                    PlayerPrefs.SetInt("hairs", hairs);
+                }
                 Data.Instance.userData.OnRegistration(username, email, password, userID, false);
             }
             catch
@@ -64,6 +132,73 @@ public class DataController : MonoBehaviour
                 CreateUser(_username, _email, UnityEngine.Random.Range(10000, 99999).ToString());
             }
         }
+    }
+    void SaveNewData(string email)
+    {
+        int progressIsland_1 = PlayerPrefs.GetInt("progressIsland_1", 0);
+        int progressIsland_2 = PlayerPrefs.GetInt("progressIsland_2", 0);
+        int progressIsland_3 = PlayerPrefs.GetInt("progressIsland_3", 0);
+        int progressIsland_4 = PlayerPrefs.GetInt("progressIsland_4", 0);
+        int progressIsland_5 = PlayerPrefs.GetInt("progressIsland_5", 0);
+        int progressIsland_6 = PlayerPrefs.GetInt("progressIsland_6", 0);
+        int progressIsland_7 = PlayerPrefs.GetInt("progressIsland_7", 0);
+        int progressIsland_8 = PlayerPrefs.GetInt("progressIsland_8", 0);
+        int progressIsland_9 = PlayerPrefs.GetInt("progressIsland_9", 0);
+        int progressIsland_10 = PlayerPrefs.GetInt("progressIsland_10", 0);
+        int progressIsland_11 = PlayerPrefs.GetInt("progressIsland_11", 0);
+        int progressIsland_12 = PlayerPrefs.GetInt("progressIsland_12", 0);
+        int progressIsland_13 = PlayerPrefs.GetInt("progressIsland_13", 0);
+        int progressIsland_14 = PlayerPrefs.GetInt("progressIsland_14", 0);
+        int progressIsland_15 = PlayerPrefs.GetInt("progressIsland_15", 0);
+        int progressIsland_16 = PlayerPrefs.GetInt("progressIsland_16", 0);
+        int progressIsland_17 = PlayerPrefs.GetInt("progressIsland_17", 0);
+        int progressIsland_18 = PlayerPrefs.GetInt("progressIsland_18", 0);
+        int progressIsland_19 = PlayerPrefs.GetInt("progressIsland_19", 0);
+
+        int distance = PlayerPrefs.GetInt("distance", 0);
+        int island_active = PlayerPrefs.GetInt("island_active", 0);
+        int mission_active = PlayerPrefs.GetInt("mission_active", 0);
+        int sex = PlayerPrefs.GetInt("sex", 0);
+        int clothes = PlayerPrefs.GetInt("clothes", 0);
+        int legs = PlayerPrefs.GetInt("legs", 0);
+        int shoes = PlayerPrefs.GetInt("shoes", 0);
+        int skin = PlayerPrefs.GetInt("skin", 0);
+        int hairs = PlayerPrefs.GetInt("hairs", 0);
+        
+        string hash = Md5Test.Md5Sum(email + secretKey);
+        string post_url = addNewData_URL + "email=" + email +
+            "&p1=" + progressIsland_1 +
+            "&p2=" + progressIsland_2 +
+            "&p3=" + progressIsland_3 +
+            "&p4=" + progressIsland_4 +
+            "&p5=" + progressIsland_5 +
+            "&p6=" + progressIsland_6 +
+            "&p7=" + progressIsland_7 +
+            "&p8=" + progressIsland_8 +
+            "&p9=" + progressIsland_9 +
+            "&p10=" + progressIsland_10 +
+            "&p11=" + progressIsland_11 +
+            "&p12=" + progressIsland_12 +
+            "&p13=" + progressIsland_13 +
+            "&p14=" + progressIsland_14 +
+            "&p15=" + progressIsland_15 +
+            "&p16=" + progressIsland_16 +
+            "&p17=" + progressIsland_17 +
+            "&p18=" + progressIsland_18 +
+            "&p19=" + progressIsland_19 +
+
+            "&di=" + distance +
+            "&is=" + island_active +
+            "&m1=" + mission_active +
+            "&se=" + sex +
+            "&c1=" + clothes +
+            "&le=" + legs +
+            "&sh=" + shoes +
+            "&sk=" + skin +
+            "&ha=" + hairs;
+
+        print("SaveNewData : " + post_url);
+        WWW hs_post = new WWW(post_url);
     }
     public void CreateUser(string username, string email, string password)
     {
