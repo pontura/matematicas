@@ -7,6 +7,7 @@ public class Achievement  {
 
     public string title;
     public types type;
+
     public enum types
     {
         MISSION_COMPLETE,

@@ -9,6 +9,7 @@ public class AchievementEventsManager : MonoBehaviour {
     public int viajes1;
     public int viajes2;
     public int viajes3;
+
     public int viajes4;
     public int viajes5;
 
