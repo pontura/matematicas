@@ -138,25 +138,20 @@ public class MiningameBackground : MonoBehaviour {
     }
     void OnMinigameStart()
     {
-        print("OnMinigameStart" + animationID);
         GetComponent<Animator>().Play("intro" + animationID, 0, 0);
 	}
     void OnMinigameStartCalculator()
     {
-        print("OnMinigameStartCalculator: " + "calculatorIn" + animationID);
         GetComponent<Animator>().Play("calculatorIn" + animationID, 0, 0);
     }
     void OnMinigameReady()
     {
-        print("OnMinigameReady" + animationID);
         GetComponent<Animator>().Play("win" + animationID, 0, 0);
-        print("PLAY: " + "win" + animationID);
+
     }
     void OnMinigameMistake()
     {
-        print("OnMinigameMistake" + animationID);
         GetComponent<Animator>().Play("lose" + animationID, 0, 0);
-        print("PLAY: " + "lose" + animationID);
     }
     public void SetOff()
     {

@@ -53,7 +53,6 @@ public class AdminAlumnos : MonoBehaviour {
     }
     public void Edit(UserData userdata)
     {
-        print("Edit: " + userdata.username);
         GetComponent<AdminUserInfo>().Init(userdata);
     }
     public void Delete(UserData userdata)
@@ -62,6 +61,6 @@ public class AdminAlumnos : MonoBehaviour {
     }
     public void Close()
     {
-        Application.Quit();
+        Events.QuitApp();
     }
 }

@@ -22,7 +22,7 @@ public class MainSettings : MonoBehaviour {
        // reset_btn.SetActive(false);
 
 #if UNITY_EDITOR
-        quit_btn.SetActive(false);
+      //  quit_btn.SetActive(false);
       //  reset_btn.SetActive(true);
 #endif
     }
@@ -60,9 +60,13 @@ public class MainSettings : MonoBehaviour {
         PlayerPrefs.SetString("username", "");
         PlayerPrefs.DeleteAll();       
         Events.OnResetApp();
-        
-      //  Data.Instance.LoadLevel("01_Main");
-        Invoke("Salir", 0.5f);
+
+        //Data.Instance.LoadLevel("01_Main");
+        Invoke("SalirSinGrabar", 0.5f);
+    }
+    public void SalirSinGrabar()
+    {
+        Application.Quit();
     }
     public void Customizer()
     {
@@ -72,7 +76,7 @@ public class MainSettings : MonoBehaviour {
     }
     public void Salir()
     {
-        Application.Quit();
+        Events.QuitApp();
     }
 
 }

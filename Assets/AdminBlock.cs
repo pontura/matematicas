@@ -66,7 +66,7 @@ public class AdminBlock : MonoBehaviour {
             blockItem.SetContent(blockItemData.value);
         }
         buttons.SetActive(false);
-        Application.CaptureScreenshot("ScreenshotAAA.png");
+        ScreenCapture.CaptureScreenshot("ScreenshotAAA.png");
         Invoke("Delay", 1);
 	}
     void Delay()

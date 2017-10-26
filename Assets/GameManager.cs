@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
 	}
     void ActivateBlockButton()
     {
-        if (Game.Instance.islandsManager.activeIsland.minigameType == MinigamesManager.types.VELOCIDAD)
+        if (Game.Instance.islandsManager.activeIsland != null && Game.Instance.islandsManager.activeIsland.minigameType == MinigamesManager.types.VELOCIDAD)
         {
             //  BlockButton.SetActive(false);
         }
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour {
     }
     public void Arrived()
     {
-        Game.Instance.islandsManager.SetActive (Game.Instance.islandsManager.gotoIsland);
+        Game.Instance.islandsManager.SetIslandActive (Game.Instance.islandsManager.gotoIsland);
         Game.Instance.islandsManager.SetGotoIsland(new IslandsManager.DataIsland());
         Isla.GetComponent<Isla>().SetArrived();
         Game.Instance.mainMenu.Isla();

@@ -41,7 +41,6 @@ public class IslandDistances : MonoBehaviour {
 
 	public string GetRuta (int islaA, int islaB) {
         field.text = "";
-        print("GetRuta " + islaA + "     islaB   " + islaB);
 
         resultsIslaA.Clear();
         resultsIslaB.Clear();

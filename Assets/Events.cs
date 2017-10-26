@@ -48,6 +48,9 @@ public static class Events {
 
     public static System.Action<int> OnGetGema = delegate { };
 
+    public static System.Action QuitApp = delegate { };
+    
+
 
     public static string OnGetFilePath(string pathTemp)
     {

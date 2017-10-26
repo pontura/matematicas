@@ -37,8 +37,14 @@ public class IslandsManager : MonoBehaviour {
         public int BackgroundBitmapID;
         public int ObjectsBitmapID;
     }
-	void Start () {
-        activeIsland = GetIslandById( Data.Instance.userData.islandActive );
+
+    void Start () {
+
+        activeIsland = GetIslandById(Data.Instance.userData.islandActive);
+
+        if (activeIsland == null)
+            activeIsland = islands[0];
+
         SetNewMission(Data.Instance.userData.missionActive);
         Events.OnNewMission += OnNewMission;
         int a = 1;
@@ -64,7 +70,6 @@ public class IslandsManager : MonoBehaviour {
             str += "isla " + id + ": " + dataIsland.name + "   MINIGAME: " + dataIsland.minigameType + "   " + tipo + "\n";
             id++;
         }
-        print(str);
     }
     void OnDestroy()
     {
@@ -124,6 +129,10 @@ public class IslandsManager : MonoBehaviour {
             Game.Instance.mainMenu.Isla();
         }
     }
+    public void SetFirstIslandActive()
+    {
+        activeIsland = islands[0];
+    }
     public DataIsland GetIslandById(int id)
     {
         foreach (DataIsland di in islands)
@@ -131,9 +140,10 @@ public class IslandsManager : MonoBehaviour {
                 return di;
         return null;
     }
-    public void SetActive(DataIsland _activeIsland)
+    public void SetIslandActive(DataIsland _activeIsland)
     {
         this.activeIsland = _activeIsland;
+        PlayerPrefs.GetInt("islandActive", _activeIsland.id);
     }
     public void SetGotoIsland(DataIsland _gotoIsland)
     {

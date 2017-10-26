@@ -74,6 +74,10 @@ public class Isla : Screen {
             tutorialDisplayed = true;
         }
         dataIsland = Game.Instance.islandsManager.activeIsland;
+        if (dataIsland == null)
+        {
+            Game.Instance.islandsManager.SetFirstIslandActive();
+        }
 
         minigameType = dataIsland.minigameType;
 

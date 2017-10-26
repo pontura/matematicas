@@ -92,7 +92,7 @@ public class Game : MonoBehaviour
     {
         Events.OnTripStarted += OnTripStarted;
         Events.OnShipArrived += OnShipArrived;
-        Events.OnMinigameReady += OnMinigameReady;
+        Events.OnMinigameReady += OnMinigameReady;        
     }
     void OnDestroy()
     {

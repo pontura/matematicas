@@ -54,7 +54,6 @@ public class MinigameSimpleInput : Minigame {
     }
     string GenerateRandomResults(string _field)
     {
-        print("GenerateRandomResults : " + _field);
         string FieldToResturn = "";
 
         string[] textSplit = _field.Split("["[0]);

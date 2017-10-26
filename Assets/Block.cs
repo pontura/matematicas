@@ -36,6 +36,7 @@ public class Block : Screen
     }
     public void Open()
     {
+       // if (Game.Instance.islandsManager.activeIsland == null) return;
         if (Game.Instance.gameManager.Isla.isActive
             &&
             Game.Instance.islandsManager.activeIsland.minigameType == MinigamesManager.types.VELOCIDAD

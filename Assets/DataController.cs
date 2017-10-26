@@ -18,6 +18,7 @@ public class DataController : MonoBehaviour
 
     void Start()
     {
+       // PlayerPrefs.DeleteAll();
         SocialEvents.OnLogin += OnLogin;
         SocialEvents.OnGetRanking += OnGetRanking;
         SocialEvents.OnSaveAchievements += OnSaveAchievements;
@@ -25,11 +26,18 @@ public class DataController : MonoBehaviour
         SocialEvents.OnGetAlumnos += OnGetAlumnos;
         Events.OnSaveBlockToDB += OnSaveBlockToDB;
         SocialEvents.OnGetEjercicios += OnGetEjercicios;
-        //SocialEvents.OnCompetitionHiscore += OnCompetitionHiscore;
-        //SocialEvents.OnGetHiscores += OnGetHiscores;
+        Events.QuitApp += QuitApp;
+    }
+    public void QuitApp()
+    {
+        string email = Data.Instance.userData.email;
+        print("AUITquit" + email);
+        if(email.Length>1)
+            StartCoroutine(SaveNewData(email));
     }
     void OnLogin(string username, string email)
     {
+      
         StartCoroutine(CheckIfUserExistsOnLocalDB(username, email));
         // CreateUser(username, email, "AAA");
     }
@@ -56,44 +64,61 @@ public class DataController : MonoBehaviour
                 string email = userData[4];
                 int achievements = System.Int32.Parse(userData[5]);
 
-                int distance = System.Int32.Parse(userData[5]);
-                int island_active = System.Int32.Parse(userData[6]);
-                int mission_active = System.Int32.Parse(userData[7]);
-                int sex = System.Int32.Parse(userData[8]);
-                int clothes = System.Int32.Parse(userData[9]);
-                int legs = System.Int32.Parse(userData[10]);
-                int shoes = System.Int32.Parse(userData[11]);
-                int skin = System.Int32.Parse(userData[12]);
-                int hairs    = System.Int32.Parse(userData[13]);
+                int distance = System.Int32.Parse(userData[6]);
+                int island_active = System.Int32.Parse(userData[7]);
+                int mission_active = System.Int32.Parse(userData[8]);
+                int sex = System.Int32.Parse(userData[9]);
+                int clothes = System.Int32.Parse(userData[10]);
+                int legs = System.Int32.Parse(userData[11]);
+                int shoes = System.Int32.Parse(userData[12]);
+                int skin = System.Int32.Parse(userData[13]);
+                int hairs    = System.Int32.Parse(userData[14]);
 
-                int progressIsland_1 = System.Int32.Parse(userData[14]);
-                int progressIsland_2 = System.Int32.Parse(userData[15]);
-                int progressIsland_3 = System.Int32.Parse(userData[16]);
-                int progressIsland_4 = System.Int32.Parse(userData[17]);
-                int progressIsland_5 = System.Int32.Parse(userData[18]);
-                int progressIsland_6 = System.Int32.Parse(userData[19]);
-                int progressIsland_7 = System.Int32.Parse(userData[20]);
-                int progressIsland_8 = System.Int32.Parse(userData[21]);
-                int progressIsland_9 = System.Int32.Parse(userData[22]);
-                int progressIsland_10 = System.Int32.Parse(userData[23]);
-                int progressIsland_11 = System.Int32.Parse(userData[24]);
-                int progressIsland_12 = System.Int32.Parse(userData[25]);
-                int progressIsland_13 = System.Int32.Parse(userData[26]);
-                int progressIsland_14 = System.Int32.Parse(userData[27]);
-                int progressIsland_15 = System.Int32.Parse(userData[28]);
-                int progressIsland_16 = System.Int32.Parse(userData[29]);
-                int progressIsland_17 = System.Int32.Parse(userData[30]);
-                int progressIsland_18 = System.Int32.Parse(userData[31]);
-                int progressIsland_19 = System.Int32.Parse(userData[32]);
+                Data.Instance.userData.distanceTraveled = distance;
+                Data.Instance.userData.islandActive = island_active;
+                Data.Instance.userData.missionActive = mission_active;
+
+                if(sex==0)
+                    Data.Instance.savedSettings.myPlayerSettings.sex= SavedSettings.PlayerSettings.sexType.VARON;
+                else
+                    Data.Instance.savedSettings.myPlayerSettings.sex = SavedSettings.PlayerSettings.sexType.MUJER;
+
+                Data.Instance.savedSettings.myPlayerSettings.clothes = clothes;
+                Data.Instance.savedSettings.myPlayerSettings.legs = legs;
+                Data.Instance.savedSettings.myPlayerSettings.shoes = shoes;
+                Data.Instance.savedSettings.myPlayerSettings.skin = skin;
+                Data.Instance.savedSettings.myPlayerSettings.hairs = hairs;
+
+
+                int progressIsland_1 = System.Int32.Parse(userData[15]);
+                int progressIsland_2 = System.Int32.Parse(userData[16]);
+                int progressIsland_3 = System.Int32.Parse(userData[17]);
+                int progressIsland_4 = System.Int32.Parse(userData[18]);
+                int progressIsland_5 = System.Int32.Parse(userData[19]);
+                int progressIsland_6 = System.Int32.Parse(userData[20]);
+                int progressIsland_7 = System.Int32.Parse(userData[21]);
+                int progressIsland_8 = System.Int32.Parse(userData[22]);
+                int progressIsland_9 = System.Int32.Parse(userData[23]);
+                int progressIsland_10 = System.Int32.Parse(userData[24]);
+                int progressIsland_11 = System.Int32.Parse(userData[25]);
+                int progressIsland_12 = System.Int32.Parse(userData[26]);
+                int progressIsland_13 = System.Int32.Parse(userData[27]);
+                int progressIsland_14 = System.Int32.Parse(userData[28]);
+                int progressIsland_15 = System.Int32.Parse(userData[29]);
+                int progressIsland_16 = System.Int32.Parse(userData[30]);
+                int progressIsland_17 = System.Int32.Parse(userData[31]);
+                int progressIsland_18 = System.Int32.Parse(userData[32]);
+                int progressIsland_19 = System.Int32.Parse(userData[33]);
                 //SetUserData(username, userID, email)
 
-                if (distance == 0)
+                if (distance < 2)
                 {
                     Debug.Log("Ya existias pero sos nuevo en esta compu");
-                    SaveNewData(email);
+                    Data.Instance.userData.firstTimeHere = false;
                 } else
                 {
-                    Debug.Log("Ya jugo antes");
+                    Debug.Log("Ya jugo antes" + distance);
+                    Data.Instance.userData.firstTimeHere = false;
                     PlayerPrefs.SetInt("progressIsland_1", progressIsland_1);
                     PlayerPrefs.SetInt("progressIsland_2", progressIsland_2);
                     PlayerPrefs.SetInt("progressIsland_3", progressIsland_3);
@@ -114,9 +139,9 @@ public class DataController : MonoBehaviour
                     PlayerPrefs.SetInt("progressIsland_18", progressIsland_18);
                     PlayerPrefs.SetInt("progressIsland_19", progressIsland_19);
 
-                    PlayerPrefs.SetInt("distance", distance);
-                    PlayerPrefs.SetInt("island_active", island_active);
-                    PlayerPrefs.SetInt("mission_active", mission_active);
+                    PlayerPrefs.SetInt("distanceTraveled", distance);
+                    PlayerPrefs.SetInt("islandActive", island_active);
+                    PlayerPrefs.SetInt("missionActive", mission_active);
                     PlayerPrefs.SetInt("sex", sex);
                     PlayerPrefs.SetInt("clothes", clothes);
                     PlayerPrefs.SetInt("legs", legs);
@@ -133,7 +158,7 @@ public class DataController : MonoBehaviour
             }
         }
     }
-    void SaveNewData(string email)
+    IEnumerator SaveNewData(string email)
     {
         int progressIsland_1 = PlayerPrefs.GetInt("progressIsland_1", 0);
         int progressIsland_2 = PlayerPrefs.GetInt("progressIsland_2", 0);
@@ -155,9 +180,9 @@ public class DataController : MonoBehaviour
         int progressIsland_18 = PlayerPrefs.GetInt("progressIsland_18", 0);
         int progressIsland_19 = PlayerPrefs.GetInt("progressIsland_19", 0);
 
-        int distance = PlayerPrefs.GetInt("distance", 0);
-        int island_active = PlayerPrefs.GetInt("island_active", 0);
-        int mission_active = PlayerPrefs.GetInt("mission_active", 0);
+        int distance = Data.Instance.userData.distanceTraveled;
+        int island_active = Data.Instance.userData.islandActive;
+        int mission_active = Data.Instance.missionsManager.GetActiveMission().id;
         int sex = PlayerPrefs.GetInt("sex", 0);
         int clothes = PlayerPrefs.GetInt("clothes", 0);
         int legs = PlayerPrefs.GetInt("legs", 0);
@@ -189,16 +214,20 @@ public class DataController : MonoBehaviour
 
             "&di=" + distance +
             "&is=" + island_active +
-            "&m1=" + mission_active +
+            "&mi=" + mission_active +
             "&se=" + sex +
-            "&c1=" + clothes +
+            "&cl=" + clothes +
             "&le=" + legs +
             "&sh=" + shoes +
             "&sk=" + skin +
-            "&ha=" + hairs;
+            "&ha=" + hairs + 
+            "&hash=" + hash;
 
-        print("SaveNewData : " + post_url);
+        print("________SaveNewData : " + post_url);
         WWW hs_post = new WWW(post_url);
+
+        yield return hs_post;
+        Application.Quit();
     }
     public void CreateUser(string username, string email, string password)
     {

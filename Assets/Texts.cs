@@ -253,8 +253,6 @@ public class Texts :MonoBehaviour {
 
 
             case "velocidad":
-                /////////////////velocidad
-                print("velocidad");
                 for (int a = 0; a < Json[gameName].Count; a++)
                 {
                     Minigame_Velocidad minigame = new Minigame_Velocidad();
