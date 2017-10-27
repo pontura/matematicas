@@ -10,7 +10,8 @@ public class Data : MonoBehaviour
     static Data mInstance = null;
     public bool DEBUG;
     public bool admin;
-    
+    public bool RESET_APP;
+
     [HideInInspector]
     public MissionsManager missionsManager;
     [HideInInspector]
@@ -51,7 +52,10 @@ public class Data : MonoBehaviour
     }
     void Awake()
     {
-     //   PlayerPrefs.DeleteAll();
+#if UNITY_EDITOR
+        if (RESET_APP)
+           PlayerPrefs.DeleteAll();
+#endif
         soundsOn = true;
         if (!mInstance)
             mInstance = this;

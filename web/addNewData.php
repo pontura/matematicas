@@ -23,6 +23,21 @@
 	$p18 = $_GET['p18'];
 	$p19 = $_GET['p19'];
 	
+	$a1 = $_GET['a1'];
+	$a2 = $_GET['a2'];
+	$a3 = $_GET['a3'];
+	$a4 = $_GET['a4'];
+	$a5 = $_GET['a5'];
+	$a6 = $_GET['a6'];
+	$a7 = $_GET['a7'];
+	
+	$g1 = $_GET['g1'];
+	$g2 = $_GET['g2'];
+	$g3 = $_GET['g3'];
+	$g4 = $_GET['g4'];
+	$g5 = $_GET['g5'];
+	$g6 = $_GET['g6'];
+	
 	$distance = $_GET['di'];
 	$island_active = $_GET['is'];
 	$mission_active = $_GET['mi'];
@@ -65,6 +80,20 @@
 		`progressIsland_17` =  '$p17',
 		`progressIsland_18` =  '$p18',
 		`progressIsland_19` =  '$p19',
+		
+		`a1` =  '$a1',
+		`a2` =  '$a2',
+		`a3` =  '$a3',
+		`a4` =  '$a4',
+		`a5` =  '$a5',
+		`a6` =  '$a6',
+		`a7` =  '$a7',
+		`g1` =  '$g1',
+		`g2` =  '$g2',
+		`g3` =  '$g3',
+		`g4` =  '$g4',
+		`g5` =  '$g5',
+		`g6` =  '$g6',
 		
 		`distance` =  '$distance',
 		`island_active` =  '$island_active',

@@ -42,7 +42,22 @@
 				$r['progressIsland_16']. ":" . 
 				$r['progressIsland_17']. ":" . 
 				$r['progressIsland_18']. ":" . 
-				$r['progressIsland_19'];
+				$r['progressIsland_19']. ":" . 
+				
+				$r['a1']. ":" . 
+				$r['a2']. ":" . 
+				$r['a3']. ":" . 
+				$r['a4']. ":" . 
+				$r['a5']. ":" . 
+				$r['a6']. ":" . 
+				$r['a7']. ":" . 
+				
+				$r['g1']. ":" . 
+				$r['g2']. ":" . 
+				$r['g3']. ":" . 
+				$r['g4']. ":" . 
+				$r['g5']. ":" . 
+				$r['g6'];
 			}
 		}
 		

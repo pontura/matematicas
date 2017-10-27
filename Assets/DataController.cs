@@ -15,10 +15,17 @@ public class DataController : MonoBehaviour
     private string getUsersByFilter_URL = URL + "getUsersByFilter.php?";
     private string saveBlock_URL = URL + "saveBlock.php?";
     private string getEjercicios_URL = URL + "getEjercicios.php?";
+    private string resetApp_URL = URL + "resetApp.php?";
 
+    AchievementEventsManager achievementEventsManager;
+    GemasManager gemasManager;
+    private void Awake()
+    {
+        achievementEventsManager = GetComponent<AchievementEventsManager>();
+        gemasManager = GetComponent<GemasManager>();
+    }
     void Start()
     {
-       // PlayerPrefs.DeleteAll();
         SocialEvents.OnLogin += OnLogin;
         SocialEvents.OnGetRanking += OnGetRanking;
         SocialEvents.OnSaveAchievements += OnSaveAchievements;
@@ -27,7 +34,30 @@ public class DataController : MonoBehaviour
         Events.OnSaveBlockToDB += OnSaveBlockToDB;
         SocialEvents.OnGetEjercicios += OnGetEjercicios;
         Events.QuitApp += QuitApp;
+        Events.OnResetApp += OnResetApp;
     }
+    void OnResetApp()
+    {
+        StartCoroutine(CheckToReset(Data.Instance.userData.email));
+    }
+    IEnumerator CheckToReset(string _email)
+    {
+        if (_email == "")
+            yield break;
+
+        string hash = Md5Test.Md5Sum(_email + secretKey);
+        string post_url = resetApp_URL + "email=" + _email + "&hash=" + hash;
+        print("RESETING : " + post_url);
+        WWW hs_post = new WWW(post_url);
+        yield return hs_post;
+        if (hs_post.error != null)
+            Debug.Log("No se pudo resetear: " + hs_post.error);
+        else
+        {
+            Debug.Log("RESET DONE" + hs_post.text);
+        }
+    }
+
     public void QuitApp()
     {
         string email = Data.Instance.userData.email;
@@ -47,6 +77,7 @@ public class DataController : MonoBehaviour
             yield break;
 
         string post_url = getUserIdByEmail_URL + "email=" + _email;
+        Debug.Log(post_url);
         WWW receivedData = new WWW(post_url);
         yield return receivedData;
         if (receivedData.error != null)
@@ -109,6 +140,49 @@ public class DataController : MonoBehaviour
                 int progressIsland_17 = System.Int32.Parse(userData[31]);
                 int progressIsland_18 = System.Int32.Parse(userData[32]);
                 int progressIsland_19 = System.Int32.Parse(userData[33]);
+
+                
+
+                int achievement_event_1 = System.Int32.Parse(userData[34]);
+                int achievement_event_2 = System.Int32.Parse(userData[35]);
+                int achievement_event_3 = System.Int32.Parse(userData[36]);
+                int achievement_event_4 = System.Int32.Parse(userData[37]);
+                int achievement_event_5 = System.Int32.Parse(userData[38]);
+                int achievement_event_6 = System.Int32.Parse(userData[39]);
+                int achievement_event_7 = System.Int32.Parse(userData[40]);
+               
+
+                //portal = PlayerPrefs.GetInt("achievement_event_1", 0);
+                //viajes1 = PlayerPrefs.GetInt("achievement_event_2", 0);
+                //viajes2 = PlayerPrefs.GetInt("achievement_event_3", 0);
+                //viajes3 = PlayerPrefs.GetInt("achievement_event_4", 0);
+                //viajes4 = PlayerPrefs.GetInt("achievement_event_5", 0);
+                //viajes5 = PlayerPrefs.GetInt("achievement_event_6", 0);
+                //unblockedLastIsland = PlayerPrefs.GetInt("achievement_event_7", 0);
+
+                achievementEventsManager.portal = achievement_event_1;
+                achievementEventsManager.viajes1 = achievement_event_2;
+                achievementEventsManager.viajes2 = achievement_event_3;
+                achievementEventsManager.viajes3 = achievement_event_4;
+                achievementEventsManager.viajes4 = achievement_event_5;
+                achievementEventsManager.viajes5 = achievement_event_6;
+                achievementEventsManager.unblockedLastIsland = achievement_event_7;
+
+                int gema1 = System.Int32.Parse(userData[41]);
+                int gema2 = System.Int32.Parse(userData[42]);
+                int gema3 = System.Int32.Parse(userData[43]);
+                int gema4 = System.Int32.Parse(userData[44]);
+                int gema5 = System.Int32.Parse(userData[45]);
+                int gema6 = System.Int32.Parse(userData[46]);
+                
+
+                gemasManager.gema1 = gema1;
+                gemasManager.gema2 = gema2;
+                gemasManager.gema3 = gema3;
+                gemasManager.gema4 = gema4;
+                gemasManager.gema5 = gema5;
+                gemasManager.gema6 = gema6;
+
                 //SetUserData(username, userID, email)
 
                 if (distance < 2)
@@ -148,6 +222,21 @@ public class DataController : MonoBehaviour
                     PlayerPrefs.SetInt("shoes", shoes);
                     PlayerPrefs.SetInt("skin", skin);
                     PlayerPrefs.SetInt("hairs", hairs);
+
+                    PlayerPrefs.SetInt("achievement_event_1", achievement_event_1);
+                    PlayerPrefs.SetInt("achievement_event_2", achievement_event_2);
+                    PlayerPrefs.SetInt("achievement_event_3", achievement_event_3);
+                    PlayerPrefs.SetInt("achievement_event_4", achievement_event_4);
+                    PlayerPrefs.SetInt("achievement_event_5", achievement_event_5);
+                    PlayerPrefs.SetInt("achievement_event_6", achievement_event_6);
+                    PlayerPrefs.SetInt("achievement_event_7", achievement_event_7);
+
+                    PlayerPrefs.SetInt("gema1", gema1);
+                    PlayerPrefs.SetInt("gema2", gema2);
+                    PlayerPrefs.SetInt("gema3", gema3);
+                    PlayerPrefs.SetInt("gema4", gema4);
+                    PlayerPrefs.SetInt("gema5", gema5);
+                    PlayerPrefs.SetInt("gema6", gema6);
                 }
                 Data.Instance.userData.OnRegistration(username, email, password, userID, false);
             }
@@ -189,7 +278,23 @@ public class DataController : MonoBehaviour
         int shoes = PlayerPrefs.GetInt("shoes", 0);
         int skin = PlayerPrefs.GetInt("skin", 0);
         int hairs = PlayerPrefs.GetInt("hairs", 0);
-        
+
+        int a1 = achievementEventsManager.portal;
+        int a2 = achievementEventsManager.viajes1 ;
+        int a3 = achievementEventsManager.viajes2 ;
+        int a4 = achievementEventsManager.viajes3 ;
+        int a5 = achievementEventsManager.viajes4 ;
+        int a6 = achievementEventsManager.viajes5 ;
+        int a7 = achievementEventsManager.unblockedLastIsland;
+
+        int g1 = gemasManager.gema1;
+        int g2 = gemasManager.gema2 ;
+        int g3 = gemasManager.gema3 ;
+        int g4 = gemasManager.gema4 ;
+        int g5 = gemasManager.gema5 ;
+        int g6 = gemasManager.gema6 ;
+
+
         string hash = Md5Test.Md5Sum(email + secretKey);
         string post_url = addNewData_URL + "email=" + email +
             "&p1=" + progressIsland_1 +
@@ -220,7 +325,23 @@ public class DataController : MonoBehaviour
             "&le=" + legs +
             "&sh=" + shoes +
             "&sk=" + skin +
-            "&ha=" + hairs + 
+            "&ha=" + hairs +
+
+            "&a1=" + a1 +
+            "&a2=" + a2 +
+            "&a3=" + a3 +
+            "&a4=" + a4 +
+            "&a5=" + a5 +
+            "&a6=" + a6 +
+            "&a7=" + a7 +
+
+            "&g1=" + g1 +
+            "&g2=" + g2 +
+            "&g3=" + g3 +
+            "&g4=" + g4 +
+            "&g5=" + g5 +
+            "&g6=" + g6 +
+
             "&hash=" + hash;
 
         print("________SaveNewData : " + post_url);
