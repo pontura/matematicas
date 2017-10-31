@@ -7,8 +7,11 @@
         $sth->setFetchMode(PDO::FETCH_ASSOC);
  
 		$result = $sth->fetchAll();
+		$a = 0;
 		if(count($result) > 0) {
 			foreach($result as $r) {
+				if($a==0)
+				{
 				echo ":" . $r['id'] . ":" . 
 				$r['username'] . ":"  . 
 				$r['password'] . ":" . 
@@ -58,6 +61,8 @@
 				$r['g4']. ":" . 
 				$r['g5']. ":" . 
 				$r['g6'];
+				$a++;
+				}
 			}
 		}
 		

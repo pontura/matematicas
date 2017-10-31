@@ -78,5 +78,10 @@ public class MainSettings : MonoBehaviour {
     {
         Events.QuitApp();
     }
+    public void GuardarSalir()
+    {
+        PlayerPrefs.DeleteAll();
+        Application.Quit();
+    }
 
 }
