@@ -38,6 +38,9 @@
 	$g5 = $_GET['g5'];
 	$g6 = $_GET['g6'];
 	
+	$speedExercices = $_GET['se'];
+	$totalBlocksNotes = $_GET['tb'];
+	
 	$distance = $_GET['di'];
 	$island_active = $_GET['is'];
 	$mission_active = $_GET['mi'];
@@ -94,6 +97,9 @@
 		`g4` =  '$g4',
 		`g5` =  '$g5',
 		`g6` =  '$g6',
+	
+		`speedExercices` =  '$speedExercices',
+		`totalBlocksNotes` =  '$totalBlocksNotes',
 		
 		`distance` =  '$distance',
 		`island_active` =  '$island_active',

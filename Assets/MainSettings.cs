@@ -10,6 +10,7 @@ public class MainSettings : MonoBehaviour {
     public Text soundField;
     public GameObject iconoOn;
     public GameObject iconoOff;
+    bool saliendo;
 
 	void Start () {
         iconoOn.SetActive(false);
@@ -57,6 +58,8 @@ public class MainSettings : MonoBehaviour {
     }
     public void ResetApp()
     {
+        if (saliendo) return;
+        saliendo = true;
         PlayerPrefs.SetString("username", "");
         PlayerPrefs.DeleteAll();       
         Events.OnResetApp();
@@ -76,9 +79,23 @@ public class MainSettings : MonoBehaviour {
     }
     public void Salir()
     {
+        if (saliendo) return;
+        saliendo = true;
         Events.QuitApp();
+        Invoke("SalirDone", 0.5f);
+    }
+    void SalirDone()
+    {
+        Application.Quit();
     }
     public void GuardarSalir()
+    {
+        if (saliendo) return;
+        saliendo = true;
+        Events.QuitApp();
+        Invoke("GuardarSalir2", 0.5f);        
+    }
+    void GuardarSalir2()
     {
         PlayerPrefs.DeleteAll();
         Application.Quit();

@@ -105,6 +105,8 @@ public class DataController : MonoBehaviour
                 int skin = System.Int32.Parse(userData[13]);
                 int hairs    = System.Int32.Parse(userData[14]);
 
+              
+
                 Data.Instance.userData.distanceTraveled = distance;
                 Data.Instance.userData.islandActive = island_active;
                 Data.Instance.userData.missionActive = mission_active;
@@ -174,7 +176,15 @@ public class DataController : MonoBehaviour
                 int gema4 = System.Int32.Parse(userData[44]);
                 int gema5 = System.Int32.Parse(userData[45]);
                 int gema6 = System.Int32.Parse(userData[46]);
-                
+
+
+                // speedExercices
+                // totalBlocksNotes
+                int speedExercices = System.Int32.Parse(userData[47]);
+                int totalBlocksNotes = System.Int32.Parse(userData[48]);
+
+                Data.Instance.userData.speedExercices = speedExercices;
+                Data.Instance.userData.totalBlocksNotes = totalBlocksNotes;
 
                 gemasManager.gema1 = gema1;
                 gemasManager.gema2 = gema2;
@@ -237,6 +247,11 @@ public class DataController : MonoBehaviour
                     PlayerPrefs.SetInt("gema4", gema4);
                     PlayerPrefs.SetInt("gema5", gema5);
                     PlayerPrefs.SetInt("gema6", gema6);
+
+                    // speedExercices
+                    // totalBlocksNotes
+                    PlayerPrefs.SetInt("speedExercices", speedExercices);
+                    PlayerPrefs.SetInt("totalBlocksNotes", totalBlocksNotes);
                 }
                 Data.Instance.userData.OnRegistration(username, email, password, userID, false);
             }
@@ -294,6 +309,9 @@ public class DataController : MonoBehaviour
         int g5 = gemasManager.gema5 ;
         int g6 = gemasManager.gema6 ;
 
+        int speedExercices = Data.Instance.userData.speedExercices;
+        int totalBlocksNotes = Data.Instance.userData.totalBlocksNotes;
+
 
         string hash = Md5Test.Md5Sum(email + secretKey);
         string post_url = addNewData_URL + "email=" + email +
@@ -342,13 +360,15 @@ public class DataController : MonoBehaviour
             "&g5=" + g5 +
             "&g6=" + g6 +
 
+            "&se=" + speedExercices +
+            "&tb=" + totalBlocksNotes +
+
             "&hash=" + hash;
 
         print("________SaveNewData : " + post_url);
         WWW hs_post = new WWW(post_url);
 
         yield return hs_post;
-        Application.Quit();
     }
     public void CreateUser(string username, string email, string password)
     {

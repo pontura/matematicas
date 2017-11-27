@@ -60,7 +60,10 @@
 				$r['g3']. ":" . 
 				$r['g4']. ":" . 
 				$r['g5']. ":" . 
-				$r['g6'];
+				$r['g6']. ":" . 
+				
+				$r['speedExercices']. ":" . 
+				$r['totalBlocksNotes'];
 				$a++;
 				}
 			}
