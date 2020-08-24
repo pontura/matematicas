@@ -43,8 +43,9 @@ public class Ranking : MonoBehaviour {
     }
     void OnGetRanking(string result)
     {
+        print(result);
         string[] allData = Regex.Split(result, "</n>");
-
+        
         for (var i = 0; i < allData.Length - 1; i++)
         {
             string[] userData = Regex.Split(allData[i], ":");
@@ -52,7 +53,9 @@ public class Ranking : MonoBehaviour {
             RankingData newData = new RankingData();
             newData.userID = int.Parse(userData[0]);
             newData.username = userData[1];
-            newData.achievements = int.Parse(userData[2]);
+            int n;
+            if(int.TryParse(userData[2], out n))
+                newData.achievements = n;
             data.Add(newData);
         }
     }

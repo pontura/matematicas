@@ -69,8 +69,7 @@ public class AchivementButtonUI : MonoBehaviour {
         }
         else
         {
-            Sprite sprite = new Sprite();
-            sprite = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0), 100.0f);
+            Sprite sprite = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0), 100.0f);
             container.sprite = sprite;
         }
     }

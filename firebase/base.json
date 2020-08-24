@@ -1,0 +1,15 @@
+{
+	"users":
+	[
+		{
+			"username": "",
+			"email": "",
+			"password": "",
+			"achievements": "",
+			"block":
+			[
+				{"title": "", "result":""}
+			]
+		}
+	]
+}
