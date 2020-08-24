@@ -6,7 +6,7 @@ Obj/
 UnityGenerated/
 Library/
 Assets/AssetStoreTools*
-
+builds/
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -40,3 +40,4 @@ Assets/fonts/Sqr721bc.PFB.meta
 Assets/images/map/Thumbs.db.meta
 Assets/images/ui/Thumbs.db.meta
 Assets/images/lose/Thumbs.db.meta
+.vs/matematicas/v15/Server/sqlite3/db.lock
